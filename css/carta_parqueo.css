@@ -1,0 +1,40 @@
+.carta-parqueo {
+    /*Contenedor principal de la carta.*/
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    margin-left: 2%;
+}
+
+.carta-parqueo:hover {
+    cursor: pointer;
+}
+
+.carta-parqueo .contenedor-superior {
+    /*En este contenedor es donde se va a mostrar como fondo una imagen del parqueo*/
+    border: 1px #000 solid;
+    height: 180px;
+}
+
+.carta-parqueo .contendor-info-parqueo {
+    /*Este contenedor funciona para hacer un contraste entre la foto del parqueo y el texto que muestra el estado y calificación del parqueo*/
+    background-color: rgb(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+
+/*
+#carta-parqueo .contenedor-estado-parqueo {}
+#carta-parqueo .contenedor-calificacion-parqueo {}
+*/
+
+.carta-parqueo .contenedor-inferior {
+    /*Este contenedor es el que funciona para mostrar nombre y dirección del parqueo*/
+    flex-direction: column;
+    border: 1px #000 solid;
+    flex-direction: row;
+    padding: 0 5px;
+}
