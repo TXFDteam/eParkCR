@@ -1,0 +1,25 @@
+.cuentaComercial-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#header-principal {
+    border: solid 2px black;
+    height: 40px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.cuentaComercial-box1 {
+    border: solid 2px red;
+}
+
+.cuentaComercial-box2 {
+    border: solid 2px green;
+}
+
+#btn-cuentaComercial {
+    display: block;
+}
