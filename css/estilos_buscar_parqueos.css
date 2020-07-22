@@ -1,9 +1,17 @@
-.sct-contenido-buscar-parqueos {}
+#sct-contenedor-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.sct-contenido-buscar-parqueos {
+    width: 82%;
+    padding: 2%;
+}
 
 #sct-contenedor-carta-parqueos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding: 0 2%;
 }

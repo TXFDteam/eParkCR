@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eParkCR - Realizar reserva</title>
+
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-principal">
+            <p>Marca</p>
+            <div class="nav-derecha">
+                <a href="" id="link-registrarse">Registrarse</a>
+                <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="sct-contenedor-principal">
+            <!--El contenedor priincipal se divide en 2, uno para el menú lateral y otro para el contenido de la página-->
+            <div class="menu-lateral">
+                <a href="" id="primer-link">Inicio</a>
+                <a href="">Buscar parqueos</a>
+                <a href="">Reservas activas</a>
+                <a href="">Historial de reservas</a>
+                <a href="">Configuraciones</a>
+            </div>
+
+            <div class="sct-contenido-perfil">
+                <div id="sct-info-perfil">
+                    <h1 id="NOMBRE_PARQUEO">Nombre parqueo</h1>
+                    <p id="CALIFICACION_PROMEDIO">Calificación promedio</p>
+                </div>
+
+                <div id="sct-banner">
+
+                </div>
+
+                <div id="sct-realizar-reserva">
+                    <h2>Realizá tu reserva</h2>
+
+                    <div id="contenedor-datos-reserva">
+                        <div id="contenedor-mapa">
+                            <label for="">Estás viendo:</label>
+                            <select name="" id="slt-piso">
+                                <option value="piso1">Piso1</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <p id="ESTADO_ESPACIO">El espacio seleccionado está disponible</p>
+                            <form>
+                                <label for="">Espacio seleccionado</label>
+                                <input type="text">
+
+                                <label for="">Fecha de entrada</label>
+                                <input type="date">
+
+                                <label for="">Hora de entrada</label>
+                                <input type="time">
+
+                                <label for="">Fecha de salida</label>
+                                <input type="date">
+
+                                <label for="">Hora de salida</label>
+                                <input type="time">
+                            </form>
+
+                            <button id="btn-reservar-espacio">Reservar espacio</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sct-comentarios">
+                    <h2>Comentarios</h2>
+                    <button id="btn-dejar-comentario">Dejar comentario</button>
+
+                    <div id="contenedor-comentarios">
+                        <!--Aquí se crean los comentarios de forma dinámica-->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/ctrl_buscar_parqueos.js"></script>
+</body>
+
+</html>

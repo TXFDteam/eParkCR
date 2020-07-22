@@ -30,7 +30,7 @@
 .menu-lateral {
     height: 980px;
     border: 1px solid black;
-    width: 20%;
+    width: 18%;
     display: flex;
     flex-direction: column;
     align-items: center;
