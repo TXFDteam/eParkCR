@@ -1,0 +1,24 @@
+#contenedor-perfil {
+    width: 80%;
+    height: 650px;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contenedor-perfil div h1 {
+    font-size: 30px;
+}
+
+#contenedor-perfil .foto-perfil {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+#contenedor-perfil .perfil-izquierda,
+.perfil-derecha {
+    width: 50%;
+}
