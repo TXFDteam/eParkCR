@@ -25,6 +25,8 @@ body {
 #contenedor-perfil {
     display: flex;
     flex-direction: row;
+    width: 1920px;
+    height: 980px;
 }
 
 .contenedor-info-perfil {
