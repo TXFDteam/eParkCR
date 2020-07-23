@@ -1,10 +1,30 @@
+    .menu-lateral {
+        height: 980px;
+        border: 1px solid black;
+        width: 18%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .menu-lateral a {
+        font-size: 24px;
+        height: 10%;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .menu-lateral #primer-link {
+        margin-top: 45%;
+    }
+    
     #contenedor-perfil {
         display: flex;
         flex-direction: row;
     }
     
     .contenedor-info-perfil {
-        width: 80%;
+        width: 82%;
         height: 980px;
         border: 2px solid black;
         text-align: center;
@@ -28,8 +48,8 @@
     }
     
     #contenedor-perfil .foto-perfil {
-        height: 120px;
-        width: 120px;
+        height: 170px;
+        width: 170px;
         border-radius: 50%;
         border: 1px solid black;
     }
@@ -45,4 +65,18 @@
     
     .info-perfil .perfil-izquierda {
         width: 60%;
+    }
+    
+    #contenedor-perfil .boton-editar {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    
+    #contenedor-perfil .boton-editar button {
+        background-color: white;
+        box-shadow: none;
+        height: 40px;
+        width: 160px;
+        font-size: 20px;
     }
