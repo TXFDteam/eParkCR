@@ -17,7 +17,7 @@ body a {
     z-index: 2;
 }
 
-.nav-principal p {
+.nav-principal #link-marca {
     font-size: 28px;
     padding: 0px 3% 0px 2%;
 }
@@ -28,7 +28,8 @@ body a {
 }
 
 .nav-principal .nav-derecha #link-registrarse,
-#link-iniciar-sesion {
+#link-iniciar-sesion,
+#link-cerrar-sesión {
     text-decoration: none;
     padding: 15px;
 }

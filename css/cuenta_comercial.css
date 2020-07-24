@@ -11,7 +11,7 @@
 
 h1 {
     font-size: 40px;
-    margin: 100px 0 20px 0
+    margin: 140px 0 20px 0
 }
 
 #cuentaComercial-p {
@@ -29,7 +29,7 @@ h1 {
 
 .cuentaComercial-box2 {
     /* border: solid 2px green; */
-    width: 58%;
+    /*width:58%*/
 }
 
 #btn-cuentaComercial {
@@ -49,31 +49,4 @@ input {
     display: block;
     /* border: solid 2px black; */
     margin: 2px 0 20px 0;
-}
-
-
-/*MENUN PRINCIPAL SUPERIOR*/
-
-.nav-principal {
-    height: 100px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-principal p {
-    font-size: 28px;
-    padding: 0px 3% 0px 2%;
-}
-
-.nav-principal .nav-derecha {
-    font-size: 20px;
-    margin-right: 3%;
-}
-
-.nav-principal .nav-derecha #link-registrarse,
-#link-iniciar-sesion {
-    text-decoration: none;
-    padding: 15px;
 }
