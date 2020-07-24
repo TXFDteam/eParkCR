@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información usuarios</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/info-usuarios-admin.css">
+</head>
+
+<body>
+    <main>
+        <div class="nav-principal">
+            <p>Marca</p>
+            <div class="nav-derecha">
+                <a href="" id="link-registrarse">Cerrar sesión</a>
+
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="menu-lateral">
+
+                <a href="" id="primer-link">Inicio</a>
+                <a href="">Solicitudes de registro</a>
+                <a href="">Información de usuarios</a>
+                <a href="">Historial de reservas</a>
+                <a href="">Ingresos</a>
+                <a href="">Actividad de la aplicación</a>
+                <a href="" id="ultimo-link">Configuración de la cuenta</a>
+            </div>
+
+
+            <div class="info-usuarios">
+                <h2>Información de usuarios</h2>
+
+                <div class="botones">
+                    <button type="button">Usuario estándar</button>
+                    <button type="button">Dueño de parqueo</button>
+                    <button type="button">Empresa</button>
+                </div>
+
+                <div class="tabla-info">
+                    <table id="tbl-usuarios">
+                        <thead>
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Status</th>
+                                <th>Activar</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="control-pagina">
+                    <button type="button" id="btn-anterior"><</button>
+                    <p></p>
+                    <button type="button" id="btn-siguiente">></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/usuarios-servicio.js"></script>
+    <script src="js/listar-usuarios-admin-ctrl.js"></script>
+</body>
+
+</html>
