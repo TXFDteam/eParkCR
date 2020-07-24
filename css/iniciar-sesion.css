@@ -1,6 +1,5 @@
 .login {
     height: 980px;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,6 +13,7 @@
 
 .login-principal h1 {
     font-size: 40px;
+    margin-top: 15%;
 }
 
 .login-principal input {
