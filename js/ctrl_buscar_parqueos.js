@@ -25,11 +25,14 @@ const mostrar_nombre_parqueo = (p_nombre_parqueo) => {
     console.log('Se ha seleccionado el parqueo: ' + p_nombre_parqueo);
 }
 
+
+
 //Esta funcion se utiliza para crear cartas de parqueos de forma dinámica.
 //<p_estado> Se espera recibir un string que contenga el estado del parqueo (abierto, cerrado)
 //<p_calificacion> Se espera recibir un string que posea el número promedio de estrellas con las que fue calificado el parqueo.
 //<p_nombre> Se espera recibir un string con el nombre del parqueo.
 //<p_nombre> Se espera recibir un string con la ubicación del parqueo.
+
 const crear_carta_parqueo = (p_estado, p_calificacion, p_nombre, p_ubicacion) => {
     let nueva_carta = document.createElement('div');
 
