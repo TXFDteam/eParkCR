@@ -21,76 +21,74 @@
     </header>
 
     <main>
+        <!--El contenedor priincipal se divide en 2, uno para el menú lateral y otro para el contenido de la página-->
+        <div class="menu-lateral">
+            <a href="" id="primer-link">Inicio</a>
+            <a href="">Buscar parqueos</a>
+            <a href="">Reservas activas</a>
+            <a href="">Historial de reservas</a>
+            <a href="">Configuraciones</a>
+        </div>
+
         <section id="sct-contenedor-principal">
-            <!--El contenedor priincipal se divide en 2, uno para el menú lateral y otro para el contenido de la página-->
-            <div class="menu-lateral">
-                <a href="" id="primer-link">Inicio</a>
-                <a href="">Buscar parqueos</a>
-                <a href="">Reservas activas</a>
-                <a href="">Historial de reservas</a>
-                <a href="">Configuraciones</a>
+            <div id="sct-info-perfil">
+                <h1 id="NOMBRE_PARQUEO">Nombre parqueo</h1>
+                <p id="CALIFICACION_PROMEDIO">Calificación promedio</p>
             </div>
 
-            <div id="sct-contenido-perfil">
-                <div id="sct-info-perfil">
-                    <h1 id="NOMBRE_PARQUEO">Nombre parqueo</h1>
-                    <p id="CALIFICACION_PROMEDIO">Calificación promedio</p>
-                </div>
+            <div id="sct-banner">
+                <button id="btn-google-maps">Ver en GoogleMaps</button>
+            </div>
 
-                <div id="sct-banner">
-                    <button id="btn-google-maps">Ver en GoogleMaps</button>
-                </div>
+            <div id="sct-realizar-reserva">
+                <h2>Realizá tu reserva</h2>
 
-                <div id="sct-realizar-reserva">
-                    <h2>Realizá tu reserva</h2>
-
-                    <div id="contenedor-datos-reserva">
-                        <div id="contenedor-mapa">
-                            <div id="mapa-parqueo">
-                                <label for="">Estás viendo:</label>
-                                <select name="" id="slt-piso">
+                <div id="contenedor-datos-reserva">
+                    <div id="contenedor-mapa">
+                        <div id="mapa-parqueo">
+                            <label for="">Estás viendo:</label>
+                            <select name="" id="slt-piso">
                                     <option value="piso1">Piso1</option>
                                 </select>
 
-                                <div id="contenedor-espacios-parqueos">
-                                    <!--Aquí se van a crear las cartas para cada espacio del parqueo-->
-                                </div>
+                            <div id="contenedor-espacios-parqueos">
+                                <!--Aquí se van a crear las cartas para cada espacio del parqueo-->
                             </div>
                         </div>
+                    </div>
 
-                        <div id="contenedor-info-reserva">
-                            <p id="ESTADO_ESPACIO">El espacio seleccionado está disponible</p>
-                            <form>
-                                <label for="">Espacio seleccionado</label>
-                                <input type="text">
+                    <div id="contenedor-info-reserva">
+                        <p id="ESTADO_ESPACIO">El espacio seleccionado está disponible</p>
+                        <form>
+                            <label for="">Espacio seleccionado</label>
+                            <input type="text">
 
-                                <label for="">Fecha de entrada</label>
-                                <input type="date">
+                            <label for="">Fecha de entrada</label>
+                            <input type="date">
 
-                                <label for="">Hora de entrada</label>
-                                <input type="time">
+                            <label for="">Hora de entrada</label>
+                            <input type="time">
 
-                                <label for="">Fecha de salida</label>
-                                <input type="date">
+                            <label for="">Fecha de salida</label>
+                            <input type="date">
 
-                                <label for="">Hora de salida</label>
-                                <input type="time">
-                            </form>
+                            <label for="">Hora de salida</label>
+                            <input type="time">
+                        </form>
 
-                            <button id="btn-reservar-espacio">Reservar espacio</button>
-                        </div>
+                        <button id="btn-reservar-espacio">Reservar espacio</button>
                     </div>
                 </div>
+            </div>
 
-                <div id="sct-comentarios">
-                    <div id="contenedor-superior">
-                        <h2>Comentarios</h2>
-                        <button id="btn-dejar-comentario">Dejar comentario</button>
-                    </div>
+            <div id="sct-comentarios">
+                <div id="contenedor-superior">
+                    <h2>Comentarios</h2>
+                    <button id="btn-dejar-comentario">Dejar comentario</button>
+                </div>
 
-                    <div id="contenedor-comentarios">
-                        <!--Aquí se crean los comentarios de forma dinámica-->
-                    </div>
+                <div id="contenedor-comentarios">
+                    <!--Aquí se crean los comentarios de forma dinámica-->
                 </div>
             </div>
         </section>
