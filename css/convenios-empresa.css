@@ -1,0 +1,41 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-convenios {
+    max-height: 980px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 140px;
+    margin-left: 18%;
+    max-width: 82%;
+    padding-left: 5%;
+}
+
+.info-convenios h2 {
+    margin-bottom: 50px;
+}
+
+
+/*Tablas*/
+
+
+/*
+.info-convenios table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 10%;
+    visibility: hidden;
+}
+
+.info-convenios td {
+    padding: 10px;
+}
+
+.columna2-tablas,
+.columna3-tablas {
+    margin-top: 80px;
+}*/
