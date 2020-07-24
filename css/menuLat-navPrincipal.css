@@ -1,3 +1,9 @@
+body a {
+    text-decoration: none;
+    color: black;
+}
+
+
 /*MENUN PRINCIPAL SUPERIOR*/
 
 .nav-principal {

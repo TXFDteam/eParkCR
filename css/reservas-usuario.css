@@ -1,0 +1,51 @@
+#contenedor-principal {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedor-reservas {
+    width: 82%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor-reservas h3 {
+    font-size: 20px;
+}
+
+.contenedor-reservas p {
+    text-align: center;
+    font-size: 16px;
+}
+
+
+/*Primera columna*/
+
+.primera-columna h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 47%
+}
+
+.primera-columna p {
+    margin-bottom: 35%;
+}
+
+
+/*SEGUNDA COLUMNA*/
+
+.segunda-columna {
+    padding-right: 20%;
+}
+
+.segunda-columna h3 {
+    margin-top: 150px;
+}
+
+.segunda-columna button {
+    margin-top: 45%;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+}
