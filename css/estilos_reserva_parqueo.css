@@ -1,0 +1,82 @@
+#sct-contenedor-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+/*Estilos del contenido del perfil*/
+
+#sct-contenido-perfil {
+    width: 82%;
+}
+
+#sct-info-perfil {
+    display: flex;
+    flex-direction: column;
+}
+
+#sct-info-perfil h1 {
+    align-self: center;
+}
+
+#sct-info-perfil p {
+    align-self: flex-end;
+}
+
+
+/*Estilos del banner*/
+
+#sct-banner {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    border: 1px #000000 solid;
+}
+
+#sct-banner #btn-google-maps {
+    align-self: flex-end;
+}
+
+
+/*Estilos seccion de reserva*/
+
+#sct-realizar-reserva h2 {
+    text-align: center;
+}
+
+#contenedor-datos-reserva {
+    display: flex;
+}
+
+#contenedor-mapa {
+    width: 60%;
+}
+
+#contenedor-mapa #mapa-parqueo {
+    border: 1px #000000 solid;
+    height: 520px;
+}
+
+#contenedor-info-reserva {
+    width: 40%;
+}
+
+#contenedor-info-reserva label,
+#contenedor-info-reserva input {
+    display: block;
+}
+
+
+/*Estilos para sección de comentarios*/
+
+#sct-comentarios {
+    display: flex;
+    flex-direction: column;
+}
+
+#sct-comentarios #contenedor-superior {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

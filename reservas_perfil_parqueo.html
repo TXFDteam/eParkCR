@@ -7,6 +7,7 @@
     <title>eParkCR - Realizar reserva</title>
 
     <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos_reserva_parqueo.css">
 </head>
 
 <body>
@@ -14,8 +15,7 @@
         <div class="nav-principal">
             <p>Marca</p>
             <div class="nav-derecha">
-                <a href="" id="link-registrarse">Registrarse</a>
-                <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+                <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
             </div>
         </div>
     </header>
@@ -31,14 +31,14 @@
                 <a href="">Configuraciones</a>
             </div>
 
-            <div class="sct-contenido-perfil">
+            <div id="sct-contenido-perfil">
                 <div id="sct-info-perfil">
                     <h1 id="NOMBRE_PARQUEO">Nombre parqueo</h1>
                     <p id="CALIFICACION_PROMEDIO">Calificación promedio</p>
                 </div>
 
                 <div id="sct-banner">
-
+                    <button id="btn-google-maps">Ver en GoogleMaps</button>
                 </div>
 
                 <div id="sct-realizar-reserva">
@@ -46,13 +46,19 @@
 
                     <div id="contenedor-datos-reserva">
                         <div id="contenedor-mapa">
-                            <label for="">Estás viendo:</label>
-                            <select name="" id="slt-piso">
-                                <option value="piso1">Piso1</option>
-                            </select>
+                            <div id="mapa-parqueo">
+                                <label for="">Estás viendo:</label>
+                                <select name="" id="slt-piso">
+                                    <option value="piso1">Piso1</option>
+                                </select>
+
+                                <div id="contenedor-espacios-parqueos">
+                                    <!--Aquí se van a crear las cartas para cada espacio del parqueo-->
+                                </div>
+                            </div>
                         </div>
 
-                        <div>
+                        <div id="contenedor-info-reserva">
                             <p id="ESTADO_ESPACIO">El espacio seleccionado está disponible</p>
                             <form>
                                 <label for="">Espacio seleccionado</label>
@@ -77,8 +83,10 @@
                 </div>
 
                 <div id="sct-comentarios">
-                    <h2>Comentarios</h2>
-                    <button id="btn-dejar-comentario">Dejar comentario</button>
+                    <div id="contenedor-superior">
+                        <h2>Comentarios</h2>
+                        <button id="btn-dejar-comentario">Dejar comentario</button>
+                    </div>
 
                     <div id="contenedor-comentarios">
                         <!--Aquí se crean los comentarios de forma dinámica-->
@@ -87,8 +95,6 @@
             </div>
         </section>
     </main>
-
-    <script src="js/ctrl_buscar_parqueos.js"></script>
 </body>
 
 </html>
