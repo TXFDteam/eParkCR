@@ -2,11 +2,42 @@
 
 //Se define por fuera para ser usado en este script.
 let parqueo_actual = parqueo_2;
+let info_espacio_seleccionado;
+let elemento_espacio_seleccionado;
 
 //Elementos que van a cambiar basado en los datos del parqueo.
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
 const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
 const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
+
+const txt_estado_espacio = document.querySelector('#ESTADO_ESPACIO');
+const txt_espacio_seleccionado = document.querySelector('#txt-espacio-seleccionado');
+const txt_fecha_entrada = document.querySelector('#txt-fecha-entrada');
+const txt_hora_entrada = document.querySelector('#txt-hora-entrada');
+const txt_fecha_salida = document.querySelector('#txt-fecha-salida');
+const txt_hora_salida = document.querySelector('#txt-hora-salida');
+
+const actualizar_espacio_seleccionado = (p_info_espacio, p_espacio_elemento) => {
+    //Remover clase seleccionado en el espacio anterior.
+    if (elemento_espacio_seleccionado != null) {
+        elemento_espacio_seleccionado.classList.remove('seleccionado');
+    }
+
+
+    //Uso de la información del espacio seleccionado.
+    txt_espacio_seleccionado.value = p_info_espacio.id;
+
+    if (p_info_espacio.ocupado) {
+        txt_estado_espacio.textContent = 'El espacio seleccionado está ocupado.';
+        txt_estado_espacio.classList.add('txt_alerta');
+    } else {
+        txt_estado_espacio.textContent = 'El espacio seleccionado está disponible.';
+        txt_estado_espacio.classList.remove('txt_alerta');
+        //Actualizar referencia el elemento espacio seleccionado.
+        elemento_espacio_seleccionado = p_espacio_elemento;
+        elemento_espacio_seleccionado.classList.add('seleccionado');
+    }
+};
 
 //Esta función se usa para llenar el mapa del parqueo con espacios interactivos.
 //<p_espacio_parqueo> referencia al espacio de un parqueo del que se va a obtener los datos.
@@ -31,6 +62,10 @@ const crear_espacio_parqueo = (p_espacio_parqueo) => {
             break;
     };
 
+    //Marcar en rojo si está ocupado.
+    if (p_espacio_parqueo.ocupado) {
+        nuevo_espacio.classList.add('ocupado');
+    }
 
     //Crear jerarquía de elementos.
     nuevo_espacio.appendChild(id_espacio);
@@ -39,8 +74,9 @@ const crear_espacio_parqueo = (p_espacio_parqueo) => {
     //Agregar el nuevo espacio al mapa del parqueo.
     contenedor_espacios_en_mapa.appendChild(nuevo_espacio);
 
-    addEventListener('click', () => {
-        mostrar_nombre_parqueo(p_nombre);
+    //Conectar el evento click para que se actualice el espacio seleccionado.
+    nuevo_espacio.addEventListener('click', () => {
+        actualizar_espacio_seleccionado(p_espacio_parqueo, nuevo_espacio);
     });
 };
 

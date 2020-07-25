@@ -35,8 +35,8 @@
 
         <section id="sct-contenedor-principal">
             <div id="sct-info-perfil">
-                <h1 id="NOMBRE_PARQUEO">Nombre parqueo</h1>
-                <p id="CALIFICACION_PROMEDIO">Calificación promedio</p>
+                <h1 id="NOMBRE_PARQUEO"></h1>
+                <p id="CALIFICACION_PROMEDIO"></p>
             </div>
 
             <div id="sct-banner">
@@ -63,20 +63,20 @@
                     <div id="contenedor-info-reserva">
                         <p id="ESTADO_ESPACIO">El espacio seleccionado está disponible</p>
                         <form>
-                            <label for="">Espacio seleccionado</label>
-                            <input type="text">
+                            <label for="txt-espacio-seleccionado">Espacio seleccionado</label>
+                            <input type="text" id="txt-espacio-seleccionado" readonly required>
 
-                            <label for="">Fecha de entrada</label>
-                            <input type="date">
+                            <label for="txt-fecha-entrada">Fecha de entrada</label>
+                            <input type="date" id="txt-fecha-entrada" required>
 
-                            <label for="">Hora de entrada</label>
-                            <input type="time">
+                            <label for="txt-hora-entrada">Hora de entrada</label>
+                            <input type="time" id="txt-hora-entrada" required>
 
-                            <label for="">Fecha de salida</label>
-                            <input type="date">
+                            <label for="txt-fecha-salida">Fecha de salida</label>
+                            <input type="date" id="txt-fecha-salida" required>
 
-                            <label for="">Hora de salida</label>
-                            <input type="time">
+                            <label for="txt-hora-salida">Hora de salida</label>
+                            <input type="time" id="txt-hora-salida" required>
                         </form>
 
                         <button id="btn-reservar-espacio">Reservar espacio</button>

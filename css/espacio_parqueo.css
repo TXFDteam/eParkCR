@@ -10,6 +10,18 @@
     cursor: pointer;
 }
 
+.ocupado {
+    border: 3px rgb(207, 35, 35) solid;
+}
+
+.txt_alerta {
+    color: rgb(207, 35, 35);
+}
+
+.seleccionado {
+    border: 2px rgb(12, 124, 252) solid;
+}
+
 .icono-espacio {
     background-size: contain;
     background-position: center;

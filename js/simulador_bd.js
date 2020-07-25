@@ -24,12 +24,12 @@ let parqueo_2 = {
                 espacio_3: {
                     id: 'A3',
                     tipo_icono: 2,
-                    ocupado: true
+                    ocupado: false
                 },
                 espacio_4: {
                     id: 'C1',
                     tipo_icono: 1,
-                    ocupado: true
+                    ocupado: false
                 },
                 espacio_5: {
                     id: 'C2',
@@ -39,7 +39,7 @@ let parqueo_2 = {
                 espacio_6: {
                     id: 'B1',
                     tipo_icono: 2,
-                    ocupado: true
+                    ocupado: false
                 },
                 espacio_7: {
                     id: 'B2',
