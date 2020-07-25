@@ -1,14 +1,17 @@
-.contenedor-cuadro {
+/*.contenedor-cuadro {
     width: 350px;
     height: 200px;
     border: 1px solid black;
-}
+}*/
 
 .estilo-cuadro {
     border-collapse: collapse;
     margin-bottom: 3%;
-    margin-right: 15px;
-    padding: 10px;
+    margin-left: 15px;
+    padding-left: 15px;
+    border: 1px solid black;
+    width: 350px;
+    height: 200px;
 }
 
 .estilo-cuadro p {

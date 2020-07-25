@@ -1,0 +1,27 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedor-lista-usuarios {
+    position: fixed;
+    margin-top: 100px;
+    width: 82%;
+    margin-left: 18%;
+    height: 980px;
+}
+
+.contenedor-lista-usuarios h2 {
+    margin: 40px 0px 6% 3.6%;
+    display: inline-block;
+}
+
+#tbl-usuarios {
+    margin-left: 1.5%;
+    width: 700px;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 10px;
+}

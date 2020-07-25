@@ -48,12 +48,14 @@ body a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .menu-lateral a {
     font-size: 24px;
     height: 10%;
     text-decoration: none;
+    margin-bottom: 5%;
 }
 
 .menu-lateral #primer-link {
