@@ -5,7 +5,7 @@ const contenedor_parqueos = document.querySelector('#sct-contenedor-carta-parque
 const PLANTILLA_CARTA = '<div class=\"contenedor-superior\"> \n' +
     '<div class=\"contendor-info-parqueo\"> \n' +
     '<div class=\"contenedor-estado-parqueo\"> \n' +
-    '<p>[ESTADO_PARQUEO]</p> \n' +
+    '<p [CLASE_ESTADO]>[ESTADO_PARQUEO]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-calificacion-parqueo\"> \n' +
     '<p>[CALIF_PARQUEO]</p> \n' +
@@ -28,7 +28,7 @@ const mostrar_nombre_parqueo = (p_nombre_parqueo) => {
     //<p_calificacion> Se espera recibir un string que posea el número promedio de estrellas con las que fue calificado el parqueo.
     //<p_nombre> Se espera recibir un string con el nombre del parqueo.
     //<p_nombre> Se espera recibir un string con la ubicación del parqueo.
-const crear_carta_parqueo = (p_estado, p_calificacion, p_nombre, p_ubicacion) => {
+const crear_carta_parqueo = (p_parqueo) => {
     let nueva_carta = document.createElement('div');
 
     //Copia de la plantilla.
@@ -37,21 +37,33 @@ const crear_carta_parqueo = (p_estado, p_calificacion, p_nombre, p_ubicacion) =>
     nueva_carta.classList.add('carta-parqueo');
 
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
-    nueva_plantilla = nueva_plantilla.replace('[ESTADO_PARQUEO]', p_estado);
-    nueva_plantilla = nueva_plantilla.replace('[CALIF_PARQUEO]', p_calificacion);
-    nueva_plantilla = nueva_plantilla.replace('[NOMBRE_PARQUEO]', p_nombre);
-    nueva_plantilla = nueva_plantilla.replace('[UBI_PARQUEO]', p_ubicacion);
+    let estado_parqueo;
+    if (p_parqueo.abierto) {
+        estado_parqueo = 'Abierto';
+        nueva_plantilla = nueva_plantilla.replace('[CLASE_ESTADO]', 'class=\"parqueo-abierto\"');
+    } else {
+        estado_parqueo = 'Cerrado'
+        nueva_plantilla = nueva_plantilla.replace('[CLASE_ESTADO]', 'class=\"parqueo-cerrado\"');
+    }
+
+    nueva_plantilla = nueva_plantilla.replace('[ESTADO_PARQUEO]', estado_parqueo);
+    nueva_plantilla = nueva_plantilla.replace('[CALIF_PARQUEO]', p_parqueo.calificacion_promedio);
+    nueva_plantilla = nueva_plantilla.replace('[NOMBRE_PARQUEO]', p_parqueo.nombre);
+    nueva_plantilla = nueva_plantilla.replace('[UBI_PARQUEO]', p_parqueo.ubicacion);
 
     nueva_carta.innerHTML = nueva_plantilla;
     contenedor_parqueos.appendChild(nueva_carta);
 
     nueva_carta.addEventListener('click', () => {
-        mostrar_nombre_parqueo(p_nombre);
+        mostrar_nombre_parqueo(p_parqueo.nombre);
     });
 };
 
+const mostrar_parqueos = () => {
+    for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+        let identificador_parqueo = ('parqueo_' + i);
+        crear_carta_parqueo(parqueos[identificador_parqueo]);
+    }
+};
 
-//Valores quemados para probar.
-crear_carta_parqueo('Abierto', '5', 'Parqueo maravilloso', 'San José');
-crear_carta_parqueo('Abierto', '4.7', 'Parqueo López López', 'San José');
-crear_carta_parqueo('Cerrado', '3.85', 'Parqueo el Covid', 'Heredia');
+mostrar_parqueos();

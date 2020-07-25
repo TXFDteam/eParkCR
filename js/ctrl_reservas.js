@@ -1,7 +1,7 @@
 'use strict';
 
 //Se define por fuera para ser usado en este script.
-let parqueo_actual = parqueo_2;
+let parqueo_actual = parqueos['parqueo_3'];
 let info_espacio_seleccionado;
 let elemento_espacio_seleccionado;
 
@@ -10,6 +10,7 @@ const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
 const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
 const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
 
+//Elementos para el form de la reserva.
 const txt_estado_espacio = document.querySelector('#ESTADO_ESPACIO');
 const txt_espacio_seleccionado = document.querySelector('#txt-espacio-seleccionado');
 const txt_fecha_entrada = document.querySelector('#txt-fecha-entrada');
@@ -17,6 +18,9 @@ const txt_hora_entrada = document.querySelector('#txt-hora-entrada');
 const txt_fecha_salida = document.querySelector('#txt-fecha-salida');
 const txt_hora_salida = document.querySelector('#txt-hora-salida');
 
+//Esta función se usa para actualizar la información del espacio basado en el que se seleccionó.
+//<p_info_espacio> JSON del espacio seleccionado.
+//<p_espacio_elemento> referencia al elemento html que se seleccionó.
 const actualizar_espacio_seleccionado = (p_info_espacio, p_espacio_elemento) => {
     //Remover clase seleccionado en el espacio anterior.
     if (elemento_espacio_seleccionado != null) {
