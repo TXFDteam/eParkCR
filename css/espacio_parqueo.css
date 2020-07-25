@@ -1,0 +1,31 @@
+.espacio-parqueo {
+    width: 80px;
+    height: 125px;
+    border: 1px #000000 solid;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.espacio-parqueo:hover {
+    cursor: pointer;
+}
+
+.icono-espacio {
+    background-size: contain;
+    background-position: center;
+    width: 76px;
+    height: 64px;
+    margin: 0 auto;
+}
+
+.icono-espacio-carro {
+    background-image: url("../imgs/reserva_parqueos/icono_carro.png");
+}
+
+.icono-espacio-moto {
+    background-image: url("../imgs/reserva_parqueos/Icono_moto.png");
+}
+
+.icono-espacio-discapacidad {
+    background-image: url("../imgs/reserva_parqueos/icono_discapacidad.png");
+}
