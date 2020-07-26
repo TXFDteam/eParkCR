@@ -224,48 +224,124 @@ let empresas = {
             correo_empresa: 'x1@gmail.com',
             cedula_empresa: '111',
             nombre_empresa: 'Adidas',
-            convenio: '11'
+            codigo_empresa: '100'
         },
         empresa_2: {
             correo_empresa: 'x2@gmail.com',
             cedula_empresa: '112',
             nombre_empresa: 'Banco Nacional',
-            convenio: '12'
+            codigo_empresa: '101'
         },
         empresa_3: {
             correo_empresa: 'x1@gmail.com',
             cedula_empresa: '113',
             nombre_empresa: 'Banco popular',
-            convenio: '13'
+            codigo_empresa: '102'
         }
     }
 };
 
 let empleados_empresa_convenio = {
-    cant_empleados: 5,
-    empleado1: {
-        id_empleado: 'E01',
-        nombre_empleado: 'Daniel'
+    convenio1_empleados: {
+        cant_empleados: 5,
+        empleado1: {
+            id_empleado: '1',
+            correo_usuario: 'daniel@gmail.com',
+            nombre_empleado: 'Daniel'
+        },
+        empleado2: {
+            id_empleado: '2',
+            correo_usuario: 'david@gmail.com',
+            nombre_empleado: 'David'
+        },
+        empleado3: {
+            id_empleado: '3',
+            correo_usuario: 'taylor@gmail.com',
+            nombre_empleado: 'Taylor'
+        },
+        empleado4: {
+            id_empleado: '4',
+            correo_usuario: 'francis@gmail.com',
+            nombre_empleado: 'Francis'
+        },
+        empleado5: {
+            id_empleado: '5',
+            correo_usuario: 'xavier@gmail.com',
+            nombre_empleado: 'Xavier'
+        }
     },
-    empleado2: {
-        id_empleado: 'E02',
-        nombre_empleado: 'David'
+    convenio2_empleados: {
+        cant_empleados: 5,
+        empleado1: {
+            id_empleado: '6',
+            correo_usuario: 'alberto@gmail.com',
+            nombre_empleado: 'Alberto'
+        },
+        empleado2: {
+            id_empleado: '7',
+            correo_usuario: 'benito@gmail.com',
+            nombre_empleado: 'Benito'
+        },
+        empleado3: {
+            id_empleado: '8',
+            correo_usuario: 'alfonso@gmail.com',
+            nombre_empleado: 'Alfonso'
+        },
+        empleado4: {
+            id_empleado: '9',
+            correo_usuario: 'ernesto@gmail.com',
+            nombre_empleado: 'Ernesto'
+        },
+        empleado5: {
+            id_empleado: '10',
+            correo_usuario: 'pedro@gmail.com',
+            nombre_empleado: 'Pedro'
+        }
     },
-    empleado3: {
-        id_empleado: 'E03',
-        nombre_empleado: 'Taylor'
-    },
-    empleado4: {
-        id_empleado: 'E04',
-        nombre_empleado: 'Francis'
-    },
-    empleado5: {
-        id_empleado: 'E05',
-        nombre_empleado: 'Xavier'
-    }
+    convenio3_empleados: {
+        cant_empleados: 3,
+        empleado1: {
+            id_empleado: '11',
+            correo_usuario: 'juan@gmail.com',
+            nombre_empleado: 'Juan'
+        },
+        empleado2: {
+            id_empleado: '12',
+            correo_usuario: 'juan@gmail.com',
+            nombre_empleado: 'Christian'
+        },
+        empleado3: {
+            id_empleado: '13',
+            correo_usuario: 'alicia@gmail.com',
+            nombre_empleado: 'Alicia'
+        },
 
+    },
 };
 
-
+let convenios_empresa = {
+    cant_convenios: 3,
+    convenio1: {
+        parqueo: parqueos.parqueo_1.nombre,
+        codigo: empresas.lista_empresas.empresa_1.codigo_empresa,
+        porcentaje_descuento: 15,
+        empleados_asociados: empleados_empresa_convenio.convenio1_empleados.cant_empleados,
+        fecha_vencimiento: '31/8/2020'
+    },
+    convenio2: {
+        parqueo: parqueos.parqueo_2.nombre,
+        codigo: empresas.lista_empresas.empresa_2.codigo_empresa,
+        porcentaje_descuento: 10,
+        empleados_asociados: empleados_empresa_convenio.convenio2_empleados.cant_empleados,
+        fecha_vencimiento: '10/8/2020'
+    },
+    convenio3: {
+        parqueo: parqueos.parqueo_3.nombre,
+        codigo: empresas.lista_empresas.empresa_3.codigo_empresa,
+        porcentaje_descuento: 20,
+        empleados_asociados: empleados_empresa_convenio.convenio3_empleados.cant_empleados,
+        fecha_vencimiento: '15/8/2020'
+    }
+}
 
 let solicitudes = {};
