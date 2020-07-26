@@ -1,16 +1,6 @@
 'use strict';
 
-//Se define por fuera para ser usado en este script.
-let parqueo_actual = parqueos['parqueo_1'];
-let info_espacio_seleccionado;
-let elemento_espacio_seleccionado;
-
-//Para el mapa de parqueo.
-let piso_actual = 1;
-let max_espacios_por_piso = 19;
-let cant_hoja_piso = 1;
-let hoja_actual_piso = 1;
-
+//#region Constantes.
 //Elementos que van a cambiar basado en los datos del parqueo.
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
 const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
@@ -29,6 +19,20 @@ const slt_piso_actual = document.querySelector('#slt-piso');
 const btn_hoja_anterior = document.querySelector('#btn-hoja-anterior');
 const txt_hoja_actual = document.querySelector('#txt-hoja-actual');
 const btn_hoja_siguiente = document.querySelector('#btn-hoja-siguiente');
+//#endregion
+
+//#region Variables
+//Se define por fuera para ser usado en este script.
+let parqueo_actual = parqueos['parqueo_1'];
+let info_espacio_seleccionado;
+let elemento_espacio_seleccionado;
+
+//Para el mapa de parqueo.
+let piso_actual = 1;
+let max_espacios_por_piso = 19;
+let cant_hoja_piso = 1;
+let hoja_actual_piso = 1;
+//#endregion
 
 //Esta función se usa para actualizar la información del espacio basado en el que se seleccionó.
 //<p_info_espacio> JSON del espacio seleccionado.
@@ -188,7 +192,6 @@ const mostrar_hoja_siguiente = () => {
         cambiar_hoja();
     }
 };
-
 
 llenar_info_parqueo(parqueo_actual);
 
