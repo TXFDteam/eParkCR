@@ -241,4 +241,31 @@ let empresas = {
     }
 };
 
+let empleados_empresa_convenio = {
+    cant_empleados: 5,
+    empleado1: {
+        id_empleado: 'E01',
+        nombre_empleado: 'Daniel'
+    },
+    empleado2: {
+        id_empleado: 'E02',
+        nombre_empleado: 'David'
+    },
+    empleado3: {
+        id_empleado: 'E03',
+        nombre_empleado: 'Taylor'
+    },
+    empleado4: {
+        id_empleado: 'E04',
+        nombre_empleado: 'Francis'
+    },
+    empleado5: {
+        id_empleado: 'E05',
+        nombre_empleado: 'Xavier'
+    }
+
+};
+
+
+
 let solicitudes = {};
