@@ -120,7 +120,7 @@ let parqueos = {
                 }
             },
             piso_2: {
-                cant_espacios: 3,
+                cant_espacios: 4,
                 espacios: {
                     espacio_1: {
                         id: 'C4',
@@ -136,6 +136,11 @@ let parqueos = {
                         id: 'D6',
                         tipo_icono: 2,
                         ocupado: true
+                    },
+                    espacio_4: {
+                        id: 'D7',
+                        tipo_icono: 2,
+                        ocupado: false
                     }
                 }
             }
