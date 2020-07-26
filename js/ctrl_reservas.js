@@ -1,16 +1,15 @@
 'use strict';
 
 //Se define por fuera para ser usado en este script.
-let parqueo_actual = parqueos['parqueo_2'];
+let parqueo_actual = parqueos['parqueo_1'];
 let info_espacio_seleccionado;
 let elemento_espacio_seleccionado;
 
 //Para el mapa de parqueo.
 let piso_actual = 1;
-let ultimo_espacio_mostrado = 0;
-let max_espacios_por_piso = 27;
+let max_espacios_por_piso = 19;
 let cant_hoja_piso = 1;
-let hoja_piso_seleccionado = 1;
+let hoja_actual_piso = 1;
 
 //Elementos que van a cambiar basado en los datos del parqueo.
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
@@ -26,6 +25,10 @@ const txt_fecha_salida = document.querySelector('#txt-fecha-salida');
 const txt_hora_salida = document.querySelector('#txt-hora-salida');
 
 const slt_piso_actual = document.querySelector('#slt-piso');
+
+const btn_hoja_anterior = document.querySelector('#btn-hoja-anterior');
+const txt_hoja_actual = document.querySelector('#txt-hoja-actual');
+const btn_hoja_siguiente = document.querySelector('#btn-hoja-siguiente');
 
 //Esta función se usa para actualizar la información del espacio basado en el que se seleccionó.
 //<p_info_espacio> JSON del espacio seleccionado.
@@ -96,18 +99,19 @@ const crear_espacio_parqueo = (p_espacio_parqueo) => {
 //Esta función se usa para mostrar TODOS los espacios de un piso.
 //<p_piso> Es la referencia al piso del que se desea mostrar los espacios.
 //<p_cant_espacios> Se usa para saber la cantidad de espacios que posee el piso.
-const actualizar_espacios_mapa = (p_piso, p_cant_espacios) => {
+const actualizar_espacios_mapa = (p_piso) => {
     //Se crea un ciclo para ejecutar la función de crear espacios X cantidad de veces.
 
-    //Para que se muestren como máximo 27 espacios.
-    let primer_espacio = ((hoja_piso_seleccionado - 1) * max_espacios_por_piso) + 1;
-
+    //Para que se muestren como máximo X cantidad de espacios.
+    let primer_espacio = ((hoja_actual_piso - 1) * max_espacios_por_piso) + 1;
     let espacios_creados = 0;
+
+    let cant_espacios = p_piso.cant_espacios;
 
     //Limpiar el mapa.
     contenedor_espacios_en_mapa.innerHTML = '';
 
-    for (let i = primer_espacio; i <= p_cant_espacios; i++) {
+    for (let i = primer_espacio; i <= cant_espacios; i++) {
         if (espacios_creados >= max_espacios_por_piso) {
             break;
         }
@@ -128,10 +132,10 @@ const cambiar_piso = (i_piso_seleccionado) => {
     let cant_espacios = piso.cant_espacios;
 
     //Se define cuantas hojas tendrá este piso basado en la cantidad de espacios.
-    cant_hoja_piso = cant_espacios / max_espacios_por_piso;
-    hoja_piso_seleccionado = 1;
+    cant_hoja_piso = Math.ceil(cant_espacios / max_espacios_por_piso);
+    hoja_actual_piso = 1;
 
-    actualizar_espacios_mapa(piso, cant_espacios);
+    actualizar_espacios_mapa(piso);
 };
 
 //Esta función se debe llamar al inicio para actualizar los datos de la página usando datos del parqueo seleccionado.
@@ -162,6 +166,34 @@ const piso_actual_cambiado = () => {
     cambiar_piso(piso_actual);
 };
 
+//Se llama cuando se presiona un botón para cambiar la hoja que se está mostrando.
+const cambiar_hoja = () => {
+    let id_piso = ('piso_' + piso_actual);
+    let piso = parqueo_actual.pisos[id_piso];
+
+    txt_hoja_actual.textContent = hoja_actual_piso;
+    actualizar_espacios_mapa(piso);
+};
+
+const mostrar_hoja_anterior = () => {
+    if (hoja_actual_piso > 1) {
+        hoja_actual_piso -= 1;
+        cambiar_hoja();
+    }
+};
+
+const mostrar_hoja_siguiente = () => {
+    if (hoja_actual_piso < cant_hoja_piso) {
+        hoja_actual_piso += 1;
+        cambiar_hoja();
+    }
+};
+
+
 llenar_info_parqueo(parqueo_actual);
 
+//Eventos.
 slt_piso_actual.addEventListener('change', piso_actual_cambiado);
+
+btn_hoja_anterior.addEventListener('click', mostrar_hoja_anterior);
+btn_hoja_siguiente.addEventListener('click', mostrar_hoja_siguiente);
