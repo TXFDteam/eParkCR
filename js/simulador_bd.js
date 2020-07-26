@@ -19,46 +19,171 @@ let parqueos = {
         cant_pisos: 1,
         pisos: {
             piso_1: {
-                cant_espacios: 8,
+                cant_espacios: 33,
                 espacios: {
                     espacio_1: {
-                        id: 'C1',
-                        tipo_icono: 0,
+                        id: 'D1',
+                        tipo_icono: 2,
                         ocupado: false
                     },
                     espacio_2: {
-                        id: 'C2',
-                        tipo_icono: 0,
+                        id: 'D2',
+                        tipo_icono: 2,
                         ocupado: true
                     },
                     espacio_3: {
-                        id: 'C3',
-                        tipo_icono: 0,
+                        id: 'D3',
+                        tipo_icono: 2,
                         ocupado: false
                     },
                     espacio_4: {
-                        id: 'C4',
-                        tipo_icono: 0,
+                        id: 'D4',
+                        tipo_icono: 2,
                         ocupado: false
                     },
                     espacio_5: {
-                        id: 'M1',
-                        tipo_icono: 1,
+                        id: 'D5',
+                        tipo_icono: 2,
                         ocupado: true
                     },
                     espacio_6: {
-                        id: 'M2',
+                        id: 'M1',
                         tipo_icono: 1,
                         ocupado: false
                     },
                     espacio_7: {
-                        id: 'D1',
-                        tipo_icono: 2,
+                        id: 'M2',
+                        tipo_icono: 1,
                         ocupado: true
                     },
                     espacio_8: {
-                        id: 'D2',
-                        tipo_icono: 2,
+                        id: 'M3',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_9: {
+                        id: 'M4',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_10: {
+                        id: 'M5',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_11: {
+                        id: 'M6',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_12: {
+                        id: 'M7',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_13: {
+                        id: 'M8',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_14: {
+                        id: 'M9',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_15: {
+                        id: 'C1',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_16: {
+                        id: 'C2',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_17: {
+                        id: 'C3',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_18: {
+                        id: 'C4',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_19: {
+                        id: 'C5',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_20: {
+                        id: 'C6',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_21: {
+                        id: 'C7',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_22: {
+                        id: 'C8',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_23: {
+                        id: 'C9',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_24: {
+                        id: 'C10',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_25: {
+                        id: 'C11',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_26: {
+                        id: 'C12',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_27: {
+                        id: 'C13',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_28: {
+                        id: 'C14',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_29: {
+                        id: 'C15',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_30: {
+                        id: 'C16',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_31: {
+                        id: 'C17',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_32: {
+                        id: 'C18',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_33: {
+                        id: 'C19',
+                        tipo_icono: 0,
                         ocupado: true
                     }
                 }
@@ -120,7 +245,7 @@ let parqueos = {
                 }
             },
             piso_2: {
-                cant_espacios: 3,
+                cant_espacios: 4,
                 espacios: {
                     espacio_1: {
                         id: 'C4',
@@ -136,6 +261,11 @@ let parqueos = {
                         id: 'D6',
                         tipo_icono: 2,
                         ocupado: true
+                    },
+                    espacio_4: {
+                        id: 'D7',
+                        tipo_icono: 2,
+                        ocupado: false
                     }
                 }
             }
