@@ -19,6 +19,7 @@ const PLANTILLA_CARTA = '<div class=\"contenedor-superior\"> \n' +
     '</div> \n' +
     '</div> \n' +
     '</div>';
+
 //Esta función se usa como prueba para mostrar el nombre del parqueo seleccionado.
 const mostrar_nombre_parqueo = (p_nombre_parqueo) => {
         console.log('Se ha seleccionado el parqueo: ' + p_nombre_parqueo);
