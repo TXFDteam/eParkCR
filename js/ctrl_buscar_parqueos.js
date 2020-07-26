@@ -38,6 +38,9 @@ const crear_carta_parqueo = (p_parqueo) => {
     nueva_carta.classList.add('carta-parqueo');
 
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
+
+    //Primero define el estado, si está abierto o cerrado.
+    //Además cambia la clase del texto que muestra el estado dependiendo del mismo.
     let estado_parqueo;
     if (p_parqueo.abierto) {
         estado_parqueo = 'Abierto';
@@ -47,19 +50,24 @@ const crear_carta_parqueo = (p_parqueo) => {
         nueva_plantilla = nueva_plantilla.replace('[CLASE_ESTADO]', 'class=\"parqueo-cerrado\"');
     }
 
+    //Más reemplazo de texto en la plantilla que se va a usar para la nueva carta.
     nueva_plantilla = nueva_plantilla.replace('[ESTADO_PARQUEO]', estado_parqueo);
     nueva_plantilla = nueva_plantilla.replace('[CALIF_PARQUEO]', p_parqueo.calificacion_promedio);
     nueva_plantilla = nueva_plantilla.replace('[NOMBRE_PARQUEO]', p_parqueo.nombre);
     nueva_plantilla = nueva_plantilla.replace('[UBI_PARQUEO]', p_parqueo.ubicacion);
 
+    //Se incluye la plantilla como el innerHTML de la carta creada.
     nueva_carta.innerHTML = nueva_plantilla;
     contenedor_parqueos.appendChild(nueva_carta);
 
+    //Se conecta el evento click de la carta creada.
     nueva_carta.addEventListener('click', () => {
         mostrar_nombre_parqueo(p_parqueo.nombre);
     });
 };
 
+//Esta función se usa para mostrar las cartas de los parqueos existentes en la base de datos.
+//No recibe parámetros porque los muestra todos.
 const mostrar_parqueos = () => {
     for (let i = 1; i <= parqueos.cant_parqueos; i++) {
         let identificador_parqueo = ('parqueo_' + i);
