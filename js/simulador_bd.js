@@ -348,6 +348,8 @@ let usuarios = {
 
 };
 
+
+/*EMPRESAS*/
 let empresas = {
     lista_empresas: {
         empresa_1: {
@@ -371,83 +373,7 @@ let empresas = {
     }
 };
 
-let empleados_empresa_convenio = {
-    convenio1_empleados: {
-        cant_empleados: 5,
-        empleado1: {
-            id_empleado: '1',
-            correo_usuario: 'daniel@gmail.com',
-            nombre_empleado: 'Daniel'
-        },
-        empleado2: {
-            id_empleado: '2',
-            correo_usuario: 'david@gmail.com',
-            nombre_empleado: 'David'
-        },
-        empleado3: {
-            id_empleado: '3',
-            correo_usuario: 'taylor@gmail.com',
-            nombre_empleado: 'Taylor'
-        },
-        empleado4: {
-            id_empleado: '4',
-            correo_usuario: 'francis@gmail.com',
-            nombre_empleado: 'Francis'
-        },
-        empleado5: {
-            id_empleado: '5',
-            correo_usuario: 'xavier@gmail.com',
-            nombre_empleado: 'Xavier'
-        }
-    },
-    convenio2_empleados: {
-        cant_empleados: 5,
-        empleado1: {
-            id_empleado: '6',
-            correo_usuario: 'alberto@gmail.com',
-            nombre_empleado: 'Alberto'
-        },
-        empleado2: {
-            id_empleado: '7',
-            correo_usuario: 'benito@gmail.com',
-            nombre_empleado: 'Benito'
-        },
-        empleado3: {
-            id_empleado: '8',
-            correo_usuario: 'alfonso@gmail.com',
-            nombre_empleado: 'Alfonso'
-        },
-        empleado4: {
-            id_empleado: '9',
-            correo_usuario: 'ernesto@gmail.com',
-            nombre_empleado: 'Ernesto'
-        },
-        empleado5: {
-            id_empleado: '10',
-            correo_usuario: 'pedro@gmail.com',
-            nombre_empleado: 'Pedro'
-        }
-    },
-    convenio3_empleados: {
-        cant_empleados: 3,
-        empleado1: {
-            id_empleado: '11',
-            correo_usuario: 'juan@gmail.com',
-            nombre_empleado: 'Juan'
-        },
-        empleado2: {
-            id_empleado: '12',
-            correo_usuario: 'juan@gmail.com',
-            nombre_empleado: 'Christian'
-        },
-        empleado3: {
-            id_empleado: '13',
-            correo_usuario: 'alicia@gmail.com',
-            nombre_empleado: 'Alicia'
-        },
-
-    },
-};
+/*Convenios empresa con sus respectivos empleados*/
 
 let convenios_empresa = {
     cant_convenios: 3,
@@ -455,22 +381,95 @@ let convenios_empresa = {
         parqueo: parqueos.parqueo_1.nombre,
         codigo: empresas.lista_empresas.empresa_1.codigo_empresa,
         porcentaje_descuento: 15,
-        empleados_asociados: empleados_empresa_convenio.convenio1_empleados.cant_empleados,
-        fecha_vencimiento: '31/8/2020'
+        cant_empleados: 5,
+        fecha_vencimiento: '31/8/2020',
+        empleados: {
+            empleado1: {
+                id_empleado: '1',
+                correo_usuario: 'daniel@gmail.com',
+                nombre_empleado: 'Daniel'
+            },
+            empleado2: {
+                id_empleado: '2',
+                correo_usuario: 'david@gmail.com',
+                nombre_empleado: 'David'
+            },
+            empleado3: {
+                id_empleado: '3',
+                correo_usuario: 'taylor@gmail.com',
+                nombre_empleado: 'Taylor'
+            },
+            empleado4: {
+                id_empleado: '4',
+                correo_usuario: 'francis@gmail.com',
+                nombre_empleado: 'Francis'
+            },
+            empleado5: {
+                id_empleado: '5',
+                correo_usuario: 'xavier@gmail.com',
+                nombre_empleado: 'Xavier'
+            }
+        }
     },
+
     convenio2: {
         parqueo: parqueos.parqueo_2.nombre,
         codigo: empresas.lista_empresas.empresa_2.codigo_empresa,
         porcentaje_descuento: 10,
-        empleados_asociados: empleados_empresa_convenio.convenio2_empleados.cant_empleados,
-        fecha_vencimiento: '10/8/2020'
+        cant_empleados: 5,
+        fecha_vencimiento: '10/8/2020',
+        empleados: {
+            empleado1: {
+                id_empleado: '6',
+                correo_usuario: 'alberto@gmail.com',
+                nombre_empleado: 'Alberto'
+            },
+            empleado2: {
+                id_empleado: '7',
+                correo_usuario: 'benito@gmail.com',
+                nombre_empleado: 'Benito'
+            },
+            empleado3: {
+                id_empleado: '8',
+                correo_usuario: 'alfonso@gmail.com',
+                nombre_empleado: 'Alfonso'
+            },
+            empleado4: {
+                id_empleado: '9',
+                correo_usuario: 'ernesto@gmail.com',
+                nombre_empleado: 'Ernesto'
+            },
+            empleado5: {
+                id_empleado: '10',
+                correo_usuario: 'pedro@gmail.com',
+                nombre_empleado: 'Pedro'
+            }
+        },
     },
     convenio3: {
         parqueo: parqueos.parqueo_3.nombre,
         codigo: empresas.lista_empresas.empresa_3.codigo_empresa,
         porcentaje_descuento: 20,
-        empleados_asociados: empleados_empresa_convenio.convenio3_empleados.cant_empleados,
-        fecha_vencimiento: '15/8/2020'
+        cant_empleados: 3,
+        fecha_vencimiento: '15/8/2020',
+        empleados: {
+            empleado1: {
+                id_empleado: '11',
+                correo_usuario: 'juan@gmail.com',
+                nombre_empleado: 'Juan'
+            },
+            empleado2: {
+                id_empleado: '12',
+                correo_usuario: 'christian@gmail.com',
+                nombre_empleado: 'Christian'
+            },
+            empleado3: {
+                id_empleado: '13',
+                correo_usuario: 'alicia@gmail.com',
+                nombre_empleado: 'Alicia'
+            },
+
+        }
     }
 }
 

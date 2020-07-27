@@ -16,23 +16,18 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
     '<div class=\"contenedor-descuento\"> \n' +
     '<p>Descuento: [DESCUENTO]</p> \n' +
     '</div> \n' +
-    '<div class=\"contenedor-fecha-vencimiento\"> \n' +
-    '<a href=\"lista-usuarios-convenio.html\" onclick=\"return nombre_parqueo();\" >Lista de usuarios </a> \n' +
-    '</div> \n' +
-    '</div>';
-/*
-const nombre_parqueo = () => {
-    return '[PARQUEO]';
-}
-const mostrar_convenio = (p_nombre_parqueo) => {
-    console.log('Se ha seleccionado el parqueo: ' + p_nombre_parqueo);
-}
 
-mostrar_convenio(nombre_parqueo());
-*/
+    '</div>';
+
 
 const lista_convenios = convenios_empresa;
 
+
+/*
+let x = (l) => {
+    l = document.getElementById(this);
+
+}*/
 const crear_cuadro_convenio = () => {
     tabla_convenios.innerHTML = '';
     for (let x = 1; x <= convenios_empresa.cant_convenios; x++) {
@@ -49,27 +44,42 @@ const crear_cuadro_convenio = () => {
         //Reemplazar los datos en la plantilla por los recibidos como parámetros.
         nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', lista_convenios[identificador_convenio].parqueo);
         nueva_plantilla = nueva_plantilla.replace('[FECHA_VENCIMIENTO]', lista_convenios[identificador_convenio].fecha_vencimiento);
-        nueva_plantilla = nueva_plantilla.replace('[EMPLEADOS]', lista_convenios[identificador_convenio].empleados_asociados);
+        nueva_plantilla = nueva_plantilla.replace('[EMPLEADOS]', lista_convenios[identificador_convenio].cant_empleados);
         nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', lista_convenios[identificador_convenio].porcentaje_descuento);
+
+        //Link a lista de usuarios
+        let lista_usuarios = document.createElement('a');
+        lista_usuarios.href = "lista-usuarios-convenio.html";
+        lista_usuarios.id = lista_convenios[identificador_convenio].parqueo;
+        let parq = lista_convenios[identificador_convenio].parqueo;
+        //lista_usuarios.onclick = 
+        localStorage.setItem('id_convenio' + x, lista_convenios[identificador_convenio].parqueo);
+
+        //lista_usuarios.onclick = x(lista_usuarios);
+
+        lista_usuarios.innerText = 'Lista de usuarios';
+        nuevo_cuadro.insertAdjacentElement("beforeend", lista_usuarios);
+        console.log(lista_usuarios);
 
 
         nuevo_cuadro.innerHTML = nueva_plantilla;
+        nuevo_cuadro.appendChild(lista_usuarios);
         tabla_convenios.appendChild(nuevo_cuadro);
 
     }
 };
 crear_cuadro_convenio();
+console.log(localStorage.getItem('id_convenio'))
+    /*
+            //Valores quemados para probar.
+            crear_cuadro_convenio('PARQUEO 24', '24/07/2020', '16', '10');
+            crear_cuadro_convenio('EL parqueo', '23/07/2020', '20', '5');
+            crear_cuadro_convenio('Parqueo el parque', '29/07/2020', '50', '15');
 
-/*
-        //Valores quemados para probar.
-        crear_cuadro_convenio('PARQUEO 24', '24/07/2020', '16', '10');
-        crear_cuadro_convenio('EL parqueo', '23/07/2020', '20', '5');
-        crear_cuadro_convenio('Parqueo el parque', '29/07/2020', '50', '15');
-
-        crear_cuadro_convenio('PARQUEO 24', '24/07/2020', '16', '10');
-        crear_cuadro_convenio('EL parqueo', '23/07/2020', '20', '5');
-        crear_cuadro_convenio('Parqueo el parque', '29/07/2020', '50', '15');
-*/
+            crear_cuadro_convenio('PARQUEO 24', '24/07/2020', '16', '10');
+            crear_cuadro_convenio('EL parqueo', '23/07/2020', '20', '5');
+            crear_cuadro_convenio('Parqueo el parque', '29/07/2020', '50', '15');
+    */
 
 
 
@@ -118,4 +128,9 @@ crear_cuadro_convenio();
 
         }
     }
+    */
+/*
+'<div class=\"contenedor-lista-usuarios\"> \n' +
+    '<a href=\"lista-usuarios-convenio.html\" id="[PARQUEO]" >Lista de usuarios </a> \n' +
+    '</div> \n' +
     */
