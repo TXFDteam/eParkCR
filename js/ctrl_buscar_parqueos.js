@@ -80,7 +80,7 @@ const mostrar_parqueos = () => {
     for (let i = 1; i <= parqueos.cant_parqueos; i++) {
         let identificador_parqueo = ('parqueo_' + i);
         crear_carta_parqueo(parqueos[identificador_parqueo]);
-    }
+    };
 };
 
 mostrar_parqueos();
