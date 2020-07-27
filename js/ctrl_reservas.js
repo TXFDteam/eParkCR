@@ -23,7 +23,7 @@ const btn_hoja_siguiente = document.querySelector('#btn-hoja-siguiente');
 
 //#region Variables
 //Se define por fuera para ser usado en este script.
-let parqueo_actual = parqueos['parqueo_1'];
+let parqueo_actual;
 let info_espacio_seleccionado;
 let elemento_espacio_seleccionado;
 
@@ -142,9 +142,32 @@ const cambiar_piso = (i_piso_seleccionado) => {
     actualizar_espacios_mapa(piso);
 };
 
+const obtener_parqueo_actual = () => {
+    //Se obtiene la variable que se guardó anteriormente que define el nombre del parqueo seleccionado.
+    let nombre_parqueo_actual = localStorage.getItem('parqueo_seleccionado');
+
+    //Se busca el parqueo que posee ese nombre.
+    for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+        let identificador_parqueo = ('parqueo_' + i);
+        let nombre_parqueo = parqueos[identificador_parqueo].nombre;
+
+        if (nombre_parqueo == nombre_parqueo_actual) {
+            return identificador_parqueo;
+        }
+    }
+
+    return '';
+};
+
 //Esta función se debe llamar al inicio para actualizar los datos de la página usando datos del parqueo seleccionado.
 //<p_parqueo> El parqueo del que se va a obtener los datos.
 const llenar_info_parqueo = (p_parqueo) => {
+    parqueo_actual = p_parqueo;
+
+    if (parqueo_actual == '') {
+        return;
+    }
+
     lbl_nombre_parqueo.textContent = p_parqueo.nombre;
     lbl_calificacion_promedio.textContent = "Calificación promedio: " + p_parqueo.calificacion_promedio;
 
@@ -193,6 +216,8 @@ const mostrar_hoja_siguiente = () => {
     }
 };
 
+//Mostrar info del parqueo.
+parqueo_actual = parqueos[obtener_parqueo_actual()];
 llenar_info_parqueo(parqueo_actual);
 
 //Eventos.
