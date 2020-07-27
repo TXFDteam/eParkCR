@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/emp-formulario.css">
+    <title>Registrar empresa</title>
+</head>
+
+<body>
+    <main>
+
+        <div class="nav-principal">
+            <a href="" id="link-marca">Marca</a>
+            <div class="nav-derecha">
+                <a href="" id="link-registrarse">Registrarse</a>
+                <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+            </div>
+        </div>
+
+        <div class="emp-formulario-header">
+            <h1>Creá tu perfil de empresa</h1>
+            <p>Llena los datos de tu empresa para registrarte</p>
+
+        </div>
+
+        <div class="col-container">
+            <div class="col">
+
+                <label for='emp-registro-nombre'>Nombre de sociedad o persona dueña de parqueo</label><br>
+                <input type='text' id='emp-registro-nombre'><br>
+
+                <label for='emp-registro-nombreParqueo'>Nombre del parqueo</label><br>
+                <input type='text' id='emp-registro-contrasena'><br>
+
+                <label for='emp-registro-contrasena'>Contraseña</label><br>
+                <input type='password' id='emp-registro-contrasena'><br>
+
+                <legend>Tienes permiso activo de funcionamiento?</legend>
+                <input type="checkbox" id="emp-registro-permiso-yes" name="emp-registro-permiso" value="Yes">
+                <label for="emp-registro-permiso-yes" id="emp-registro-permiso-yes-label">Yes</label><br>
+                <input type="checkbox" id="emp-registro-no" name="emp-registro-permiso" value="No">
+                <label for="emp-registro-permiso-no" id="emp-registro-permiso-no-label">No</label><br>
+
+                <form id="emp-regsitro-formFinal">
+                    <label for="myFile">Adjunta una imagen de perfil de tu parqueo</label><br>
+                    <input type="file" id="myFile" name="filename"><br>
+                    <input type="submit" id="emp-registro-submitImage">
+                </form>
+
+
+                <div id="emp-registro-botones">
+                    <button type="button" id='btn-emp-registro-crearPerfil'>Crear Perfil</button>
+                    <button type="button" id='btn-emp-registro-yaTenesCuenta'>Ya tenés cuenta?</button>
+
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <label for='emp-registro-jurídica'>Cédula jurídica</label><br>
+                <input type='text' id='emp-registro-nombre'><br>
+
+                <label for='emp-registro-correo'>Correo electrónico</label><br>
+                <input type='email' id='emp-registro-correo'><br>
+
+                <label for='emp-registro-confirmaContrasena'>Confirmá tu contraseña</label><br>
+                <input type='password' id='emp-registro-confirmaContrasena'><br>
+
+                <h2>Ubicación</h2>
+                <label for='emp-registro-direccion'>Ingresá la ubicación de tu empresa</label><br>
+                <input type='text' placeholder="Provincia" id='emp-registro-direccion'><br>
+                <input type='text' placeholder="Cantón" id='emp-registro-direccion'><br>
+                <input type='text' placeholder="Distrito" id='emp-registro-direccion'><br>
+                <input type='text' placeholder="Dirección exacta" id='emp-registro-direccion'><br>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+    </main>
+
+
+
+</body>
+
+</html>
