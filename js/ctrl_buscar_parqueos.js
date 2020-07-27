@@ -1,7 +1,7 @@
 'use strict';
 
+//#region Constantes
 const contenedor_parqueos = document.querySelector('#sct-contenedor-carta-parqueos');
-
 const PLANTILLA_CARTA = '<div class=\"contenedor-superior\"> \n' +
     '<div class=\"contendor-info-parqueo\"> \n' +
     '<div class=\"contenedor-estado-parqueo\"> \n' +
@@ -19,16 +19,18 @@ const PLANTILLA_CARTA = '<div class=\"contenedor-superior\"> \n' +
     '</div> \n' +
     '</div> \n' +
     '</div>';
+//#endregion
 
 //Esta función se usa como prueba para mostrar el nombre del parqueo seleccionado.
 const mostrar_nombre_parqueo = (p_nombre_parqueo) => {
-        console.log('Se ha seleccionado el parqueo: ' + p_nombre_parqueo);
-    }
-    //Esta funcion se utiliza para crear cartas de parqueos de forma dinámica.
-    //<p_estado> Se espera recibir un string que contenga el estado del parqueo (abierto, cerrado)
-    //<p_calificacion> Se espera recibir un string que posea el número promedio de estrellas con las que fue calificado el parqueo.
-    //<p_nombre> Se espera recibir un string con el nombre del parqueo.
-    //<p_nombre> Se espera recibir un string con la ubicación del parqueo.
+    console.log('Se ha seleccionado el parqueo: ' + p_nombre_parqueo);
+}
+
+//Esta funcion se utiliza para crear cartas de parqueos de forma dinámica.
+//<p_estado> Se espera recibir un string que contenga el estado del parqueo (abierto, cerrado)
+//<p_calificacion> Se espera recibir un string que posea el número promedio de estrellas con las que fue calificado el parqueo.
+//<p_nombre> Se espera recibir un string con el nombre del parqueo.
+//<p_nombre> Se espera recibir un string con la ubicación del parqueo.
 const crear_carta_parqueo = (p_parqueo) => {
     let nueva_carta = document.createElement('div');
 
