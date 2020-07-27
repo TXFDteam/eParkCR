@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/CI_registro_usuarios.css">
+    <title>Registrar usuarios</title>
+</head>
+
+<body>
+    <main>
+        <div class="nav-principal">
+            <a href="" id="link-marca">Marca</a>
+            <div class="nav-derecha">
+                <a href="" id="link-registrarse">Registrarse</a>
+                <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+            </div>
+        </div>
+
+
+        <div id='CI-registro-usuarios-header'>
+            <h1>Creá tu usuario</h1>
+            <p id='CI-registro-usuarios-p'>Llená tus datos para registrarte</p>
+        </div>
+
+        <div class='CI-registro-usuarios-container'>
+            <div id='CI-registro-form-box1' class='CI-registro-column'>
+
+                <label for='CI-registro-nombre' class='CI-registro-form'>Nombre completo</label><br>
+                <input type='text' id='CI-registro-nombre' class='CI-registro-form'><br>
+
+                <div id='CI-registro-select'>
+                    <legend id='CI-registro-tipoID' class='CI-registro-form'>Tipo de identificación</legend>
+                    <input type="radio" name="ID" value="Cédula de identidad">Cédula de identidad<br>
+                    <input type="radio" name="ID" value="Cédula de residencia">Cédula de residencia<br>
+                    <input type="radio" name="ID" value="Pasaporte">Pasaporte<br>
+
+                </div>
+
+                <label for='CI-registro-contrasena' class='CI-registro-form'>Contraseña</label><br>
+                <input type='text' id='CI-registro-contrasena' class='CI-registro-form'>
+
+            </div>
+
+            <div id='CI-registro-form-box2' class='CI-registro-column'>
+
+                <label for='CI-registro-fecha' class='CI-registro-form'>Fecha de nacimiento</label><br>
+                <input type='date' id='CI-registro-fecha' class='CI-registro-form'><br>
+
+                <label for='CI-registro-ID' class='CI-registro-form'>Identificación</label><br>
+                <input type='text' id='CI-registro-ID' class='CI-registro-form'><br>
+
+                <label for='CI-registro-confirmarcontra' class='CI-registro-form'>Confirmar contraseña</label><br>
+                <input type='text' id='CI-registro-confirmarcontra' class='CI-registro-form'><br>
+
+            </div>
+
+        </div>
+
+        <div id='CI-registro-form-box3'>
+            <button type="button" id='btn-crearUsuario' class="btn">Crear usuario</button>
+            <button type="button" id='btn-yaTenesCuenta' class="btn">Ya tenés cuenta?</button>
+        </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="/js/cuentaComercialControlador.js"></script>
+
+</body>
+
+</html>

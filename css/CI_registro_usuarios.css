@@ -1,0 +1,106 @@
+/*Body*/
+
+h1 {
+    font-size: 40px;
+    margin: 120px 0 10px 0;
+    padding: 10px;
+}
+
+#CI-registro-usuarios-p {
+    width: 100%;
+}
+
+#CI-registro-usuarios-header {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+    /* ARREGLAR ERROR */
+    border: solid 0.1px transparent;
+}
+
+.CI-registro-usuarios-container {
+    display: flex;
+}
+
+.CI-registro-column {
+    flex: 1;
+}
+
+#CI-registro-form-box1 {
+    float: left;
+    width: 50%;
+    height: 300px;
+    padding: 20px 140px;
+}
+
+label {
+    margin: 20px 10px 5px 10px;
+}
+
+legend {
+    margin: 10px 10px 5px 10px;
+}
+
+#CI-registro-select {
+    margin: 10px;
+}
+
+input {
+    margin: 10px 10px 10px 10px;
+}
+
+#CI-registro-nombre {
+    width: 400px;
+    margin: 10px;
+}
+
+#CI-registro-contrasena {
+    width: 400px;
+    margin: 10px;
+}
+
+#CI-registro-fecha {
+    width: 400px;
+    margin: 10px;
+}
+
+#CI-registro-ID {
+    width: 400px;
+    margin: 10px 10px 86px 10px;
+}
+
+#CI-registro-confirmarcontra {
+    width: 400px;
+    margin: 10px;
+}
+
+#CI-registro-form-box2 {
+    float: right;
+    width: 50%;
+    height: 300px;
+    padding: 20px 80px;
+}
+
+#header-principal {
+    height: 40px;
+}
+
+#btn {
+    display: block;
+    width: 300px;
+}
+
+#CI-registro-form-box3 {
+    text-align: center;
+    padding: 20px;
+}
+
+#btn-crearUsuario {
+    margin-right: 5px;
+    width: 140px;
+}
+
+#btn-yaTenesCuenta {
+    margin-left: 5px;
+    width: 140px;
+}
