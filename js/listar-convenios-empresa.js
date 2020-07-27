@@ -29,6 +29,7 @@ const nombre_parqueo = (p_nombre_convenio) => {
 
     //Se redirige al html que muestra el perfil del parqueo.
     window.location.assign("lista-usuarios-convenio.html");
+
 };
 
 const crear_cuadro_convenio = (p_convenio) => {
@@ -45,7 +46,7 @@ const crear_cuadro_convenio = (p_convenio) => {
     nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', p_convenio.porcentaje_descuento);
 
     //Link a lista de usuarios
-    let lista_usuarios = document.createElement('p');
+    let lista_usuarios = document.createElement('a');
     //lista_usuarios.href = "lista-usuarios-convenio.html";
     lista_usuarios.id = p_convenio.parqueo;
     lista_usuarios.innerText = 'Lista de usuarios';

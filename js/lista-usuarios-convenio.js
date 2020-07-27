@@ -6,57 +6,13 @@ const plantilla_switch = '<form action=""> \n' +
     '</form>';*/
 
 
-/*
-function toggle(button) {
-    if (document.getElementById("btn-empleado1").value == "OFF") {
-        document.getElementById("1").value = "ON";
-    } else {
-        document.getElementById("1").value = "OFF";
-    }
-}*/
-
 const tabla_usuarios = document.querySelector('#tbl-usuarios tbody');
 
-/*
-let toggle = (button) => {
-    if (document.getElementById(lista_empleados[identificador_empleado].id_empleado).value == "Inactivo") {
-        document.getElementById(lista_empleados[identificador_empleado].id_empleado).value == "Activo";
-        console.log(document.getElementById(lista_empleados[identificador_empleado].id_empleado).value);
-    } else {
-        document.getElementById(lista_empleados[identificador_empleado].id_empleado).value == "Inactivo";
-    }
-};*/
 
 
 
 let conv = localStorage.getItem('convenio_seleccionado');
-let inputE = localStorage.getItem('input_seleccionado');
-console.log(conv);
-/*
-let toggle = (button) => {
-    if (document.getElementById(button) == "Inactivo") {
-        document.getElementById(button) == "Activo";
-        //console.log(document.getElementById(lista_empleados[identificador_empleado].id_empleado).value);
-    } else if (document.getElementById(button) == "Activo") {
-        document.getElementById(button) == "Inactivo";
-    }
-};*/
 
-
-const nombre_input = (p_nombre_input) => {
-    console.log('El input es: ' + p_nombre_input);
-
-    //Se guarda la variable que dice cuál parqueo se seleccionó.
-    localStorage.setItem('convenio_seleccionado', p_nombre_input);
-};
-
-let toggle = (button) => {
-    if (document.getElementById(button) == "Inactivo") {
-        document.getElementById(button) == "Activo";
-    } else if (document.getElementById(button) == "Activo") {
-        document.getElementById(button) == "Inactivo";
-    }
-}
 
 const listar_usuarios = (empleado) => {
 
@@ -70,9 +26,12 @@ const listar_usuarios = (empleado) => {
     btn_activar.id = "input" + empleado.id_empleado; //.id_empleado
 
     btn_activar.value = empleado.estado;
-    btn_activar.addEventListener('click', () => {
-        nombre_input(btn_activar.id);
-        toggle(inputE);
+    btn_activar.addEventListener('click', function() {
+        if (this.value == "INACTIVO") {
+            this.value = "ACTIVO";
+        } else if (this.value == "ACTIVO") {
+            this.value = "INACTIVO";
+        }
     });
     console.log(btn_activar.id);
 
@@ -120,10 +79,6 @@ let mostrar_usuarios = () => {
         for (let x = 1; x <= convEmpleados; x++) {
             //Esta variable determina el numero de empleado dentro del ciclo
             let identificador_empleado = ('empleado' + x);
-
-            console.log(document.getElementById('input' + idConvenio.empleados[identificador_empleado].id_empleado));
-
-            console.log()
 
             listar_usuarios(idConvenio.empleados[identificador_empleado]);
         }
