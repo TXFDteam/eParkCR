@@ -614,7 +614,7 @@ let convenios_empresa = {
                 id_empleado: usuarios.usuario13.id_usuario,
                 correo_usuario: usuarios.usuario13.correo_usuario,
                 nombre_empleado: usuarios.usuario13.nombre_usuario,
-                estado: usuarios.usuario13.estdo
+                estado: usuarios.usuario13.estado
             },
 
         }

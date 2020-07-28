@@ -12,7 +12,36 @@ const tabla_usuarios = document.querySelector('#tbl-usuarios tbody');
 
 const limite_usuarios_pagina = 20;
 
-const listar_usuarios = () => {
+const listar_usuarios = (empleado) => {
+
+    fila = tabla_usuarios.insertRow();
+    fila.insertCell().innerHTML = empleado.id_empleado;
+    fila.insertCell().innerHTML = empleado.nombre_empleado;
+
+    //Esto crea el botón para activar y desactivar un usuario
+    let btn_activar = document.createElement('input');
+    btn_activar.type = "button";
+    btn_activar.id = "input" + empleado.id_empleado;
+
+    btn_activar.value = empleado.estado;
+    btn_activar.addEventListener('click', function() {
+        if (this.value == "INACTIVO") {
+            this.value = "ACTIVO";
+        } else if (this.value == "ACTIVO") {
+            this.value = "INACTIVO";
+        }
+    });
+    console.log(btn_activar.id);
+
+
+    btn_activar.classList.add('estilo-btn-activar');
+
+    //fila.insertCell().innerHTML = btn_activar;
+
+    fila.appendChild(btn_activar);
+    tabla_usuarios.appendChild(fila);
+
+
 
 };
 
