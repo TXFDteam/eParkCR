@@ -35,10 +35,10 @@
             <div class="menu-lateral">
 
                 <a href="" id="primer-link">Inicio</a>
-                <a href="">Mis Parqueos</a>
-                <a href="">Facturación</a>
+                <a href="">Solicitudes de registro</a>
+                <a href="">Lista de usuarios</a>
                 <a href="">Reportes</a>
-                <a href="">Configuración de Cuenta</a>
+                <a href="">Configuración de cuenta</a>
                 <a href="" id="ultimo-link">X</a>
             </div>
 
@@ -59,21 +59,26 @@
 
                     <form id="editar-perfil">
                         <div>
-                            <label for="nombre-parqueo">Nombre de usuario:</label>
+                            <label for="nombre-administrador">Nombre de usuario:</label>
 
-                            <input type="text" id="nombre-parqueo" name="nombre-parqueo">
+                            <input type="text" id="nombre-administrador" name="nombre-administrador">
                         </div>
 
                         <div>
+                            <label for="telefono-administrador">Teléfono de contacto:</label>
 
-                            <label for="cuenta-bancaria-parqueo">Cuenta bancaria:</label>
-
-                            <input type="number" id="cuenta-bancaria-parqueo" name="cuenta-bancaria-parqueo">
+                            <input type="tel" id="telefono-administrador" name="telefono-administrador">
                         </div>
 
                         <div>
-                            <label for="foto-parqueo">Foto de perfil:</label>
-                            <input type="file" id="foto-parqueo" name="foto-parqueo" accept="image/png, image/jpeg">
+                            <label for="comision">Comisión a cobrar:</label>
+
+                            <input type="number" id="comision" name="comision"> <span>%</span>
+                        </div>
+
+                        <div>
+                            <label for="logo-administrador">Logo:</label>
+                            <input type="file" id="logo-administrador" name="logo-administrador" accept="image/png, image/jpeg">
                         </div>
                     </form>
 

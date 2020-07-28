@@ -36,8 +36,19 @@ body {
 }
 
 .info-perfil #editar-perfil div {
-    margin-left: 400px;
     font-size: 25px;
+    padding: 10px;
+}
+
+.info-perfil #editar-perfil div label {
+    display: inline-block;
+    width: 250px;
+}
+
+.info-perfil #editar-perfil div input {
+    display: inline-block;
+    width: 250px;
+    height: 25px;
 }
 
 #contenedor-perfil .botones {
