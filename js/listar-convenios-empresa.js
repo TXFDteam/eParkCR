@@ -71,17 +71,6 @@ let mostrar_convenios = () => {
 };
 mostrar_convenios();
 
-/*
-        //Valores quemados para probar.
-        crear_cuadro_convenio('PARQUEO 24', '24/07/2020', '16', '10');
-        crear_cuadro_convenio('EL parqueo', '23/07/2020', '20', '5');
-        crear_cuadro_convenio('Parqueo el parque', '29/07/2020', '50', '15');
-
-        crear_cuadro_convenio('PARQUEO 24', '24/07/2020', '16', '10');
-        crear_cuadro_convenio('EL parqueo', '23/07/2020', '20', '5');
-        crear_cuadro_convenio('Parqueo el parque', '29/07/2020', '50', '15');
-*/
-
 
 
 

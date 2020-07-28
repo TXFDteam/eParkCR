@@ -14,9 +14,32 @@ const tabla_usuarios = document.querySelector('#tbl-usuarios tbody');
 let conv = localStorage.getItem('convenio_seleccionado');
 
 
+
+
+let fila;
+/*
+let arreglo_nuevo = (item => {
+    for(item of emp){
+    if (item.estado == "INACTIVO") {
+        
+    } else if (item.estado == "ACTIVO") {
+        return { estado: 'INACTIVO' };
+    }
+}
+});*/
+
+/*
+let arreglo_nuevo = convenios_empresa.map( item =>{
+    if (item.estado == "INACTIVO") {
+        item.estado = "ACTIVO";
+    } else if (item.estado == "ACTIVO") {
+        this.value = "INACTIVO";
+    }
+});*/
+
 const listar_usuarios = (empleado) => {
 
-    let fila = tabla_usuarios.insertRow();
+    fila = tabla_usuarios.insertRow();
     fila.insertCell().innerHTML = empleado.id_empleado;
     fila.insertCell().innerHTML = empleado.nombre_empleado;
 
@@ -77,6 +100,7 @@ let mostrar_usuarios = () => {
     //Este if crea la lista de usuarios si el codigo de convenio es el mismo
     if (det = true) {
         for (let x = 1; x <= convEmpleados; x++) {
+
             //Esta variable determina el numero de empleado dentro del ciclo
             let identificador_empleado = ('empleado' + x);
 

@@ -54,7 +54,7 @@
 table {
     margin-top: 5%;
     border-collapse: collapse;
-    width: 1000px;
+    width: 900px;
     height: 430px;
 }
 
@@ -62,6 +62,14 @@ table th {
     padding: 10px;
     font-size: 20px;
     background-color: #ced6e0;
+}
+
+#tbl-usuarios tbody tr:nth-child(even) {
+    background-color: #dfe4ea;
+}
+
+#tbl-usuarios tbody tr:nth-child(odd) {
+    background-color: #f1f2f6;
 }
 
 

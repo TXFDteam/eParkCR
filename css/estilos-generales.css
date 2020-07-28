@@ -26,3 +26,18 @@ a {
 * {
     box-sizing: border-box;
 }
+
+
+/*Este estilo general es para las tablas que cambian de color cada fila*/
+
+.estilo-tabla thead {
+    background-color: #ced6e0;
+}
+
+.estilo-tabla tr:nth-child(even) {
+    background-color: #dfe4ea;
+}
+
+.estilo-tabla tr:nth-child(odd) {
+    background-color: #f1f2f6;
+}
