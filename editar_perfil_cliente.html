@@ -35,10 +35,10 @@
             <div class="menu-lateral">
 
                 <a href="" id="primer-link">Inicio</a>
-                <a href="">Mis Parqueos</a>
-                <a href="">Facturación</a>
+                <a href="">Solicitudes de registro</a>
+                <a href="">Lista de usuarios</a>
                 <a href="">Reportes</a>
-                <a href="">Configuración de Cuenta</a>
+                <a href="">Configuración de cuenta</a>
                 <a href="" id="ultimo-link">X</a>
             </div>
 
@@ -59,21 +59,28 @@
 
                     <form id="editar-perfil">
                         <div>
-                            <label for="nombre-parqueo">Nombre de usuario:</label>
+                            <label for="nombre-cliente">Nombre de usuario:</label>
 
-                            <input type="text" id="nombre-parqueo" name="nombre-parqueo">
+                            <input type="text" id="nombre-cliente" name="nombre-cliente">
                         </div>
 
+
                         <div>
+                            <label for="tarjeta-credito-cliente">Tarjeta de crédito:</label>
 
-                            <label for="cuenta-bancaria-parqueo">Cuenta bancaria:</label>
+                            <select name="tarjeta-credito-cliente" id="tarjeta-credito-cliente"><span>%</span>
+                                <option value = "">Seleccione</option>
+                                <option value = "0">**** **** **** 3805</option>
 
-                            <input type="number" id="cuenta-bancaria-parqueo" name="cuenta-bancaria-parqueo">
+
+                                <!--Para este selector, se utilizará un arreglo con las opciones de tarjetas de crédito que el cliente tenga guardadas-->
+                            </select>
                         </div>
 
+
                         <div>
-                            <label for="foto-parqueo">Foto de perfil:</label>
-                            <input type="file" id="foto-parqueo" name="foto-parqueo" accept="image/png, image/jpeg">
+                            <label for="foto-cliente">Logo:</label>
+                            <input type="file" id="foto-cliente" name="foto-cliente" accept="image/png, image/jpeg">
                         </div>
                     </form>
 
