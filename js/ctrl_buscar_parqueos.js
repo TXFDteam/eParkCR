@@ -22,8 +22,14 @@ const PLANTILLA_CARTA = '<div class=\"contenedor-superior\"> \n' +
 //#endregion
 
 //Esta función se usa como prueba para mostrar el nombre del parqueo seleccionado.
-const mostrar_nombre_parqueo = (p_nombre_parqueo) => {
+const abrir_perfil_parqueo = (p_nombre_parqueo) => {
     console.log('Se ha seleccionado el parqueo: ' + p_nombre_parqueo);
+
+    //Se guarda la variable que dice cuál parqueo se seleccionó.
+    localStorage.setItem('parqueo_seleccionado', p_nombre_parqueo);
+
+    //Se redirige al html que muestra el perfil del parqueo.
+    window.location.assign("reservas_perfil_parqueo.html");
 }
 
 //Esta funcion se utiliza para crear cartas de parqueos de forma dinámica.
@@ -64,7 +70,7 @@ const crear_carta_parqueo = (p_parqueo) => {
 
     //Se conecta el evento click de la carta creada.
     nueva_carta.addEventListener('click', () => {
-        mostrar_nombre_parqueo(p_parqueo.nombre);
+        abrir_perfil_parqueo(p_parqueo.nombre);
     });
 };
 
@@ -74,7 +80,7 @@ const mostrar_parqueos = () => {
     for (let i = 1; i <= parqueos.cant_parqueos; i++) {
         let identificador_parqueo = ('parqueo_' + i);
         crear_carta_parqueo(parqueos[identificador_parqueo]);
-    }
+    };
 };
 
 mostrar_parqueos();

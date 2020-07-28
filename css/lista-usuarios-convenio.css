@@ -18,10 +18,18 @@
 
 #tbl-usuarios {
     margin-left: 3%;
-    width: 700px;
     border-collapse: collapse;
+    width: 700px;
 }
 
 table td {
     padding: 10px;
+}
+
+table td input {
+    padding: 10px;
+}
+
+.estilo-btn-activar {
+    margin: 5px;
 }
