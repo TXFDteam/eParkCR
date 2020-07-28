@@ -4,13 +4,55 @@
 //--------------Reseñas----------------
 //-------------------------------------
 let comentarios = {
-    total_comentarios: 1,
+    total_comentarios: 7,
     comentario_1: {
         id_usuario: '1',
         id_parqueo: '11291',
         cantidad_estrellas: 5,
         fecha: '20/06/2020',
-        mensaje: 'Uh, excelente parqueo'
+        mensaje: 'Oh por Dios, este es de los mejores parqueos que he visitado, totalmente recomendado, la seguridad es excelente y hay suficiente espacio para todos los clientes!!'
+    },
+    comentario_2: {
+        id_usuario: '2',
+        id_parqueo: '11232',
+        cantidad_estrellas: 1,
+        fecha: '12/05/2020',
+        mensaje: 'No me gustó, este parqueo es horrible, no le pongo 0 estrellas porque no se puede >:('
+    },
+    comentario_3: {
+        id_usuario: '3',
+        id_parqueo: '11291',
+        cantidad_estrellas: 4,
+        fecha: '20/06/2020',
+        mensaje: 'Me encantó este parqueo, cuidaron muy bien de mi carrito, pero ese día me quedé varado entonces por eso no le pongo 5 estrellas'
+    },
+    comentario_4: {
+        id_usuario: '4',
+        id_parqueo: '11232',
+        cantidad_estrellas: 5,
+        fecha: '18/04/2020',
+        mensaje: 'Muy bueno'
+    },
+    comentario_5: {
+        id_usuario: '5',
+        id_parqueo: '11232',
+        cantidad_estrellas: 3,
+        fecha: '12/06/2020',
+        mensaje: 'Muy buen parqueo, pero la seguridad en general apesta, rayaron mi auto!'
+    },
+    comentario_6: {
+        id_usuario: '6',
+        id_parqueo: '111921',
+        cantidad_estrellas: 4,
+        fecha: '12/06/2020',
+        mensaje: 'Excelente parqueo'
+    },
+    comentario_7: {
+        id_usuario: '7',
+        id_parqueo: '111921',
+        cantidad_estrellas: 5,
+        fecha: '20/06/2020',
+        mensaje: 'Me gustó bastante, muy recomendado'
     }
 }
 

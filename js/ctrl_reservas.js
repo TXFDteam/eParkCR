@@ -2,9 +2,30 @@
 
 //#region Constantes.
 //Elementos que van a cambiar basado en los datos del parqueo.
+const plantilla_carta_comentario =
+    '<div id="contenedor-superior">\n' +
+    '<div id="info-usuario">\n' +
+    '<div id="foto-usuario"></div>\n' +
+
+    '<div id="contenedor-nombre-fecha">\n' +
+    '<h3>[NOMBRE_USUARIO]</h3>\n' +
+    '<p>[FECHA_COMENTARIO]</p>\n' +
+    '</div>\n' +
+    '</div>\n' +
+
+    '<div id="contenedor-calificacion">\n' +
+    '<p>[CALIFICACION]</p>\n' +
+    '</div>\n' +
+    '</div>\n' +
+
+    '<div id="contenedor-mensaje">\n' +
+    '<p>[MENSAJE]</p>\n' +
+    '</div>';
+
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
 const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
 const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
+const contenedor_comentarios = document.querySelector('#contenedor-comentarios');
 
 //Elementos para el form de la reserva.
 const txt_estado_espacio = document.querySelector('#ESTADO_ESPACIO');
@@ -221,20 +242,51 @@ const mostrar_hoja_siguiente = () => {
 //#endregion
 
 //#region Comentarios
-const crear_carta_comentario = (p_comentario) => {
+const obtener_nombre_usuario_en_comentario = (p_id) => {
+    for (let i = 1; i < usuarios.cant_usuarios; i++) {
+        let identificador = ('usuario' + i);
+        let usuario_actual = usuarios[identificador];
+        if (usuario_actual.id_usuario == p_id) {
+            return usuario_actual.nombre_usuario;
+        }
+    }
+};
 
+const crear_carta_comentario = (p_comentario) => {
+    let nueva_carta = document.createElement('div');
+    nueva_carta.classList.add('carta-comentario');
+
+    let nueva_plantilla = plantilla_carta_comentario;
+
+    let nombre_usuario = obtener_nombre_usuario_en_comentario(p_comentario.id_usuario);
+    nueva_plantilla = nueva_plantilla.replace('[NOMBRE_USUARIO]', nombre_usuario);
+    nueva_plantilla = nueva_plantilla.replace('[FECHA_COMENTARIO]', p_comentario.fecha);
+    nueva_plantilla = nueva_plantilla.replace('[CALIFICACION]', ('Calificación: ' + p_comentario.cantidad_estrellas));
+    nueva_plantilla = nueva_plantilla.replace('[MENSAJE]', p_comentario.mensaje);
+
+    nueva_carta.innerHTML = nueva_plantilla;
+
+    contenedor_comentarios.appendChild(nueva_carta);
 };
 
 const obtener_comentarios = () => {
+    for (let i = 1; i <= comentarios.total_comentarios; i++) {
+        let identificador = ('comentario_' + i);
+        let comentario_actual = comentarios[identificador];
 
+        //Muestra solo los comentarios que corresponden a este parqueo.
+        if (comentario_actual.id_parqueo == parqueo_actual.codigo) {
+            crear_carta_comentario(comentario_actual);
+        }
+    }
 };
-
 //#endregion
 
 
 //Mostrar info del parqueo.
 parqueo_actual = parqueos[obtener_parqueo_actual()];
 llenar_info_parqueo(parqueo_actual);
+obtener_comentarios();
 
 //Eventos.
 slt_piso_actual.addEventListener('change', piso_actual_cambiado);
