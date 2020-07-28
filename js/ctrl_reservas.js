@@ -34,6 +34,8 @@ let cant_hoja_piso = 1;
 let hoja_actual_piso = 1;
 //#endregion
 
+//#region lógica para reservas
+
 //Esta función se usa para actualizar la información del espacio basado en el que se seleccionó.
 //<p_info_espacio> JSON del espacio seleccionado.
 //<p_espacio_elemento> referencia al elemento html que se seleccionó.
@@ -215,6 +217,20 @@ const mostrar_hoja_siguiente = () => {
         cambiar_hoja();
     }
 };
+
+//#endregion
+
+//#region Comentarios
+const crear_carta_comentario = (p_comentario) => {
+
+};
+
+const obtener_comentarios = () => {
+
+};
+
+//#endregion
+
 
 //Mostrar info del parqueo.
 parqueo_actual = parqueos[obtener_parqueo_actual()];
