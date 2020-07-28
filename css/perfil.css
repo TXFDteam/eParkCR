@@ -53,14 +53,16 @@ body {
     width: 60%;
 }
 
-#contenedor-perfil .boton-editar {
+#contenedor-perfil .botones {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 50px;
 }
 
-#contenedor-perfil .boton-editar button {
+#contenedor-perfil .botones button {
     background-color: white;
+    margin-top: 20px;
     box-shadow: none;
     height: 40px;
     width: 160px;
