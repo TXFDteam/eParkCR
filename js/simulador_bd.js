@@ -16,6 +16,7 @@ let parqueos = {
         ubicacion: 'San José',
         calificacion_promedio: 5,
         abierto: false,
+        estado: 'ACTIVO',
         cant_pisos: 1,
         pisos: {
             piso_1: {
@@ -202,6 +203,7 @@ let parqueos = {
         ubicacion: 'San José',
         calificacion_promedio: 4.7,
         abierto: true,
+        estado: 'ACTIVO',
         cant_pisos: 2,
         pisos: {
             piso_1: {
@@ -283,6 +285,7 @@ let parqueos = {
         ubicacion: 'San José',
         calificacion_promedio: 3.85,
         abierto: true,
+        estado: 'ACTIVO',
         cant_pisos: 1,
         pisos: {
             piso_1: {
@@ -345,135 +348,148 @@ let parqueos = {
 
 //USUARIOS------------------
 let usuarios = {
+    cant_usuarios: 13,
     usuario1: {
         id_usuario: '1',
         correo_usuario: 'daniel@gmail.com',
-        nombre_usuario: 'Daniel',
-        apellidos_usuario: 'z r',
+        nombre_usuario: 'Daniel Z R',
+
         n_identificacion: '11811',
         fecha_nacimiento: '27/01/2001',
         contraseña: '11111111',
-        estado: 'ACTIVO'
+        estado: 'ACTIVO', //Este estado es de convenios
+        estado_general: 'ACTIVO' //Este estado es el de la aplicación
     },
     usuario2: {
         id_usuario: '2',
         correo_usuario: 'david@gmail.com',
-        nombre_usuario: 'David',
-        apellidos_usuario: 'b b',
+        nombre_usuario: 'David B B',
+
         n_identificacion: '11812',
         fecha_nacimiento: '20/04/2001',
         contraseña: '111111117',
-        estado: 'INACTIVO'
+        estado: 'INACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario3: {
         id_usuario: '3',
         correo_usuario: 'taylor@gmail.com',
-        nombre_usuario: 'Taylor',
-        apellidos_usuario: 's v',
+        nombre_usuario: 'Taylor S V',
+
         n_identificacion: '11813',
         fecha_nacimiento: '18/08/1998',
         contraseña: '11111111254',
-        estado: 'ACTIVO'
+        estado: 'ACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario4: {
         id_usuario: '4',
         correo_usuario: 'francis@gmail.com',
-        nombre_usuario: 'Francis',
-        apellidos_usuario: 'vS',
+        nombre_usuario: 'Francis vS',
         n_identificacion: '11814',
         fecha_nacimiento: '27/05/2000',
         contraseña: '111111111465',
-        estado: 'INACTIVO'
+        estado: 'INACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario5: {
         id_usuario: '5',
         correo_usuario: 'xavier@gmail.com',
-        nombre_usuario: 'Xavier',
-        apellidos_usuario: 'l c',
+        nombre_usuario: 'Xavier L C',
+
         n_identificacion: '11815',
         fecha_nacimiento: '27/01/1995',
         contraseña: '1111111174',
-        estado: 'ACTIVO'
+        estado: 'ACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario6: {
         id_usuario: '6',
         correo_usuario: 'alberto@gmail.com',
-        nombre_usuario: 'Alberto',
-        apellidos_usuario: 'm r',
+        nombre_usuario: 'Alberto M R',
+
         n_identificacion: '11816',
         fecha_nacimiento: '27/01/1997',
         contraseña: '1111111123',
-        estado: 'INACTIVO'
+        estado: 'INACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario7: {
         id_usuario: '7',
         correo_usuario: 'benito@gmail.com',
-        nombre_usuario: 'Benito',
-        apellidos_usuario: 'r h',
+        nombre_usuario: 'Benito R H',
+
         n_identificacion: '11817',
         fecha_nacimiento: '27/01/1980',
         contraseña: '111111187',
-        estado: 'ACTIVO'
+        estado: 'ACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario8: {
         id_usuario: '8',
         correo_usuario: 'alfonso@gmail.com',
-        nombre_usuario: 'Alfonso',
-        apellidos_usuario: 'z t',
+        nombre_usuario: 'Alfonso Z T',
+
         n_identificacion: '11818',
         fecha_nacimiento: '27/08/1998',
         contraseña: '111111182',
-        estado: 'ACTIVO'
+        estado: 'ACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario9: {
         id_usuario: '9',
         correo_usuario: 'ernesto@gmail.com',
-        nombre_usuario: 'Ernesto',
-        apellidos_usuario: 'o p',
+        nombre_usuario: 'Ernesto O P',
+
         n_identificacion: '11819',
         fecha_nacimiento: '27/7/1990',
         contraseña: '111115555',
-        estado: 'ACTIVO'
+        estado: 'ACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario10: {
         id_usuario: '10',
         correo_usuario: 'pedro@gmail.com',
-        nombre_usuario: 'Pedro',
-        apellidos_usuario: 'z q',
+        nombre_usuario: 'Pedro Z Q',
+
         n_identificacion: '11819',
         fecha_nacimiento: '10/01/1999',
         contraseña: '111111956',
-        estado: 'INACTIVO'
+        estado: 'INACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario11: {
         id_usuario: '11',
         correo_usuario: 'juan@gmail.com',
-        nombre_usuario: 'Juan',
-        apellidos_usuario: 'a v',
+        nombre_usuario: 'Juan A V',
+
         n_identificacion: '118110',
         fecha_nacimiento: '21/04/2001',
         contraseña: '111119644',
-        estado: 'INACTIVO'
+        estado: 'INACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario12: {
         id_usuario: '12',
         correo_usuario: 'christian@gmail.com',
-        nombre_usuario: 'Christian',
-        apellidos_usuario: 'z r',
+        nombre_usuario: 'Christian Z R',
+
         n_identificacion: '118112',
         fecha_nacimiento: '22/04/1996',
         contraseña: '111111784',
-        estado: 'ACTIVO'
+        estado: 'ACTIVO',
+        estado_general: 'ACTIVO'
     },
     usuario13: {
         id_usuario: '13',
         correo_usuario: 'alicia@gmail.com',
-        nombre_usuario: 'Alicia',
-        apellidos_usuario: 'g l',
+        nombre_usuario: 'Alicia G L',
+
         n_identificacion: '1181113',
         fecha_nacimiento: '04/8/1993',
         contraseña: '111111245',
-        estado: 'INACTIVO'
+        estado: 'INACTIVO',
+        estado_general: 'ACTIVO'
     },
 
 };
@@ -481,24 +497,28 @@ let usuarios = {
 
 /*EMPRESAS*/
 let empresas = {
+    cant_empresas: 3,
     lista_empresas: {
         empresa_1: {
             correo_empresa: 'x1@gmail.com',
             cedula_empresa: '111',
             nombre_empresa: 'Adidas',
-            codigo_empresa: '100'
+            codigo_empresa: '100',
+            estado: 'ACTIVO'
         },
         empresa_2: {
             correo_empresa: 'x2@gmail.com',
             cedula_empresa: '112',
             nombre_empresa: 'Banco Nacional',
-            codigo_empresa: '101'
+            codigo_empresa: '101',
+            estado: 'INACTIVO'
         },
         empresa_3: {
             correo_empresa: 'x1@gmail.com',
             cedula_empresa: '113',
             nombre_empresa: 'Banco popular',
-            codigo_empresa: '102'
+            codigo_empresa: '102',
+            estado: 'ACTIVO'
         }
     }
 };

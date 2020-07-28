@@ -30,14 +30,23 @@ a {
 
 /*Este estilo general es para las tablas que cambian de color cada fila*/
 
-.estilo-tabla thead {
-    background-color: #ced6e0;
+.estilo-header {
+    background-color: #a4b0be;
 }
 
+
+/*
 .estilo-tabla tr:nth-child(even) {
     background-color: #dfe4ea;
 }
 
 .estilo-tabla tr:nth-child(odd) {
     background-color: #f1f2f6;
+}*/
+
+
+/*BOTON DE ACTIVACION DE USUARIOS*/
+
+.estilo-btn-activar {
+    margin: 5px;
 }

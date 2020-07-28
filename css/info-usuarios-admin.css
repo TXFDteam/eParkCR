@@ -30,7 +30,7 @@
 
 .control-pagina {
     display: inline-flex;
-    margin-top: 38%;
+    margin-top: 10%;
     border: 0.5px solid black;
 }
 
@@ -54,31 +54,34 @@
 table {
     margin-top: 5%;
     border-collapse: collapse;
-    width: 900px;
-    height: 430px;
+    width: 1000px;
 }
 
-table th {
-    padding: 10px;
-    font-size: 20px;
-    background-color: #ced6e0;
+#tabla-usuarios td {
+    padding: 5px;
 }
 
-#tbl-usuarios tbody tr:nth-child(even) {
-    background-color: #dfe4ea;
+#tabla-usuarios thead {
+    background-color: #a4b0be;
 }
 
-#tbl-usuarios tbody tr:nth-child(odd) {
+#tabla-usuarios tr:nth-child(even) {
     background-color: #f1f2f6;
+}
+
+#tabla-usuarios tr:nth-child(odd) {
+    background-color: #ced6e0;
 }
 
 
 /* Grises: #f1f2f6 #dfe4ea #ced6e0 #a4b0be*/
 
+
+/*
 table td {
     padding: 10px;
     background-color: #f1f2f6;
-}
+}*/
 
 
 /*CLASE HOVER*/
