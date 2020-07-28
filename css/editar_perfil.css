@@ -5,15 +5,13 @@ body {
 #contenedor-perfil {
     display: flex;
     flex-direction: row;
-    height: 980px;
-    margin-top: 120px;
 }
 
 .contenedor-info-perfil {
     width: 82%;
-    height: 980px;
-    border: 2px solid black;
+    margin-top: 120px;
     text-align: center;
+    margin-left: 18%;
 }
 
 .perfil-superior {
