@@ -1,3 +1,7 @@
+body {
+    margin: 0px;
+}
+
 #contenedor-perfil {
     display: flex;
     flex-direction: row;
@@ -23,38 +27,33 @@
     font-size: 30px;
 }
 
-#contenedor-perfil .foto-perfil {
-    height: 170px;
-    width: 170px;
-    border-radius: 50%;
-    border: 1px solid black;
-}
-
 .info-perfil {
     display: flex;
     margin-top: 5%;
 }
 
-.info-perfil .perfil-izquierda {
-    width: 40%;
+.info-perfil #editar-perfil {
+    width: 100%;
+    text-align: left;
 }
 
-.info-perfil .perfil-izquierda {
-    width: 60%;
+.info-perfil #editar-perfil div {
+    margin-left: 400px;
+    font-size: 25px;
 }
 
 #contenedor-perfil .botones {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
 #contenedor-perfil .botones button {
     background-color: white;
     margin-top: 20px;
     box-shadow: none;
-    height: 40px;
-    width: 160px;
+    height: 50px;
+    width: 180px;
     font-size: 20px;
 }
