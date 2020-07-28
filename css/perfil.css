@@ -5,7 +5,6 @@ body {
 #contenedor-perfil {
     display: flex;
     flex-direction: row;
-    width: 1920px;
     height: 980px;
 }
 
@@ -14,12 +13,6 @@ body {
     height: 980px;
     border: 2px solid black;
     text-align: center;
-}
-
-.menu-lateral {
-    width: 20%;
-    height: 980px;
-    border: 2px solid black;
 }
 
 .perfil-superior {
@@ -57,7 +50,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 #contenedor-perfil .botones button {
