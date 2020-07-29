@@ -325,12 +325,9 @@ const fechas_correctas = () => {
     //Primero comprueba el año.
     if (anno_entrada <= anno_salida) {
         //Luego comprueba si el mes es válido.
-        console.log('Año valido.')
         if (mes_entrada == mes_salida) {
-            console.log('Mes valido.');
             //Si el mes es el mismo verifica que el día de entrada sea menor al de salida.
             if (dia_entrada == dia_salida) {
-                console.log('Dia valido.');
                 //Verifica que las hora de entrada y salida sean válidas
                 if (horas_correctas()) {
                     correcto = true;
