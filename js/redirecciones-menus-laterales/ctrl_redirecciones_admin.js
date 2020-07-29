@@ -87,3 +87,7 @@ info_usuarios_admin.addEventListener('click', function() {
     info_usuarios_admin.href = '../../html/htmls-admin/info-usuarios-admin.html';
     marcar_link(info_usuarios_admin);
 });
+historial_reservas.addEventListener('click', function() {
+    historial_reservas.href = '../../html/htmls-admin/historial-reservas-admin.html';
+    marcar_link(historial_reservas);
+});
