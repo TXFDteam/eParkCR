@@ -22,12 +22,18 @@ const plantilla_carta_comentario =
     '<p>[MENSAJE]</p>\n' +
     '</div>';
 
+//Quemado para pruebas.
+const usuario_ingresado = usuarios['usuario1'];
+let comentario_usuario_ingresado;
+
 //Elementos usados para la creación y modificación de comentarios.
 const ventana_crear_comentario = document.querySelector('.sct-crear-comentario');
 const btn_cerrar_ventana_comentario = document.querySelector('#btn-salir');
 const btn_crear_modificar_comentario = document.querySelector('#btn-opcion-comentario');
 const btn_publicar_comentario = document.querySelector('#btn-publicar');
 const txt_comentarios_nombre_parqueo = document.querySelector('#nombre-parqueo');
+const ventana_crear_comentario_mensaje = document.querySelector('#txt-mensaje');
+const ventana_crear_comentario_slt_calificacion = document.querySelector('#slt-calificacion');
 
 //Información del parqueo.
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
@@ -286,6 +292,13 @@ const obtener_comentarios = () => {
 
         //Muestra solo los comentarios que corresponden a este parqueo.
         if (comentario_actual.id_parqueo == parqueo_actual.codigo) {
+            //Guardar una copia del comentario que dejó el usuario en este parqueo.
+            if (comentario_actual.id_usuario == usuario_ingresado.id_usuario) {
+                console.log('Ya hay un comentario realizado por este usuario.');
+                comentario_usuario_ingresado = comentarios[identificador];
+                btn_crear_modificar_comentario.textContent = 'Modificar reseña';
+            }
+
             crear_carta_comentario(comentario_actual);
         }
     }
@@ -293,6 +306,10 @@ const obtener_comentarios = () => {
 
 
 const mostrar_ventana_crear_comentario = () => {
+    //Agregar datos del comentario que dejó el usuario anteriormente si lo hay.
+    if (comentario_usuario_ingresado != null) {
+        ventana_crear_comentario_mensaje.textContent = comentario_usuario_ingresado.mensaje;
+    }
     ventana_crear_comentario.classList.remove('oculto');
 };
 
