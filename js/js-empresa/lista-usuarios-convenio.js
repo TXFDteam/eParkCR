@@ -17,25 +17,7 @@ let conv = localStorage.getItem('convenio_seleccionado');
 
 
 let fila;
-/*
-let arreglo_nuevo = (item => {
-    for(item of emp){
-    if (item.estado == "INACTIVO") {
-        
-    } else if (item.estado == "ACTIVO") {
-        return { estado: 'INACTIVO' };
-    }
-}
-});*/
 
-/*
-let arreglo_nuevo = convenios_empresa.map( item =>{
-    if (item.estado == "INACTIVO") {
-        item.estado = "ACTIVO";
-    } else if (item.estado == "ACTIVO") {
-        this.value = "INACTIVO";
-    }
-});*/
 
 const listar_usuarios = (empleado) => {
 
@@ -52,9 +34,13 @@ const listar_usuarios = (empleado) => {
     btn_activar.addEventListener('click', function() {
         if (this.value == "INACTIVO") {
             this.value = "ACTIVO";
-        } else if (this.value == "ACTIVO") {
+            empleado.estado = "ACTIVO";
+        } else
+        if (this.value == "ACTIVO") {
             this.value = "INACTIVO";
+            empleado.estado = "INACTIVO";
         }
+        localStorage.setItem('convenios_empresa', JSON.stringify(convenios_empresa));
     });
     console.log(btn_activar.id);
 
@@ -80,6 +66,10 @@ let mostrar_usuarios = () => {
     let convEmpleados;
     //Variable que tiene el numero de convenio en que se encuentra el código de convenio del convenio seleccionado en el cuadro de convenios.
     let idConvenio;
+
+    if (localStorage.getItem('convenios_empresa')) {
+        convenios_empresa = JSON.parse(localStorage.getItem('convenios_empresa'));
+    };
 
     for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
         let identificador_convenio = ('convenio' + i);

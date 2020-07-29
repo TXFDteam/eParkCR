@@ -28,26 +28,6 @@
     background-color: #fff;
 }
 
-.control-pagina {
-    display: inline-flex;
-    margin-top: 10%;
-    border: 0.5px solid black;
-}
-
-.control-pagina button {
-    background-color: #fff;
-    height: 40px;
-    width: 45px;
-    border: none;
-}
-
-.control-pagina p {
-    height: 40px;
-    width: 40px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-}
-
 
 /*Tabla*/
 
@@ -58,18 +38,18 @@ table {
 }
 
 #tabla-usuarios td {
-    padding: 5px;
+    padding: 10px;
 }
 
 #tabla-usuarios thead {
     background-color: #a4b0be;
 }
 
-#tabla-usuarios tr:nth-child(even) {
+#tabla-usuarios tbody tr:nth-child(even) {
     background-color: #f1f2f6;
 }
 
-#tabla-usuarios tr:nth-child(odd) {
+#tabla-usuarios tbody tr:nth-child(odd) {
     background-color: #ced6e0;
 }
 

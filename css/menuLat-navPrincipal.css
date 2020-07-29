@@ -65,3 +65,22 @@ body a {
 .clicked-on:hover {
     color: #70a1ff;
 }
+
+
+/*ESTILOS PARA CADA TIPO DE MENU SEGUN EL USUARIO*/
+
+
+/*Usuario normal*/
+
+
+/*Dueño parqueo*/
+
+
+/*EMPRESA*/
+
+
+/*ADMIN*/
+
+#inicio-admin {
+    margin-top: 35%;
+}

@@ -418,7 +418,6 @@ let usuarios = {
         n_identificacion: '11811',
         fecha_nacimiento: '27/01/2001',
         contraseña: '11111111',
-        estado: 'ACTIVO', //Este estado es de convenios
         estado_general: 'ACTIVO' //Este estado es el de la aplicación
     },
     usuario2: {
@@ -429,7 +428,6 @@ let usuarios = {
         n_identificacion: '11812',
         fecha_nacimiento: '20/04/2001',
         contraseña: '111111117',
-        estado: 'INACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario3: {
@@ -440,7 +438,6 @@ let usuarios = {
         n_identificacion: '11813',
         fecha_nacimiento: '18/08/1998',
         contraseña: '11111111254',
-        estado: 'ACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario4: {
@@ -450,7 +447,7 @@ let usuarios = {
         n_identificacion: '11814',
         fecha_nacimiento: '27/05/2000',
         contraseña: '111111111465',
-        estado: 'INACTIVO',
+
         estado_general: 'ACTIVO'
     },
     usuario5: {
@@ -461,7 +458,6 @@ let usuarios = {
         n_identificacion: '11815',
         fecha_nacimiento: '27/01/1995',
         contraseña: '1111111174',
-        estado: 'ACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario6: {
@@ -472,7 +468,6 @@ let usuarios = {
         n_identificacion: '11816',
         fecha_nacimiento: '27/01/1997',
         contraseña: '1111111123',
-        estado: 'INACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario7: {
@@ -483,7 +478,6 @@ let usuarios = {
         n_identificacion: '11817',
         fecha_nacimiento: '27/01/1980',
         contraseña: '111111187',
-        estado: 'ACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario8: {
@@ -494,7 +488,6 @@ let usuarios = {
         n_identificacion: '11818',
         fecha_nacimiento: '27/08/1998',
         contraseña: '111111182',
-        estado: 'ACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario9: {
@@ -505,7 +498,6 @@ let usuarios = {
         n_identificacion: '11819',
         fecha_nacimiento: '27/7/1990',
         contraseña: '111115555',
-        estado: 'ACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario10: {
@@ -516,7 +508,6 @@ let usuarios = {
         n_identificacion: '11819',
         fecha_nacimiento: '10/01/1999',
         contraseña: '111111956',
-        estado: 'INACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario11: {
@@ -527,7 +518,6 @@ let usuarios = {
         n_identificacion: '118110',
         fecha_nacimiento: '21/04/2001',
         contraseña: '111119644',
-        estado: 'INACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario12: {
@@ -538,7 +528,6 @@ let usuarios = {
         n_identificacion: '118112',
         fecha_nacimiento: '22/04/1996',
         contraseña: '111111784',
-        estado: 'ACTIVO',
         estado_general: 'ACTIVO'
     },
     usuario13: {
@@ -549,7 +538,6 @@ let usuarios = {
         n_identificacion: '1181113',
         fecha_nacimiento: '04/8/1993',
         contraseña: '111111245',
-        estado: 'INACTIVO',
         estado_general: 'ACTIVO'
     },
 
@@ -602,31 +590,31 @@ let convenios_empresa = {
                 id_empleado: usuarios.usuario1.id_usuario,
                 correo_usuario: usuarios.usuario1.correo_usuario,
                 nombre_empleado: usuarios.usuario1.nombre_usuario,
-                estado: usuarios.usuario1.estado
+                estado: 'ACTIVO'
             },
             empleado2: {
                 id_empleado: usuarios.usuario2.id_usuario,
                 correo_usuario: usuarios.usuario2.correo_usuario,
                 nombre_empleado: usuarios.usuario2.nombre_usuario,
-                estado: usuarios.usuario2.estado
+                estado: 'ACTIVO'
             },
             empleado3: {
                 id_empleado: usuarios.usuario3.id_usuario,
                 correo_usuario: usuarios.usuario3.correo_usuario,
                 nombre_empleado: usuarios.usuario3.nombre_usuario,
-                estado: usuarios.usuario3.estado
+                estado: 'ACTIVO'
             },
             empleado4: {
                 id_empleado: usuarios.usuario4.id_usuario,
                 correo_usuario: usuarios.usuario4.correo_usuario,
                 nombre_empleado: usuarios.usuario4.nombre_usuario,
-                estado: usuarios.usuario4.estado
+                estado: 'INACTIVO'
             },
             empleado5: {
                 id_empleado: usuarios.usuario5.id_usuario,
                 correo_usuario: usuarios.usuario5.correo_usuario,
                 nombre_empleado: usuarios.usuario5.nombre_usuario,
-                estado: usuarios.usuario5.estado
+                estado: 'ACTIVO'
             }
         }
     },
@@ -643,31 +631,31 @@ let convenios_empresa = {
                 id_empleado: usuarios.usuario6.id_usuario,
                 correo_usuario: usuarios.usuario6.correo_usuario,
                 nombre_empleado: usuarios.usuario6.nombre_usuario,
-                estado: usuarios.usuario6.estado
+                estado: 'ACTIVO'
             },
             empleado2: {
                 id_empleado: usuarios.usuario7.id_usuario,
                 correo_usuario: usuarios.usuario7.correo_usuario,
                 nombre_empleado: usuarios.usuario7.nombre_usuario,
-                estado: usuarios.usuario7.estado
+                estado: 'ACTIVO'
             },
             empleado3: {
                 id_empleado: usuarios.usuario8.id_usuario,
                 correo_usuario: usuarios.usuario8.correo_usuario,
                 nombre_empleado: usuarios.usuario8.nombre_usuario,
-                estado: usuarios.usuario8.estado
+                estado: 'INACTIVO'
             },
             empleado4: {
                 id_empleado: usuarios.usuario9.id_usuario,
                 correo_usuario: usuarios.usuario9.correo_usuario,
                 nombre_empleado: usuarios.usuario9.nombre_usuario,
-                estado: usuarios.usuario9.estado
+                estado: 'ACTIVO'
             },
             empleado5: {
                 id_empleado: usuarios.usuario10.id_usuario,
                 correo_usuario: usuarios.usuario10.correo_usuario,
                 nombre_empleado: usuarios.usuario10.nombre_usuario,
-                estado: usuarios.usuario10.estado
+                estado: 'INACTIVO'
             }
         },
     },
@@ -683,19 +671,19 @@ let convenios_empresa = {
                 id_empleado: usuarios.usuario11.id_usuario,
                 correo_usuario: usuarios.usuario11.correo_usuario,
                 nombre_empleado: usuarios.usuario11.nombre_usuario,
-                estado: usuarios.usuario11.estado
+                estado: 'ACTIVO'
             },
             empleado2: {
                 id_empleado: usuarios.usuario12.id_usuario,
                 correo_usuario: usuarios.usuario12.correo_usuario,
                 nombre_empleado: usuarios.usuario12.nombre_usuario,
-                estado: usuarios.usuario12.estado
+                estado: 'INACTIVO'
             },
             empleado3: {
                 id_empleado: usuarios.usuario13.id_usuario,
                 correo_usuario: usuarios.usuario13.correo_usuario,
                 nombre_empleado: usuarios.usuario13.nombre_usuario,
-                estado: usuarios.usuario13.estado
+                estado: 'ACTIVO'
             },
 
         }
