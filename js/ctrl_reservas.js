@@ -30,7 +30,10 @@ let comentario_usuario_ingresado;
 const ventana_crear_comentario = document.querySelector('.sct-crear-comentario');
 const btn_cerrar_ventana_comentario = document.querySelector('#btn-salir');
 const btn_crear_modificar_comentario = document.querySelector('#btn-opcion-comentario');
+
+const btn_eliminar_comentario = document.querySelector('#btn-eliminar-comentario');
 const btn_publicar_comentario = document.querySelector('#btn-publicar');
+
 const txt_comentarios_nombre_parqueo = document.querySelector('#nombre-parqueo');
 const ventana_crear_comentario_mensaje = document.querySelector('#txt-mensaje');
 const ventana_crear_comentario_slt_calificacion = document.querySelector('#slt-calificacion');
@@ -297,6 +300,7 @@ const obtener_comentarios = () => {
                 console.log('Ya hay un comentario realizado por este usuario.');
                 comentario_usuario_ingresado = comentarios[identificador];
                 btn_crear_modificar_comentario.textContent = 'Modificar reseña';
+                btn_eliminar_comentario.classList.remove('oculto');
             }
 
             crear_carta_comentario(comentario_actual);
@@ -343,6 +347,14 @@ const publicar_comentario = () => {
 
     ocultar_ventana_crear_comentario();
 };
+
+const eliminar_comentario = () => {
+    if (comentario_actual != null) {
+        console.log('Reseña eliminada');
+        //Eliminar comentario del DB.
+    }
+};
+
 //#endregion
 
 
@@ -357,6 +369,7 @@ obtener_comentarios();
 btn_cerrar_ventana_comentario.addEventListener('click', ocultar_ventana_crear_comentario);
 btn_crear_modificar_comentario.addEventListener('click', mostrar_ventana_crear_comentario);
 btn_publicar_comentario.addEventListener('click', publicar_comentario);
+btn_eliminar_comentario.addEventListener('click', eliminar_comentario);
 
 //Mapa parqueo.
 slt_piso_actual.addEventListener('change', piso_actual_cambiado);

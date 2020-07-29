@@ -23,6 +23,10 @@ a {
     line-height: 24px;
 }
 
+.oculto {
+    display: none;
+}
+
 * {
     box-sizing: border-box;
 }

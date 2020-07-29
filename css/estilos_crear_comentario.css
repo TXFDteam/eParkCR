@@ -6,10 +6,6 @@
     position: fixed;
 }
 
-.oculto {
-    display: none;
-}
-
 #ventana-contenedor-principal {
     background-color: #ffffff;
     position: fixed;
