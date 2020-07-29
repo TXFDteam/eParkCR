@@ -51,6 +51,8 @@ const txt_fecha_entrada = document.querySelector('#txt-fecha-entrada');
 const txt_hora_entrada = document.querySelector('#txt-hora-entrada');
 const txt_fecha_salida = document.querySelector('#txt-fecha-salida');
 const txt_hora_salida = document.querySelector('#txt-hora-salida');
+const btn_reservar_espacio = document.querySelector('#btn-reservar-espacio');
+const datos_requeridos = document.querySelectorAll('[required]');
 
 //Mapa del parqueo
 const slt_piso_actual = document.querySelector('#slt-piso');
@@ -86,6 +88,7 @@ const actualizar_espacio_seleccionado = (p_info_espacio, p_espacio_elemento) => 
 
     //Uso de la información del espacio seleccionado.
     txt_espacio_seleccionado.value = p_info_espacio.id;
+    info_espacio_seleccionado = p_info_espacio;
 
     if (p_info_espacio.ocupado) {
         txt_estado_espacio.textContent = 'El espacio seleccionado está ocupado.';
@@ -258,9 +261,124 @@ const mostrar_hoja_siguiente = () => {
     }
 };
 
+
+const hay_espacios_vacios = () => {
+    let error = false;
+
+    datos_requeridos.forEach(obj_dato_requerido => {
+        if (obj_dato_requerido.value == '') {
+            obj_dato_requerido.classList.add('error');
+            error = true;
+        } else {
+            obj_dato_requerido.classList.remove('error');
+        }
+    });
+
+    return error;
+};
+
+//Función usada para las comprobaciones de hora de reserva.
+const horas_correctas = () => {
+    let correcto = false;
+
+    let fecha_entrada = txt_hora_entrada.value;
+    let hora_entrada = Number((fecha_entrada[0] + fecha_entrada[1]));
+    let minutos_entrada = Number((fecha_entrada[3] + fecha_entrada[4]));
+
+    let fecha_salida = txt_hora_salida.value;
+    let hora_salida = Number((fecha_salida[0] + fecha_salida[1]));
+    let minutos_salida = Number((fecha_salida[3] + fecha_salida[4]));
+
+    if (hora_entrada == hora_salida) {
+        if (minutos_entrada < minutos_salida) {
+            correcto = true;
+        }
+    } else if (hora_entrada < hora_salida) {
+        correcto = true;
+    }
+
+    if (correcto) {
+        txt_hora_entrada.classList.remove('error');
+        txt_hora_salida.classList.remove('error');
+    } else {
+        txt_hora_entrada.classList.add('error');
+        txt_hora_salida.classList.add('error');
+    }
+
+    return correcto;
+};
+
+//Función usada para las comprobaciones de las fechas de reserva.
+const fechas_correctas = () => {
+    let correcto = false;
+
+    let fecha_entrada = new Date(txt_fecha_entrada.value);
+    let dia_entrada = fecha_entrada.getDate();
+    let mes_entrada = fecha_entrada.getMonth();
+    let anno_entrada = fecha_entrada.getFullYear();
+
+    let fecha_salida = new Date(txt_fecha_entrada.value);
+    let dia_salida = fecha_salida.getDate();
+    let mes_salida = fecha_salida.getMonth();
+    let anno_salida = fecha_salida.getFullYear();
+
+    //Primero comprueba el año.
+    if (anno_entrada <= anno_salida) {
+        //Luego comprueba si el mes es válido.
+        console.log('Año valido.')
+        if (mes_entrada == mes_salida) {
+            console.log('Mes valido.');
+            //Si el mes es el mismo verifica que el día de entrada sea menor al de salida.
+            if (dia_entrada == dia_salida) {
+                console.log('Dia valido.');
+                //Verifica que las hora de entrada y salida sean válidas
+                if (horas_correctas()) {
+                    correcto = true;
+                }
+            } else if (dia_entrada < dia_salida) {
+                correcto = true;
+            }
+        } else if (mes_entrada < mes_salida) {
+            correcto = true;
+        }
+    }
+
+    if (correcto) {
+        txt_fecha_entrada.classList.remove('error');
+        txt_fecha_salida.classList.remove('error');
+    } else {
+        txt_fecha_entrada.classList.add('error');
+        txt_fecha_salida.classList.add('error');
+    }
+
+    return correcto;
+};
+
+//Función usada para crear una reserva en el parqueo actual.
+const crear_reserva = () => {
+    if (info_espacio_seleccionado != null) {
+        if (!info_espacio_seleccionado.ocupado) {
+            if (!hay_espacios_vacios()) {
+                if (fechas_correctas()) {
+                    console.log('Reserva creada con éxito.');
+                } else {
+                    console.log('Hubo un problema con la fecha seleccionada para hacer la reserva.')
+                }
+            } else {
+                console.log('Hay espacios vacíos en el form.');
+            }
+        } else {
+            console.log('No se puede crear la reservación porque el espacio seleccionado está ocupado.');
+        }
+    } else {
+        console.log('No se puede crear la reservación, debe seleccionar un espacio para seguir.')
+    }
+};
 //#endregion
 
 //#region Comentarios
+//Esta función obtiene el nombre de un usuario basado en su ID.
+//<p_id>ID del usuario.
 const obtener_nombre_usuario_en_comentario = (p_id) => {
     for (let i = 1; i < usuarios.cant_usuarios; i++) {
         let identificador = ('usuario' + i);
@@ -354,7 +472,6 @@ const eliminar_comentario = () => {
         //Eliminar comentario del DB.
     }
 };
-
 //#endregion
 
 
@@ -375,3 +492,6 @@ btn_eliminar_comentario.addEventListener('click', eliminar_comentario);
 slt_piso_actual.addEventListener('change', piso_actual_cambiado);
 btn_hoja_anterior.addEventListener('click', mostrar_hoja_anterior);
 btn_hoja_siguiente.addEventListener('click', mostrar_hoja_siguiente);
+//btn_reservar_espacio.addEventListener('click', crear_reserva);
+
+btn_reservar_espacio.addEventListener('click', horas_correctas);

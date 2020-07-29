@@ -27,6 +27,10 @@ a {
     display: none;
 }
 
+.error {
+    border: 2px rgb(224, 47, 47) solid;
+}
+
 * {
     box-sizing: border-box;
 }
