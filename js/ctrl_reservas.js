@@ -22,6 +22,14 @@ const plantilla_carta_comentario =
     '<p>[MENSAJE]</p>\n' +
     '</div>';
 
+//Elementos usados para la creación y modificación de comentarios.
+const ventana_crear_comentario = document.querySelector('.sct-crear-comentario');
+const btn_cerrar_ventana_comentario = document.querySelector('#btn-salir');
+const btn_crear_modificar_comentario = document.querySelector('#btn-opcion-comentario');
+const btn_publicar_comentario = document.querySelector('#btn-publicar');
+const txt_comentarios_nombre_parqueo = document.querySelector('#nombre-parqueo');
+
+//Información del parqueo.
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
 const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
 const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
@@ -35,8 +43,8 @@ const txt_hora_entrada = document.querySelector('#txt-hora-entrada');
 const txt_fecha_salida = document.querySelector('#txt-fecha-salida');
 const txt_hora_salida = document.querySelector('#txt-hora-salida');
 
+//Mapa del parqueo
 const slt_piso_actual = document.querySelector('#slt-piso');
-
 const btn_hoja_anterior = document.querySelector('#btn-hoja-anterior');
 const txt_hoja_actual = document.querySelector('#txt-hoja-actual');
 const btn_hoja_siguiente = document.querySelector('#btn-hoja-siguiente');
@@ -192,6 +200,8 @@ const llenar_info_parqueo = (p_parqueo) => {
     }
 
     lbl_nombre_parqueo.textContent = p_parqueo.nombre;
+    txt_comentarios_nombre_parqueo.textContent = p_parqueo.nombre;
+
     lbl_calificacion_promedio.textContent = "Calificación promedio: " + p_parqueo.calificacion_promedio;
 
     //Por defecto se muestra el piso 1.
@@ -280,6 +290,16 @@ const obtener_comentarios = () => {
         }
     }
 };
+
+
+const mostrar_ventana_crear_comentario = () => {
+    ventana_crear_comentario.classList.remove('oculto');
+};
+
+const ocultar_ventana_crear_comentario = () => {
+    ventana_crear_comentario.classList.add('oculto');
+};
+
 //#endregion
 
 
@@ -289,7 +309,13 @@ llenar_info_parqueo(parqueo_actual);
 obtener_comentarios();
 
 //Eventos.
-slt_piso_actual.addEventListener('change', piso_actual_cambiado);
 
+//Comentarios.
+btn_cerrar_ventana_comentario.addEventListener('click', ocultar_ventana_crear_comentario);
+btn_crear_modificar_comentario.addEventListener('click', mostrar_ventana_crear_comentario);
+btn_publicar_comentario.addEventListener('click', ocultar_ventana_crear_comentario);
+
+//Mapa parqueo.
+slt_piso_actual.addEventListener('change', piso_actual_cambiado);
 btn_hoja_anterior.addEventListener('click', mostrar_hoja_anterior);
 btn_hoja_siguiente.addEventListener('click', mostrar_hoja_siguiente);
