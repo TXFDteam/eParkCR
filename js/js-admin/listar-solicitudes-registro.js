@@ -14,8 +14,7 @@ const listar_usuarios = (usuario) => {
     let nombre = document.createElement('a');
     //lista_usuarios.href = "lista-usuarios-convenio.html";
     //nombre.id = nombre.nombre_parqueo;
-    nombre.innerText = nombre.nombre_parqueo;
-    console.log(nombre.textContent);
+    nombre.textContent = usuario.nombre_parqueo;
 
     nombre.addEventListener('click', () => {
         nombre.href = "../../html/htmls-admin/info-solicitud-parqueo-admin.html"
@@ -27,7 +26,6 @@ const listar_usuarios = (usuario) => {
     fila.insertCell().innerHTML = usuario.cedula_juridica;
     fila.insertCell().innerHTML = usuario.permiso_funcionamiento;
     fila.insertCell().innerHTML = usuario.ubicacion_parqueo;
-
 
     tabla_usuarios.appendChild(fila);
 
