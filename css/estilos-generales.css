@@ -50,3 +50,10 @@ a {
 .estilo-btn-activar {
     margin: 5px;
 }
+
+
+/*HOVER*/
+
+.selection:hover {
+    background-color: #70a1ff;
+}

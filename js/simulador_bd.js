@@ -61,6 +61,344 @@ let comentarios = {
 //-------------------------------------
 //-------------------------------------
 
+//-----------------SOLICITUDES DE PARQUEO-----------------------
+let solicitudes_parqueos = {
+    cant_solicitudes: 3,
+    sol_parqueo1: {
+        nombre_parqueo: 'Parqueo 24',
+        duenno_parqueo: 'Sofía Masis Obando',
+        email_parqueo: 'contacto@parqueo24.com',
+        cedula_juridica: '12ji2ojd1oid21idi',
+        permiso_funcionamiento: '415t8',
+        enlaces_redes: { facebook: '', twitter: '', instagram: '' },
+        ubicacion_parqueo: 'San José',
+        estado_parqueo: 'Revisión',
+        cant_pisos: 1,
+        pisos: {
+            piso_1: {
+                cant_espacios: 33,
+                espacios: {
+                    espacio_1: {
+                        id: 'D1',
+                        tipo_icono: 2,
+                        ocupado: false
+                    },
+                    espacio_2: {
+                        id: 'D2',
+                        tipo_icono: 2,
+                        ocupado: true
+                    },
+                    espacio_3: {
+                        id: 'D3',
+                        tipo_icono: 2,
+                        ocupado: false
+                    },
+                    espacio_4: {
+                        id: 'D4',
+                        tipo_icono: 2,
+                        ocupado: false
+                    },
+                    espacio_5: {
+                        id: 'D5',
+                        tipo_icono: 2,
+                        ocupado: true
+                    },
+                    espacio_6: {
+                        id: 'M1',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_7: {
+                        id: 'M2',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_8: {
+                        id: 'M3',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_9: {
+                        id: 'M4',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_10: {
+                        id: 'M5',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_11: {
+                        id: 'M6',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_12: {
+                        id: 'M7',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_13: {
+                        id: 'M8',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_14: {
+                        id: 'M9',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_15: {
+                        id: 'C1',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_16: {
+                        id: 'C2',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_17: {
+                        id: 'C3',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_18: {
+                        id: 'C4',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_19: {
+                        id: 'C5',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_20: {
+                        id: 'C6',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_21: {
+                        id: 'C7',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_22: {
+                        id: 'C8',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_23: {
+                        id: 'C9',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_24: {
+                        id: 'C10',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_25: {
+                        id: 'C11',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_26: {
+                        id: 'C12',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_27: {
+                        id: 'C13',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_28: {
+                        id: 'C14',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_29: {
+                        id: 'C15',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_30: {
+                        id: 'C16',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_31: {
+                        id: 'C17',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_32: {
+                        id: 'C18',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_33: {
+                        id: 'C19',
+                        tipo_icono: 0,
+                        ocupado: true
+                    }
+                }
+            }
+        }
+    },
+
+    sol_parqueo2: {
+        nombre_parqueo: 'Parqueo la lima',
+        duenno_parqueo: 'Jose Fernández López',
+        email_parqueo: 'contacto@parqueolalima.com',
+        cedula_juridica: '12ji2jdjsid234r',
+        permiso_funcionamiento: '876poq',
+        enlaces_redes: { facebook: '', twitter: '', instagram: '' },
+        ubicacion_parqueo: 'Cartago',
+        estado_parqueo: 'Revisión',
+        cant_pisos: 2,
+        pisos: {
+            piso_1: {
+                cant_espacios: 7,
+                espacios: {
+                    espacio_1: {
+                        id: 'C1',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_2: {
+                        id: 'C2',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_3: {
+                        id: 'D3',
+                        tipo_icono: 2,
+                        ocupado: false
+                    },
+                    espacio_4: {
+                        id: 'M1',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_5: {
+                        id: 'M2',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_6: {
+                        id: 'D1',
+                        tipo_icono: 2,
+                        ocupado: false
+                    },
+                    espacio_7: {
+                        id: 'D2',
+                        tipo_icono: 2,
+                        ocupado: true
+                    }
+                }
+            },
+            piso_2: {
+                cant_espacios: 4,
+                espacios: {
+                    espacio_1: {
+                        id: 'C4',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_2: {
+                        id: 'M5',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_3: {
+                        id: 'D6',
+                        tipo_icono: 2,
+                        ocupado: true
+                    },
+                    espacio_4: {
+                        id: 'D7',
+                        tipo_icono: 2,
+                        ocupado: false
+                    }
+                }
+            }
+        }
+    },
+
+    sol_parqueo3: {
+        nombre_parqueo: 'Parqueo cr7',
+        duenno_parqueo: 'Benito Martinez Balvin',
+        email_parqueo: 'contacto@parqueocr7.com',
+        cedula_juridica: '12ji2ojd115487pol',
+        permiso_funcionamiento: 'ab98',
+        enlaces_redes: { facebook: '', twitter: '', instagram: '' },
+        ubicacion_parqueo: 'San José',
+        estado_parqueo: 'Revisión',
+        cant_pisos: 1,
+        pisos: {
+            piso_1: {
+                cant_espacios: 9,
+                espacios: {
+                    espacio_1: {
+                        id: 'C1',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_2: {
+                        id: 'C2',
+                        tipo_icono: 0,
+                        ocupado: true
+                    },
+                    espacio_3: {
+                        id: 'C3',
+                        tipo_icono: 0,
+                        ocupado: false
+                    },
+                    espacio_4: {
+                        id: 'M1',
+                        tipo_icono: 1,
+                        ocupado: false
+                    },
+                    espacio_5: {
+                        id: 'M2',
+                        tipo_icono: 1,
+                        ocupado: true
+                    },
+                    espacio_6: {
+                        id: 'D1',
+                        tipo_icono: 2,
+                        ocupado: false
+                    },
+                    espacio_7: {
+                        id: 'D2',
+                        tipo_icono: 2,
+                        ocupado: true
+                    },
+                    espacio_8: {
+                        id: 'D3',
+                        tipo_icono: 2,
+                        ocupado: true
+                    },
+                    espacio_9: {
+                        id: 'D4',
+                        tipo_icono: 2,
+                        ocupado: true
+                    }
+                }
+            }
+        }
+    }
+};
+
+
+
+
+
+
+
+
 //-------------------------------------
 //--------------Parqueos---------------
 //-------------------------------------

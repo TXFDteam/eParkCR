@@ -8,8 +8,8 @@ const plantilla_switch = '<form action=""> \n' +
 
 const tabla_usuarios = document.querySelector('#tbl-usuarios tbody');
 
-
-
+let n_parqueo = document.querySelector('#header-parqueo-seleccionado');
+let pq;
 
 let conv = localStorage.getItem('convenio_seleccionado');
 
@@ -58,6 +58,7 @@ const listar_usuarios = (empleado) => {
 
 let mostrar_usuarios = () => {
     tabla_usuarios.innerHTML = '';
+
     //variable que determina si es el mismo codigo de convenio
     let det = false;
     //Variable que tiene el codigo de convenio
@@ -80,6 +81,7 @@ let mostrar_usuarios = () => {
         if (convenio == conv) {
             det = true;
             convEmpleados = convenios_empresa[identificador_convenio].cant_empleados;
+            n_parqueo.innerHTML = 'Usuarios registrados en el convenio con ' + convenios_empresa[identificador_convenio].parqueo;
             break;
         } else {
             det = false;
@@ -99,3 +101,4 @@ let mostrar_usuarios = () => {
     }
 };
 mostrar_usuarios();
+console.log(n_parqueo);

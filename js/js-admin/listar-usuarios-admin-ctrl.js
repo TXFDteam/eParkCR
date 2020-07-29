@@ -17,7 +17,7 @@ const limite_usuarios_pagina = 20;
 
 let head;
 let fila;
-console.log(usuarios);
+
 //USUARIOS
 
 

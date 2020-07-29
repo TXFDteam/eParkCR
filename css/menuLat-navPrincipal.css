@@ -22,6 +22,11 @@ body a {
     padding: 0px 3% 0px 2%;
 }
 
+.nav-principal #link-inicio-principal {
+    font-size: 28px;
+    padding: 0px 3% 0px 2%;
+}
+
 .nav-principal .nav-derecha {
     font-size: 20px;
     margin-right: 3%;
