@@ -39,9 +39,12 @@ const listar_usuarios = (usuario) => {
     btn_activar.addEventListener('click', function() {
         if (this.value == "INACTIVO") {
             this.value = "ACTIVO";
+            usuario.estado_general = "ACTIVO";
         } else if (this.value == "ACTIVO") {
             this.value = "INACTIVO";
+            usuario.estado_general = "INACTIVO";
         }
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
     });
     console.log(btn_activar.id);
 
@@ -66,6 +69,10 @@ let mostrar_usuarios = () => {
     head.insertCell().innerHTML = 'Fecha de nacimiento';
     head.insertCell().innerHTML = 'Estado';
     tabla_usuarios_header.appendChild(head);
+
+    if (localStorage.getItem('usuarios')) {
+        usuarios = JSON.parse(localStorage.getItem('usuarios'));
+    };
 
     for (let i = 1; i <= usuarios.cant_usuarios; i++) {
         let identificador_usuario = ('usuario' + i);
@@ -98,9 +105,12 @@ const listar_parqueos = (parqueo) => {
     btn_activar.addEventListener('click', function() {
         if (this.value == "INACTIVO") {
             this.value = "ACTIVO";
+            parqueo.estado = "ACTIVO";
         } else if (this.value == "ACTIVO") {
             this.value = "INACTIVO";
+            parqueo.estado = "INACTIVO";
         }
+        localStorage.setItem('parqueos', JSON.stringify(parqueos));
     });
     console.log(btn_activar.id);
 
@@ -126,6 +136,10 @@ let mostrar_parqueos = () => {
     head.insertCell().innerHTML = 'Estado';
 
     tabla_usuarios_header.appendChild(head);
+
+    if (localStorage.getItem('parqueos')) {
+        parqueos = JSON.parse(localStorage.getItem('parqueos'));
+    };
 
     for (let i = 1; i <= parqueos.cant_parqueos; i++) {
         let identificador_parqueo = ('parqueo_' + i);
@@ -157,9 +171,12 @@ const listar_empresas = (emp) => {
     btn_activar.addEventListener('click', function() {
         if (this.value == "INACTIVO") {
             this.value = "ACTIVO";
+            emp.estado = "ACTIVO";
         } else if (this.value == "ACTIVO") {
             this.value = "INACTIVO";
+            emp.estado = "INACTIVO";
         }
+        localStorage.setItem('empresas', JSON.stringify(empresas));
     });
     console.log(btn_activar.id);
 
@@ -185,6 +202,10 @@ let mostrar_empresas = () => {
     head.insertCell().innerHTML = 'Estado';
 
     tabla_usuarios_header.appendChild(head);
+
+    if (localStorage.getItem('empresas')) {
+        empresas = JSON.parse(localStorage.getItem('empresas'));
+    };
 
     for (let i = 1; i <= empresas.cant_empresas; i++) {
         let identificador_empresa = ('empresa_' + i);
