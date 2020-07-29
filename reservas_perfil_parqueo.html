@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
     <link rel="stylesheet" href="css/espacio_parqueo.css">
     <link rel="stylesheet" href="css/estilos_comentario.css">
+    <link rel="stylesheet" href="css/estilos_crear_comentario.css">
     <link rel="stylesheet" href="css/estilos_reserva_parqueo.css">
 </head>
 
@@ -32,6 +33,33 @@
             <a href="">Reservas activas</a>
             <a href="">Historial de reservas</a>
             <a href="">Configuraciones</a>
+        </div>
+
+        <div class="sct-crear-comentario oculto">
+            <div id="ventana-contenedor-principal">
+                <div id="contenedor-superior">
+                    <div>
+                        <h3 id="nombre-parqueo">[NOMBRE_PARQUEO]</h3>
+                        <label for="slt-calificacion">Calificación</label>
+                        <select name="" id="slt-calificacion">
+                            <option value="">Seleccione una calificación</option>
+                            <option value="1">1 estrella</option>
+                            <option value="2">2 estrellas</option>
+                            <option value="3">3 estrellas</option>
+                            <option value="4">4 estrellas</option>
+                            <option value="5">5 estrellas</option>
+                        </select>
+                    </div>
+
+                    <button id="btn-salir">X</button>
+                </div>
+
+                <div id="contenedor-inferior">
+                    <textarea id="txt-mensaje" cols="30" rows="10" placeholder="Escribí aquí una reseña (Opcional)"></textarea>
+
+                    <button id="btn-publicar">Publicar</button>
+                </div>
+            </div>
         </div>
 
         <section id="sct-contenedor-principal">
@@ -95,7 +123,7 @@
             <div id="sct-comentarios">
                 <div id="contenedor-superior">
                     <h2>Comentarios</h2>
-                    <button id="btn-dejar-comentario">Dejar comentario</button>
+                    <button id="btn-opcion-comentario">Crear reseña</button>
                 </div>
 
                 <div id="contenedor-comentarios">
