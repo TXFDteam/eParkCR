@@ -51,7 +51,9 @@ let mostrar_usuarios = () => {
 
     for (let i = 1; i <= solicitudes_parqueos.cant_solicitudes; i++) {
         let identificador_solicitud = ('sol_parqueo' + i);
-        listar_usuarios(solicitudes_parqueos[identificador_solicitud]);
+        if (solicitudes_parqueos[identificador_solicitud].estado_parqueo == "Revisión") {
+            listar_usuarios(solicitudes_parqueos[identificador_solicitud]);
+        }
     }
 };
 
