@@ -74,6 +74,7 @@ let solicitudes_parqueos = {
         ubicacion_parqueo: 'San José',
         estado_parqueo: 'Revisión',
         cant_pisos: 1,
+        cant_espacios: 33,
         pisos: {
             piso_1: {
                 cant_espacios: 33,
@@ -258,6 +259,7 @@ let solicitudes_parqueos = {
         ubicacion_parqueo: 'Cartago',
         estado_parqueo: 'Revisión',
         cant_pisos: 2,
+        cant_espacios: 11,
         pisos: {
             piso_1: {
                 cant_espacios: 7,
@@ -337,6 +339,7 @@ let solicitudes_parqueos = {
         ubicacion_parqueo: 'San José',
         estado_parqueo: 'Revisión',
         cant_pisos: 1,
+        cant_espacios: 9,
         pisos: {
             piso_1: {
                 cant_espacios: 9,

@@ -6,7 +6,15 @@ const tabla_usuarios = document.querySelector('#tabla-solicitudes tbody');
 let head;
 let fila;
 
-console.log(solicitudes_parqueos);
+const nombre_solicitud = (p_nombre_solicitud) => {
+    console.log('La solicitud es: ' + p_nombre_solicitud);
+
+    //Se guarda la variable que dice cuál solicitud se seleccionó
+    localStorage.setItem('solicitud_seleccionada', p_nombre_solicitud);
+
+    //Se redirige al html que muestra la solicitud
+    window.location.assign("../../html/htmls-admin/info-solicitud-parqueo-admin.html");
+};
 
 const listar_usuarios = (usuario) => {
 
@@ -17,8 +25,7 @@ const listar_usuarios = (usuario) => {
     nombre.textContent = usuario.nombre_parqueo;
 
     nombre.addEventListener('click', () => {
-        nombre.href = "../../html/htmls-admin/info-solicitud-parqueo-admin.html"
-            //window.location.assign("../../html/htmls-admin/info-solicitud-parqueo-admin.html");
+        nombre_solicitud(usuario.nombre_parqueo);
     });
     fila.appendChild(nombre);
     fila.insertCell().innerHTML = usuario.duenno_parqueo;

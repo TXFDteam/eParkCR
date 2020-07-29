@@ -13,73 +13,74 @@ const config_cuenta_admin = document.querySelector('#configuracion-cuenta-admin'
 let marcar_link = (x) => {
     if (x == inicio) {
         x.classList.add('selection');
-        solicitudes_registro.remove('selection');
-        info_usuarios_admin.remove('selection');
-        historial_reservas.remove('selection');
-        ingresos_admin.remove('selection');
-        actividad_aplicacion.remove('selection');
-        config_cuenta_admin.remove('selection');
+        solicitudes_registro.classList.remove('selection');
+        info_usuarios_admin.classList.remove('selection');
+        historial_reservas.classList.remove('selection');
+        ingresos_admin.classList.remove('selection');
+        actividad_aplicacion.classList.remove('selection');
+        config_cuenta_admin.classList.remove('selection');
     } else
     if (x == solicitudes_registro) {
         x.classList.add('selection');
-        inicio.remove('selection');
-        info_usuarios_admin.remove('selection');
-        historial_reservas.remove('selection');
-        ingresos_admin.remove('selection');
-        actividad_aplicacion.remove('selection');
-        config_cuenta_admin.remove('selection');
+        inicio.classList.remove('selection');
+        info_usuarios_admin.classList.remove('selection');
+        historial_reservas.classList.remove('selection');
+        ingresos_admin.classList.remove('selection');
+        actividad_aplicacion.classList.remove('selection');
+        config_cuenta_admin.classList.remove('selection');
     } else
     if (x == info_usuarios_admin) {
         x.classList.add('selection');
-        solicitudes_registro.remove('selection');
-        inicio.remove('selection');
-        historial_reservas.remove('selection');
-        ingresos_admin.remove('selection');
-        actividad_aplicacion.remove('selection');
-        config_cuenta_admin.remove('selection');
+        solicitudes_registro.classList.remove('selection');
+        inicio.classList.remove('selection');
+        historial_reservas.classList.remove('selection');
+        ingresos_admin.classList.remove('selection');
+        actividad_aplicacion.classList.remove('selection');
+        config_cuenta_admin.classList.remove('selection');
     } else
     if (x == historial_reservas) {
         x.classList.add('selection');
-        solicitudes_registro.remove('selection');
-        info_usuarios_admin.remove('selection');
-        inicio.remove('selection');
-        ingresos_admin.remove('selection');
-        actividad_aplicacion.remove('selection');
+        solicitudes_registro.classList.remove('selection');
+        info_usuarios_admin.classList.remove('selection');
+        inicio.classList.remove('selection');
+        ingresos_admin.classList.remove('selection');
+        actividad_aplicacion.classList.remove('selection');
+        actividad_aplicacion.classList.remove('selection');
         config_cuenta_admin.remove('selection');
     } else
     if (x == ingresos_admin) {
         x.classList.add('selection');
-        solicitudes_registro.remove('selection');
-        info_usuarios_admin.remove('selection');
-        historial_reservas.remove('selection');
-        inicio.remove('selection');
-        actividad_aplicacion.remove('selection');
-        config_cuenta_admin.remove('selection');
+        solicitudes_registro.classList.remove('selection');
+        info_usuarios_admin.classList.remove('selection');
+        historial_reservas.classList.remove('selection');
+        inicio.classList.remove('selection');
+        actividad_aplicacion.classList.remove('selection');
+        config_cuenta_admin.classList.remove('selection');
     } else
     if (x == actividad_aplicacion) {
         x.classList.add('selection');
-        solicitudes_registro.remove('selection');
-        info_usuarios_admin.remove('selection');
-        historial_reservas.remove('selection');
-        ingresos_admin.remove('selection');
-        inicio.remove('selection');
-        config_cuenta_admin.remove('selection');
+        solicitudes_registro.classList.remove('selection');
+        info_usuarios_admin.classList.remove('selection');
+        historial_reservas.classList.remove('selection');
+        ingresos_admin.classList.remove('selection');
+        inicio.classList.remove('selection');
+        config_cuenta_admin.classList.remove('selection');
     } else
     if (x == config_cuenta_admin) {
         x.classList.add('selection');
-        solicitudes_registro.remove('selection');
-        info_usuarios_admin.remove('selection');
-        historial_reservas.remove('selection');
-        ingresos_admin.remove('selection');
-        actividad_aplicacion.remove('selection');
-        inicio.remove('selection');
+        solicitudes_registro.classList.remove('selection');
+        info_usuarios_admin.classList.remove('selection');
+        historial_reservas.classList.remove('selection');
+        ingresos_admin.classList.remove('selection');
+        actividad_aplicacion.classList.remove('selection');
+        inicio.classList.remove('selection');
     }
 };
 
 
 solicitudes_registro.addEventListener('click', function() {
     solicitudes_registro.href = '../../html/htmls-admin/lista-solicitudes-registro.html';
-    marcar_link(info_usuarios_admin);
+    marcar_link(solicitudes_registro);
 });
 
 info_usuarios_admin.addEventListener('click', function() {

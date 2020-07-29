@@ -1,0 +1,40 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-registros {
+    width: 82%;
+    margin-left: 18%;
+    margin-top: 130px;
+    /*padding-left: 6%;*/
+}
+
+.tabla-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#solicitud-seleccionada {
+    margin-bottom: 10%;
+}
+
+.info-izquierda div {
+    margin-bottom: 13%;
+}
+
+
+/*BOTONES DE ACEPTACION*/
+
+.botones-control {
+    align-self: flex-end;
+}
+
+.botones-control button {
+    margin-top: 15%;
+    padding: 10px;
+    width: 150px;
+    font-size: 14px;
+    background-color: #fff;
+}
