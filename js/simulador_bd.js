@@ -1032,3 +1032,32 @@ let convenios_empresa = {
 };
 
 let solicitudes = {};
+
+
+/* ---------↓ Datos de las tarjetas agregadas por el usuario cliente ↓--------- */
+
+let tarjetas = {
+    cant_tarjetas: 4,
+    tarjeta_1: {
+        numero_tarjeta: '1111 1111 1111 1111',
+        fecha_expiracion: 1 / 11,
+        predeterminada: false,
+    },
+    tarjeta_2: {
+        numero_tarjeta: '3333 3333 3333 3333',
+        fecha_expiracion: 2 / 22,
+        predeterminada: true,
+    },
+    tarjeta_3: {
+        numero_tarjeta: '4444 4444 4444 4444',
+        fecha_expiracion: 3 / 33,
+        predeterminada: false,
+    },
+    tarjeta_4: {
+        numero_tarjeta: '5555 5555 5555 5555',
+        fecha_expiracion: 1 / 11,
+        predeterminada: false,
+    }
+};
+
+/* ---------↑ Datos de las tarjetas agregadas por el usuario cliente ↑--------- */
