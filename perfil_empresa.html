@@ -92,10 +92,11 @@
 
                 <div class="botones">
                     <div>
-                        <button>Editar Perfil</button>
+                        <a href="editar_perfil_empresa.html">Editar perfil</a>
                     </div>
                     <div>
-                        <button>Cerrar Cuenta</button>
+                        <button id="btn-cerrar-cuenta">Cerrar Cuenta</button>
+                        <!--Este botón se utilizará para procesar el cierre de una cuenta en el controlador: ctrl-cerrar-cuenta.js-->
                     </div>
                 </div>
 
@@ -105,6 +106,8 @@
 
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/ctrl_cerrar_cuenta.js"></script>
 </body>
 
 </html>
