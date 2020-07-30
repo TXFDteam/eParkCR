@@ -30,32 +30,37 @@
         <div class='CI-registro-usuarios-container'>
             <div id='CI-registro-form-box1' class='CI-registro-column'>
 
-                <label for='CI-registro-nombre' class='CI-registro-form'>Nombre completo</label><br>
-                <input type='text' id='CI-registro-nombre' class='CI-registro-form'><br>
+                <label for='CI-registro-nombre'>Nombre completo</label><br>
+                <input type='text' id='CI-registro-nombre' required><br>
 
                 <div id='CI-registro-select'>
-                    <legend id='CI-registro-tipoID' class='CI-registro-form'>Tipo de identificación</legend>
+                    <legend id='CI-registro-tipoID'>Tipo de identificación</legend>
                     <input type="radio" name="ID" value="Cédula de identidad">Cédula de identidad<br>
                     <input type="radio" name="ID" value="Cédula de residencia">Cédula de residencia<br>
                     <input type="radio" name="ID" value="Pasaporte">Pasaporte<br>
 
                 </div>
 
-                <label for='CI-registro-contrasena' class='CI-registro-form'>Contraseña</label><br>
-                <input type='text' id='CI-registro-contrasena' class='CI-registro-form'>
+                <label for='CI-registro-contrasena'>Contraseña</label><br>
+                <input type='password' id='CI-registro-contrasena' required>
 
             </div>
 
             <div id='CI-registro-form-box2' class='CI-registro-column'>
 
-                <label for='CI-registro-fecha' class='CI-registro-form'>Fecha de nacimiento</label><br>
-                <input type='date' id='CI-registro-fecha' class='CI-registro-form'><br>
+                <label for='CI-registro-fecha'>Fecha de nacimiento</label><br>
+                <input type='date' id='CI-registro-fecha' required><br>
 
-                <label for='CI-registro-ID' class='CI-registro-form'>Identificación</label><br>
-                <input type='text' id='CI-registro-ID' class='CI-registro-form'><br>
+                <label for='CI-registro-ID'>Identificación</label><br>
+                <input type='text' id='CI-registro-ID' required><br>
 
-                <label for='CI-registro-confirmarcontra' class='CI-registro-form'>Confirmar contraseña</label><br>
-                <input type='text' id='CI-registro-confirmarcontra' class='CI-registro-form'><br>
+                <label for='CI-registro-correo'>Correo electrónico</label><br>
+                <input type='email' id='CI-registro-correo' required><br>
+
+
+
+                <label for='CI-registro-confirmarcontra' id="CI-registro-confirmarcontra-label">Confirmar contraseña</label><br>
+                <input type='password' id='CI-registro-confirmarcontra' required><br>
 
             </div>
 
@@ -68,7 +73,7 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="/js/cuentaComercialControlador.js"></script>
+    <script src="/js/CI_registro_usuarios_validar.js"></script>
 
 </body>
 
