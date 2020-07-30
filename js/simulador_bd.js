@@ -402,6 +402,9 @@ let solicitudes_parqueos = {
 
 
 
+
+
+
 //-------------------------------------
 //--------------Parqueos---------------
 //-------------------------------------
@@ -1030,5 +1033,107 @@ let convenios_empresa = {
         }
     }
 };
+
+
+
+//-------------------------------------
+//--------------Reservas---------------
+//-------------------------------------
+let reservas = {
+    cant_reservas: 8,
+    reserva1: {
+        id_usuario: usuarios.usuario1.id_usuario,
+        nombre_usuario: usuarios.usuario1.nombre_usuario,
+        parqueo_seleccionado: parqueos.parqueo_1.nombre,
+        fecha_reserva: '29/07/2020',
+        hora_entrada: '8:00',
+        hora_salida: '9:00',
+        estado_reserva: 'Pendiente',
+        monto_total: '2000',
+        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_1.id
+    },
+    reserva2: {
+        id_usuario: usuarios.usuario2.id_usuario,
+        nombre_usuario: usuarios.usuario2.nombre_usuario,
+        parqueo_seleccionado: parqueos.parqueo_1.nombre,
+        fecha_reserva: '29/07/2020',
+        hora_entrada: '21:00',
+        hora_salida: '22:00',
+        estado_reserva: 'Activa',
+        monto_total: '2000',
+        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_6.id
+    },
+    reserva3: {
+        id_usuario: usuarios.usuario3.id_usuario,
+        nombre_usuario: usuarios.usuario3.nombre_usuario,
+        parqueo_seleccionado: parqueos.parqueo_2.nombre,
+        fecha_reserva: '30/07/2020',
+        hora_entrada: '12:00',
+        hora_salida: '15:00',
+        estado_reserva: 'Paga',
+        monto_total: '5000',
+        espacio_seleccionado: parqueos.parqueo_2.pisos.piso_2.espacios.espacio_3.id
+    },
+    reserva4: {
+        id_usuario: usuarios.usuario4.id_usuario,
+        nombre_usuario: usuarios.usuario4.nombre_usuario,
+        parqueo_seleccionado: parqueos.parqueo_3.nombre,
+        fecha_reserva: '31/07/2020',
+        hora_entrada: '10:00',
+        hora_salida: '11:00',
+        estado_reserva: 'Reservada',
+        monto_total: '2500',
+        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_4.id
+    },
+    reserva5: {
+        id_usuario: usuarios.usuario5.id_usuario,
+        nombre_usuario: usuarios.usuario5.nombre_usuario,
+        parqueo_seleccionado: parqueos.parqueo_1.nombre,
+        fecha_reserva: '1/08/2020',
+        hora_entrada: '13:00',
+        hora_salida: '18:00',
+        estado_reserva: 'Reservada',
+        monto_total: '10000',
+        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_8.id
+    },
+    reserva6: {
+        id_usuario: usuarios.usuario6.id_usuario,
+        nombre_usuario: usuarios.usuario6.nombre_usuario,
+        parqueo_seleccionado: parqueos.parqueo_2.nombre,
+        fecha_reserva: '5/08/2020',
+        hora_entrada: '6:00',
+        hora_salida: '8:00',
+        estado_reserva: 'Activa',
+        monto_total: '5000',
+        espacio_seleccionado: parqueos.parqueo_2.pisos.piso_1.espacios.espacio_2.id
+    },
+    reserva7: {
+        id_usuario: usuarios.usuario7.id_usuario,
+        nombre_usuario: usuarios.usuario7.nombre_usuario,
+        parqueo_seleccionado: parqueos.parqueo_3.nombre,
+        fecha_reserva: '30/08/2020',
+        hora_entrada: '9:00',
+        hora_salida: '16:00',
+        estado_reserva: 'Reservada',
+        monto_total: '12000',
+        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_5.id
+    },
+    reserva8: {
+        id_usuario: usuarios.usuario8.id_usuario,
+        nombre_usuario: usuarios.usuario8.nombre_usuario,
+        parqueo_seleccionado: parqueos.parqueo_3.nombre,
+        fecha_reserva: '15/08/2020',
+        hora_entrada: '14:00',
+        hora_salida: '17:00',
+        estado_reserva: 'Paga',
+        monto_total: '5500',
+        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_7.id
+    },
+
+
+
+};
+
+
 
 let solicitudes = {};

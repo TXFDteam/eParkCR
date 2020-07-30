@@ -1,0 +1,50 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-reservas {
+    margin-left: 18%;
+    margin-top: 120px;
+    width: 82%;
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-reservas h2 {
+    margin-bottom: 5%;
+}
+
+.info-reservas #btn-descargar {
+    padding: 10px;
+    width: 150px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+
+/*TABLA*/
+
+table {
+    margin-top: 5%;
+    border-collapse: collapse;
+    width: 1000px;
+}
+
+#tabla-reservas td {
+    padding: 10px;
+}
+
+#tabla-reservas thead {
+    background-color: #a4b0be;
+}
+
+#tabla-reservas tbody tr:nth-child(even) {
+    background-color: #f1f2f6;
+}
+
+#tabla-reservas tbody tr:nth-child(odd) {
+    background-color: #ced6e0;
+}
