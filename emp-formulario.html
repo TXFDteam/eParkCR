@@ -29,58 +29,63 @@
         </div>
 
         <div class="col-container">
-            <div class="col">
+            <div class="col" id="col1">
 
-                <label for='emp-registro-nombre'>Nombre de la empresa</label><br>
-                <input type='text' id='emp-registro-nombre'><br>
+                <label for='emp_registro_nombre'>Nombre de la empresa</label><br>
+                <input type='text' id='emp_registro_nombre' required><br>
 
-                <label for='emp-registro-nombreEncargado'>Nombre del encargado</label><br>
-                <input type='text' id='emp-registro-nombreEncargado'><br>
+                <label for='emp_registro_nombreEncargado'>Nombre del encargado</label><br>
+                <input type='text' id='emp_registro_nombreEncargado' required><br>
 
-                <label for='emp-registro-contrasena'>Contraseña</label><br>
-                <input type='password' id='emp-registro-contrasena'><br>
+                <label for='emp_registro_contrasena'>Contraseña</label><br>
+                <input type='password' id='emp_registro_contrasena' required><br>
 
-                <legend>Tienes permiso activo de funcionamiento?</legend>
-                <input type="checkbox" id="emp-registro-permiso-yes" name="emp-registro-permiso" value="Yes">
-                <label for="emp-registro-permiso-yes" id="emp-registro-permiso-yes-label">Yes</label><br>
-                <input type="checkbox" id="emp-registro-no" name="emp-registro-permiso" value="No">
-                <label for="emp-registro-permiso-no" id="emp-registro-permiso-no-label">No</label><br>
+                <legend id="permisoFuncionamientoLabel">Tienes permiso activo de funcionamiento?</legend>
+                <input type="checkbox" id="emp_registro_permiso_yes" class="emp_registro_permiso" value="Yes">
+                <label for="emp_registro_permiso_yes" id="emp_registro_permiso_yes_label">Yes</label><br>
+                <input type="checkbox" id="emp_registro_no" class="emp_registro_permiso" value="No">
+                <label for="emp_registro_permiso_no" id="emp_registro_permiso_no_label">No</label><br>
 
-                <form id="emp-regsitro-formFinal">
+                <form id="emp_regsitro_formFinal">
                     <label for="myFile">Adjunta una imagen de perfil de tu empresa</label><br>
                     <input type="file" id="myFile" value="Buscar" name="filename"><br>
-                    <input type="submit" value="Adjuntar imagen" id="emp-registro-submitImage">
+                    <input type="submit" value="Adjuntar imagen" id="emp_registro_submitImage">
                 </form>
 
 
-                <div id="emp-registro-botones">
-                    <button type="button" id='btn-emp-registro-crearPerfil'>Crear Perfil</button>
-                    <button type="button" id='btn-emp-registro-yaTenesCuenta'>Ya tenés cuenta?</button>
 
-                </div>
 
             </div>
 
-            <div class="col">
+            <div class="col" id="col2">
 
-                <label for='emp-registro-juridica'>Cédula jurídica</label><br>
-                <input type='text' id='emp-registro-juridica'><br>
+                <label for='emp_registro_juridica'>Cédula jurídica</label><br>
+                <input type='text' id='emp_registro_juridica' required><br>
 
-                <label for='emp-registro-correo'>Correo electrónico</label><br>
-                <input type='email' id='emp-registro-correo'><br>
+                <label for='emp_registro_correo'>Correo electrónico</label><br>
+                <input type='email' id='emp_registro_correo' required><br>
 
-                <label for='emp-registro-confirmaContrasena'>Confirmá tu contraseña</label><br>
-                <input type='password' id='emp-registro-confirmaContrasena'><br>
+                <label for='emp_registro_confirmaContrasena'>Confirmá tu contraseña</label><br>
+                <input type='password' id='emp_registro_confirmaContrasena' required><br>
 
                 <h2>Ubicación</h2>
-                <label for='emp-registro-direccion'>Ingresá la ubicación de tu empresa</label><br>
-                <input type='text' placeholder="Provincia" id='emp-registro-direccion'><br>
-                <input type='text' placeholder="Cantón" id='emp-registro-direccion'><br>
-                <input type='text' placeholder="Distrito" id='emp-registro-direccion'><br>
-                <input type='text' placeholder="Dirección exacta" id='emp-registro-direccion'><br>
+                <label for='emp_registro_direccion'>Ingresá la ubicación de tu empresa</label><br>
+                <input type='text' placeholder="Provincia" id='emp_registro_provincia' required><br>
+                <input type='text' placeholder="Cantón" id='emp_registro_canton' required><br>
+                <input type='text' placeholder="Distrito" id='emp_registro_distrito' required><br>
+                <input type='text' placeholder="Dirección exacta" id='emp_registro_direccion' required><br>
             </div>
         </div>
+        <div id="emp_registro_botones">
+            <button type="button" id='btn_emp_registro_crearPerfil'>Crear Perfil</button>
+            <button type="button" id='btn_emp_registro_yaTenesCuenta'>Ya tenés cuenta?</button>
+
+        </div>
+
+
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="/js/emp_formulario_validaciones.js"></script>
 </body>
 
 </html>

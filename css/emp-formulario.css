@@ -7,18 +7,30 @@
 
 .col-container {
     display: flex;
-    width: 100%;
+    text-align: left;
+    Flex-direction: row;
+    flex-wrap: wrap;
+    /* border: solid 2px red; */
+    margin: 0 5% 0 5%;
 }
 
 .col {
     flex: 1;
-    padding: 16px;
+}
+
+#col1 {
     height: 450px;
+    /* border: solid 2px blue; */
+}
+
+#col2 {
+    height: 450px;
+    /* border: solid 2px orange; */
 }
 
 input {
     margin: 4px 10px 10px 20%;
-    width: 50%;
+    width: 300px;
 }
 
 label {
@@ -43,35 +55,40 @@ input[type=checkbox] {
     width: auto;
 }
 
-#emp-registro-no {
+#emp_registro_no {
     margin-bottom: 20px;
 }
 
-#emp-registro-permiso-yes-label {
+#emp_registro_permiso_yes_label {
     margin: 0 0 0 0;
 }
 
-#emp-registro-permiso-no-label {
+#emp_registro_permiso_no_label {
     margin: 0 0 0 0;
 }
 
-#emp-registro-submitImage {
-    width: 16%;
+#emp_registro_submitImage {
+    width: 140px;
     margin-top: 20px;
 }
 
-#emp-registro-botones {
+#emp_registro_botones {
     /* border: solid 2px purple; */
     text-align: center;
-    width: 100%;
-    margin-top: 60px;
+    margin-top: 20px;
+    float: left;
+    margin-left: 160px;
 }
 
-#btn-emp-registro-crearPerfil {
+#btn_emp_registro_crearPerfil {
     margin-right: 20px;
     width: 140px;
 }
 
-#btn-emp-registro-yaTenesCuenta {
+#btn_emp_registro_yaTenesCuenta {
     width: 140px;
+}
+
+.error {
+    border: solid 2px red;
 }
