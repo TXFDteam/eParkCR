@@ -27,7 +27,7 @@ h1 {
     width: 500px;
 }
 
-#btn-cuentaComercial {
+#btn_cuentaComercial {
     display: block;
     margin: auto;
     width: 300px;
@@ -44,4 +44,8 @@ input {
     display: block;
     /* border: solid 2px black; */
     margin: 2px 0 20px 0;
+}
+
+.error {
+    border: solid 2px red;
 }
