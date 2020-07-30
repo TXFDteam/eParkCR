@@ -1,0 +1,63 @@
+#seccion_principal {
+    padding-left: 18%;
+    padding-top: 100px;
+    text-align: center;
+}
+
+#menu_lista_tarjetas {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#menu_lista_tarjetas button {
+    width: 25%;
+    margin-top: 50px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+#menu_lista_tarjetas select {
+    width: 25%;
+    margin-top: 50px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+
+/* ------------- Estilos de la tarjeta creada de forma dinamica ------------- */
+
+#lista_tarjetas {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10%;
+}
+
+.carta_tarjeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    border: 2px solid black;
+    margin: 20px auto;
+}
+
+.detalle_tarjeta {
+    margin: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detalle_tarjeta img {
+    width: 40px;
+    height: 35px;
+}
+
+.detalle_tarjeta button {
+    width: 40px;
+    height: 30px;
+}
+
+.numero_tarjeta {
+    width: 80%;
+    text-align: left;
+}
