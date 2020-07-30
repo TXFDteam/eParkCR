@@ -421,6 +421,7 @@ let parqueos = {
         ubicacion: 'San José',
         calificacion_promedio: 5,
         abierto: false,
+        tarifa_hora: 800,
         estado: 'ACTIVO',
         cant_pisos: 1,
         pisos: {
@@ -608,6 +609,7 @@ let parqueos = {
         ubicacion: 'San José',
         calificacion_promedio: 4.7,
         abierto: true,
+        tarifa_hora: 1500,
         estado: 'ACTIVO',
         cant_pisos: 2,
         pisos: {
@@ -690,6 +692,7 @@ let parqueos = {
         ubicacion: 'San José',
         calificacion_promedio: 3.85,
         abierto: true,
+        tarifa_hora: 1000,
         estado: 'ACTIVO',
         cant_pisos: 1,
         pisos: {
@@ -1033,8 +1036,19 @@ let convenios_empresa = {
         }
     }
 };
+/*
+let calcular_horas_y_montos = (x) => {
+    for (let i = 1; i <= reservas.cant_reservas; i++) {
+        let id_reserva = ('reserva' + i);
+        if (reservas[id_reserva.id_usuario] == x) {
+            let hEnt = parseFloat(reservas[id_reserva].hora_entrada);
+            let hSal = parseFloat(reservas[id_reserva].hora_salida);
 
-
+            let horas = hSal - hEnt;
+            reservas[id_reserva].horas = horas;
+        }
+    }
+};*/
 
 //-------------------------------------
 //--------------Reservas---------------
@@ -1047,9 +1061,11 @@ let reservas = {
         parqueo_seleccionado: parqueos.parqueo_1.nombre,
         fecha_reserva: '29/07/2020',
         hora_entrada: '8:00',
-        hora_salida: '9:00',
+        hora_salida: '9:30',
+        horas: '',
+        descuento: '',
         estado_reserva: 'Pendiente',
-        monto_total: '2000',
+        monto_total: '',
         espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_1.id
     },
     reserva2: {
@@ -1059,8 +1075,10 @@ let reservas = {
         fecha_reserva: '29/07/2020',
         hora_entrada: '21:00',
         hora_salida: '22:00',
+        horas: '',
+        descuento: '',
         estado_reserva: 'Activa',
-        monto_total: '2000',
+        monto_total: '',
         espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_6.id
     },
     reserva3: {
@@ -1070,8 +1088,10 @@ let reservas = {
         fecha_reserva: '30/07/2020',
         hora_entrada: '12:00',
         hora_salida: '15:00',
+        horas: '',
+        descuento: '',
         estado_reserva: 'Paga',
-        monto_total: '5000',
+        monto_total: '',
         espacio_seleccionado: parqueos.parqueo_2.pisos.piso_2.espacios.espacio_3.id
     },
     reserva4: {
@@ -1081,8 +1101,10 @@ let reservas = {
         fecha_reserva: '31/07/2020',
         hora_entrada: '10:00',
         hora_salida: '11:00',
+        horas: '',
+        descuento: '',
         estado_reserva: 'Reservada',
-        monto_total: '2500',
+        monto_total: '',
         espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_4.id
     },
     reserva5: {
@@ -1092,8 +1114,10 @@ let reservas = {
         fecha_reserva: '1/08/2020',
         hora_entrada: '13:00',
         hora_salida: '18:00',
+        horas: '',
+        descuento: '',
         estado_reserva: 'Reservada',
-        monto_total: '10000',
+        monto_total: '',
         espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_8.id
     },
     reserva6: {
@@ -1103,8 +1127,10 @@ let reservas = {
         fecha_reserva: '5/08/2020',
         hora_entrada: '6:00',
         hora_salida: '8:00',
+        horas: '',
+        descuento: '',
         estado_reserva: 'Activa',
-        monto_total: '5000',
+        monto_total: '',
         espacio_seleccionado: parqueos.parqueo_2.pisos.piso_1.espacios.espacio_2.id
     },
     reserva7: {
@@ -1114,8 +1140,10 @@ let reservas = {
         fecha_reserva: '30/08/2020',
         hora_entrada: '9:00',
         hora_salida: '16:00',
+        horas: '',
+        descuento: '',
         estado_reserva: 'Reservada',
-        monto_total: '12000',
+        monto_total: '',
         espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_5.id
     },
     reserva8: {
@@ -1125,8 +1153,10 @@ let reservas = {
         fecha_reserva: '15/08/2020',
         hora_entrada: '14:00',
         hora_salida: '17:00',
+        horas: '',
+        descuento: '',
         estado_reserva: 'Paga',
-        monto_total: '5500',
+        monto_total: '',
         espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_7.id
     },
 
