@@ -464,7 +464,7 @@ const publicar_comentario = () => {
 };
 
 const eliminar_comentario = () => {
-    if (comentario_actual != null) {
+    if (comentario_usuario_ingresado != null) {
         console.log('Reseña eliminada');
         //Eliminar comentario del DB.
     }
@@ -489,6 +489,6 @@ btn_eliminar_comentario.addEventListener('click', eliminar_comentario);
 slt_piso_actual.addEventListener('change', piso_actual_cambiado);
 btn_hoja_anterior.addEventListener('click', mostrar_hoja_anterior);
 btn_hoja_siguiente.addEventListener('click', mostrar_hoja_siguiente);
-//btn_reservar_espacio.addEventListener('click', crear_reserva);
+btn_reservar_espacio.addEventListener('click', crear_reserva);
 
-btn_reservar_espacio.addEventListener('click', horas_correctas);
+//btn_reservar_espacio.addEventListener('click', horas_correctas);
