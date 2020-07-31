@@ -185,6 +185,7 @@ const reiniciar_filtros = () => {
     filtro_calificacion = 0;
 
     //Reiniciar valores en la ventana de filtros.
+    chb_usar_filtros.checked = usando_filtros;
     chb_estado.checked = filtrando_parqueos_abiertos;
     chb_ubicacion_actual.checked = filtrando_por_ubicacion_actual;
 
