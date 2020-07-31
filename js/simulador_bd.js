@@ -410,7 +410,35 @@ let solicitudes_parqueos = {
 
 
 
+// Dueños de parqueo
 
+let duennos_parqueos = {
+    cant_duennos: 3,
+    duenno_parqueo1: {
+        id_usuario: 'D1',
+        email: 'josepablo@gmail.com',
+        nombre: 'Jose Pablo Ramirez Soto',
+        fecha_nacimiento: '24/05/1990',
+        contraseña: '5823475',
+        estado_general: 'ACTIVO'
+    },
+    duenno_parqueo2: {
+        id_usuario: 'D2',
+        email: 'ramonluis@gmail.com',
+        nombre: 'Ramón Luis López López',
+        fecha_nacimiento: '15/02/1956',
+        contraseña: '9719369',
+        estado_general: 'ACTIVO'
+    },
+    duenno_parqueo3: {
+        id_usuario: 'D3',
+        email: 'mariaperez@hotmail.com',
+        nombre: 'María Covid Pérez Vindas',
+        fecha_nacimiento: '11/05/1949',
+        contraseña: '3067245',
+        estado_general: 'ACTIVO'
+    }
+}
 
 
 
@@ -426,7 +454,7 @@ let parqueos = {
     parqueo_1: {
         codigo: '11291',
         nombre: 'Parqueo la maravilla',
-        duenno_parqueo: 'Jose Pablo Ramirez Soto',
+        duenno_parqueo: duennos_parqueos.duenno_parqueo1.nombre,
         email: 'contacto@parqueolamaravilla.com',
         cedula_juridica: '12ji2ojd1oid21ijo',
         permiso_funcionamiento: '1289dn2jkawiu91',
@@ -614,7 +642,7 @@ let parqueos = {
     parqueo_2: {
         codigo: '11232',
         nombre: 'Parqueo López López',
-        duenno_parqueo: 'Ramón Luis López López',
+        duenno_parqueo: duennos_parqueos.duenno_parqueo2.nombre,
         email: 'contacto@parqueolopezlopez.com',
         cedula_juridica: '12ji2jdjsid21ijo',
         permiso_funcionamiento: '1282932niu91',
@@ -697,7 +725,7 @@ let parqueos = {
     parqueo_3: {
         codigo: '111921',
         nombre: 'Parqueo el Covid',
-        duenno_parqueo: 'María Covid Pérez Vindas',
+        duenno_parqueo: duennos_parqueos.duenno_parqueo3.nombre,
         email: 'contacto@parqueoelcovid.com',
         cedula_juridica: '12ji2ojd11212122jo',
         permiso_funcionamiento: 'AAbshaSkawiu91',
@@ -1212,33 +1240,3 @@ let tarjetas = {
 };
 
 /* ---------↑ Datos de las tarjetas agregadas por el usuario cliente ↑--------- */
-
-// Dueños de parqueo
-
-let duenno_parqueos = {
-    cant_duennos: 3,
-    duenno_parqueo1: {
-        id_usuario: 'D1',
-        email: parqueos.parqueo_1.email,
-        nombre: parqueos.parqueo_1.duenno_parqueo,
-        fecha_nacimiento: '24/05/1990',
-        contraseña: '5823475',
-        estado_general: 'ACTIVO'
-    },
-    duenno_parqueo2: {
-        id_usuario: 'D2',
-        email: parqueos.parqueo_2.email,
-        nombre: parqueos.parqueo_2.duenno_parqueo,
-        fecha_nacimiento: '15/02/1956',
-        contraseña: '9719369',
-        estado_general: 'ACTIVO'
-    },
-    duenno_parqueo3: {
-        id_usuario: 'D3',
-        email: parqueos.parqueo_3.email,
-        nombre: parqueos.parqueo_3.duenno_parqueo,
-        fecha_nacimiento: '11/05/1949',
-        contraseña: '3067245',
-        estado_general: 'ACTIVO'
-    }
-}
