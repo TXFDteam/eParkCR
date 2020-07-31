@@ -913,6 +913,7 @@ let empresas = {
             cedula_empresa: '111',
             nombre_empresa: 'Adidas',
             codigo_empresa: '100',
+            contrasenna_empresa: 'adidas1',
             estado: 'ACTIVO'
         },
         empresa_2: {
@@ -920,6 +921,7 @@ let empresas = {
             cedula_empresa: '112',
             nombre_empresa: 'Banco Nacional',
             codigo_empresa: '101',
+            contrasenna_empresa: 'banconacional1',
             estado: 'INACTIVO'
         },
         empresa_3: {
@@ -927,6 +929,7 @@ let empresas = {
             cedula_empresa: '113',
             nombre_empresa: 'Banco popular',
             codigo_empresa: '102',
+            contrasenna_empresa: 'bancopopular1',
             estado: 'ACTIVO'
         }
     }
