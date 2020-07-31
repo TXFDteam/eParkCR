@@ -12,6 +12,7 @@ let contrasenna_usuario = localStorage.getItem('contrasenna');
 console.log(contrasenna_usuario);
 
 
+
 for (let u = 1; u <= usuarios.cant_usuarios; u++) {
     let identificador_usuario = ('usuario' + u);
     //SI EL CORREO Y  CONTRASEÑA ALMACENADOS EN INICIAR SESION PROCEDE A ASIGNAR LOS VALORES DEL USUARIO LOGEADO

@@ -18,4 +18,7 @@ let correo_parqueo = usuarios.usuario1.correo_usuario;
 console.log(correo_parqueo);
 document.querySelector('#correo-parqueo').innerHTML = correo_parqueo;
 
+
+
+
 // pendiente de crear datos para quemar de duenio de parqueo en el archivo simulador_bd.js. X.L//
