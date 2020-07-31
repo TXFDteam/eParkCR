@@ -1265,7 +1265,7 @@ let solicitudes = {};
 
 
 /* ---------↓ Datos de las tarjetas agregadas por el usuario cliente ↓--------- */
-
+/*
 let tarjetas = {
     cant_tarjetas: 4,
     tarjeta_1: {
@@ -1288,6 +1288,6 @@ let tarjetas = {
         fecha_expiracion: 1 / 11,
         predeterminada: false,
     }
-};
+};*/
 
 /* ---------↑ Datos de las tarjetas agregadas por el usuario cliente ↑--------- */
