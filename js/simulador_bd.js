@@ -416,7 +416,7 @@ let duennos_parqueos = {
     cant_duennos: 3,
     duenno_parqueo1: {
         id_usuario: 'D1',
-        email: 'josepablo@gmail.com',
+        correo_duenno: 'josepablo@gmail.com',
         nombre: 'Jose Pablo Ramirez Soto',
         fecha_nacimiento: '24/05/1990',
         contraseña: '5823475',
@@ -424,7 +424,7 @@ let duennos_parqueos = {
     },
     duenno_parqueo2: {
         id_usuario: 'D2',
-        email: 'ramonluis@gmail.com',
+        correo_duenno: 'ramonluis@gmail.com',
         nombre: 'Ramón Luis López López',
         fecha_nacimiento: '15/02/1956',
         contraseña: '9719369',
@@ -432,7 +432,7 @@ let duennos_parqueos = {
     },
     duenno_parqueo3: {
         id_usuario: 'D3',
-        email: 'mariaperez@hotmail.com',
+        correo_duenno: 'mariaperez@hotmail.com',
         nombre: 'María Covid Pérez Vindas',
         fecha_nacimiento: '11/05/1949',
         contraseña: '3067245',
@@ -805,7 +805,19 @@ let usuarios = {
         n_identificacion: '11811',
         fecha_nacimiento: '27/01/2001',
         contraseña: '11111111',
-        estado_general: 'ACTIVO' //Este estado es el de la aplicación
+        estado_general: 'ACTIVO',
+        tarjetas: { //Este estado es el de la aplicación
+            tarjeta_1: {
+                numero_tarjeta: '1111 1111 1111 1111',
+                fecha_expiracion: 1 / 11,
+                predeterminada: false,
+            },
+            tarjeta_2: {
+                numero_tarjeta: '3333 3333 3333 3333',
+                fecha_expiracion: 2 / 22,
+                predeterminada: true,
+            }
+        }
     },
     usuario2: {
         id_usuario: '2',
@@ -815,7 +827,14 @@ let usuarios = {
         n_identificacion: '11812',
         fecha_nacimiento: '20/04/2001',
         contraseña: '111111117',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+            tarjeta_1: {
+                numero_tarjeta: '4444 4444 4444 4444',
+                fecha_expiracion: 3 / 33,
+                predeterminada: true,
+            }
+        }
     },
     usuario3: {
         id_usuario: '3',
@@ -825,7 +844,14 @@ let usuarios = {
         n_identificacion: '11813',
         fecha_nacimiento: '18/08/1998',
         contraseña: '11111111254',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+            tarjeta_1: {
+                numero_tarjeta: '5555 5555 5555 5555',
+                fecha_expiracion: 1 / 11,
+                predeterminada: true,
+            }
+        }
     },
     usuario4: {
         id_usuario: '4',
@@ -834,18 +860,22 @@ let usuarios = {
         n_identificacion: '11814',
         fecha_nacimiento: '27/05/2000',
         contraseña: '111111111465',
+        estado_general: 'ACTIVO',
+        tarjetas: {
 
-        estado_general: 'ACTIVO'
+        }
     },
     usuario5: {
         id_usuario: '5',
         correo_usuario: 'xavier@gmail.com',
         nombre_usuario: 'Xavier L C',
-
         n_identificacion: '11815',
         fecha_nacimiento: '27/01/1995',
         contraseña: '1111111174',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+
+        }
     },
     usuario6: {
         id_usuario: '6',
@@ -855,7 +885,10 @@ let usuarios = {
         n_identificacion: '11816',
         fecha_nacimiento: '27/01/1997',
         contraseña: '1111111123',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+
+        }
     },
     usuario7: {
         id_usuario: '7',
@@ -865,7 +898,10 @@ let usuarios = {
         n_identificacion: '11817',
         fecha_nacimiento: '27/01/1980',
         contraseña: '111111187',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+
+        }
     },
     usuario8: {
         id_usuario: '8',
@@ -875,7 +911,10 @@ let usuarios = {
         n_identificacion: '11818',
         fecha_nacimiento: '27/08/1998',
         contraseña: '111111182',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+
+        }
     },
     usuario9: {
         id_usuario: '9',
@@ -885,7 +924,10 @@ let usuarios = {
         n_identificacion: '11819',
         fecha_nacimiento: '27/7/1990',
         contraseña: '111115555',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+
+        }
     },
     usuario10: {
         id_usuario: '10',
@@ -905,7 +947,10 @@ let usuarios = {
         n_identificacion: '118110',
         fecha_nacimiento: '21/04/2001',
         contraseña: '111119644',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+
+        }
     },
     usuario12: {
         id_usuario: '12',
@@ -915,7 +960,10 @@ let usuarios = {
         n_identificacion: '118112',
         fecha_nacimiento: '22/04/1996',
         contraseña: '111111784',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+
+        }
     },
     usuario13: {
         id_usuario: '13',
@@ -925,7 +973,10 @@ let usuarios = {
         n_identificacion: '1181113',
         fecha_nacimiento: '04/8/1993',
         contraseña: '111111245',
-        estado_general: 'ACTIVO'
+        estado_general: 'ACTIVO',
+        tarjetas: {
+
+        }
     },
 
 };

@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil empresa</title>
 
-
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
     <link rel="stylesheet" href="css/perfil.css">
 
 
@@ -35,7 +36,7 @@
         <section id="contenedor-perfil">
             <div class="menu-lateral">
 
-                <a href="" id="primer-link">Inicio</a>
+                <a href="" class="primer-link-menu-lateral" id="primer-link">Inicio</a>
                 <a href="">Convenios</a>
                 <a href="">Historial de reservas</a>
                 <a href="">Configuración de Cuenta</a>
@@ -59,13 +60,13 @@
                 <div class="info-perfil">
                     <div class="perfil-izquierda">
                         <div>
-                            <h3>Nombre de usuario:</h3>
-                            <p>Empresa</p>
+                            <h3>Nombre:</h3>
+                            <p id="nombre-empresa">Empresa</p>
                         </div>
 
                         <div>
                             <h3>Correo electrónico:</h3>
-                            <p>empresa@empresa.com</p>
+                            <p id="correo-electronico">empresa@empresa.com</p>
                         </div>
 
 
@@ -77,14 +78,14 @@
                     </div>
                     <div class="perfil-derecha">
 
-                        <div>
+                        <div class="ced">
                             <h3>Cédula jurídica:</h3>
-                            <p>01-0913-0259</p>
+                            <p id="cedula-juridica">01-0913-0259</p>
                         </div>
 
                         <div>
                             <h3>Contraseña:</h3>
-                            <p>*********</p>
+                            <p id="contrasenna">*********</p>
                         </div>
                     </div>
 
@@ -107,6 +108,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/ctrl-iniciar-sesion.js"></script>
     <script src="js/ctrl_cerrar_cuenta.js"></script>
     <script src="js/simulador_bd.js"></script>
     <script src="js/ctrl_perfil_empresa.js"></script>

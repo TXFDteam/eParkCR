@@ -1,22 +1,34 @@
 'use strict';
 
 
-let nombre_cliente = usuarios.usuario1.nombre_usuario;
-console.log(nombre_cliente);
-document.querySelector('#nombre-cliente').innerHTML = nombre_cliente;
+let nombre_cliente = document.querySelector('#nombre-cliente');
+let correo_electronico = document.querySelector('#correo-cliente');
+let tarjeta_cliente = document.querySelector('#tarjeta-cliente');
+let nacimiento_cliente = document.querySelector('#nacimiento-cliente');
 
-let correo_electronico = usuarios.usuario1.correo_usuario;
-console.log(correo_electronico);
-document.querySelector('#correo-cliente').innerHTML = correo_electronico;
+let correo_usuario = localStorage.getItem('correo');
+console.log(correo_usuario);
+let contrasenna_usuario = localStorage.getItem('contrasenna');
+console.log(contrasenna_usuario);
 
-let tarjeta_cliente = usuarios.usuario1.tarjeta_credito;
-console.log(tarjeta_cliente);
-document.querySelector('#tarjeta-cliente').innerHTML = tarjeta_cliente;
 
-let nacimiento_cliente = usuarios.usuario1.fecha_nacimiento;
-console.log(nacimiento_cliente);
-document.querySelector('#nacimiento-cliente').innerHTML = nacimiento_cliente;
+for (let u = 1; u <= usuarios.cant_usuarios; u++) {
+    let identificador_usuario = ('usuario' + u);
+    //SI EL CORREO Y  CONTRASEÑA ALMACENADOS EN INICIAR SESION PROCEDE A ASIGNAR LOS VALORES DEL USUARIO LOGEADO
+    if (usuarios[identificador_usuario].correo_usuario == correo_usuario && usuarios[identificador_usuario].contraseña == contrasenna_usuario) {
 
-let contrasena_cliente = usuarios.usuario1.contraseña;
-console.log(contrasena_cliente);
-document.querySelector('#contrasena-cliente').innerHTML = contrasena_cliente;
+        console.log(usuarios[identificador_usuario]);
+
+        nombre_cliente.innerHTML = usuarios[identificador_usuario].nombre_usuario;
+        correo_electronico.innerHTML = usuarios[identificador_usuario].correo_usuario;
+        nacimiento_cliente.innerHTML = usuarios[identificador_usuario].fecha_nacimiento;
+        //ESTE FOR VERIFICA LA TARJETA QUE TIENE COMO PREDETERMINADA
+        for (let t = 1; t <= 10; t++) {
+            let identificador_tarjeta = ('tarjeta_' + t);
+            if (usuarios[identificador_usuario].tarjetas[identificador_tarjeta].predeterminada = true) {
+                tarjeta_cliente.innerHTML = usuarios[identificador_usuario].tarjetas[identificador_tarjeta].numero_tarjeta;
+            }
+        }
+        break;
+    }
+};
