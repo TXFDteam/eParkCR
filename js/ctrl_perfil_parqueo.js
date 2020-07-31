@@ -1,7 +1,13 @@
 'use strict';
 
 
+let a_inicio_perfil = document.querySelector('#link-inicio');
 
+if (a_inicio_perfil) {
+    a_inicio_perfil.addEventListener('click', function() {
+        a_inicio_perfil.href = "../../perfil_empresa.html";
+    })
+};
 
 
 let nombre_duenno_parqueo = parqueos.parqueo_3.duenno_parqueo;
