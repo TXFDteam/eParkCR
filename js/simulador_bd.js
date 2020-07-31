@@ -606,7 +606,7 @@ let parqueos = {
         cedula_juridica: '12ji2jdjsid21ijo',
         permiso_funcionamiento: '1282932niu91',
         enlaces_redes: { facebook: '', twitter: '', instagram: '' },
-        ubicacion: 'San José',
+        ubicacion: 'Heredia',
         calificacion_promedio: 4.7,
         abierto: true,
         tarifa_hora: 1500,

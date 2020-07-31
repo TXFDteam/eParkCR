@@ -5,8 +5,15 @@
 }
 
 .sct-contenido-buscar-parqueos {
-    width: 82%;
+    width: 100%;
     padding: 2%;
+}
+
+#sct-contenedor-titulo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #sct-contenedor-carta-parqueos {
