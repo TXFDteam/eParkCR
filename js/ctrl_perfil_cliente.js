@@ -1,3 +1,6 @@
 'use strict';
 
-$("#nombre-cliente").text(usuarios.usuario1[0].nombre_usuario);
+let nombre_cliente = document.querySelector('#nombre-cliente');
+
+nombre_cliente = usuarios.usuario1.nombre_usuario;
+console.log(nombre_cliente);
