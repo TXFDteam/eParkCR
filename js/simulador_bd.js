@@ -774,7 +774,6 @@ let usuarios = {
         id_usuario: '1',
         correo_usuario: 'daniel@gmail.com',
         nombre_usuario: 'Daniel Z R',
-        tarjeta_credito: '4234 5432 9632 1224',
         n_identificacion: '11811',
         fecha_nacimiento: '27/01/2001',
         contraseña: '11111111',
@@ -1210,3 +1209,33 @@ let tarjetas = {
 };
 
 /* ---------↑ Datos de las tarjetas agregadas por el usuario cliente ↑--------- */
+
+// Dueños de parqueo
+
+let duenno_parqueos = {
+    cant_duennos: 3,
+    duenno_parqueo1: {
+        id_usuario: 'D1',
+        email: parqueos.parqueo_1.email,
+        nombre: parqueos.parqueo_1.duenno_parqueo,
+        fecha_nacimiento: '24/05/1990',
+        contraseña: '5823475',
+        estado_general: 'ACTIVO'
+    },
+    duenno_parqueo2: {
+        id_usuario: 'D2',
+        email: parqueos.parqueo_2.email,
+        nombre: parqueos.parqueo_2.duenno_parqueo,
+        fecha_nacimiento: '15/02/1956',
+        contraseña: '9719369',
+        estado_general: 'ACTIVO'
+    },
+    duenno_parqueo3: {
+        id_usuario: 'D3',
+        email: parqueos.parqueo_3.email,
+        nombre: parqueos.parqueo_3.duenno_parqueo,
+        fecha_nacimiento: '11/05/1949',
+        contraseña: '9719369',
+        estado_general: 'ACTIVO'
+    }
+}
