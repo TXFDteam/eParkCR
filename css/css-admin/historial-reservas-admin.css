@@ -48,3 +48,18 @@ table {
 #tabla-reservas tbody tr:nth-child(odd) {
     background-color: #ced6e0;
 }
+
+
+/*SI SE LE DA CLICK A DESCARGAR*/
+
+@media print {
+    .nav-principal * {
+        visibility: hidden;
+    }
+    .menu-lateral * {
+        visibility: hidden;
+    }
+    .info-reservas * {
+        visibility: visible;
+    }
+}
