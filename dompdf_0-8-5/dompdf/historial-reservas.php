@@ -2,7 +2,7 @@
 // include autoloader
 require_once 'dompdf/autoload.inc.php';
 
-use Dompdf\Dompdf;
+use Dompdf\dompdf;
 
 $tabla= new Dompdf();
 
@@ -17,8 +17,6 @@ $tabla->render();
 
 // Output the generated PDF to Browser
 $tabla->stream();
-
-
 
 
 ?>

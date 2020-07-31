@@ -29,21 +29,21 @@
         </div>
 
         <div class="col-container">
-            <div class="col">
+            <div class="col" id="col1">
 
                 <label for='prq-registro-nombre'>Nombre de sociedad o persona dueña de parqueo</label><br>
-                <input type='text' id='prq-registro-nombre'><br>
+                <input type='text' id='prq-registro-nombre' required><br>
 
                 <label for='prq-registro-nombreParqueo'>Nombre del parqueo</label><br>
-                <input type='text' id='prq-registro-contrasena'><br>
+                <input type='text' id='prq-registro-nombreParqueo' required><br>
 
                 <label for='prq-registro-contrasena'>Contraseña</label><br>
-                <input type='password' id='prq-registro-contrasena'><br>
+                <input type='password' id='prq-registro-contrasena' required><br>
 
-                <legend>Tienes permiso activo de funcionamiento?</legend>
-                <input type="checkbox" id="prq-registro-permiso-yes" name="prq-registro-permiso" value="Yes">
+                <legend id='permisoFuncionamientoTexto'>Tienes permiso activo de funcionamiento?</legend>
+                <input type="checkbox" id="prq-registro-permiso-yes" class="prq-registro-permiso" value="Yes">
                 <label for="prq-registro-permiso-yes" id="prq-registro-permiso-yes-label">Yes</label><br>
-                <input type="checkbox" id="prq-registro-no" name="prq-registro-permiso" value="No">
+                <input type="checkbox" id="prq-registro-no" class="prq-registro-permiso" value="No">
                 <label for="prq-registro-permiso-no" id="prq-registro-permiso-no-label">No</label><br>
 
                 <form id="prq-regsitro-formFinal">
@@ -53,34 +53,39 @@
                 </form>
 
 
-                <div id="prq-registro-botones">
-                    <button type="button" id='btn-prq-registro-crearPerfil'>Crear Perfil</button>
-                    <button type="button" id='btn-prq-registro-yaTenesCuenta'>Ya tenés cuenta?</button>
 
-                </div>
 
             </div>
 
-            <div class="col">
+            <div class="col" id="col2">
 
                 <label for='prq-registro-jurídica'>Cédula jurídica</label><br>
-                <input type='text' id='prq-registro-nombre'><br>
+                <input type='text' id='prq-registro-jurídica' required><br>
 
                 <label for='prq-registro-correo'>Correo electrónico</label><br>
-                <input type='email' id='prq-registro-correo'><br>
+                <input type='email' id='prq-registro-correo' required><br>
 
                 <label for='prq-registro-confirmaContrasena'>Confirmá tu contraseña</label><br>
-                <input type='password' id='prq-registro-confirmaContrasena'><br>
+                <input type='password' id='prq-registro-confirmaContrasena' required><br>
 
                 <h2>Ubicación</h2>
                 <label for='prq-registro-direccion'>Ingresá la ubicación de tu empresa</label><br>
-                <input type='text' placeholder="Provincia" id='prq-registro-direccion'><br>
-                <input type='text' placeholder="Cantón" id='prq-registro-direccion'><br>
-                <input type='text' placeholder="Distrito" id='prq-registro-direccion'><br>
-                <input type='text' placeholder="Dirección exacta" id='prq-registro-direccion'><br>
+                <input type='text' placeholder="Provincia" id='prq-registro-provincia' required><br>
+                <input type='text' placeholder="Cantón" id='prq-registro-canton' required><br>
+                <input type='text' placeholder="Distrito" id='prq-registro-distrito' required><br>
+                <input type='text' placeholder="Dirección exacta" id='prq-registro-direccion' required><br>
             </div>
         </div>
+
+        <div id="prq-registro-botones">
+            <button type="button" id='btn-prq-registro-crearPerfil'>Crear Perfil</button>
+            <button type="button" id='btn-prq-registro-yaTenesCuenta'>Ya tenés cuenta?</button>
+
+        </div>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="/js/prq_formulario_validaciones.js"></script>
 </body>
 
 </html>

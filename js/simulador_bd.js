@@ -1,6 +1,19 @@
 'use strict';
 
 //-------------------------------------
+//---------Perfil administrador--------
+//-------------------------------------
+let administrador = {
+    nombre: 'admin_principal',
+    correo_admin: 'admin@admin.com',
+    contrasenna_admin: 'admin.admin1'
+}
+
+
+
+
+
+//-------------------------------------
 //--------------Reseñas----------------
 //-------------------------------------
 let comentarios = {
