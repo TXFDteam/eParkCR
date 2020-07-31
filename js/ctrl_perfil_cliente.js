@@ -25,7 +25,7 @@ for (let u = 1; u <= usuarios.cant_usuarios; u++) {
         //ESTE FOR VERIFICA LA TARJETA QUE TIENE COMO PREDETERMINADA
         for (let t = 1; t <= 10; t++) {
             let identificador_tarjeta = ('tarjeta_' + t);
-            if (usuarios[identificador_usuario].tarjetas[identificador_tarjeta].predeterminada = true) {
+            if (usuarios[identificador_usuario].tarjetas[identificador_tarjeta].predeterminada == true) {
                 tarjeta_cliente.innerHTML = usuarios[identificador_usuario].tarjetas[identificador_tarjeta].numero_tarjeta;
             }
         }
