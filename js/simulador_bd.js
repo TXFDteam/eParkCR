@@ -1235,7 +1235,7 @@ let duenno_parqueos = {
         email: parqueos.parqueo_3.email,
         nombre: parqueos.parqueo_3.duenno_parqueo,
         fecha_nacimiento: '11/05/1949',
-        contraseña: '9719369',
+        contraseña: '3067245',
         estado_general: 'ACTIVO'
     }
 }
