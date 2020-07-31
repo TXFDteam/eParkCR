@@ -1,6 +1,16 @@
 'use strict';
 
 
+let a_inicio_perfil = document.querySelector('#link-inicio');
+
+if (a_inicio_perfil) {
+    a_inicio_perfil.addEventListener('click', function() {
+        a_inicio_perfil.href = "../../perfil_cliente.html";
+    })
+};
+
+
+
 let nombre_cliente = document.querySelector('#nombre-cliente');
 let correo_electronico = document.querySelector('#correo-cliente');
 let tarjeta_cliente = document.querySelector('#tarjeta-cliente');

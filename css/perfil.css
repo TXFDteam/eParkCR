@@ -92,7 +92,7 @@
 }
 
 #contenedor-perfil .botones button,
-a {
+#contenedor-perfil a {
     background-color: white;
     margin-top: 20px;
     box-shadow: none;
