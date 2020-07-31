@@ -1,18 +1,18 @@
 'use strict';
 
-const btn_emp_registro_crearPerfil = document.querySelector('#btn_emp_registro_crearPerfil');
-const input_nombreEmpresa = document.querySelector('#emp_registro_nombre');
-const input_nombreEncargado = document.querySelector('#emp_registro_nombreEncargado');
-const input_contrasena = document.querySelector('#emp_registro_contrasena');
-const input_cedulaJuridica = document.querySelector('#emp_registro_juridica');
-const input_correo = document.querySelector('#emp_registro_correo');
-const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
-const input_provincia = document.querySelector('#emp_registro_provincia');
-const input_canton = document.querySelector('#emp_registro_canton');
-const input_distrito = document.querySelector('#emp_registro_distrito');
-const input_direccion = document.querySelector('#emp_registro_direccion');
+const btn_prq_registro_crearPerfil = document.querySelector('#btn-prq-registro-crearPerfil');
+const input_nombreSociedad = document.querySelector('#prq-registro-nombre');
+const input_nombreParqueo = document.querySelector('#prq-registro-nombreParqueo');
+const input_contrasena = document.querySelector('#prq-registro-contrasena');
+const input_cedulaJuridica = document.querySelector('#prq-registro-jurídica');
+const input_correo = document.querySelector('#prq-registro-correo');
+const input_confirmarContrasena = document.querySelector('#prq-registro-confirmaContrasena');
+const input_provincia = document.querySelector('#prq-registro-provincia');
+const input_canton = document.querySelector('#prq-registro-canton');
+const input_distrito = document.querySelector('#prq-registro-distrito');
+const input_direccion = document.querySelector('#prq-registro-direccion');
 
-const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
+const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoTexto');
 
 
 
@@ -86,10 +86,10 @@ const obtener_datos = () => {
         });
 
 
-        let nombreEmpresa = input_nombreEmpresa.value;
-        let nombreEncargado = input_nombreEncargado.value;
+        let nombreSociedad = input_nombreSociedad.value;
+        let nombreParqueo = input_nombreParqueo.value;
         let contrasena = input_contrasena.value;
-        let permisoFuncionamiento = document.querySelector('.emp_registro_permiso:checked').value;
+        let permisoFuncionamiento = document.querySelector('.prq-registro-permiso:checked').value;
         let cedulaJuridica = input_cedulaJuridica.value;
         let correo = input_correo.value;
         let confirmarContrasena = input_confirmarContrasena.value;
@@ -98,10 +98,8 @@ const obtener_datos = () => {
         let distrito = input_distrito.value;
         let direccion = input_direccion.value;
 
-
-
-        console.log('Nombre empresa: ', nombreEmpresa);
-        console.log('Nombre encargado: ', nombreEncargado);
+        console.log('Nombre Sociedad: ', nombreSociedad);
+        console.log('Nombre Parqueo: ', nombreParqueo);
         console.log('Contrasena: ', contrasena);
         console.log('Permiso funcionamiento: ', permisoFuncionamiento);
         console.log('Cedula juridica: ', cedulaJuridica);
@@ -116,4 +114,4 @@ const obtener_datos = () => {
     }
 };
 
-btn_emp_registro_crearPerfil.addEventListener('click', obtener_datos);
+btn_prq_registro_crearPerfil.addEventListener('click', obtener_datos);
