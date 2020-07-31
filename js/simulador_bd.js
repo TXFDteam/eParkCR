@@ -774,7 +774,7 @@ let usuarios = {
         id_usuario: '1',
         correo_usuario: 'daniel@gmail.com',
         nombre_usuario: 'Daniel Z R',
-
+        tarjeta_credito: '4234 5432 9632 1224',
         n_identificacion: '11811',
         fecha_nacimiento: '27/01/2001',
         contraseña: '11111111',
