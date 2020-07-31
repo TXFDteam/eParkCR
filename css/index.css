@@ -169,10 +169,11 @@ body a {
     margin-bottom: 5%;
 }
 
-.banner4-btn-registrarse button {
-    font-size: 24px;
-    width: 240px;
-    height: 60px;
+.banner4-botones-registrarse button {
+    font-size: 16px;
+    width: 200px;
+    height: 50px;
+    margin-right: 2%;
 }
 
 
