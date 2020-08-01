@@ -11,10 +11,9 @@ if (a_inicio_perfil) {
 
 
 let nombre_duenno_parqueo = document.querySelector('#nombre-duenno-parqueo');
-let correo_dueno_parqueo = document.querySelector('#correo-parqueo');
+let correo_duenno_parqueo = document.querySelector('#correo-parqueo');
 let cuenta_bancaria_duenno_parqueo = document.querySelector('#cuenta-bancaria-parqueo');
 let nacimiento_duenno_parqueo = document.querySelector('#nacimiento-duenno-parqueo');
-let contrasenna_duenno_parqueo = document.querySelector('#contrasenna-duenno-parqueo');
 
 
 let correo = localStorage.getItem('correo');
@@ -31,18 +30,18 @@ for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
 
         console.log(duennos_parqueos[identificador_duenno]);
 
-        nombre_duenno_parqueo.innerHTML = duennos_parqueo[identificador_duenno].nombre;
-        correo_duenno_parqueo.innerHTML = duennos_parqueo[identificador_duenno].correo_duenno;
-        cuenta_bancaria_duenno_parqueo.innerHTML = duennos_parqueo[identificador_duenno].cuenta_bancaria;
-        nacimiento_duenno_parqueo.innerHTML = duennos_parqueo[identificador_duenno].fecha_nacimiento;
-        contrasenna_duenno_parqueo.innerHTML = duennos_parqueo[identificador_duenno].contraseña;
+        nombre_duenno_parqueo.innerHTML = duennos_parqueos[identificador_duenno].nombre;
+        correo_duenno_parqueo.innerHTML = duennos_parqueos[identificador_duenno].correo_duenno;
+        cuenta_bancaria_duenno_parqueo.innerHTML = duennos_parqueos[identificador_duenno].cuenta_bancaria;
+        nacimiento_duenno_parqueo.innerHTML = duennos_parqueos[identificador_duenno].fecha_nacimiento;
+
 
 
         console.log(nombre_duenno_parqueo);
         console.log(correo_duenno_parqueo);
         console.log(cuenta_bancaria_duenno_parqueo);
         console.log(nacimiento_duenno_parqueo);
-        console.log(contrasenna_duenno_parqueo);
+
 
     }
 
