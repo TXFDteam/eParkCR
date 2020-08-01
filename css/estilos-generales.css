@@ -1,3 +1,26 @@
+/*
+PROPUESTA DE COLORES:
+Amarillo: #F7E40C
+Amarillo naranja: #D49B0B
+Naranja: #EB7100
+Rojo: #D62900
+Rosa: #F50054
+
+Color texto blanco: #ffffff
+Color de texto: #262626
+Color texto claro: #767676
+*/
+
+
+/*
+Para incluir la fuente:
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
 h1 {
     font-size: 32px;
     line-height: 40px;
@@ -21,6 +44,13 @@ p {
 a {
     font-size: 16px;
     line-height: 24px;
+}
+
+button {
+    border: none;
+    background-color: #A5A5A5;
+    color: #ffffff;
+    padding: 1% 2%;
 }
 
 .oculto {

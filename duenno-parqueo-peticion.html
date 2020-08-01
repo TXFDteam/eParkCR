@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario dueño de parqueo</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/estilo-peticion-duenno-parqueo.css">
+</head>
+
+<body>
+
+    <div class="nav-principal">
+        <a href="index.html" id="link-marca">Marca</a>
+        <div class="nav-derecha">
+            <a href="CI_registro_usuarios.html" id="link-registrarse">Registrarse</a>
+            <a href="iniciar-sesion.html" id="link-iniciar-sesion">Iniciar sesión</a>
+        </div>
+    </div>
+    <div class="contenedor">
+
+        <div class="peticion-info">
+            <h2>¿Querés usar la app como<br>dueño de parqueo?</h2>
+            <div class="peticion-form">
+                <form action="">
+                    <div>
+                        <input id="input-nombre-peticion" type="text" placeholder="Nombre del dueño" required></div>
+                    <div>
+                        <input id="input-correo-peticion" type="email" placeholder="Correo de contacto" required></div>
+                    <div>
+                        <input id="input-tel-peticion" type="tel" placeholder="Teléfono" required></div>
+
+                </form>
+                <button id="btn-peticion-datos-duenno-parqueo" type="button">Realizar petición</button>
+            </div>
+
+            <div class="peticion-parrafo">
+                <p>Completa este formulario para realizar la<br>petición del parqueo. En breve nos pondremos<br>en contacto con vos para obtener información<br>más detallada sobre el parqueo.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/simulador_bd.js"></script>
+    <script src="js/ctrl-peticion-duenno-parqueo.js"></script>
+</body>
+
+</html>

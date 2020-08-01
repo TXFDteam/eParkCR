@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Parqueo</title>
+    <title>Perfil Cliente</title>
 
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
@@ -57,16 +57,16 @@
 
                     <form id="editar-perfil">
                         <div>
-                            <label for="nombre-cliente">Nombre de usuario:</label>
+                            <label for="nuevo-nombre-cliente">Nombre de usuario:</label>
 
-                            <input type="text" id="nombre-cliente" name="nombre-cliente">
+                            <input type="text" id="nuevo-nombre-cliente" name="nuevo-nombre-cliente">
                         </div>
 
 
                         <div>
-                            <label for="tarjeta-credito-cliente">Tarjeta de crédito:</label>
+                            <label for="nueva-tarjeta-credito-cliente">Tarjeta de crédito:</label>
 
-                            <select name="tarjeta-credito-cliente" id="tarjeta-credito-cliente"><span>%</span>
+                            <select name="nueva-tarjeta-credito-cliente" id="nueva-tarjeta-credito-cliente"><span>%</span>
                                 <option value = "">Seleccione</option>
                                 <option value = "0">**** **** **** 3805</option>
 
@@ -93,7 +93,7 @@
                     </div>
 
                     <div>
-                        <button id="btn-guardar-cambios">Guardar cambios</button>
+                        <button id="btn-guardar-cambios-cliente">Guardar cambios</button>
                     </div>
                 </div>
 
@@ -104,8 +104,8 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_usuario.js"></script>
+    <script src="../../js/js-usuario/ctrl_editar_perfil_cliente.js"></script>
     <script src="../../js/control-sesiones.js"></script>
-    <script src="../../js/ctrl_guardar_cambios.js"></script>
 </body>
 
 </html>

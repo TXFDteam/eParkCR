@@ -11,23 +11,30 @@
     cursor: pointer;
 }
 
+.espacio-parqueo h3 {
+    margin-top: 2%;
+    height: 18%;
+}
+
 .ocupado {
-    border: 3px rgb(207, 35, 35) solid;
+    border: 3px #F50054 solid;
 }
 
 .txt_alerta {
-    color: rgb(207, 35, 35);
+    color: #D62900;
 }
 
 .seleccionado {
-    border: 2px rgb(12, 124, 252) solid;
+    border: 2px #ADFF00 solid;
 }
 
 .icono-espacio {
-    background-size: contain;
+    flex-flow: 2;
+    background-size: 80%;
     background-position: center;
+    background-repeat: no-repeat;
     width: 76px;
-    height: 64px;
+    height: 80%;
     margin: 0 auto;
 }
 
