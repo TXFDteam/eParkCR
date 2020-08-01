@@ -6,17 +6,30 @@ const output_pend_parqueo = document.querySelector('#detalle_pend_parqueo');
 const output_pend_fecha = document.querySelector('#detalle_pend_fecha');
 const output_pend_horas = document.querySelector('#detalle_pend_horas');
 const output_pend_monto = document.querySelector('#detalle_pend_monto');
-const input_moneda_seleccionada = document.querySelector('#menu_moneda input[type=radio]:checked').value;
+const input_moneda_seleccionada = document.querySelector('#menu_moneda input[type=radio]:checked');
+
+//botones - link
+const btn_link_revisar_tarjetas = document.querySelector('#link_revisar_tarjetas');
+const btn_link_generar_recibo = document.querySelector('#link_generar_recibo');
+
+
+//Enlaces a otras paginas
+btn_link_revisar_tarjetas.addEventListener('click', () => {
+    window.location.assign('listar_tarjetas.html');
+});
+
+
+
+
 
 
 //Datos tomados por default para probar el JS (Id de la reserva, tipo de cambio)
 const numreserva = 'reserva1'
 let tarifa = 1000;
-const porcentajedescuento = 1; //Calcularse en rango entre [0, 1] para calcularlo con una multiplicacion simple
+const porcentajedescuento = 1;
 
 
-//Se calcula el tipo de cambio
-
+//Calcular el tipo de cambio
 switch (input_moneda_seleccionada) {
     case 1:
         tipoDeCambio = 1;
@@ -75,9 +88,27 @@ let mostrar_informacion = (pnumreserva) => {
 
 };
 
-
-
-
-
 //Invoca funcion para imprimir los datos de la reservacion
 mostrar_informacion(numreserva);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                    Controles para habilitar los botones                   */
+/* -------------------------------------------------------------------------- */
+
+//Habilita el boton de Generar recibo una vez que el estado de la reservacion esta 'Paga'
+if (reservas[numreserva].estado_reserva != 'Paga') {
+    btn_link_generar_recibo.setAttribute('disabled', true)
+}
