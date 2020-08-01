@@ -23,7 +23,7 @@ btn_link_revisar_tarjetas.addEventListener('click', () => {
     window.location.assign('listar_tarjetas.html');
 });
 btn_link_generar_recibo.addEventListener('click', () => {
-    window.location.assign('recibo_pago.html');
+    window.location.assign('recibo_pago_clientes.html');
 });
 
 
@@ -31,9 +31,9 @@ btn_link_generar_recibo.addEventListener('click', () => {
 
 
 /* --------------------- Identificador de usuario actual -------------------- */
-//Para probar el JS se preestablece usuario1
+//Para probar el JS se preestablece usuario1: const id_usuario = usuarios.usuario1;
 
-/*const obtener_usuario_ingresado = () => {
+const obtener_usuario_ingresado = () => {
     let contrasenna = localStorage.getItem('contrasenna');
     let correo = localStorage.getItem('correo');
 
@@ -46,12 +46,12 @@ btn_link_generar_recibo.addEventListener('click', () => {
         }
     }
     usuario_ingresado = '';
-}; * /
+};
 
 
 
 /* Datos tomados por default para probar el JS (Id de la reserva, tipo de cambio) */
-const id_usuario = usuarios.usuario1; //obtener_usuario_ingresado();
+const id_usuario = obtener_usuario_ingresado();
 const numreserva = 'reserva1';
 let signoMoneda = '₡';
 
