@@ -4,41 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil cliente</title>
+    <title>Perfil Parqueo</title>
 
-
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
-    <link rel="stylesheet" href="css/estilos-generales.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
+    <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/perfil.css">
 
 
 </head>
 
 <body>
+
+
+
     <main>
+
         <!--Menu Lateral y Nav Principal-->
+
+
         <div class="nav-principal">
             <a href="" id="link-inicio">Marca</a>
             <div class="nav-derecha">
+
                 <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
             </div>
         </div>
 
-        <div class="menu-lateral">
-            <a href="" id="link-inicio">Inicio</a>
-            <a href="buscar_parqueos.html" id="link-buscar-parqueos">Buscar parqueos</a>
-            <a href="reservas_usuario.html" id="link-reservas">Reservas</a>
-            <a href="perfil_cliente.html" id="link-configuracion">Configuración de la cuenta</a>
-        </div>
-
         <section id="contenedor-perfil">
-            <!--Vista de Perfil-->
+            <div class="menu-lateral">
+
+                <a href="" id="primer-link">Inicio</a>
+                <a href="" id="mis-parqueos">Mis Parqueos</a>
+                <a href="" id="historial-reservas-parqueo">Historial de reservas</a>
+                <a href="" id="reportes-parqueo">Reportes</a>
+                <a href="" id="config-cuenta">Configuración de Cuenta</a>
+            </div>
 
             <div class="contenedor-info-perfil">
 
+
+
+                <!--Vista de Perfil-->
+
                 <div class="perfil-superior">
-                    <h1>Mi perfil</h1>
+                    <h1>Parqueo</h1>
                     <div class="foto-perfil"></div>
 
                 </div>
@@ -47,17 +57,17 @@
                     <div class="perfil-izquierda">
                         <div>
                             <h3>Nombre de usuario:</h3>
-                            <p id="nombre-cliente"></p>
+                            <p id="nombre-duenno-parqueo"></p>
                         </div>
 
                         <div>
                             <h3>Correo electrónico:</h3>
-                            <p id="correo-cliente"></p>
+                            <p id="correo-parqueo"></p>
                         </div>
 
                         <div>
-                            <h3>Tarjeta de crédito:</h3>
-                            <p id="tarjeta-cliente"></p>
+                            <h3>Cuenta bancaria:</h3>
+                            <p id="cuenta-bancaria-parqueo"></p>
                         </div>
 
                     </div>
@@ -65,12 +75,12 @@
 
                         <div>
                             <h3>Tipo de usuario:</h3>
-                            <p>Standard</p>
+                            <p>Dueño de parqueo</p>
                         </div>
-
                         <div>
                             <h3>Fecha de nacimiento:</h3>
-                            <p id="nacimiento-cliente"></p>
+                            <p id="nacimiento-duenno-parqueo"></p>
+
                         </div>
 
 
@@ -80,12 +90,11 @@
 
                 <div class="botones">
                     <div>
-                        <button id="btn-editar-perfil-cliente">Editar Perfil</button>
+                        <button id="btn-editar-perfil-parqueo">Editar perfil</a>
                     </div>
                     <div>
                         <button id="btn-cerrar-cuenta">Cerrar Cuenta</button>
                         <!--Este botón se utilizará para procesar el cierre de una cuenta en el controlador: ctrl-cerrar-cuenta.js-->
-
                     </div>
                 </div>
 
@@ -98,10 +107,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/simulador_bd.js"></script>
     <script src="js/control-sesiones.js"></script>
-    <script src="js/ctrl_cerrar_cuenta.js"></script>
+    <script src="js/ctrl_perfil_parqueo.js"></script>
     <script src="js/ctrl-editar-perfil.js"></script>
-
-    <script src="js/ctrl_perfil_cliente.js"></script>
+    <script src="js/ctrl_cerrar_cuenta.js"></script>
+    <script src="js/ctrl_perfil_parqueo.js"></script>
+    <script src="../../js/simulador_bd.js"></script>
+    <script src="../../js/control-sesiones.js"></script>
+    <script src="../../js/js-parqueo/ctrl_perfil_parqueo.js"></script>
+    <script src="../../js/ctrl_cerrar_cuenta.js"></script>
 
 
 </body>

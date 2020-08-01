@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Parqueo</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
-    <link rel="stylesheet" href="css/estilos-generales.css">
-    <link rel="stylesheet" href="css/editar_perfil.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
+    <link rel="stylesheet" href="../../css/editar_perfil.css">
 
 
 </head>
@@ -34,12 +34,13 @@
         <section id="contenedor-perfil">
             <div class="menu-lateral">
 
-                <a href="" id="primer-link">Inicio</a>
-                <a href="">Solicitudes de registro</a>
-                <a href="">Lista de usuarios</a>
-                <a href="">Reportes</a>
-                <a href="">Configuración de cuenta</a>
-                <a href="" id="ultimo-link">X</a>
+                <a href="" class="primer-link-menu-lateral" id="link-inicio">Inicio</a>
+                <a href="" id="solicitudes-registro">Solicitudes de registro</a>
+                <a href="" id="info-usuarios-admin">Información de usuarios</a>
+                <a href="" id="historial-reservas">Historial de reservas</a>
+                <a href="" id="ingresos-admin">Ingresos</a>
+                <a href="" id="actividad-aplicacion">Actividad de la aplicación</a>
+                <a href="" id="configuracion-cuenta-admin">Configuración de la cuenta</a>
             </div>
 
             <div class="contenedor-info-perfil">
@@ -102,7 +103,9 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="js/ctrl_guardar_cambios.js"></script>
+    <script src="../../js/simulador_bd.js"></script>
+    <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_admin.js"></script>
+    <script src="../../js/ctrl_guardar_cambios.js"></script>
 </body>
 
 </html>
