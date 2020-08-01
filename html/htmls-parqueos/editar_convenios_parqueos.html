@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Parqueo</title>
+
+
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
+    <link rel="stylesheet" href="../../css/css-parqueos/editar_convenios_parqueo.css">
+
+
+</head>
+
+<body>
+
+
+
+    <main>
+
+        <!--Menu Lateral y Nav Principal-->
+
+
+        <div class="nav-principal">
+            <a href="" id="link-marca">Marca</a>
+            <div class="nav-derecha">
+                <a href="" id="link-registrarse">Registrarse</a>
+                <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+            </div>
+        </div>
+
+        <section id="contenedor-perfil">
+            <div class="menu-lateral">
+
+
+                <a href="" id="primer-link">Inicio</a>
+                <a href="">Convenios</a>
+                <a href="" id="mis-parqueos">Mis Parqueos</a>
+                <a href="" id="historial-reservas-parqueo">Historial de reservas</a>
+                <a href="" id="reportes-parqueo">Reportes</a>
+                <a href="" id="config-cuenta">Configuración de Cuenta</a>
+            </div>
+
+            <div class="contenedor-info-perfil">
+
+
+
+
+
+                <div class="perfil-superior">
+                    <h1>Edita tus convenios</h1>
+
+
+                </div>
+
+                <div class="info-perfil">
+
+
+                    <form id="editar-convenio">
+                        <div>
+                            <label for="seleccionar-convenio">Selecciona el convenio a editar:</label>
+
+                            <select name="arreglo-convenios" id="arreglo-convenios">
+                                <option value = "">Seleccione</option>
+                                
+                        </select>
+
+                        </div>
+
+                        <div>
+
+                            <label for="nueva-cuenta-bancaria-parqueo">Porcentaje del convenio:</label>
+
+                            <input type="number" id="nueva-cuenta-bancaria-parqueo" name="nueva-cuenta-bancaria-parqueo"><span>%</span>
+                        </div>
+
+
+                    </form>
+
+
+
+                </div>
+
+                <div class="botones">
+
+                    <div>
+                        <button id="btn-volver-perfil-parqueo">Regresar al perfil</button>
+                    </div>
+
+                    <div>
+                        <button id="btn-guardar-cambios-convenio">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script src="../../js/js-parqueo/ctrl_editar_convenios_parqueo.js"></script>
+
+
+</body>
+
+</html>
