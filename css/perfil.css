@@ -90,13 +90,3 @@
     height: 40px;
     width: 160px;
 }
-
-#contenedor-perfil .botones button,
-#contenedor-perfil a {
-    background-color: white;
-    margin-top: 20px;
-    box-shadow: none;
-    max-height: 40px;
-    max-width: 160px;
-    font-size: 20px;
-}

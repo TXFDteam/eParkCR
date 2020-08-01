@@ -58,20 +58,24 @@ let mostrar_usuarios = () => {
         if (solicitud_p == solicitud_seleccionada) {
             det = true;
             header.innerHTML = 'Información de la solicitud de ' + solicitud_p;
+            if (solicitud.estado_parqueo == "Revisión") {
+                solicitudes_parqueos[identificador_solicitud].estado_parqueo = "Rechazado";
+            }
+            localStorage.setItem('solicitudes_parqueo', JSON.stringify(solicitudes_parqueos));
             break;
         } else {
             det = false;
         };
     };
-    localStorage.setItem('solicitud', solicitud);
+
     listar_info_solicitud(solicitud);
     console.log(nom_parqueo);
-
 
 };
 mostrar_usuarios();
 
-let soli = localStorage.getItem('solicitud');
+
+
 /*
 const guardar_datos_solicitud = () => {
     localStorage.setItem('nombre_parqueo', nom_parqueo);
@@ -94,13 +98,9 @@ btn_aceptar.addEventListener('click', function() {
     console.log(localStorage.getItem('espacios_parqueo'));
 });
 btn_rechazar.addEventListener('click', function() {
-    if (soli.estado_parqueo == "Revisión") {
-        soli.estado_parqueo = "Rechazado";
-    }
-    localStorage.setItem('solicitudes_parqueo', JSON.stringify(solicitudes_parqueos));
-});
 
-if (localStorage.getItem('solicitudes_parqueo')) {
-    solicitudes_parqueos = JSON.parse(localStorage.getItem('solicitudes_parqueo'));
-};
-console.log(solicitudes_parqueos);
+    if (localStorage.getItem('solicitudes_parqueo')) {
+        solicitudes_parqueos = JSON.parse(localStorage.getItem('solicitudes_parqueo'));
+    };
+    console.log(solicitudes_parqueos);
+});
