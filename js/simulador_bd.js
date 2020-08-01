@@ -462,6 +462,8 @@ let parqueos = {
     parqueo_1: {
         codigo: '11291',
         nombre: 'Parqueo la maravilla',
+        imagen_preview: 'La_maravilla_preview.jpg',
+        imagen_perfil: 'La_maravilla_perfil.jpg',
         duenno_parqueo: duennos_parqueos.duenno_parqueo1.nombre,
         email: 'contacto@parqueolamaravilla.com',
         cedula_juridica: '12ji2ojd1oid21ijo',
@@ -652,6 +654,8 @@ let parqueos = {
     parqueo_2: {
         codigo: '11232',
         nombre: 'Parqueo López López',
+        imagen_preview: 'Lopez_Lopez_preview.jpg',
+        imagen_perfil: 'Lopez_Lopez_perfil.jpg',
         duenno_parqueo: duennos_parqueos.duenno_parqueo2.nombre,
         email: 'contacto@parqueolopezlopez.com',
         cedula_juridica: '12ji2jdjsid21ijo',
@@ -737,6 +741,8 @@ let parqueos = {
     parqueo_3: {
         codigo: '111921',
         nombre: 'Parqueo el Covid',
+        imagen_preview: 'El_covid_preview.jpg',
+        imagen_perfil: 'El_covid_perfil.jpg',
         duenno_parqueo: duennos_parqueos.duenno_parqueo3.nombre,
         email: 'contacto@parqueoelcovid.com',
         cedula_juridica: '12ji2ojd11212122jo',

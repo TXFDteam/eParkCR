@@ -21,6 +21,9 @@
 
 .carta-parqueo .contenedor-superior {
     /*En este contenedor es donde se va a mostrar como fondo una imagen del parqueo*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: 1px #000 solid;
     height: 180px;
 }
