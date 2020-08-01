@@ -66,8 +66,13 @@ const datos_peticion = () => {
 
         Swal.fire({
             icon: 'success',
-            'text': 'Datos almacenados correctamente'
-        });
+            'text': 'Datos almacenados correctamente, pronto te estaremos contactando',
+            button: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                window.location.assign("index.html");
+            }
+        })
     }
 };
 
