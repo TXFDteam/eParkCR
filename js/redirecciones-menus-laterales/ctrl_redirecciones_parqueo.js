@@ -1,6 +1,8 @@
 'use strict';
 
 const inicio = document.querySelector('#primer-link');
+const mis_parqueos = document.querySelector('#mis-parqueos');
+const historial_reservas = document.querySelector('#historial-reservas-parqueo');
 const convenios = document.querySelector('#link-convenios-empresa');
 const config_cuenta_empresa = document.querySelector('#link-config-cuenta');
 
@@ -16,6 +18,6 @@ convenios.addEventListener('click', function() {
 });
 
 config_cuenta_empresa.addEventListener('click', function() {
-    config_cuenta_empresa.href = '../../perfil_empresa.html';
+    config_cuenta_empresa.href = '../../perfil_parqueo.html';
     //marcar_link(historial_reservas);
 });

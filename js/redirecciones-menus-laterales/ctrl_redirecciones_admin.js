@@ -91,3 +91,7 @@ historial_reservas.addEventListener('click', function() {
     historial_reservas.href = '../../html/htmls-admin/historial-reservas-admin.html';
     marcar_link(historial_reservas);
 });
+
+config_cuenta_admin.addEventListener('click', function() {
+    config_cuenta_admin.href = '../../html/htmls-admin/perfil_administrador.html';
+});

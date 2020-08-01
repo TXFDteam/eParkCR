@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil empresa</title>
+    <title>Perfil Parqueo</title>
 
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
     <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
     <link rel="stylesheet" href="css/perfil.css">
 
 
 </head>
 
 <body>
+
+
 
     <main>
 
@@ -32,21 +34,21 @@
         <section id="contenedor-perfil">
             <div class="menu-lateral">
 
-                <a href="" class="primer-link-menu-lateral" id="primer-link">Inicio</a>
-                <a href="" id="link-convenios-empresa">Convenios</a>
-                <a href="" id="link-config-cuenta">Configuración de Cuenta</a>
+                <a href="" id="primer-link">Inicio</a>
+                <a href="" id="mis-parqueos">Mis Parqueos</a>
+                <a href="" id="historial-reservas-parqueo">Historial de reservas</a>
+                <a href="" id="reportes-parqueo">Reportes</a>
+                <a href="" id="config-cuenta">Configuración de Cuenta</a>
             </div>
-
-
-
-
-            <!--Vista de Perfil-->
-
 
             <div class="contenedor-info-perfil">
 
+
+
+                <!--Vista de Perfil-->
+
                 <div class="perfil-superior">
-                    <h1>Empresa</h1>
+                    <h1>Parqueo</h1>
                     <div class="foto-perfil"></div>
 
                 </div>
@@ -54,27 +56,31 @@
                 <div class="info-perfil">
                     <div class="perfil-izquierda">
                         <div>
-                            <h3>Nombre:</h3>
-                            <p id="nombre-empresa">Empresa</p>
+                            <h3>Nombre de usuario:</h3>
+                            <p id="nombre-duenno-parqueo"></p>
                         </div>
 
                         <div>
                             <h3>Correo electrónico:</h3>
-                            <p id="correo-electronico">empresa@empresa.com</p>
+                            <p id="correo-parqueo"></p>
                         </div>
-
-
 
                         <div>
-                            <h3>Tipo de usuario:</h3>
-                            <p>Empresa</p>
+                            <h3>Cuenta bancaria:</h3>
+                            <p id="cuenta-bancaria-parqueo"></p>
                         </div>
+
                     </div>
                     <div class="perfil-derecha">
 
-                        <div class="ced">
-                            <h3>Cédula jurídica:</h3>
-                            <p id="cedula-juridica">01-0913-0259</p>
+                        <div>
+                            <h3>Tipo de usuario:</h3>
+                            <p>Dueño de parqueo</p>
+                        </div>
+                        <div>
+                            <h3>Fecha de nacimiento:</h3>
+                            <p id="nacimiento-duenno-parqueo"></p>
+
                         </div>
 
 
@@ -84,7 +90,7 @@
 
                 <div class="botones">
                     <div>
-                        <a href="editar_perfil_empresa.html">Editar perfil</a>
+                        <a href="editar_perfil_parqueo.html">Editar perfil</a>
                     </div>
                     <div>
                         <button id="btn-cerrar-cuenta">Cerrar Cuenta</button>
@@ -100,12 +106,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="js/simulador_bd.js"></script>
-    <script src="js/redirecciones-menus-laterales/ctrl_redirecciones_empresa.js"></script>
-    <script src="js/ctrl-iniciar-sesion.js"></script>
     <script src="js/control-sesiones.js"></script>
+    <script src="js/ctrl_perfil_parqueo.js"></script>
     <script src="js/ctrl_cerrar_cuenta.js"></script>
+    <script src="js/ctrl_perfil_parqueo.js"></script>
 
-    <script src="js/ctrl_perfil_empresa.js"></script>
 </body>
 
 </html>
