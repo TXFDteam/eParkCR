@@ -46,6 +46,13 @@ a {
     line-height: 24px;
 }
 
+button {
+    border: none;
+    background-color: #A5A5A5;
+    color: #ffffff;
+    padding: 1% 2%;
+}
+
 .oculto {
     display: none;
 }
