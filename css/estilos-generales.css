@@ -11,6 +11,16 @@ Color de texto: #262626
 Color texto claro: #767676
 */
 
+
+/*
+Para incluir la fuente:
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
 h1 {
     font-size: 32px;
     line-height: 40px;
