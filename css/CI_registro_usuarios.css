@@ -18,12 +18,8 @@ h1 {
     border: solid 2px red;
     Flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
     width: 100%;
-}
-
-.CI-registro-column {
-    flex: 1;
+    justify-content: space-evenly;
 }
 
 #CI-registro-form-box1 {
