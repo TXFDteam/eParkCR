@@ -128,6 +128,31 @@ body a {
 }
 
 
+/*Parte media*/
+
+.banner3-medio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.img-medio {
+    border: 1px solid black;
+    height: 585px;
+    width: 50%;
+}
+
+.info-medio {
+    border: 1px solid black;
+    height: 585px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 /*Parte inferior*/
 
 .banner3-inferior {
@@ -171,56 +196,9 @@ body a {
 
 .banner4-botones-registrarse button {
     font-size: 16px;
-    width: 200px;
-    height: 50px;
-    margin-right: 2%;
-}
-
-
-/*Quinto banner*/
-
-#quinto-banner {
-    height: 600px;
-    border: 1px solid black;
-    width: 100%;
-}
-
-#quinto-banner h2 {
-    text-align: center;
-    font-size: 40px;
-    margin-top: 3%;
-    margin-bottom: 3.5%;
-}
-
-.banner5-info {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.banner5-form {
-    width: 35%;
-}
-
-.banner5-form input {
-    margin-bottom: 5%;
-    width: 60%;
-    height: 40px;
-}
-
-.banner5-form button {
-    width: 25%;
-    height: 40px;
-    margin-left: 36%;
-}
-
-
-/*PARRAFO CON INFO*/
-
-.banner5-parrafo {
-    width: 65%;
-    text-align: center;
-    margin-top: 5%;
+    width: 230px;
+    height: 60px;
+    margin-right: 3%;
 }
 
 
