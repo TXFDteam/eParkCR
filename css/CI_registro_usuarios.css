@@ -6,25 +6,20 @@ h1 {
     padding: 10px;
 }
 
-#CI-registro-usuarios-p {
-    width: 100%;
-}
-
 #CI-registro-usuarios-header {
     text-align: center;
     margin-bottom: 40px;
-    width: 100%;
     /* ARREGLAR ERROR */
     border: solid 0.1px transparent;
 }
 
 .CI-registro-usuarios-container {
     display: flex;
-    /* border: solid 2px red; */
-    margin: 0 20% 0 20%;
-    text-align: left;
+    border: solid 2px red;
     Flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
 .CI-registro-column {
@@ -33,7 +28,8 @@ h1 {
 
 #CI-registro-form-box1 {
     height: 300px;
-    /* border: solid 2px green; */
+    border: solid 2px green;
+    width: 30%;
 }
 
 label {
@@ -92,7 +88,8 @@ input {
 
 #CI-registro-form-box2 {
     height: 300px;
-    /* border: solid 2px blue; */
+    border: solid 2px blue;
+    width: 30%;
 }
 
 #header-principal {
@@ -102,11 +99,15 @@ input {
 #btn {
     display: block;
     width: 300px;
+    border: solid 2px purple;
 }
 
 #CI-registro-form-box3 {
     text-align: center;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #btn-crearUsuario {
