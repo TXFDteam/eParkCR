@@ -2,6 +2,9 @@
 const tabla_usuarios_header = document.querySelector('#tabla-reservas thead');
 const tabla_usuarios = document.querySelector('#tabla-reservas tbody');
 
+const btn_descargar = document.querySelector('#btn-descargar');
+
+
 let head;
 let fila;
 
@@ -93,5 +96,14 @@ let mostrar_usuarios = () => {
     }
 };
 
-
 mostrar_usuarios();
+
+btn_descargar.addEventListener('click', function() {
+    let printContent = document.querySelector('#printable-area');
+    //let originalContent = document.body.innerHTML;
+
+    //document.body.innerHTML = printContent;
+    window.print(printContent);
+
+    //document.body.innerHTML = originalContent;
+});

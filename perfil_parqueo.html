@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Parqueo</title>
 
-
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
     <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
     <link rel="stylesheet" href="css/perfil.css">
 
@@ -23,10 +24,10 @@
 
 
         <div class="nav-principal">
-            <a href="" id="link-marca">Marca</a>
+            <a href="" id="link-inicio">Marca</a>
             <div class="nav-derecha">
-                <a href="" id="link-registrarse">Registrarse</a>
-                <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+
+                <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
             </div>
         </div>
 
@@ -57,17 +58,17 @@
                     <div class="perfil-izquierda">
                         <div>
                             <h3>Nombre de usuario:</h3>
-                            <p>Parqueo</p>
+                            <p id="nombre-duenno-parqueo"></p>
                         </div>
 
                         <div>
                             <h3>Correo electrónico:</h3>
-                            <p>parqueo@parqueo.com</p>
+                            <p id="correo-parqueo"></p>
                         </div>
 
                         <div>
                             <h3>Cuenta bancaria:</h3>
-                            <p>021000***</p>
+                            <p id="cuenta-bancaria-parqueo"></p>
                         </div>
 
                     </div>
@@ -79,13 +80,13 @@
                         </div>
                         <div>
                             <h3>Fecha de nacimiento:</h3>
-                            <p>01/01/2001</p>
+                            <p id="nacimiento-duenno-parqueo"></p>
 
                         </div>
 
                         <div>
                             <h3>Contraseña:</h3>
-                            <p>*********</p>
+                            <p id="contrasena-duenno-parqueo"></p>
                         </div>
                     </div>
 
@@ -108,7 +109,11 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/simulador_bd.js"></script>
+    <script src="js/control-sesiones.js"></script>
+    <script src="js/ctrl_perfil_parqueo.js"></script>
     <script src="js/ctrl_cerrar_cuenta.js"></script>
+    <script src="js/ctrl_perfil_parqueo.js"></script>
 
 </body>
 
