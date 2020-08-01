@@ -33,16 +33,21 @@
                 <label for='CI-registro-nombre'>Nombre completo</label><br>
                 <input type='text' id='CI-registro-nombre' required><br>
 
-                <div id='CI-registro-select'>
-                    <legend id='CI-registro-tipoID'>Tipo de identificación</legend>
-                    <input type="radio" name="ID" value="Cédula de identidad">Cédula de identidad<br>
-                    <input type="radio" name="ID" value="Cédula de residencia">Cédula de residencia<br>
-                    <input type="radio" name="ID" value="Pasaporte">Pasaporte<br>
 
-                </div>
+                <!-- for='CI-registro-tipoID' -->
+                <label>Tipo de identificación</label><br>
+                <select id='CI-registro-tipoID' required>
+                    <option value="1" name='ID'>Cédula de identidad</option>
+                    <option value="2" name='ID'>Cédula de residencia</option>
+                    <option value="3" name='ID'>Pasaporte</option>
+                </select><br>
 
-                <label for='CI-registro-contrasena'>Contraseña</label><br>
-                <input type='password' id='CI-registro-contrasena' required>
+                <label for='CI-registro-ID'>Identificación</label><br>
+                <input type='text' id='CI-registro-ID' required><br>
+
+
+                <label for='CI-registro-correo'>Correo electrónico</label><br>
+                <input type='email' id='CI-registro-correo' required><br>
 
             </div>
 
@@ -51,13 +56,11 @@
                 <label for='CI-registro-fecha'>Fecha de nacimiento</label><br>
                 <input type='date' id='CI-registro-fecha' required><br>
 
-                <label for='CI-registro-ID'>Identificación</label><br>
-                <input type='text' id='CI-registro-ID' required><br>
-
-                <label for='CI-registro-correo'>Correo electrónico</label><br>
-                <input type='email' id='CI-registro-correo' required><br>
 
 
+
+                <label for='CI-registro-contrasena'>Contraseña</label><br>
+                <input type='password' id='CI-registro-contrasena' required>
 
                 <label for='CI-registro-confirmarcontra' id="CI-registro-confirmarcontra-label">Confirmar contraseña</label><br>
                 <input type='password' id='CI-registro-confirmarcontra' required><br>

@@ -1,8 +1,8 @@
 'use strict';
 
-const btn_emp_registro_crearPerfil = document.querySelector('#btn_emp_registro_crearPerfil');
+const btn_crearParqueo = document.querySelector('#btn-crearParqueo');
 
-const btn_yaTenesCuenta = document.querySelector('#btn-yaTenesCuenta');
+const btn_cancelar = document.querySelector('#btn-cancelar');
 
 const input_nombreParqueo = document.querySelector('#nombre_parqueo');
 const input_cedulaJuridica = document.querySelector('#cedulaJuridica');
@@ -15,14 +15,14 @@ const input_pisosDropdown = document.querySelector('#pisosDropdown');
 const input_espaciosDiscapacidad = document.querySelector('#espaciosDiscapacidad');
 const input_espaciosMotos = document.querySelector('#espaciosMotos');
 const input_espaciosAuto = document.querySelector('#espaciosAuto');
-const input_provincia = document.querySelector('#emp_registro_provincia');
-const input_canton = document.querySelector('#emp_registro_canton');
-const input_distrito = document.querySelector('#emp_registro_distrito');
-const input_direccion = document.querySelector('#emp_registro_direccion');
+const input_provincia = document.querySelector('#provincia');
+const input_canton = document.querySelector('#canton');
+const input_distrito = document.querySelector('#distrito');
+const input_direccion = document.querySelector('#direccion');
 
 
-btn_yaTenesCuenta.addEventListener('click', function() {
-    btn_yaTenesCuenta.href = 'iniciar-sesion.html';
+btn_cancelar.addEventListener('click', function() {
+    window.location.assign('perfil_parqueo.html')
 });
 
 
@@ -59,10 +59,6 @@ const validar = () => {
     return error;
 };
 
-
-
-
-
 const obtener_datos = () => {
     let error = validar();
     if (error == true) {
@@ -77,13 +73,13 @@ const obtener_datos = () => {
         Swal.fire({
             'title': 'El usuario se registro correctamente',
             'icon': "success",
-            'text': 'Revise su correo electronico'
+            'text': 'Revise su información'
         });
 
 
-        let nombreEmpresa = input_nombreParqueo.value;
+        let nombreParqueo = input_nombreParqueo.value;
         let cedulaJuridica = input_cedulaJuridica.value;
-        let permisoFuncionamiento = label_permisoFuncionamiento.value;
+        let permisoFuncionamiento = document.querySelector('.permiso:checked').value;
         let tarifa = input_tarifa.value;
         let horaApertura = input_horaApertura.value;
         let horaCierre = input_horaCierre.value;
@@ -97,9 +93,7 @@ const obtener_datos = () => {
         let distrito = input_distrito.value;
         let direccion = input_direccion.value;
 
-
-
-        console.log('Nombre parqueo: ', nombreEmpresa);
+        console.log('Nombre parqueo: ', nombreParqueo);
         console.log('Cedula juridica: ', cedulaJuridica);
         console.log('Permiso funcionamiento: ', permisoFuncionamiento);
         console.log('Tarifa: ', tarifa);
@@ -119,4 +113,4 @@ const obtener_datos = () => {
     }
 };
 
-btn_emp_registro_crearPerfil.addEventListener('click', obtener_datos);
+btn_crearParqueo.addEventListener('click', obtener_datos);

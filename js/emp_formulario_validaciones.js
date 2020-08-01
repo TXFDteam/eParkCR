@@ -2,6 +2,7 @@
 
 const btn_yaTenesCuenta = document.querySelector('#btn_emp_registro_yaTenesCuenta');
 const btn_emp_registro_crearPerfil = document.querySelector('#btn_emp_registro_crearPerfil');
+
 const input_nombreEmpresa = document.querySelector('#emp_registro_nombre');
 const input_nombreEncargado = document.querySelector('#emp_registro_nombreEncargado');
 const input_contrasena = document.querySelector('#emp_registro_contrasena');
@@ -36,16 +37,6 @@ const validar = () => {
         } else {
             campos_requeridos[i].classList.remove('error');
         }
-    }
-
-
-
-    let emailval = /^[^@]*@[^@]*$/;
-    if (input_correo.value.match(emailval)) {
-        input_correo.classList.remove('error');
-    } else {
-        error = true;
-        input_correo.classList.add('error');
     }
 
 
@@ -85,7 +76,7 @@ const obtener_datos = () => {
         Swal.fire({
             'title': 'El usuario se registro correctamente',
             'icon': "success",
-            'text': 'Revise su correo electronico'
+            'text': 'Revise su información'
         });
 
 
