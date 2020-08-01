@@ -11,6 +11,17 @@ if (a_inicio_perfil) {
 
 
 
+const btn_editar_perfil_admin = document.querySelector('#btn-editar-perfil-admin');
+
+
+const editar_perfil_admin = () => {
+    window.location.assign('../../html/htmls-admin/editar_perfil_administrador.html');
+};
+
+btn_editar_perfil_admin.addEventListener('click', editar_perfil_admin);
+
+
+
 let nombre_admin = document.querySelector('#nombre-admin');
 let correo_admin = document.querySelector('#correo-admin');
 let comision = document.querySelector('#comision');

@@ -1,12 +1,12 @@
 'use strict';
 
-const btn_editar_perfil_empresa = document.querySelector('#btn-editar-perfil-empresa');
+const btn_volver_perfil_empresa = document.querySelector('#btn-volver-perfil-empresa');
 
-const redireccionar_perfil_empresa = () => {
-    window.location.assign('../../html/htmls-empresas/editar_perfil_empresa.html');
+const volver_perfil_empresa = () => {
+    window.location.assign('../../html/htmls-empresas/perfil_empresa.html');
 };
 
-btn_editar_perfil_empresa.addEventListener('click', redireccionar_perfil_empresa);
+btn_volver_perfil_empresa.addEventListener('click', volver_perfil_empresa);
 
 
 const nuevo_nombre_empresa = document.querySelector('#nuevo-nombre-empresa');

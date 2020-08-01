@@ -10,6 +10,15 @@ if (a_inicio_perfil) {
 };
 
 
+const btn_editar_perfil_cliente = document.querySelector('#btn-editar-perfil-cliente');
+
+const editar_perfil_cliente = () => {
+    window.location.assign('../../html/htmls-usuarios/editar_perfil_cliente.html');
+};
+
+btn_editar_perfil_cliente.addEventListener('click', editar_perfil_cliente);
+
+
 
 let nombre_cliente = document.querySelector('#nombre-cliente');
 let correo_electronico = document.querySelector('#correo-cliente');

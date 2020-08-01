@@ -9,6 +9,15 @@ if (a_inicio_perfil) {
 };
 
 
+const btn_editar_perfil_empresa = document.querySelector('#btn-editar-perfil-empresa');
+
+const editar_perfil_empresa = () => {
+    window.location.assign('../../html/htmls-empresas/editar_perfil_empresa.html');
+};
+
+btn_editar_perfil_empresa.addEventListener('click', editar_perfil_empresa);
+
+
 let nombre_empresa = document.querySelector('#nombre-empresa');
 let correo_empresa = document.querySelector('#correo-electronico');
 let cedula_juridica_empresa = document.querySelector('#cedula-juridica');

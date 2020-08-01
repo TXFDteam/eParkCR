@@ -1,12 +1,12 @@
 'use strict';
 
-const btn_editar_perfil_cliente = document.querySelector('#btn-editar-perfil-cliente');
+const btn_volver_perfil_cliente = document.querySelector('#btn-volver-perfil-cliente');
 
-const redireccionar_perfil_cliente = () => {
-    window.location.assign('../../html/htmls-usuarios/editar_perfil_cliente.html');
+const volver_perfil_cliente = () => {
+    window.location.assign('../../html/htmls-usuarios/perfil_cliente.html');
 };
 
-btn_editar_perfil_cliente.addEventListener('click', redireccionar_perfil_cliente);
+btn_volver_perfil_cliente.addEventListener('click', volver_perfil_cliente);
 
 
 
