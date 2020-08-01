@@ -1,17 +1,18 @@
 'use strict'
 
+/* ------------------------------ Enlace a html ----------------------------- */
 //Llamado a divs del html donde se colocara los valores de la reservacion
-
 const output_pend_parqueo = document.querySelector('#detalle_pend_parqueo');
 const output_pend_fecha = document.querySelector('#detalle_pend_fecha');
 const output_pend_horas = document.querySelector('#detalle_pend_horas');
 const output_pend_monto = document.querySelector('#detalle_pend_monto');
 const input_moneda_seleccionada = document.querySelector('#menu_moneda input[type=radio]:checked');
 
+
+/* -------------------------- Links a otras paginas ------------------------- */
 //botones - link
 const btn_link_revisar_tarjetas = document.querySelector('#link_revisar_tarjetas');
 const btn_link_generar_recibo = document.querySelector('#link_generar_recibo');
-
 
 //Enlaces a otras paginas
 btn_link_revisar_tarjetas.addEventListener('click', () => {
@@ -22,8 +23,25 @@ btn_link_revisar_tarjetas.addEventListener('click', () => {
 
 
 
+const obtener_usuario_ingresado = () => {
+    let contrasenna = localStorage.getItem('contrasenna');
+    let correo = localStorage.getItem('correo');
 
-//Datos tomados por default para probar el JS (Id de la reserva, tipo de cambio)
+    for (let i = 1; i < usuarios.cant_usuarios; i++) {
+        let identificador_usuario = ('usuario' + i);
+        let usuario_actual = usuarios[identificador_usuario];
+
+        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
+            return usuario_actual;
+        }
+
+    }
+    usuario_ingresado = '';
+};
+
+
+
+/* Datos tomados por default para probar el JS (Id de la reserva, tipo de cambio) */
 const numreserva = 'reserva1'
 let tarifa = 1000;
 const porcentajedescuento = 1;
