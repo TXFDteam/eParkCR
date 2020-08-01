@@ -1,20 +1,43 @@
 'use strict'
 
-//Contenedor reexistente del html donde se listan las tarjetas dinamicamente
+//Contenedor preexistente del html donde se listan las tarjetas dinamicamente
 const contenedor_tarjetas = document.querySelector('#lista_tarjetas');
 let btn_agregar_tarjeta = document.querySelector('#agregar_tarjeta');
 
-//DEV- Informacion del usuario tomada por default para revisar el funcionamiento de JS
-const id_usuario = usuarios.usuario1;
 
-
-/*AGREGAR TARJETA REDIRECCIÓN*/
+/* ------------------------ Redirecciones en botones ------------------------ */
 btn_agregar_tarjeta.addEventListener('click', function() {
-    window.location.assign("formulario_tarjetas.html");
+    window.location.assign('formulario_tarjetas.html');
 });
 
 
-/* ---------------------- Plantilla ---------------------- */
+
+/* --------------------- Identificador de usuario actual -------------------- */
+//Para probar el JS se preestablece usuario1
+
+
+const id_usuario = usuarios.usuario1;
+/* obtener_usuario_ingresado();
+
+    const obtener_usuario_ingresado = () => {
+    let contrasenna = localStorage.getItem('contrasenna');
+    let correo = localStorage.getItem('correo');
+
+    for (let i = 1; i < usuarios.cant_usuarios; i++) {
+        let identificador_usuario = ('usuario' + i);
+        let usuario_actual = usuarios[identificador_usuario];
+
+        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
+            return usuario_actual;
+        }
+
+    }
+    usuario_ingresado = '';
+}; */
+
+
+
+/* ---------------------- Plantilla de tarjetas ---------------------- */
 const plantilla_tarjeta = '<div class=\"detalle_tarjeta\"> \n' +
     '<img src="[LOGO_TARJETA]" > \n' +
     '</div> \n' +

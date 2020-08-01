@@ -5,6 +5,18 @@ let input_correo = document.querySelector('#correo');
 let input_contrasenna = document.querySelector('#contrasenna');
 let btn_iniciar_sesion = document.querySelector('#btn-iniciar-sesion');
 
+let btn_cliente = document.querySelector('#btn-cliente');
+let btn_parqueo = document.querySelector('#btn-parqueo');
+
+
+btn_cliente.addEventListener('click', function() {
+    window.location.assign("CI_registro_usuarios.html");
+});
+btn_parqueo.addEventListener('click', function() {
+    window.location.assign("emp-registro.html");
+});
+
+
 
 const validar = () => {
     let error;

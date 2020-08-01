@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
+    <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/estilos_recibo_pago_clientes.css">
+
+
+</head>
+
+<body>
+
+    <div class="nav-principal">
+        <a href="inicio_cliente.html" id="link-inicio">Marca</a>
+
+    </div>
+
+    <div id="recibo">
+        <div id="tabla_recibo">
+
+            <h2>Nombre del parqueo</h2>
+            <div id="detalle_recibo_parqueo"></div>
+
+            <h2>Fecha de la reservación</h2>
+            <div id="detalle_recibo_fecha"></div>
+
+            <h2>Total de horas</h2>
+            <div id="detalle_recibo_horas"></div>
+
+            <h2>Monto cancelado</h2>
+            <div id="detalle_recibo_monto"></div>
+
+            <h2>Tarjeta Utilizada</h2>
+            <div id="detalle_recibo_tarjeta"></div>
+
+        </div>
+
+        <div id="botones_recibo">
+            <button type="button"> Imprimir recibo</button>
+            <button type="button" id="btn_regresar"> Regresar</button>
+        </div>
+
+
+        <!-- ------------------------------- footer -------------------------------- -->
+
+    </div>
+
+    <script src="../../js/simulador_bd.js"></script>
+    <script src="../../js/js-usuario/ctrl_recibo_pago_cliente.js"></script>
+</body>
+
+</html>
