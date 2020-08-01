@@ -23,7 +23,6 @@ body {
 
 #contenedor-perfil div h1 {
     font-size: 30px;
-    padding: 25px;
 }
 
 .info-perfil {
@@ -32,22 +31,22 @@ body {
     height: 50%;
 }
 
-.info-perfil #editar-perfil {
+.info-perfil #editar-convenio {
     width: 100%;
     text-align: left;
 }
 
-.info-perfil #editar-perfil div {
+.info-perfil #editar-convenio div {
     font-size: 25px;
     padding: 10px;
 }
 
-.info-perfil #editar-perfil div label {
+.info-perfil #editar-convenio div label {
     display: inline-block;
-    width: 250px;
+    width: 400px;
 }
 
-.info-perfil #editar-perfil div input {
+.info-perfil #editar-convenio div input {
     display: inline-block;
     width: 250px;
     height: 25px;
@@ -57,21 +56,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 200px;
+    margin-top: 170px;
 }
 
 #contenedor-perfil .botones a {
-    border: 2px solid black;
+    border: 1px solid black;
     font-size: 20px;
     padding: 7px 2.5%;
 }
 
-#contenedor-perfil .botones button,
-a {
-    background-color: white;
-    margin-top: 20px;
-    box-shadow: none;
+#contenedor-perfil .botones button {
+    margin-top: 15px;
     height: 40px;
     width: 200px;
-    font-size: 20px;
 }
