@@ -8,18 +8,12 @@ const id_usuario = usuarios.usuario1;
 
 
 /* ---------------------- Plantilla ---------------------- */
-const plantilla_tarjeta =
-    '<div class=\"detalle_tarjeta\"> \n' +
-    '<input id="input_preferida" type="radio" name=\"tarjeta_preferida\"> \n' +
-
-    '</div> \n' +
-
-    '<div class=\"detalle_tarjeta\"> \n' +
+const plantilla_tarjeta = '<div class=\"detalle_tarjeta\"> \n' +
     '<img src="[LOGO_TARJETA]" > \n' +
     '</div> \n' +
 
     '<div class=\"numero_tarjeta\"> \n' +
-    '<p> * * * [TERMINACION_TARJETA] \n' +
+    '<p> **** [TERMINACION_TARJETA] \n' +
     '</p> \n' +
     '</div> \n' +
 
@@ -33,7 +27,7 @@ const plantilla_tarjeta =
 
 
 
-/* 3-  */
+/* 3-  Funcion para preparar la plantilla de tarjetas e imprimirla en el html*/
 const crear_carta_tarjetas = (ptarjeta) => {
     let nueva_tarjeta = document.createElement('div');
     let nueva_plantilla = plantilla_tarjeta;
@@ -63,17 +57,8 @@ const crear_carta_tarjetas = (ptarjeta) => {
 
 
     //Imprimir la terminacion de la tarjeta
-    let terminacion = /([0-9]{4}$)/;
-    nueva_plantilla = nueva_plantilla.replace('[TERMINACION_TARJETA]', terminacion.exec(ptarjeta.numero_tarjeta));
+    nueva_plantilla = nueva_plantilla.replace('[TERMINACION_TARJETA]', (ptarjeta.numero_tarjeta[15] + ptarjeta.numero_tarjeta[16] + ptarjeta.numero_tarjeta[17] + ptarjeta.numero_tarjeta[18]));
 
-
-
-
-    //Marca el input-radio de la tarjeta con metodo preferido
-    const input_preferida = document.querySelector('#input_preferida');
-    if (ptarjeta.predeterminada) {
-        input_preferida.setAttribute("checked", "");
-    };
 
 
     nueva_tarjeta.innerHTML = nueva_plantilla;
@@ -87,7 +72,7 @@ const crear_carta_tarjetas = (ptarjeta) => {
 
 /* 2- Inicializar funcion para imprimir */
 const mostrar_tarjetas = () => {
-    for (let i = 1; i <= id_usuario.tarjetas.length; i++) {
+    for (let i = 1; i <= Object.keys(id_usuario.tarjetas).length; i++) {
         let id_tarjeta = ('tarjeta_' + i);
         crear_carta_tarjetas(id_usuario.tarjetas[id_tarjeta]);
     };

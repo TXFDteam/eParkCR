@@ -23,7 +23,7 @@ const plantilla_carta_comentario =
     '</div>';
 
 //Quemado para pruebas.
-const usuario_ingresado = usuarios['usuario1'];
+let usuario_ingresado;
 let comentario_usuario_ingresado;
 
 //Elementos usados para la creación y modificación de comentarios.
@@ -478,10 +478,29 @@ const eliminar_comentario = () => {
         //Eliminar comentario del DB.
     }
 };
+
+
+const obtener_usuario_ingresado = () => {
+    let contrasenna = localStorage.getItem('contrasenna');
+    let correo = localStorage.getItem('correo');
+
+    for (let i = 1; i < usuarios.cant_usuarios; i++) {
+        let identificador_usuario = ('usuario' + i);
+        let usuario_actual = usuarios[identificador_usuario];
+
+        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
+            return usuario_actual;
+        }
+
+    }
+    usuario_ingresado = '';
+};
+
 //#endregion
 
 
 //Mostrar info del parqueo.
+usuario_ingresado = obtener_usuario_ingresado();
 parqueo_actual = parqueos[obtener_parqueo_actual()];
 llenar_info_parqueo(parqueo_actual);
 obtener_comentarios();

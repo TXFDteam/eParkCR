@@ -59,7 +59,7 @@ let obtener_datos_y_validar = () => {
     for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
         let identificador_duenno = ('duenno_parqueo' + d);
         if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
-            window.location.assign("perfil_cliente.html");
+            window.location.assign("perfil_parqueo.html");
         }
     };
     for (let e = 1; e <= empresas.cant_empresas; e++) {

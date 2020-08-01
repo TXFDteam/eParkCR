@@ -6,7 +6,9 @@
 let administrador = {
     nombre: 'admin_principal',
     correo_admin: 'admin@admin.com',
-    contrasenna_admin: 'admin.admin1'
+    contrasenna_admin: 'admin.admin1',
+    comision: '8%',
+    telefono: '2594-1245'
 }
 
 
@@ -420,6 +422,7 @@ let duennos_parqueos = {
         nombre: 'Jose Pablo Ramirez Soto',
         telefono_duenno_parqueo: '8888-8888',
         fecha_nacimiento: '24/05/1990',
+        cuenta_bancaria: '268929343',
         contraseña: '5823475',
         estado_general: 'ACTIVO'
     },
@@ -429,6 +432,7 @@ let duennos_parqueos = {
         nombre: 'Ramón Luis López López',
         telefono_duenno_parqueo: '8888-2222',
         fecha_nacimiento: '15/02/1956',
+        cuenta_bancaria: '168392298',
         contraseña: '9719369',
         estado_general: 'ACTIVO'
     },
@@ -438,6 +442,7 @@ let duennos_parqueos = {
         nombre: 'María Covid Pérez Vindas',
         telefono_duenno_parqueo: '8383-3838',
         fecha_nacimiento: '11/05/1949',
+        cuenta_bancaria: '935344239',
         contraseña: '3067245',
         estado_general: 'ACTIVO'
     }
@@ -468,6 +473,8 @@ let parqueos = {
         tarifa_hora: 800,
         estado: 'ACTIVO',
         cant_pisos: 1,
+        hora_apertura: '07:00',
+        hora_cierre: '20:00',
         pisos: {
             piso_1: {
                 cant_espacios: 33,
@@ -656,6 +663,8 @@ let parqueos = {
         tarifa_hora: 1500,
         estado: 'ACTIVO',
         cant_pisos: 2,
+        hora_apertura: '09:00',
+        hora_cierre: '20:00',
         pisos: {
             piso_1: {
                 cant_espacios: 7,
@@ -739,6 +748,8 @@ let parqueos = {
         tarifa_hora: 1000,
         estado: 'ACTIVO',
         cant_pisos: 1,
+        hora_apertura: '07:00',
+        hora_cierre: '22:00',
         pisos: {
             piso_1: {
                 cant_espacios: 9,
@@ -811,11 +822,16 @@ let usuarios = {
         estado_general: 'ACTIVO',
         tarjetas: { //Este estado es el de la aplicación
             tarjeta_1: {
-                numero_tarjeta: '1111 1111 1111 1111',
+                numero_tarjeta: '4444 4444 4444 4444',
                 fecha_expiracion: 1 / 11,
                 predeterminada: false,
             },
             tarjeta_2: {
+                numero_tarjeta: '5555 5555 5555 5555',
+                fecha_expiracion: 1 / 11,
+                predeterminada: false,
+            },
+            tarjeta_3: {
                 numero_tarjeta: '3333 3333 3333 3333',
                 fecha_expiracion: 2 / 22,
                 predeterminada: true,
@@ -1187,7 +1203,7 @@ let reservas = {
         hora_salida: '15:00',
         horas: '',
         descuento: '',
-        estado_reserva: 'Paga',
+        estado_reserva: 'Pendiente',
         monto_total: '',
         espacio_seleccionado: parqueos.parqueo_2.pisos.piso_2.espacios.espacio_3.id
     },
