@@ -49,7 +49,6 @@ const txt_estado_espacio = document.querySelector('#ESTADO_ESPACIO');
 const txt_espacio_seleccionado = document.querySelector('#txt-espacio-seleccionado');
 const txt_fecha_entrada = document.querySelector('#txt-fecha-entrada');
 const txt_hora_entrada = document.querySelector('#txt-hora-entrada');
-const txt_fecha_salida = document.querySelector('#txt-fecha-salida');
 const txt_hora_salida = document.querySelector('#txt-hora-salida');
 const btn_reservar_espacio = document.querySelector('#btn-reservar-espacio');
 const datos_requeridos = document.querySelectorAll('[required]');
@@ -313,39 +312,50 @@ const fechas_correctas = () => {
     let correcto = false;
 
     let fecha_entrada = new Date(txt_fecha_entrada.value);
+
+    //Para el nuevo funcionamiento
+    if (fecha_entrada != null) {
+        correcto = horas_correctas();
+    } else {
+        correcto = false;
+    }
+
+    if (correcto) {
+        txt_fecha_entrada.classList.remove('error');
+    } else {
+        txt_fecha_entrada.classList.add('error');
+    }
+
+    return correcto;
+
+    //Viejo.
     let dia_entrada = fecha_entrada.getDate();
     let mes_entrada = fecha_entrada.getMonth();
     let anno_entrada = fecha_entrada.getFullYear();
 
-    let fecha_salida = new Date(txt_fecha_entrada.value);
-    let dia_salida = fecha_salida.getDate();
-    let mes_salida = fecha_salida.getMonth();
-    let anno_salida = fecha_salida.getFullYear();
+    let fecha_actual = new Date();
+    let dia_actual = fecha_actual.getDate();
+    let mes_actual = fecha_actual.getMonth();
+    let anno_actual = fecha_actual.getFullYear();
 
     //Primero comprueba el año.
-    if (anno_entrada <= anno_salida) {
+    if (anno_entrada == anno_actual) {
         //Luego comprueba si el mes es válido.
-        if (mes_entrada == mes_salida) {
-            //Si el mes es el mismo verifica que el día de entrada sea menor al de salida.
-            if (dia_entrada == dia_salida) {
-                //Verifica que las hora de entrada y salida sean válidas
+        if (mes_entrada == mes_actual) {
+            //Si el mes es el mismo verifica que el día de entrada sea igual al actual.
+            if (dia_entrada == dia_actual) {
+                //Verifica que las hora de entrada y actual sean válidas
                 if (horas_correctas()) {
                     correcto = true;
                 }
-            } else if (dia_entrada < dia_salida) {
-                correcto = true;
             }
-        } else if (mes_entrada < mes_salida) {
-            correcto = true;
         }
     }
 
     if (correcto) {
         txt_fecha_entrada.classList.remove('error');
-        txt_fecha_salida.classList.remove('error');
     } else {
         txt_fecha_entrada.classList.add('error');
-        txt_fecha_salida.classList.add('error');
     }
 
     return correcto;
