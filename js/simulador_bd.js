@@ -1159,10 +1159,10 @@ let reservas = {
         fecha_reserva: '29/07/2020',
         hora_entrada: '8:00',
         hora_salida: '9:30',
-        horas: '',
+        horas: '1.5',
         descuento: '',
         estado_reserva: 'Pendiente',
-        monto_total: '',
+        monto_total: '3000',
         espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_1.id
     },
     reserva2: {

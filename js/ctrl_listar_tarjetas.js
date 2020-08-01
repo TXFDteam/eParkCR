@@ -1,6 +1,10 @@
 'use strict'
 
+//Contenedor reexistente del html donde se listan las tarjetas dinamicamente
 const contenedor_tarjetas = document.querySelector('#lista_tarjetas');
+
+//DEV- Informacion del usuario tomada por default para revisar el funcionamiento de JS
+const id_usuario = usuarios.usuario1;
 
 
 /* ---------------------- Plantilla ---------------------- */
@@ -83,10 +87,9 @@ const crear_carta_tarjetas = (ptarjeta) => {
 
 /* 2- Inicializar funcion para imprimir */
 const mostrar_tarjetas = () => {
-    /* console.log('check1') */
-    for (let i = 1; i <= tarjetas.cant_tarjetas; i++) {
+    for (let i = 1; i <= id_usuario.tarjetas.length; i++) {
         let id_tarjeta = ('tarjeta_' + i);
-        crear_carta_tarjetas(tarjetas[id_tarjeta]);
+        crear_carta_tarjetas(id_usuario.tarjetas[id_tarjeta]);
     };
 
 };

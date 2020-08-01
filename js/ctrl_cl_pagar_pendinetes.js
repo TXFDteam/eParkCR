@@ -6,36 +6,48 @@ const output_pend_parqueo = document.querySelector('#detalle_pend_parqueo');
 const output_pend_fecha = document.querySelector('#detalle_pend_fecha');
 const output_pend_horas = document.querySelector('#detalle_pend_horas');
 const output_pend_monto = document.querySelector('#detalle_pend_monto');
+const input_moneda_seleccionada = document.querySelector('#menu_moneda input[type=radio]:checked').value;
 
 
-//Se toma por default los datos de la reserva1  DETERMINAR EL ID DE LA RESERVA
+//Datos tomados por default para probar el JS (Id de la reserva, tipo de cambio)
 const numreserva = 'reserva1'
-
-
-
-//FALTA FUNCION PARA DETERMINAR EL MONTO TOTAL FINAL A PAGAR
-// ---TOMAR EN CUENTA TARIFA DEL PARQUEO, CANTIDAD DE HORAS, DESCUENTOS Y TIPO DE CAMBIO
-// ---AGREGAR FUNCION PARA DETERMINAR TIPO DE CAMBIO Y SIGNO SEGUN MONEDA SELECCIONADA
-// ---FALTA DETERMINAR PORCENTAJE DE DESCUENTO POR CONVENIO O PROMOCION
-// ---FALTA CALCULAR LAS HORAS TOTALES CON HORA DE ENRTADA Y SALIDA **AGREGADO COMO NUMERO MAGICO**
-const tipoDeCambio = 1;
-const signoMoneda = '₡';
-const tarifa = 1000;
+let tarifa = 1000;
 const porcentajedescuento = 1; //Calcularse en rango entre [0, 1] para calcularlo con una multiplicacion simple
 
 
+//Se calcula el tipo de cambio
+
+switch (input_moneda_seleccionada) {
+    case 1:
+        tipoDeCambio = 1;
+        break;
+    case 2:
+        tipoDeCambio = 580;
+        break;
+    case 3:
+        tipoDeCambio = 680;
+        break;
+}
 
 
 
 
-let mostrar_informacion = () => {
+
+
+
+
+
+
+
+let mostrar_informacion = (pnumreserva) => {
+
+
 
     //Extraer los valores del json
-    let parqueo = reservas[numreserva].espacio_seleccionado;
-    let fecha = (reservas[numreserva].fecha_reserva);
-    let horaEntrada = new Date(reservas[numreserva].hora_entrada);
-    let horaSalida = new Date(reservas[numreserva].hora_salida);
-    //let monto = reservas[numreserva].monto_total;
+    let parqueo = reservas[pnumreserva].espacio_seleccionado;
+    let fecha = (reservas[pnumreserva].fecha_reserva);
+    let horas = (reservas[pnumreserva].horas);
+    let monto = reservas[pnumreserva].monto_total;
 
     //Crear los espacios para imprimir los datos
     let datoParqueo = document.createElement('p');
@@ -43,16 +55,16 @@ let mostrar_informacion = () => {
     let datoHoras = document.createElement('p');
     let datoMonto = document.createElement('p');
 
-    //Hacer los calculos necesarios para el recibo final
-    /* let horasTotales = horaSalida.getTime - horaEntrada.getTime; */
-    let horasTotales = 3;
-    let montofinal = horasTotales * tarifa * tipoDeCambio * porcentajedescuento;
+    //Calculos segun tipo de moneda
+    let tipoDeCambio = 1
+    let signoMoneda = '₡';
+    let montofinal = monto * porcentajedescuento / tipoDeCambio;
 
 
     //Asignar la informacion del json al elemento de html creado
     datoParqueo.innerHTML = parqueo;
     datoFecha.innerHTML = fecha;
-    datoHoras.innerHTML = horasTotales;
+    datoHoras.innerHTML = horas;
     datoMonto.innerHTML = (signoMoneda + montofinal);
 
     //Incluir los datos asignados al contenedor preexistente del html
@@ -68,4 +80,4 @@ let mostrar_informacion = () => {
 
 
 //Invoca funcion para imprimir los datos de la reservacion
-mostrar_informacion();
+mostrar_informacion(numreserva);
