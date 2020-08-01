@@ -1,6 +1,7 @@
 'use strict';
 
-const inicio = document.querySelector('#inicio-admin');
+const link_inicio = document.querySelector('#link-inicio');
+const inicio = document.querySelector('#link-admin');
 const solicitudes_registro = document.querySelector('#solicitudes-registro');
 const info_usuarios_admin = document.querySelector('#info-usuarios-admin');
 const historial_reservas = document.querySelector('#historial-reservas');
@@ -78,6 +79,13 @@ let marcar_link = (x) => {
 };
 
 
+link_inicio.addEventListener('click', function() {
+    link_inicio.href = '../../html/htmls-admin/bienvenido_admin.html';
+});
+
+inicio.addEventListener('click', function() {
+    inicio.href = '../../html/htmls-admin/bienvenido_admin.html';
+});
 solicitudes_registro.addEventListener('click', function() {
     solicitudes_registro.href = '../../html/htmls-admin/lista-solicitudes-registro.html';
     marcar_link(solicitudes_registro);
