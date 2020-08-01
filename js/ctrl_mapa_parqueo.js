@@ -3,9 +3,6 @@
 //Si se quiere que los espacios del parqueo sean interactuables cuando se presionan debe existir una función actualizar_espacio_seleccionado(p_espacio_parqueo, nuevo_espacio) para ser conectada.
 
 const slt_piso_actual = document.querySelector('#slt-piso');
-const btn_hoja_anterior = document.querySelector('#btn-hoja-anterior');
-const txt_hoja_actual = document.querySelector('#txt-hoja-actual');
-const btn_hoja_siguiente = document.querySelector('#btn-hoja-siguiente');
 
 //Esta función se usa para llenar el mapa del parqueo con espacios interactivos.
 //<p_espacio_parqueo> referencia al espacio de un parqueo del que se va a obtener los datos.
@@ -66,10 +63,6 @@ const actualizar_espacios_mapa = (p_piso) => {
     contenedor_espacios_en_mapa.innerHTML = '';
 
     for (let i = primer_espacio; i <= cant_espacios; i++) {
-        if (espacios_creados >= max_espacios_por_piso) {
-            break;
-        }
-
         let identificador_espacio = ('espacio_' + i); //Clave del JSON.
         crear_espacio_parqueo(p_piso.espacios[identificador_espacio], true);
 
@@ -98,29 +91,6 @@ const piso_actual_cambiado = () => {
     cambiar_piso(piso_actual);
 };
 
-//Se llama cuando se presiona un botón para cambiar la hoja que se está mostrando.
-const cambiar_hoja = () => {
-    let id_piso = ('piso_' + piso_actual);
-    let piso = parqueo_actual.pisos[id_piso];
-
-    txt_hoja_actual.textContent = hoja_actual_piso;
-    actualizar_espacios_mapa(piso);
-};
-
-const mostrar_hoja_anterior = () => {
-    if (hoja_actual_piso > 1) {
-        hoja_actual_piso -= 1;
-        cambiar_hoja();
-    }
-};
-
-const mostrar_hoja_siguiente = () => {
-    if (hoja_actual_piso < cant_hoja_piso) {
-        hoja_actual_piso += 1;
-        cambiar_hoja();
-    }
-};
-
 //Llamar a esta función para inicializar datos del mapa basado en el parqueo que se envía como parámetro.
 //<p_parqueo> Parqueo del que se desea ver los datos.
 const inicializar_mapa = (p_parqueo) => {
@@ -142,5 +112,3 @@ const inicializar_mapa = (p_parqueo) => {
 
 //Eventos.
 slt_piso_actual.addEventListener('change', piso_actual_cambiado);
-btn_hoja_anterior.addEventListener('click', mostrar_hoja_anterior);
-btn_hoja_siguiente.addEventListener('click', mostrar_hoja_siguiente);

@@ -22,11 +22,3 @@
     flex-wrap: wrap;
     justify-content: flex-start;
 }
-
-.parqueo-abierto {
-    color: rgb(58, 228, 134);
-}
-
-.parqueo-cerrado {
-    color: rgb(212, 54, 54);
-}
