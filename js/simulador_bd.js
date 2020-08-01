@@ -418,6 +418,7 @@ let duennos_parqueos = {
         id_usuario: 'D1',
         correo_duenno: 'josepablo@gmail.com',
         nombre: 'Jose Pablo Ramirez Soto',
+        telefono_duenno_parqueo: '8888-8888',
         fecha_nacimiento: '24/05/1990',
         contraseña: '5823475',
         estado_general: 'ACTIVO'
@@ -426,6 +427,7 @@ let duennos_parqueos = {
         id_usuario: 'D2',
         correo_duenno: 'ramonluis@gmail.com',
         nombre: 'Ramón Luis López López',
+        telefono_duenno_parqueo: '8888-2222',
         fecha_nacimiento: '15/02/1956',
         contraseña: '9719369',
         estado_general: 'ACTIVO'
@@ -434,6 +436,7 @@ let duennos_parqueos = {
         id_usuario: 'D3',
         correo_duenno: 'mariaperez@hotmail.com',
         nombre: 'María Covid Pérez Vindas',
+        telefono_duenno_parqueo: '8383-3838',
         fecha_nacimiento: '11/05/1949',
         contraseña: '3067245',
         estado_general: 'ACTIVO'

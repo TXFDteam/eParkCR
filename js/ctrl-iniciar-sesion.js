@@ -6,9 +6,43 @@ let input_contrasenna = document.querySelector('#contrasenna');
 let btn_iniciar_sesion = document.querySelector('#btn-iniciar-sesion');
 
 
+const validar = () => {
+    let error;
+    let campos_requeridos = document.querySelectorAll('[required]');
+
+    campos_requeridos.forEach(campo => {
+        if (campo.value == '') {
+            campo.classList.add('error');
+            error = true;
+        } else {
+            campo.classList.remove('error');
+        }
+    });
+    return error;
+};
+
+const validarEmail = (email) => {
+    let error = false;
+    if (!(/@+/.test(email))) {
+        error = true;
+    }
+
+    return error;
+}
+
+
 let obtener_datos_y_validar = () => {
     let correo = input_correo.value;
     let contrasenna = input_contrasenna.value;
+
+    validar();
+    let errorCorreo = validarEmail(correo);
+
+    if (errorCorreo) {
+        input_correo.classList.add('error');
+    } else {
+        input_correo.remove('error');
+    }
 
     localStorage.setItem('correo', input_correo.value);
     localStorage.setItem('contrasenna', input_contrasenna.value);
