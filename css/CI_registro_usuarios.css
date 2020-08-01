@@ -15,7 +15,7 @@ h1 {
 
 .CI-registro-usuarios-container {
     display: flex;
-    border: solid 2px red;
+    /* border: solid 2px red; */
     Flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
@@ -24,7 +24,7 @@ h1 {
 
 #CI-registro-form-box1 {
     height: 300px;
-    border: solid 2px green;
+    /* border: solid 2px green; */
     width: 30%;
 }
 
@@ -84,7 +84,7 @@ input {
 
 #CI-registro-form-box2 {
     height: 300px;
-    border: solid 2px blue;
+    /* border: solid 2px blue; */
     width: 30%;
 }
 
@@ -94,8 +94,7 @@ input {
 
 #btn {
     display: block;
-    width: 300px;
-    border: solid 2px purple;
+    /* border: solid 2px purple; */
 }
 
 #CI-registro-form-box3 {
@@ -108,12 +107,12 @@ input {
 
 #btn-crearUsuario {
     margin-right: 5px;
-    width: 160px;
+    width: 12%;
 }
 
 #btn-yaTenesCuenta {
     margin-left: 5px;
-    width: 160px;
+    width: 12%;
 }
 
 .error {
