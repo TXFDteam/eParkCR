@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/prq_registro_espacios.css">
+    <title>Registrar parqueo</title>
+</head>
+
+<body>
+    <main>
+        <div class="nav-principal">
+            <a href="" id="link-inicio">Marca</a>
+            <div class="nav-derecha">
+                <a href="" id="link-registrarse">Registrarse</a>
+                <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+            </div>
+        </div>
+
+
+        <div id='header'>
+            <h1>Registrá tu parqueo</h1>
+            <p id='CI-registro-usuarios-p'>Llená los datos de tu parqueo aquí</p>
+        </div>
+
+        <div class='col-container'>
+            <div id='col1' class='col'>
+
+                <label for='nombre_parqueo'>Nombre del parqueo</label><br>
+                <input type='text' id='nombre_parqueo' required><br>
+
+                <label for='cedulaJuridica'>Cédula Jurídica</label><br>
+                <input type='text' id='cedulaJuridica' required>
+
+                <legend id="permisoFuncionamientoLabel">Tienes permiso activo de funcionamiento?</legend>
+                <input type="checkbox" id="permiso_yes" class="permiso" value="Yes">
+                <label for="permiso_yes" id="permiso_yes_label">Yes</label><br>
+                <input type="checkbox" id="permiso_no" class="permiso" value="No">
+                <label for="permiso_no" id="permiso_no_label">No</label><br>
+
+                <label for='tarifa'>Tarifa</label><br>
+                <input type='number' id='tarifa' required>
+
+                <label for='horaApertura'>Hora de apertura</label><br>
+                <input type='time' id='horaApertura' required>
+
+                <label for='horaCierre'>Hora de cierre</label><br>
+                <input type='time' id='horaCierre' required>
+
+
+
+            </div>
+
+            <div id='col2' class='col'>
+
+                <label for='pisos'>Pisos del parqueo</label><br>
+                <input type='number' id='pisos' required><br>
+
+                <label for='pisosDropdown'>Piso seleccionado</label><br>
+                <select id='pisosDropdown' name='pisos_select' required>
+                    <option>1</option>
+                </select>
+
+                <label for='espaciosDiscapacidad'>Espacios para personas con dispacidad</label><br>
+                <input type='number' id='espaciosDiscapacidad' required><br>
+
+                <label for='espaciosMotos'>Espacios para motos</label><br>
+                <input type='number' id='espaciosMotos' required><br>
+
+                <label for='espaciosAuto'>Espacios para automóviles</label><br>
+                <input type='number' id='espaciosAuto' required><br>
+
+            </div>
+
+
+            <div id='col3' class='col'>
+
+                <form id="imagenBanner">
+                    <label for="myFile">Adjunta una imagen para el banner de tu parqueo</label><br>
+                    <input type="file" id="myFile" value="Buscar" name="filename"><br>
+                    <input type="submit" value="Adjuntar imagen" id="submitImage">
+                </form>
+
+                <form id="imagenCarta">
+                    <label for="myFile">Adjunta una imagen para el perfil de tu parqueo</label><br>
+                    <input type="file" id="myFile" value="Buscar" name="filename"><br>
+                    <input type="submit" value="Adjuntar imagen" id="submitImage">
+                </form>
+
+                <h2>Ubicación</h2>
+                <label for='emp_registro_direccion'>Ingresá la ubicación de tu empresa</label><br>
+                <input type='text' placeholder="Provincia" id='provincia' required><br>
+                <input type='text' placeholder="Cantón" id='canton' required><br>
+                <input type='text' placeholder="Distrito" id='distrito' required><br>
+                <input type='text' placeholder="Dirección exacta" id='direccion' required><br>
+
+            </div>
+
+        </div>
+
+        <div id='rowBotones'>
+            <button type="button" id='btn-crearUsuario' class="btn">Crear parqueo</button>
+            <button type="button" id='btn-yaTenesCuenta' class="btn">Ya tenés cuenta?</button>
+        </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="/js/control-sesiones.js"></script>
+    <script src="/js/CI_registro_usuarios_validar.js"></script>
+
+</body>
+
+</html>

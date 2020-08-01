@@ -1,7 +1,8 @@
-.emp-formulario-header {
+#header {
     /* border: solid 2px red; */
-    height: 220px;
-    padding-top: 120px;
+    height: 180px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     text-align: center;
 }
 
@@ -16,7 +17,7 @@
 
 .col {
     flex: 1;
-    height: 380px;
+    height: 400px;
 }
 
 #col1 {
@@ -27,42 +28,51 @@
     /* border: solid 2px orange; */
 }
 
+#col3 {
+    /* border: solid 2px red; */
+}
+
 input {
-    margin: 4px 10px 10px 20%;
+    margin: 4px 10px 10px 15%;
     width: 300px;
 }
 
 label {
-    margin: 10px 10px 10px 20%;
+    margin: 10px 10px 10px 15%;
     /* border: solid 2px blue; */
 }
 
 legend {
-    margin: 10px 10px 10px 20%;
+    margin: 10px 10px 10px 15%;
 }
 
 h2 {
     margin: 10px 10px 10px 20%;
 }
 
+#pisosDropdown {
+    width: 300px;
+    margin: 4px 10px 10px 15%;
+}
+
 #myFile {
-    margin: 4px 0 10px 20%;
+    margin: 4px 0 10px 15%;
 }
 
 input[type=checkbox] {
-    margin: 4px 0 0 20%;
+    margin: 4px 0 0 15%;
     width: auto;
 }
 
-#emp_registro_no {
+#permiso_no {
     margin-bottom: 20px;
 }
 
-#emp_registro_permiso_yes_label {
+#permiso_yes_label {
     margin: 0 0 0 0;
 }
 
-#emp_registro_permiso_no_label {
+#permiso_no_label {
     margin: 0 0 0 0;
 }
 
@@ -71,20 +81,19 @@ input[type=checkbox] {
     margin-top: 20px;
 }
 
-#emp_registro_botones {
+#rowBotones {
     /* border: solid 2px purple; */
     text-align: center;
-    margin-top: 20px;
     float: left;
     margin-left: 160px;
 }
 
-#btn_emp_registro_crearPerfil {
+#btn-crearUsuario {
     margin-right: 20px;
     width: 140px;
 }
 
-#btn_emp_registro_yaTenesCuenta {
+#btn-yaTenesCuenta {
     width: 140px;
 }
 

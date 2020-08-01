@@ -1,22 +1,28 @@
 'use strict';
 
-const btn_yaTenesCuenta = document.querySelector('#btn_emp_registro_yaTenesCuenta');
 const btn_emp_registro_crearPerfil = document.querySelector('#btn_emp_registro_crearPerfil');
-const input_nombreEmpresa = document.querySelector('#emp_registro_nombre');
-const input_nombreEncargado = document.querySelector('#emp_registro_nombreEncargado');
-const input_contrasena = document.querySelector('#emp_registro_contrasena');
-const input_cedulaJuridica = document.querySelector('#emp_registro_juridica');
-const input_correo = document.querySelector('#emp_registro_correo');
-const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
+
+const btn_yaTenesCuenta = document.querySelector('#btn-yaTenesCuenta');
+
+const input_nombreParqueo = document.querySelector('#nombre_parqueo');
+const input_cedulaJuridica = document.querySelector('#cedulaJuridica');
+const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
+const input_tarifa = document.querySelector('#tarifa');
+const input_horaApertura = document.querySelector('#horaApertura');
+const input_horaCierre = document.querySelector('#horaCierre');
+const input_pisos = document.querySelector('#pisos');
+const input_pisosDropdown = document.querySelector('#pisosDropdown');
+const input_espaciosDiscapacidad = document.querySelector('#espaciosDiscapacidad');
+const input_espaciosMotos = document.querySelector('#espaciosMotos');
+const input_espaciosAuto = document.querySelector('#espaciosAuto');
 const input_provincia = document.querySelector('#emp_registro_provincia');
 const input_canton = document.querySelector('#emp_registro_canton');
 const input_distrito = document.querySelector('#emp_registro_distrito');
 const input_direccion = document.querySelector('#emp_registro_direccion');
 
-const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
 
 btn_yaTenesCuenta.addEventListener('click', function() {
-    window.location.assign('iniciar-sesion.html')
+    btn_yaTenesCuenta.href = 'iniciar-sesion.html';
 });
 
 
@@ -40,22 +46,6 @@ const validar = () => {
 
 
 
-    let emailval = /^[^@]*@[^@]*$/;
-    if (input_correo.value.match(emailval)) {
-        input_correo.classList.remove('error');
-    } else {
-        error = true;
-        input_correo.classList.add('error');
-    }
-
-
-    if (input_contrasena.value.match(input_confirmarContrasena.value)) {
-        input_correo.classList.remove('error');
-    } else {
-        error = true;
-        input_confirmarContrasena.classList.add('error');
-    }
-
 
     var len = document.querySelectorAll('input[type="checkbox"]:checked').length
     if (len <= 0) {
@@ -68,6 +58,8 @@ const validar = () => {
 
     return error;
 };
+
+
 
 
 
@@ -89,13 +81,17 @@ const obtener_datos = () => {
         });
 
 
-        let nombreEmpresa = input_nombreEmpresa.value;
-        let nombreEncargado = input_nombreEncargado.value;
-        let contrasena = input_contrasena.value;
-        let permisoFuncionamiento = document.querySelector('.emp_registro_permiso:checked').value;
+        let nombreEmpresa = input_nombreParqueo.value;
         let cedulaJuridica = input_cedulaJuridica.value;
-        let correo = input_correo.value;
-        let confirmarContrasena = input_confirmarContrasena.value;
+        let permisoFuncionamiento = label_permisoFuncionamiento.value;
+        let tarifa = input_tarifa.value;
+        let horaApertura = input_horaApertura.value;
+        let horaCierre = input_horaCierre.value;
+        let pisos = input_pisos.value;
+        let pisosDropdown = input_pisosDropdown.value;
+        let espaciosDiscapacidad = input_espaciosDiscapacidad.value;
+        let espaciosMotos = input_espaciosMotos.value;
+        let espaciosAutos = input_espaciosAuto.value;
         let provincia = input_provincia.value;
         let canton = input_canton.value;
         let distrito = input_distrito.value;
@@ -103,13 +99,17 @@ const obtener_datos = () => {
 
 
 
-        console.log('Nombre empresa: ', nombreEmpresa);
-        console.log('Nombre encargado: ', nombreEncargado);
-        console.log('Contrasena: ', contrasena);
-        console.log('Permiso funcionamiento: ', permisoFuncionamiento);
+        console.log('Nombre parqueo: ', nombreEmpresa);
         console.log('Cedula juridica: ', cedulaJuridica);
-        console.log('Correo: ', correo);
-        console.log('Confirmar contrasena: ', confirmarContrasena);
+        console.log('Permiso funcionamiento: ', permisoFuncionamiento);
+        console.log('Tarifa: ', tarifa);
+        console.log('Hora de apertura: ', horaApertura);
+        console.log('Hora de cierre: ', horaCierre);
+        console.log('Pisos: ', pisos);
+        console.log('Piso seleccionado: ', pisosDropdown);
+        console.log('Espacios para personas con discapacidad: ', espaciosDiscapacidad);
+        console.log('Espacios para motos: ', espaciosMotos);
+        console.log('Espacios para autos: ', espaciosAutos);
         console.log('Provincia: ', provincia);
         console.log('Canton: ', canton);
         console.log('Distrito: ', distrito);
