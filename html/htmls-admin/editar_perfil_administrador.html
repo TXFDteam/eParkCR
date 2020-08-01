@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Parqueo</title>
+    <title>Perfil Administrador</title>
 
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
@@ -60,26 +60,26 @@
 
                     <form id="editar-perfil">
                         <div>
-                            <label for="nombre-administrador">Nombre de usuario:</label>
+                            <label for="nuevo-nombre-admin">Nombre de usuario:</label>
 
-                            <input type="text" id="nombre-administrador" name="nombre-administrador">
+                            <input type="text" id="nuevo-nombre-admin" name="nuevo-nombre-admin">
                         </div>
 
                         <div>
-                            <label for="telefono-administrador">Teléfono de contacto:</label>
+                            <label for="nuevo-telefono-admin">Teléfono de contacto:</label>
 
-                            <input type="tel" id="telefono-administrador" name="telefono-administrador">
+                            <input type="tel" id="nuevo-telefono-admin" name="nuevo-telefono-admin">
                         </div>
 
                         <div>
-                            <label for="comision">Comisión a cobrar:</label>
+                            <label for="nueva-comision">Comisión a cobrar:</label>
 
-                            <input type="number" id="comision" name="comision"> <span>%</span>
+                            <input type="number" id="nueva-comision" name="nueva-comision"> <span>%</span>
                         </div>
 
                         <div>
-                            <label for="logo-administrador">Logo:</label>
-                            <input type="file" id="logo-administrador" name="logo-administrador" accept="image/png, image/jpeg">
+                            <label for="nuevo-logo-admin">Logo:</label>
+                            <input type="file" id="nuevo-logo-admin" name="nuevo-logo-admin" accept="image/png, image/jpeg">
                         </div>
                     </form>
 
@@ -105,6 +105,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_admin.js"></script>
+    <script src="../../js/js-admin/ctrl_editar_perfil_admin.js"></script>
     <script src="../../js/ctrl_guardar_cambios.js"></script>
 </body>
 
