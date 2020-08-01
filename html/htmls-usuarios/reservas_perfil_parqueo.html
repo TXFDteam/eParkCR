@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/estilos-generales.css">
     <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/estilos_mapa_parqueo.css">
     <link rel="stylesheet" href="../../css/espacio_parqueo.css">
     <link rel="stylesheet" href="../../css/estilos_comentario.css">
     <link rel="stylesheet" href="../../css/estilos_crear_comentario.css">
@@ -31,6 +32,7 @@
             <a href="inicio_cliente.html" id="link-inicio">Inicio</a>
             <a href="buscar_parqueos.html" id="link-buscar-parqueos">Buscar parqueos</a>
             <a href="reservas_usuario.html" id="link-reservas">Reservas</a>
+            <a href="listar_tarjetas.html" id="link-metodos-pago">Métodos de pago</a>
             <a href="perfil_cliente.html" id="link-configuracion">Configuración de la cuenta</a>
         </div>
 
@@ -101,9 +103,6 @@
                             <label for="txt-espacio-seleccionado">Espacio seleccionado</label>
                             <input type="text" id="txt-espacio-seleccionado" readonly required>
 
-                            <label for="txt-fecha-entrada">Fecha de entrada</label>
-                            <input type="date" id="txt-fecha-entrada" required>
-
                             <label for="txt-hora-entrada">Hora de entrada</label>
                             <input type="time" id="txt-hora-entrada" required>
 
@@ -132,7 +131,9 @@
         </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="../../js/simulador_bd.js"></script>
+    <script src="../../js/ctrl_mapa_parqueo.js"></script>
     <script src="../../js/js-usuario/ctrl_reservas.js"></script>
 </body>
 
