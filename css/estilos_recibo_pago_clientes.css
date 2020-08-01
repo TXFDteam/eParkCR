@@ -1,0 +1,39 @@
+#recibo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    width: 100%;
+}
+
+#tabla_recibo {
+    text-align: left;
+    width: 40%;
+    background-color: rgb(241, 217, 137);
+    padding-left: 3%;
+}
+
+#tabla_recibo h2 {
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+#tabla_recibo p {
+    font-size: 20px;
+    margin: 0 0 40px 15px;
+    padding-left: 20px;
+    width: 90%;
+    border-bottom: 1px solid black;
+}
+
+#botones_recibo {
+    margin-top: 20px;
+    display: flex;
+    width: 40%;
+}
+
+#botones_recibo button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+}

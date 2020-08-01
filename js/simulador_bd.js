@@ -1177,9 +1177,11 @@ let reservas = {
         hora_salida: '9:30',
         horas: '1.5',
         descuento: '',
-        estado_reserva: 'Pendiente',
+        estado_reserva: 'Paga',
         monto_total: '3000',
-        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_1.id
+        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_1.id,
+        monto_final: '₡3000',
+        tarjeta_creditada: usuarios.usuario1.tarjetas.tarjeta_1
     },
     reserva2: {
         id_usuario: usuarios.usuario2.id_usuario,
@@ -1192,7 +1194,9 @@ let reservas = {
         descuento: '',
         estado_reserva: 'Activa',
         monto_total: '',
-        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_6.id
+        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_6.id,
+        monto_final: '',
+        tarjeta_creditada: ''
     },
     reserva3: {
         id_usuario: usuarios.usuario3.id_usuario,
@@ -1205,7 +1209,9 @@ let reservas = {
         descuento: '',
         estado_reserva: 'Pendiente',
         monto_total: '',
-        espacio_seleccionado: parqueos.parqueo_2.pisos.piso_2.espacios.espacio_3.id
+        espacio_seleccionado: parqueos.parqueo_2.pisos.piso_2.espacios.espacio_3.id,
+        monto_final: '',
+        tarjeta_creditada: ''
     },
     reserva4: {
         id_usuario: usuarios.usuario4.id_usuario,
@@ -1218,7 +1224,9 @@ let reservas = {
         descuento: '',
         estado_reserva: 'Reservada',
         monto_total: '',
-        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_4.id
+        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_4.id,
+        monto_final: '',
+        tarjeta_creditada: ''
     },
     reserva5: {
         id_usuario: usuarios.usuario5.id_usuario,
@@ -1231,7 +1239,9 @@ let reservas = {
         descuento: '',
         estado_reserva: 'Reservada',
         monto_total: '',
-        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_8.id
+        espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_8.id,
+        monto_final: '',
+        tarjeta_creditada: ''
     },
     reserva6: {
         id_usuario: usuarios.usuario6.id_usuario,
@@ -1244,7 +1254,9 @@ let reservas = {
         descuento: '',
         estado_reserva: 'Activa',
         monto_total: '',
-        espacio_seleccionado: parqueos.parqueo_2.pisos.piso_1.espacios.espacio_2.id
+        espacio_seleccionado: parqueos.parqueo_2.pisos.piso_1.espacios.espacio_2.id,
+        monto_final: '',
+        tarjeta_creditada: ''
     },
     reserva7: {
         id_usuario: usuarios.usuario7.id_usuario,
@@ -1257,7 +1269,9 @@ let reservas = {
         descuento: '',
         estado_reserva: 'Reservada',
         monto_total: '',
-        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_5.id
+        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_5.id,
+        monto_final: '',
+        tarjeta_creditada: ''
     },
     reserva8: {
         id_usuario: usuarios.usuario8.id_usuario,
@@ -1270,7 +1284,9 @@ let reservas = {
         descuento: '',
         estado_reserva: 'Paga',
         monto_total: '',
-        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_7.id
+        espacio_seleccionado: parqueos.parqueo_3.pisos.piso_1.espacios.espacio_7.id,
+        monto_final: '',
+        tarjeta_creditada: ''
     },
 
 
