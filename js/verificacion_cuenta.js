@@ -42,11 +42,17 @@ const obtener_datos = () => {
         Swal.fire({
             'title': 'El usuario se registro correctamente',
             'icon': "success",
-            'text': 'Revise su correo electronico'
-        });
+            'text': 'Al darle ok volveras a la página principal para que podas iniciar sesión',
+            button: true,
+
+        }).then((willDelete) => {
+            if (willDelete) {
+                window.location.assign("index.html");
+            }
+        })
 
         let codigo = input_codigo.value;
-
+        //
 
 
 
