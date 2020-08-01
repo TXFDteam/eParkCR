@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="contenedor">
+    <main>
         <div class="nav-principal">
             <a href="" id="link-inicio">Marca</a>
             <div class="nav-derecha">
@@ -20,62 +20,66 @@
             </div>
         </div>
 
-        <section id="contenedor-principal">
-            <div class="menu-lateral">
-                <a href="" id="link-inicio">Inicio</a>
-                <a href="buscar_parqueos.html" id="link-buscar-parqueos">Buscar parqueos</a>
-                <a href="reservas_usuario.html" id="link-reservas">Reservas</a>
-                <a href="perfil_cliente.html" id="link-configuracion">Configuración de la cuenta</a>
-            </div>
+        <div class="menu-lateral">
+            <a href="" id="link-inicio">Inicio</a>
+            <a href="buscar_parqueos.html" id="link-buscar-parqueos">Buscar parqueos</a>
+            <a href="reservas_usuario.html" id="link-reservas">Reservas</a>
+            <a href="perfil_cliente.html" id="link-configuracion">Configuración de la cuenta</a>
+        </div>
 
-            <div class="contenedor-reservas">
+        <div class="contenedor">
 
-                <div class="primera-columna">
-                    <h2>Reservas</h2>
-                    <div>
-                        <h3>Parqueo</h3>
-                        <p>X</p>
+            <section id="contenedor-principal">
+
+                <div class="contenedor-reservas">
+
+                    <div class="primera-columna">
+                        <h2>Reservas</h2>
+                        <div>
+                            <h3>Parqueo</h3>
+                            <p>X</p>
+                        </div>
+                        <div>
+                            <h3>Fecha</h3>
+                            <p>X</p>
+                        </div>
+                        <div>
+                            <h3>Hora de entrada</h3>
+                            <p>X</p>
+                        </div>
+                        <div>
+                            <h3>Hora de salida</h3>
+                            <p>X</p>
+                        </div>
+                        <div>
+                            <h3>Morosidad</h3>
+                            <p>X</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Fecha</h3>
-                        <p>X</p>
+
+                    <div class="segunda-columna">
+                        <div>
+                            <h3>Estado</h3>
+                            <p>X</p>
+                        </div>
+                        <div>
+                            <button type="button" id="btn-cancelar-reservacion">Cancelar reservación</button>
+                        </div>
+                        <div>
+                            <button type="button" id="btn-pagar">Pagar</button>
+                        </div>
+                        <div>
+                            <button type="button" id="btn-historial-reservas">Historial de reservas</button>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Hora de entrada</h3>
-                        <p>X</p>
-                    </div>
-                    <div>
-                        <h3>Hora de salida</h3>
-                        <p>X</p>
-                    </div>
-                    <div>
-                        <h3>Morosidad</h3>
-                        <p>X</p>
-                    </div>
+
                 </div>
+            </section>
+        </div>
+    </main>
 
-                <div class="segunda-columna">
-                    <div>
-                        <h3>Estado</h3>
-                        <p>X</p>
-                    </div>
-                    <div>
-                        <button type="button" id="btn-cancelar-reservacion">Cancelar reservación</button>
-                    </div>
-                    <div>
-                        <button type="button" id="btn-pagar">Pagar</button>
-                    </div>
-                    <div>
-                        <button type="button" id="btn-historial-reservas">Historial de reservas</button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
-
-    <script src="../../js/simulador_bd.js"></script>
-    <script src="../../js/control-sesiones.js"></script>
+    <script src="js/simulador_bd.js"></script>
+    <script src="js/control-sesiones.js"></script>
 </body>
 
 </html>
