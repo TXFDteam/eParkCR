@@ -318,12 +318,11 @@ const fechas_correctas = () => {
         correcto = horas_correctas();
     } else {
         correcto = false;
+        txt_fecha_entrada.classList.add('error');
     }
 
     if (correcto) {
         txt_fecha_entrada.classList.remove('error');
-    } else {
-        txt_fecha_entrada.classList.add('error');
     }
 
     return correcto;
