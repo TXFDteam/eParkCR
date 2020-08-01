@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Empresa</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
+    <link rel="stylesheet" href="../../css/bienvenido_cliente.css">
+
+
+</head>
+
+<body>
+
+
+
+    <main>
+
+        <!--Menu Lateral y Nav Principal-->
+
+
+        <div class="nav-principal">
+            <a href="" id="link-marca">Marca</a>
+            <div class="nav-derecha">
+                <a href="" id="link-registrarse">Registrarse</a>
+                <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+            </div>
+        </div>
+
+        <section id="contenedor-perfil">
+            <div class="menu-lateral">
+                <a href="inicio_cliente.html" id="link-inicio">Inicio</a>
+                <a href="buscar_parqueos.html" id="link-buscar-parqueos">Buscar parqueos</a>
+                <a href="reservas_usuario.html" id="link-reservas">Reservas</a>
+                <a href="listar_tarjetas.html" id="link-metodos-pago">Métodos de pago</a>
+                <a href="perfil_cliente.html" id="link-configuracion">Configuración de la cuenta</a>
+            </div>
+
+            <div class="contenedor-info-perfil">
+
+
+
+                <!--Vista de Editar Perfil-->
+
+                <div class="perfil-superior">
+                    <h1>Bienvenido a tu plataforma: </h1>
+                    <p>
+                        <!--AQUI VA LA VARIABLE NOMBRE DEL BACKEND-->
+                    </p>
+                </div>
+
+
+
+                <div class="contenedor-botones">
+
+                    <button id="btn_buscarParqueos">Buscar parqueos</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <script src="../../js/simulador_bd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_usuario.js"></script>
+    <script src="../../js/control-sesiones.js"></script>
+    <script src="../../js/js-usuario/ctrl_bienvenido_cliente.js"></script>
+
+</body>
+
+</html>
