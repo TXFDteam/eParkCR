@@ -822,11 +822,16 @@ let usuarios = {
         estado_general: 'ACTIVO',
         tarjetas: { //Este estado es el de la aplicación
             tarjeta_1: {
-                numero_tarjeta: '1111 1111 1111 1111',
+                numero_tarjeta: '4444 4444 4444 4444',
                 fecha_expiracion: 1 / 11,
                 predeterminada: false,
             },
             tarjeta_2: {
+                numero_tarjeta: '5555 5555 5555 5555',
+                fecha_expiracion: 1 / 11,
+                predeterminada: false,
+            },
+            tarjeta_3: {
                 numero_tarjeta: '3333 3333 3333 3333',
                 fecha_expiracion: 2 / 22,
                 predeterminada: true,
@@ -1198,7 +1203,7 @@ let reservas = {
         hora_salida: '15:00',
         horas: '',
         descuento: '',
-        estado_reserva: 'Paga',
+        estado_reserva: 'Pendiente',
         monto_total: '',
         espacio_seleccionado: parqueos.parqueo_2.pisos.piso_2.espacios.espacio_3.id
     },
