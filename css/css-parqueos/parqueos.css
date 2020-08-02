@@ -31,14 +31,14 @@
 
 
 /*
-.info-convenios table {
+.info-parqueos table {
     border: 1px solid black;
     border-collapse: collapse;
     margin-bottom: 10%;
     visibility: hidden;
 }
 
-.info-convenios td {
+.info-parqueos td {
     padding: 10px;
 }
 
