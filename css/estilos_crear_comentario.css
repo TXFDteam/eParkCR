@@ -61,4 +61,5 @@
 
 #ventana-contenedor-principal #btn-publicar {
     align-self: flex-end;
+    width: 120px;
 }

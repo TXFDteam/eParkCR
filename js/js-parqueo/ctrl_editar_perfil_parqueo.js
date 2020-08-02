@@ -43,7 +43,7 @@ const guardar_cambios_parqueo = () => {
 
         Swal.fire(
             'Perfil actualizado',
-            'Por favor espera unos minutos para que los cambios se reflejen en el sistema',
+            'Si ha dejado algún espacio en blanco no requerido, la información se mantendrá como estaba previamente',
             'success'
         )
     }
