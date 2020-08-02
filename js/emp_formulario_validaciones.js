@@ -7,6 +7,9 @@ const input_nombreEmpresa = document.querySelector('#emp_registro_nombre');
 const input_nombreEncargado = document.querySelector('#emp_registro_nombreEncargado');
 const input_contrasena = document.querySelector('#emp_registro_contrasena');
 const input_cedulaJuridica = document.querySelector('#emp_registro_juridica');
+
+const input_imagen = document.getElementById('myFile');
+
 const input_correo = document.querySelector('#emp_registro_correo');
 const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
 const input_provincia = document.querySelector('#emp_registro_provincia');
@@ -84,6 +87,7 @@ const obtener_datos = () => {
         let nombreEncargado = input_nombreEncargado.value;
         let contrasena = input_contrasena.value;
         let permiso = document.querySelector('input[name="permiso"]:checked').value;
+        let imagen = input_imagen.value;
         let cedulaJuridica = input_cedulaJuridica.value;
         let correo = input_correo.value;
         let confirmarContrasena = input_confirmarContrasena.value;
@@ -99,6 +103,7 @@ const obtener_datos = () => {
         console.log('Contrasena: ', contrasena);
         console.log('Permiso funcionamiento: ', permiso);
         console.log('Cedula juridica: ', cedulaJuridica);
+        console.log('Imagen: ', imagen);
         console.log('Correo: ', correo);
         console.log('Confirmar contrasena: ', confirmarContrasena);
         console.log('Provincia: ', provincia);
