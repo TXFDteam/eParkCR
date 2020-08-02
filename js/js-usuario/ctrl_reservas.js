@@ -183,7 +183,9 @@ const crear_reserva = () => {
                     Swal.fire({
                         icon: 'success',
                         title: 'Reserva creada con éxito',
-                        text: 'Podés realizar el pago en el menú de reservas.'
+                        text: 'Podés realizar el pago en el menú de reservas.',
+                    }).then(() => {
+                        window.location.assign("reservas_usuario.html");
                     });
                 } else {
                     Swal.fire({

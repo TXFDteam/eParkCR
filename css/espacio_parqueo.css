@@ -18,8 +18,9 @@
 }
 
 .ocupado {
-    color: #ffffff;
-    background-color: #ff4747;
+    color: #000000;
+    /*background-color: #ff4747;*/
+    border: 4px #ff4747 solid;
 }
 
 .txt_alerta {

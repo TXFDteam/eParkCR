@@ -46,8 +46,8 @@ const crear_cuadro_parqueo = (p_parqueo) => {
     input_eliminar_parqueo.addEventListener('click', () => {
 
         Swal.fire({
-            title: 'Cerrar cuenta',
-            text: "¿Está seguro que desea cerrar la cuenta?",
+            title: 'Eliminar parqueo',
+            text: "¿Está seguro que desea eliminar el parqueo seleccionado?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -57,8 +57,8 @@ const crear_cuadro_parqueo = (p_parqueo) => {
         }).then((result) => {
             if (result.value) {
                 Swal.fire(
-                    'Cerar cuenta',
-                    'La cuenta ha sido cerrada exitosamente.',
+                    'Eliminar parqueo',
+                    'El parqueo ha sido eliminado exitosamente.',
                     'success'
                 )
             }

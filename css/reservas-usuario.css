@@ -54,3 +54,14 @@
     padding: 10px;
     width: 200px;
 }
+
+
+/*ESTILOS DINAMICOS DEPENDIENDO EL ESTADO DE LA RESERVA*/
+
+.esconder-contenedor {
+    display: none;
+}
+
+.esconder-noHayReservas {
+    display: none;
+}
