@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../../css/estilos-generales.css">
     <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
     <link rel="stylesheet" href="../../css/css-admin/info-solicitud-parqueo-admin.css">
+    <link rel="stylesheet" href="../../css/estilos_mapa_parqueo.css">
+    <link rel="stylesheet" href="../../css/espacio_parqueo.css">
 </head>
 
 <body>
@@ -73,11 +75,18 @@
                     <button type="button" id="btn-rechazar">Rechazar</button>
                 </div>
 
-                <div class="info-derecha">
-                    <!--AQUÍ VA LA CARTA DE PARQUEO y LA UBICACIÓN-->
-                    <h2>f</h2>
-                </div>
+                <div id="contenedor-mapa">
+                    <div id="mapa-parqueo">
+                        <label for="">Estás viendo:</label>
+                        <select name="" id="slt-piso">
+                            <!--Las opciones de este select se crean de forma dinámica basado en la cantidad de pisos que tenga el parqueo-->
+                        </select>
 
+                        <div id="contenedor-espacios-parqueos">
+                            <!--Aquí se van a crear las cartas para cada espacio del parqueo-->
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -88,7 +97,9 @@
     <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/control-sesiones.js"></script>
     <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_admin.js"></script>
+    <script src="../../js/ctrl_mapa_parqueo.js"></script>
     <script src="../../js/js-admin/info-solicitud-parqueo.js"></script>
+
 </body>
 
 </html>

@@ -18,6 +18,11 @@ let solicitud_seleccionada = localStorage.getItem('solicitud_seleccionada');
 
 let fila;
 
+let parqueo_actual;
+let piso_actual = 1;
+let hoja_actual_piso;
+let max_espacios_por_piso;
+const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
 
 const listar_info_solicitud = (sol) => {
 
@@ -36,6 +41,25 @@ const listar_info_solicitud = (sol) => {
     espacios_parqueo.innerHTML = sol.cant_espacios;
     localStorage.setItem('espacios_parqueo', sol.cant_espacios);
 };
+const obtener_parqueo_actual = (p_nombre_parqueo) => {
+
+    //Se busca el parqueo que posee ese nombre.
+    for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+        let identificador_parqueo = ('parqueo_' + i);
+        let nombre_parqueo = parqueos[identificador_parqueo].nombre;
+
+        if (nombre_parqueo == p_nombre_parqueo) {
+            return identificador_parqueo;
+        }
+    }
+
+    return '';
+};
+
+
+
+
+
 
 let mostrar_usuarios = () => {
 
@@ -58,6 +82,8 @@ let mostrar_usuarios = () => {
         if (solicitud_p == solicitud_seleccionada) {
             det = true;
             header.innerHTML = 'Información de la solicitud de ' + solicitud_p;
+
+
             if (solicitud.estado_parqueo == "Revisión") {
                 solicitudes_parqueos[identificador_solicitud].estado_parqueo = "Rechazado";
             }
@@ -68,6 +94,10 @@ let mostrar_usuarios = () => {
         };
     };
 
+    parqueo_actual = solicitud.parqueo;
+
+    console.log(solicitud.parqueo);
+    inicializar_mapa(parqueo_actual);
     listar_info_solicitud(solicitud);
     console.log(nom_parqueo);
 

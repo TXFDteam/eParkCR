@@ -19,6 +19,11 @@
     padding: 2%;
 }
 
+.info-parqueos h2 {
+    font-size: 40px;
+    padding-bottom: 40px;
+}
+
 #cuadros-parqueos {
     display: flex;
     flex-direction: row;
@@ -31,14 +36,14 @@
 
 
 /*
-.info-convenios table {
+.info-parqueos table {
     border: 1px solid black;
     border-collapse: collapse;
     margin-bottom: 10%;
     visibility: hidden;
 }
 
-.info-convenios td {
+.info-parqueos td {
     padding: 10px;
 }
 

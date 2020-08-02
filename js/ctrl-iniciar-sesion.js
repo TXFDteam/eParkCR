@@ -56,6 +56,7 @@ let obtener_datos_y_validar = () => {
         input_correo.remove('error');
     }
 
+    //AQUI GUARDA LOCALMENTE LOS DATOS DE CORREO Y CONTRASEÑA
     localStorage.setItem('correo', input_correo.value);
     localStorage.setItem('contrasenna', input_contrasenna.value);
 

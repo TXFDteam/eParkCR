@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis parqueos</title>
     <link rel="stylesheet" href="../../css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
     <link rel="stylesheet" href="../../css/estilos-generales.css">
     <link rel="stylesheet" href="../../css/css-parqueos/tablas_parqueos.css">
@@ -25,7 +26,7 @@
         <div class="menu-lateral">
 
             <a href="" id="primer-link">Inicio</a>
-            <a href="">Convenios</a>
+            <a href="" id="convenios-parqueo">Convenios</a>
             <a href="" id="mis-parqueos">Mis Parqueos</a>
             <a href="" id="historial-reservas-parqueo">Historial de reservas</a>
             <a href="" id="reportes-parqueo">Reportes</a>
@@ -33,8 +34,13 @@
         </div>
 
         <section id="sct-contenedor-principal">
+
             <div class="info-parqueos">
                 <h2>Mis parqueos</h2>
+                <div id="agregar-parqueo">
+                    <a href="">+</a>
+                    <p>Agregar parqueo</p>
+                </div>
                 <div id="cuadros-parqueos">
                     <!--Cartas parqueos-->
                 </div>
@@ -42,11 +48,12 @@
         </section>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/control-sesiones.js"></script>
-    <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_empresa.js"></script>
-    <script src="../../js/js-parqueo/mis_parqueos.js"></script>
-    <script src="../../js/js-parqueo/usuarios_empresa.js"></script>
+    <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_parqueo.js"></script>
+    <script src="../../js/js-parqueo/ctrl_mis_parqueos.js"></script>
+
 </body>
 
 </html>
