@@ -26,28 +26,6 @@
 
 /*TABLA*/
 
-table {
-    margin-top: 5%;
-    border-collapse: collapse;
-    width: 1000px;
-}
-
-#tabla-reservas td {
-    padding: 10px;
-}
-
-#tabla-reservas thead {
-    background-color: #a4b0be;
-}
-
-#tabla-reservas tbody tr:nth-child(even) {
-    background-color: #f1f2f6;
-}
-
-#tabla-reservas tbody tr:nth-child(odd) {
-    background-color: #ced6e0;
-}
-
 
 /*SI SE LE DA CLICK AL BOTÓN DE DESCARGAR*/
 
