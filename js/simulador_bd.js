@@ -20,7 +20,7 @@ let duennos_parqueos = {
         nombre: 'Jose Pablo Ramirez Soto',
         telefono_duenno_parqueo: '8888-8888',
         fecha_nacimiento: '24/05/1990',
-        cuenta_bancaria: '268929343',
+        cuenta_bancaria: '64242597623299142925',
         contraseña: '5823475',
         estado_general: 'ACTIVO'
     },
@@ -30,7 +30,7 @@ let duennos_parqueos = {
         nombre: 'Ramón Luis López López',
         telefono_duenno_parqueo: '8888-2222',
         fecha_nacimiento: '15/02/1956',
-        cuenta_bancaria: '168392298',
+        cuenta_bancaria: '12590400132454751841',
         contraseña: '9719369',
         estado_general: 'ACTIVO'
     },
@@ -40,7 +40,7 @@ let duennos_parqueos = {
         nombre: 'María Covid Pérez Vindas',
         telefono_duenno_parqueo: '8383-3838',
         fecha_nacimiento: '11/05/1949',
-        cuenta_bancaria: '935344239',
+        cuenta_bancaria: '57487621933142413286',
         contraseña: '3067245',
         estado_general: 'ACTIVO'
     }
