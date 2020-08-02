@@ -8,13 +8,13 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
     '<p>[PARQUEO]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-cantidad-espacios\"> \n' +
-    '<p>Fecha de vencimiento: [CANTIDAD_ESPACIOS]</p> \n' +
+    '<p>Cantidad de espacios: [CANTIDAD_ESPACIOS]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-tarifa\"> \n' +
-    '<p>Cantidad de empleados: [TARIFA]</p> \n' +
+    '<p>Tarifa: [TARIFA]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-ubicacion\"> \n' +
-    '<p>Descuento: [UBICACION]</p> \n' +
+    '<p>Ubicación: [UBICACION]</p> \n' +
     '</div> \n' +
 
     '</div>';
@@ -30,7 +30,7 @@ const crear_cuadro_parqueo = (p_parqueo) => {
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
     nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', p_parqueo.nombre);
     nueva_plantilla = nueva_plantilla.replace('[CANTIDAD_ESPACIOS]', p_parqueo.cant_espacios);
-    nueva_plantilla = nueva_plantilla.replace('[TARIFA]', p_parqueo.tarifa_hora);
+    nueva_plantilla = nueva_plantilla.replace('[TARIFA]', '₡' + p_parqueo.tarifa_hora);
     nueva_plantilla = nueva_plantilla.replace('[UBICACION]', p_parqueo.ubicacion);
 
     //Link a lista de usuarios
@@ -69,12 +69,20 @@ const crear_cuadro_parqueo = (p_parqueo) => {
     });
 
 };
+
+let correo = localStorage.getItem('correo');
+let contrasenna = localStorage.getItem('contrasenna');
+
 let mostrar_parqueos = () => {
     tabla_parqueos.innerHTML = '';
-    for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-        let identificador_parqueo = ('parqueo_' + i);
-        console.log(identificador_parqueo);
-        crear_cuadro_parqueo(parqueos[identificador_parqueo]);
+    for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
+        let identificador_duenno = ('duenno_parqueo' + d);
+        if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {}
+
+        for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+            let identificador_parqueo = ('parqueo_' + i);
+            crear_cuadro_parqueo(parqueos[identificador_parqueo]);
+        }
     }
 };
 mostrar_parqueos();

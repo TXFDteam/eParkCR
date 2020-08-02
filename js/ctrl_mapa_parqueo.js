@@ -90,7 +90,7 @@ const cambiar_piso = (i_piso_seleccionado) => {
     let cant_espacios = piso.cant_espacios;
 
     //Se define cuantas hojas tendrá este piso basado en la cantidad de espacios.
-    cant_hoja_piso = Math.ceil(cant_espacios / max_espacios_por_piso);
+    //cant_hoja_piso = Math.ceil(cant_espacios / max_espacios_por_piso);
     hoja_actual_piso = 1;
 
     actualizar_espacios_mapa(piso);

@@ -75,12 +75,4 @@ const listar_historial_reservas = () => {
     };
 };
 
-
-
-
-
-
-
-
-
 listar_historial_reservas();
