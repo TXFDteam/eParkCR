@@ -16,6 +16,10 @@
     justify-content: space-between;
 }
 
+#sct-contenedor-titulo #btn-filtros {
+    width: 120px;
+}
+
 #sct-contenedor-carta-parqueos {
     display: flex;
     flex-direction: row;

@@ -11,9 +11,9 @@
     position: fixed;
     width: 46%;
     padding: 1% 1%;
-    border: 2px #000000 solid;
-    margin-top: 10%;
+    margin-top: 12%;
     margin-left: 27%;
+    border-radius: 5px;
 }
 
 #ventana-contenedor-principal #contenedor-superior {
@@ -21,6 +21,11 @@
     flex-direction: row;
     justify-content: space-between;
     flex-flow: 1;
+}
+
+#ventana-contenedor-principal #contenedor-superior h3 {
+    margin-top: 4%;
+    font-size: 24px;
 }
 
 #ventana-contenedor-principal label {
@@ -41,7 +46,9 @@
 #ventana-contenedor-principal #contenedor-superior #btn-salir {
     width: 40px;
     height: 40px;
-    margin-top: 10px;
+    font-size: 22px;
+    background-color: #ffffff;
+    color: #4b4b4b;
 }
 
 #ventana-contenedor-principal #contenedor-inferior {
