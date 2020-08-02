@@ -1,16 +1,17 @@
 'use strict'
 
 //Relacionar la informacion del HTML
-const tabla_reporte_ingresos_header = document.querySelector('#tabla_reporte_ingresos thead');
+//const tabla_reporte_ingresos_header = document.querySelector('#tabla_reporte_ingresos thead');
 const tabla_reporte_ingresos_body = document.querySelector('#tabla_reporte_ingresos tbody');
-const btn_descargar = document.querySelector('#btn_descargar');
+const btn_descargar = document.querySelector('#btn-descargar');
 
 
-
+let array_reservas;
 
 /* --------------------- Identificador de usuario actual -------------------- */
 //Para probar el JS se preestablece usuario1: const id_usuario = usuarios.usuario1;
 
+/*
 const obtener_usuario_ingresado = () => {
     let contrasenna = localStorage.getItem('contrasenna');
     let correo = localStorage.getItem('correo');
@@ -20,17 +21,25 @@ const obtener_usuario_ingresado = () => {
         let usuario_actual = usuarios[identificador_usuario];
 
         if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
-            return usuario_actual;
+            usuario_actual = usuarios[identificador_usuario].id_usuario;
+            break;
         }
     }
-    usuario_ingresado = '';
 };
 
+obtener_usuario_ingresado();*/
 
 
 
 //const id_usuario = obtener_usuario_ingresado();
-const id_usuario_actual = usuarios.usuario1.id_usuario;
+
+btn_descargar.addEventListener('click', function() {
+    let printContent = document.querySelector('#tabla_reporte_ingresos');
+
+    window.print(printContent);
+
+});
+
 
 
 
@@ -49,7 +58,6 @@ const listar_reporte = () => {
             console.log('check 3 ' + reservas[identificador_reserva]);
 
             if (reservas[identificador_reserva].parqueo_seleccionado == nombre_parqueo) {
-
 
 
             }

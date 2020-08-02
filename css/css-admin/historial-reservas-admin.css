@@ -49,7 +49,7 @@ table {
 }
 
 
-/*SI SE LE DA CLICK A DESCARGAR*/
+/*SI SE LE DA CLICK AL BOTÓN DE DESCARGAR*/
 
 @media print {
     .info-reservas {
@@ -60,6 +60,7 @@ table {
         width: 900px;
         margin-right: 100px;
     }
+    /*
     .tabla-info #tabla-reservas td {
         padding: 10px;
     }
@@ -72,6 +73,7 @@ table {
     .tabla-info #tabla-reservas tbody tr:nth-child(odd) {
         background-color: #ced6e0;
     }
+    */
     #btn-descargar {
         display: none;
     }
