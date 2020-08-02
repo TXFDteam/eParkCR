@@ -48,7 +48,7 @@ const validar = () => {
     }
 
 
-    var len = document.querySelectorAll('input[type="checkbox"]:checked').length
+    var len = document.querySelectorAll('input[type="radio"]:checked').length
     if (len <= 0) {
         error = true;
         label_permisoFuncionamiento.classList.add('error');
@@ -83,7 +83,7 @@ const obtener_datos = () => {
         let nombreEmpresa = input_nombreEmpresa.value;
         let nombreEncargado = input_nombreEncargado.value;
         let contrasena = input_contrasena.value;
-        let permisoFuncionamiento = document.querySelector('.emp_registro_permiso:checked').value;
+        let permiso = document.querySelector('input[name="permiso"]:checked').value;
         let cedulaJuridica = input_cedulaJuridica.value;
         let correo = input_correo.value;
         let confirmarContrasena = input_confirmarContrasena.value;
@@ -97,7 +97,7 @@ const obtener_datos = () => {
         console.log('Nombre empresa: ', nombreEmpresa);
         console.log('Nombre encargado: ', nombreEncargado);
         console.log('Contrasena: ', contrasena);
-        console.log('Permiso funcionamiento: ', permisoFuncionamiento);
+        console.log('Permiso funcionamiento: ', permiso);
         console.log('Cedula juridica: ', cedulaJuridica);
         console.log('Correo: ', correo);
         console.log('Confirmar contrasena: ', confirmarContrasena);

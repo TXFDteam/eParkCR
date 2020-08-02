@@ -11,7 +11,7 @@
     Flex-direction: row;
     flex-wrap: wrap;
     /* border: solid 2px red; */
-    margin: 0 5% 0 5%;
+    /* margin: 0 5% 0 5%; */
 }
 
 .col {
@@ -45,11 +45,7 @@ h2 {
     margin: 10px 10px 10px 20%;
 }
 
-#myFile {
-    margin: 4px 0 10px 20%;
-}
-
-input[type=checkbox] {
+input[type=radio] {
     margin: 4px 0 0 20%;
     width: auto;
 }
@@ -58,17 +54,19 @@ input[type=checkbox] {
     margin-bottom: 20px;
 }
 
-#emp_registro_permiso_yes_label {
+input[type=file] {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+}
+
+#label_si {
     margin: 0 0 0 0;
 }
 
-#emp_registro_permiso_no_label {
+#label_no {
     margin: 0 0 0 0;
-}
-
-#emp_registro_submitImage {
-    width: 140px;
-    margin-top: 20px;
 }
 
 #emp_registro_botones {
@@ -76,18 +74,31 @@ input[type=checkbox] {
     text-align: center;
     margin-top: 20px;
     float: left;
-    margin-left: 160px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 #btn_emp_registro_crearPerfil {
     margin-right: 20px;
-    width: 140px;
+    width: 200px;
     height: 40px;
 }
 
 #btn_emp_registro_yaTenesCuenta {
-    width: 140px;
+    width: 200px;
     height: 40px;
+}
+
+#emp_registro_formFinal {
+    display: flex;
+    border-radius: 4%;
+    background-color: white;
+    margin: 30px 0 0 20%;
+    color: black;
+    border: solid 1px darkgray;
+    text-align: center;
+    width: 60%;
 }
 
 .error {
