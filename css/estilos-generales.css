@@ -77,6 +77,10 @@ button:hover {
     cursor: pointer;
 }
 
+button:focus {
+    outline-style: none;
+}
+
 .oculto {
     display: none;
 }
