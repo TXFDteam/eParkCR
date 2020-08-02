@@ -2,17 +2,19 @@
 
 //#region Constantes
 const contenedor_parqueos = document.querySelector('#sct-contenedor-carta-parqueos');
-const PLANTILLA_CARTA = '<div class=\"contenedor-superior\"> \n' +
-    '<div class=\"contendor-info-parqueo\"> \n' +
+
+const PLANTILLA_CONTENIDO_CONT_SUPERIOR =
+    '<div class=\"contendor-info-parqueo [CLASE_ESTADO_PARQUEO]\"> \n' +
     '<div class=\"contenedor-estado-parqueo\"> \n' +
-    '<p [CLASE_ESTADO]>[ESTADO_PARQUEO]</p> \n' +
+    '<p>[ESTADO_PARQUEO]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-calificacion-parqueo\"> \n' +
     '<p>[CALIF_PARQUEO]</p> \n' +
     '</div> \n' +
     '</div> \n' +
-    '</div> \n' +
-    '<div class=\"contenedor-inferior\"> \n' +
+    '</div>';
+
+const PLANTILLA_CONTENIDO_CONT_INFERIOR =
     '<div> \n' +
     '<h3>[NOMBRE_PARQUEO]</h3> \n' +
     '<p>[UBI_PARQUEO]</p> \n' +
@@ -119,33 +121,43 @@ const crear_carta_parqueo = (p_parqueo) => {
     }
 
     let nueva_carta = document.createElement('div');
-
-    //Copia de la plantilla.
-    let nueva_plantilla = PLANTILLA_CARTA;
-
     nueva_carta.classList.add('carta-parqueo');
 
-    //Reemplazar los datos en la plantilla por los recibidos como parámetros.
+    //Contenedor superior.
+    let contenedor_superior = document.createElement('div');
+    contenedor_superior.classList.add('contenedor-superior');
 
-    //Primero define el estado, si está abierto o cerrado.
-    //Además cambia la clase del texto que muestra el estado dependiendo del mismo.
+    let nueva_plantilla_cont_superior = PLANTILLA_CONTENIDO_CONT_SUPERIOR;
     let estado_parqueo;
     if (p_parqueo.abierto) {
         estado_parqueo = 'Abierto';
-        nueva_plantilla = nueva_plantilla.replace('[CLASE_ESTADO]', 'class=\"parqueo-abierto\"');
+        nueva_plantilla_cont_superior = nueva_plantilla_cont_superior.replace('[CLASE_ESTADO_PARQUEO]', 'parqueo-abierto');
     } else {
         estado_parqueo = 'Cerrado'
-        nueva_plantilla = nueva_plantilla.replace('[CLASE_ESTADO]', 'class=\"parqueo-cerrado\"');
+        nueva_plantilla_cont_superior = nueva_plantilla_cont_superior.replace('[CLASE_ESTADO_PARQUEO]', 'parqueo-cerrado');
     }
 
-    //Más reemplazo de texto en la plantilla que se va a usar para la nueva carta.
-    nueva_plantilla = nueva_plantilla.replace('[ESTADO_PARQUEO]', estado_parqueo);
-    nueva_plantilla = nueva_plantilla.replace('[CALIF_PARQUEO]', p_parqueo.calificacion_promedio);
-    nueva_plantilla = nueva_plantilla.replace('[NOMBRE_PARQUEO]', p_parqueo.nombre);
-    nueva_plantilla = nueva_plantilla.replace('[UBI_PARQUEO]', p_parqueo.ubicacion);
+    nueva_plantilla_cont_superior = nueva_plantilla_cont_superior.replace('[ESTADO_PARQUEO]', estado_parqueo);
+    nueva_plantilla_cont_superior = nueva_plantilla_cont_superior.replace('[CALIF_PARQUEO]', p_parqueo.calificacion_promedio);
+    contenedor_superior.innerHTML = nueva_plantilla_cont_superior;
 
-    //Se incluye la plantilla como el innerHTML de la carta creada.
-    nueva_carta.innerHTML = nueva_plantilla;
+    //Aplicar la imagen de previsualización a la carta de parqueo actual.
+    let url = "url(" + "../../imgs/imgs_parqueos/" + p_parqueo.imagen_preview + ")";
+    contenedor_superior.style.backgroundImage = url;
+
+    //Contenedor inferior.
+    let contenedor_inferior = document.createElement('div');
+    contenedor_inferior.classList.add('contenedor-inferior');
+    let nueva_plantilla_cont_inferior = PLANTILLA_CONTENIDO_CONT_INFERIOR;
+    nueva_plantilla_cont_inferior = nueva_plantilla_cont_inferior.replace('[NOMBRE_PARQUEO]', p_parqueo.nombre);
+    nueva_plantilla_cont_inferior = nueva_plantilla_cont_inferior.replace('[UBI_PARQUEO]', p_parqueo.ubicacion);
+
+    contenedor_inferior.innerHTML = nueva_plantilla_cont_inferior;
+
+    //Crear jerarquía.
+    nueva_carta.appendChild(contenedor_superior);
+    nueva_carta.appendChild(contenedor_inferior);
+
     contenedor_parqueos.appendChild(nueva_carta);
 
     //Se conecta el evento click de la carta creada.

@@ -1,6 +1,14 @@
 'use strict';
 
 
+const btn_volver_perfil_admin = document.querySelector('#btn-volver-perfil-admin');
+
+
+const volver_perfil_admin = () => {
+    window.location.assign('../../html/htmls-admin/perfil_administrador.html');
+};
+
+btn_volver_perfil_admin.addEventListener('click', volver_perfil_admin);
 
 
 const input_nombre_admin = document.querySelector('#nuevo-nombre-admin');

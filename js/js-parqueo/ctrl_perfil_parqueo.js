@@ -10,6 +10,17 @@ if (a_inicio_perfil) {
 };
 
 
+
+const btn_editar_perfil_parqueo = document.querySelector('#btn-editar-perfil-parqueo');
+
+const editar_perfil_parqueo = () => {
+    window.location.assign('../../html/htmls-parqueos/editar_perfil_parqueo.html');
+};
+
+
+btn_editar_perfil_parqueo.addEventListener('click', editar_perfil_parqueo);
+
+
 let nombre_duenno_parqueo = document.querySelector('#nombre-duenno-parqueo');
 let correo_duenno_parqueo = document.querySelector('#correo-parqueo');
 let cuenta_bancaria_duenno_parqueo = document.querySelector('#cuenta-bancaria-parqueo');

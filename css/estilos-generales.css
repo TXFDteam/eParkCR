@@ -4,7 +4,13 @@ Amarillo: #F7E40C
 Amarillo naranja: #D49B0B
 Naranja: #EB7100
 Rojo: #D62900
-Rosa: #F50054
+Rosa: #E1566F
+Verde:#E1566F
+
+
+
+
+
 
 Color texto blanco: #ffffff
 Color de texto: #262626
@@ -46,11 +52,27 @@ a {
     line-height: 24px;
 }
 
+select {
+    font-family: 'Montserrat', sans-serif;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+}
+
 button {
     border: none;
-    background-color: #A5A5A5;
+    background-color: #E1566F;
     color: #ffffff;
     padding: 1% 2%;
+    border-radius: 4%;
+    height: 50px;
+    transition-duration: 0.1s;
+}
+
+button:hover {
+    color: white;
+    opacity: 0.8;
 }
 
 .oculto {
