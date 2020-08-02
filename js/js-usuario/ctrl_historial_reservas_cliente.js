@@ -6,6 +6,11 @@ const tabla_hist_reserv_body = document.querySelector('#tablahistorial tbody');
 const btn_descargar = document.querySelector('#btn_descargar');
 
 
+
+/* ------------------------ Boton de enlace al recibo ----------------------- */
+let boton_recibo = '<br><a class=\"link_ver_recibo\" href=\"../htmls-usuarios/recibo_pago_clientes.html\"> (Ver recibo)</a>';
+
+
 /* --------------------- Identificador de usuario actual -------------------- */
 //Para probar el JS se preestablece usuario1: const id_usuario = usuarios.usuario1;
 
@@ -32,8 +37,6 @@ const id_usuario_actual = usuarios.usuario1.id_usuario;
 
 
 
-
-
 const listar_historial_reservas = () => {
     console.log('check1');
 
@@ -52,8 +55,18 @@ const listar_historial_reservas = () => {
             fila.insertCell().innerHTML = reservas[identificador_reserva].parqueo_seleccionado;
             fila.insertCell().innerHTML = reservas[identificador_reserva].hora_entrada;
             fila.insertCell().innerHTML = reservas[identificador_reserva].hora_salida;
-            fila.insertCell().innerHTML = reservas[identificador_reserva].monto_total;
-            fila.insertCell().innerHTML = reservas[identificador_reserva].estado_reserva;
+
+
+            if (reservas[identificador_reserva].estado_reserva == 'Paga') {
+                fila.insertCell().innerHTML = reservas[identificador_reserva].monto_final;
+                fila.insertCell().innerHTML = 'Cancelado' + boton_recibo;
+
+            } else {
+                fila.insertCell().innerHTML = reservas[identificador_reserva].monto_total;
+                fila.insertCell().innerHTML = reservas[identificador_reserva].estado_reserva;
+            }
+
+
 
             tabla_hist_reserv_body.appendChild(fila);
         }
