@@ -134,7 +134,7 @@ const crear_carta_parqueo = (p_parqueo) => {
     }
 
     nueva_plantilla_cont_superior = nueva_plantilla_cont_superior.replace('[ESTADO_PARQUEO]', estado_parqueo);
-    nueva_plantilla_cont_superior = nueva_plantilla_cont_superior.replace('[CALIF_PARQUEO]', p_parqueo.calificacion_promedio);
+    nueva_plantilla_cont_superior = nueva_plantilla_cont_superior.replace('[CALIF_PARQUEO]', ('Calificación: ' + p_parqueo.calificacion_promedio));
     contenedor_superior.innerHTML = nueva_plantilla_cont_superior;
 
     //Aplicar la imagen de previsualización a la carta de parqueo actual.

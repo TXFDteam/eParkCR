@@ -121,6 +121,7 @@ const crear_icono_red_social = (p_clase, p_enlace) => {
     nuevo_icono.classList.add('fab');
     nuevo_icono.classList.add(p_clase);
     nuevo_icono.href = p_enlace;
+    nuevo_icono.target = '_blank'
 
     contenedor_redes_sociales.appendChild(nuevo_icono);
 };

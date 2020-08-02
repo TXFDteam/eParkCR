@@ -28,6 +28,18 @@
     height: 180px;
 }
 
+.carta-parqueo .contenedor-superior .contenedor-calificacion-parqueo {
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.carta-parqueo .contenedor-superior .contenedor-calificacion-parqueo i {
+    padding-top: 10%;
+}
+
 .carta-parqueo .contendor-info-parqueo {
     /*Este contenedor funciona para hacer un contraste entre la foto del parqueo y el texto que muestra el estado y calificación del parqueo*/
     display: flex;
