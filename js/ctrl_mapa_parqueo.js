@@ -23,25 +23,13 @@ const crear_espacio_parqueo = (p_espacio_parqueo) => {
     icono_espacio.classList.add('icono-espacio');
     switch (p_espacio_parqueo.tipo_icono) {
         case 0:
-            if (p_espacio_parqueo.ocupado && interactuable) {
-                icono_espacio.classList.add('icono-espacio-carro-claro');
-            } else {
-                icono_espacio.classList.add('icono-espacio-carro');
-            }
+            icono_espacio.classList.add('icono-espacio-carro');
             break;
         case 1:
-            if (p_espacio_parqueo.ocupado && interactuable) {
-                icono_espacio.classList.add('icono-espacio-moto-claro');
-            } else {
-                icono_espacio.classList.add('icono-espacio-moto');
-            }
+            icono_espacio.classList.add('icono-espacio-moto');
             break;
         case 2:
-            if (p_espacio_parqueo.ocupado && interactuable) {
-                icono_espacio.classList.add('icono-espacio-discapacidad-claro');
-            } else {
-                icono_espacio.classList.add('icono-espacio-discapacidad');
-            }
+            icono_espacio.classList.add('icono-espacio-discapacidad');
             break;
     };
 
