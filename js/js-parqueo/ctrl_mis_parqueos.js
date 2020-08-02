@@ -8,13 +8,13 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
     '<p>[PARQUEO]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-cantidad-espacios\"> \n' +
-    '<p>Fecha de vencimiento: [CANTIDAD_ESPACIOS]</p> \n' +
+    '<p>Cantidad de espacios: [CANTIDAD_ESPACIOS]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-tarifa\"> \n' +
-    '<p>Cantidad de empleados: [TARIFA]</p> \n' +
+    '<p>Tarifa: [TARIFA]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-ubicacion\"> \n' +
-    '<p>Descuento: [UBICACION]</p> \n' +
+    '<p>Ubicación: [UBICACION]</p> \n' +
     '</div> \n' +
 
     '</div>';
