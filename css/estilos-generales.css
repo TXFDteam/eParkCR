@@ -68,6 +68,13 @@ button {
     padding: 1% 2%;
     border-radius: 4%;
     height: 50px;
+    transition-duration: 0.1s;
+}
+
+button:hover {
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .oculto {

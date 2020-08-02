@@ -22,6 +22,12 @@ body a {
     color: #ffffff;
 }
 
+a:hover {
+    color: white;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
 .nav-principal #link-marca {
     font-size: 28px;
     padding: 0px 3% 0px 2%;
