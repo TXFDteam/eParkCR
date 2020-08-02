@@ -12,7 +12,39 @@ let administrador = {
 }
 
 
-
+let duennos_parqueos = {
+    cant_duennos: 3,
+    duenno_parqueo1: {
+        id_usuario: 'D1',
+        correo_duenno: 'josepablo@gmail.com',
+        nombre: 'Jose Pablo Ramirez Soto',
+        telefono_duenno_parqueo: '8888-8888',
+        fecha_nacimiento: '24/05/1990',
+        cuenta_bancaria: '268929343',
+        contraseña: '5823475',
+        estado_general: 'ACTIVO'
+    },
+    duenno_parqueo2: {
+        id_usuario: 'D2',
+        correo_duenno: 'ramonluis@gmail.com',
+        nombre: 'Ramón Luis López López',
+        telefono_duenno_parqueo: '8888-2222',
+        fecha_nacimiento: '15/02/1956',
+        cuenta_bancaria: '168392298',
+        contraseña: '9719369',
+        estado_general: 'ACTIVO'
+    },
+    duenno_parqueo3: {
+        id_usuario: 'D3',
+        correo_duenno: 'mariaperez@hotmail.com',
+        nombre: 'María Covid Pérez Vindas',
+        telefono_duenno_parqueo: '8383-3838',
+        fecha_nacimiento: '11/05/1949',
+        cuenta_bancaria: '935344239',
+        contraseña: '3067245',
+        estado_general: 'ACTIVO'
+    }
+}
 
 
 //-------------------------------------
@@ -80,6 +112,197 @@ let comentarios = {
 let solicitudes_parqueos = {
     cant_solicitudes: 3,
     sol_parqueo1: {
+        parqueo: {
+            codigo: '11291',
+            nombre: 'Parqueo la maravilla',
+            imagen_preview: 'La_maravilla_preview.jpg',
+            imagen_perfil: 'La_maravilla_perfil.jpg',
+            duenno_parqueo: duennos_parqueos.duenno_parqueo1.nombre,
+            email: 'contacto@parqueolamaravilla.com',
+            cedula_juridica: '12ji2ojd1oid21ijo',
+            permiso_funcionamiento: '1289dn2jkawiu91',
+            enlaces_redes: { facebook: '', twitter: '', instagram: '' },
+            ubicacion: 'San José',
+            calificacion_promedio: 5,
+            abierto: false,
+            tarifa_hora: 800,
+            estado: 'ACTIVO',
+            cant_pisos: 1,
+            hora_apertura: '07:00',
+            hora_cierre: '20:00',
+            pisos: {
+                piso_1: {
+                    cant_espacios: 33,
+                    espacios: {
+                        espacio_1: {
+                            id: 'D1',
+                            tipo_icono: 2,
+                            ocupado: false
+                        },
+                        espacio_2: {
+                            id: 'D2',
+                            tipo_icono: 2,
+                            ocupado: true
+                        },
+                        espacio_3: {
+                            id: 'D3',
+                            tipo_icono: 2,
+                            ocupado: false
+                        },
+                        espacio_4: {
+                            id: 'D4',
+                            tipo_icono: 2,
+                            ocupado: false
+                        },
+                        espacio_5: {
+                            id: 'D5',
+                            tipo_icono: 2,
+                            ocupado: true
+                        },
+                        espacio_6: {
+                            id: 'M1',
+                            tipo_icono: 1,
+                            ocupado: false
+                        },
+                        espacio_7: {
+                            id: 'M2',
+                            tipo_icono: 1,
+                            ocupado: true
+                        },
+                        espacio_8: {
+                            id: 'M3',
+                            tipo_icono: 1,
+                            ocupado: true
+                        },
+                        espacio_9: {
+                            id: 'M4',
+                            tipo_icono: 1,
+                            ocupado: false
+                        },
+                        espacio_10: {
+                            id: 'M5',
+                            tipo_icono: 1,
+                            ocupado: true
+                        },
+                        espacio_11: {
+                            id: 'M6',
+                            tipo_icono: 1,
+                            ocupado: false
+                        },
+                        espacio_12: {
+                            id: 'M7',
+                            tipo_icono: 1,
+                            ocupado: false
+                        },
+                        espacio_13: {
+                            id: 'M8',
+                            tipo_icono: 1,
+                            ocupado: false
+                        },
+                        espacio_14: {
+                            id: 'M9',
+                            tipo_icono: 1,
+                            ocupado: true
+                        },
+                        espacio_15: {
+                            id: 'C1',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_16: {
+                            id: 'C2',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_17: {
+                            id: 'C3',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_18: {
+                            id: 'C4',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_19: {
+                            id: 'C5',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_20: {
+                            id: 'C6',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_21: {
+                            id: 'C7',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_22: {
+                            id: 'C8',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_23: {
+                            id: 'C9',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_24: {
+                            id: 'C10',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_25: {
+                            id: 'C11',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_26: {
+                            id: 'C12',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_27: {
+                            id: 'C13',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_28: {
+                            id: 'C14',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_29: {
+                            id: 'C15',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_30: {
+                            id: 'C16',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_31: {
+                            id: 'C17',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_32: {
+                            id: 'C18',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_33: {
+                            id: 'C19',
+                            tipo_icono: 0,
+                            ocupado: true
+                        }
+                    }
+                }
+            }
+        },
         nombre_parqueo: 'Parqueo 24',
         duenno_parqueo: 'Sofía Masis Obando',
         email_parqueo: 'contacto@parqueo24.com',
@@ -264,6 +487,7 @@ let solicitudes_parqueos = {
         }
     },
 
+
     sol_parqueo2: {
         nombre_parqueo: 'Parqueo la lima',
         duenno_parqueo: 'Jose Fernández López',
@@ -414,39 +638,7 @@ let solicitudes_parqueos = {
 
 // Dueños de parqueo
 
-let duennos_parqueos = {
-    cant_duennos: 3,
-    duenno_parqueo1: {
-        id_usuario: 'D1',
-        correo_duenno: 'josepablo@gmail.com',
-        nombre: 'Jose Pablo Ramirez Soto',
-        telefono_duenno_parqueo: '8888-8888',
-        fecha_nacimiento: '24/05/1990',
-        cuenta_bancaria: '268929343',
-        contraseña: '5823475',
-        estado_general: 'ACTIVO'
-    },
-    duenno_parqueo2: {
-        id_usuario: 'D2',
-        correo_duenno: 'ramonluis@gmail.com',
-        nombre: 'Ramón Luis López López',
-        telefono_duenno_parqueo: '8888-2222',
-        fecha_nacimiento: '15/02/1956',
-        cuenta_bancaria: '168392298',
-        contraseña: '9719369',
-        estado_general: 'ACTIVO'
-    },
-    duenno_parqueo3: {
-        id_usuario: 'D3',
-        correo_duenno: 'mariaperez@hotmail.com',
-        nombre: 'María Covid Pérez Vindas',
-        telefono_duenno_parqueo: '8383-3838',
-        fecha_nacimiento: '11/05/1949',
-        cuenta_bancaria: '935344239',
-        contraseña: '3067245',
-        estado_general: 'ACTIVO'
-    }
-}
+
 
 
 
