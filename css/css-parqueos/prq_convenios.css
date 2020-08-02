@@ -1,0 +1,91 @@
+    .contenedor {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .info-convenios h2 {
+        margin-bottom: 50px;
+        margin-left: 16px;
+    }
+    
+    #sct-contenedor-principal {
+        padding-left: 18%;
+        padding-top: 100px;
+        width: 100%;
+    }
+    
+    .info-convenios {
+        width: 82%;
+        padding: 2%;
+    }
+    
+    .info-convenios h2 {
+        font-size: 40px;
+        padding-bottom: 40px;
+    }
+    
+    #cuadros-convenios {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .estilo-cuadro,
+    #agregar-convenio {
+        border-collapse: collapse;
+        margin-bottom: 3%;
+        margin-left: 15px;
+        padding-left: 15px;
+        border: 1px solid black;
+        width: 350px;
+        height: 200px;
+    }
+    
+    #agregar-convenio {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    #agregar-convenio a {
+        font-size: 80px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: auto 0;
+        margin-top: 70px;
+    }
+    
+    #agregar-convenio p {
+        margin-bottom: 60px;
+        font-size: 25px;
+    }
+    
+    .estilo-cuadro p {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .estilo-cuadro a {
+        font-size: 16px;
+        text-decoration: underline #70a1ff;
+        color: #70a1ff;
+    }
+    /*Tablas*/
+    /*
+.info-parqueos table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 10%;
+    visibility: hidden;
+}
+
+.info-parqueos td {
+    padding: 10px;
+}
+
+.columna2-tablas,
+.columna3-tablas {
+    margin-top: 80px;
+}*/
