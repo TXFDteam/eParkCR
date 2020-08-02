@@ -9,6 +9,7 @@ body a {
 /*Primer banner*/
 
 #primer-banner {
+    background-image: url(../imgs/imgs-parqueos/raban-haaijk-wftNpcjCHT4-unsplash.jpg);
     height: 700px;
     border: 1px solid black;
 }
@@ -122,6 +123,7 @@ body a {
 }
 
 .img-superior {
+    background-image: url('../imgs/imgs-parqueos/autos-214033_1920.jpg');
     border: 1px solid black;
     height: 585px;
     width: 50%;
