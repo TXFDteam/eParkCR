@@ -1,10 +1,10 @@
 .carta-comentario {
     margin-top: 1%;
     width: 100%;
-    border: 1px #000000 solid;
     padding: 1% 2%;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
 }
 
 .carta-comentario #contenedor-superior {

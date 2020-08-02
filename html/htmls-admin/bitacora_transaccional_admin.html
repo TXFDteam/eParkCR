@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Actividad</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
+    <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/css-admin/estilos_bitacora_transaccional.css">
+</head>
+
+<body>
+
+    <div class="nav-principal">
+        <a href="" id="link-inicio">eParkCR</a>
+        <div class="nav-derecha">
+            <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
+
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div class="menu-lateral">
+
+            <a href="#" class="primer-link-menu-lateral" id="link-admin">Inicio</a>
+            <a href="#" id="solicitudes-registro">Solicitudes de registro</a>
+            <a href="#" id="info-usuarios-admin">Información de usuarios</a>
+            <a href="#" id="historial-reservas">Historial de reservas</a>
+            <a href="#" id="ingresos-admin">Ingresos</a>
+            <a href="#" id="actividad-aplicacion">Actividad de la aplicación</a>
+            <a href="#" id="configuracion-cuenta-admin">Configuración de la cuenta</a>
+        </div>
+    </div>
+
+
+    <div id="pagina_principal_bitacora">
+        <h1>Registro de Actividad</h1>
+
+        <table id="bitacora">
+            <thead>
+                <tr>
+                    <td>ID Usuario</td>
+                    <td>Tipo de usuario</td>
+                    <td>Nombre de usuario</td>
+                    <td>Accion realizada</td>
+                    <td>Detalle</td>
+                    <td>Fecha y hora</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Usuario1</td>
+                    <td>Usuario</td>
+                    <td>David Barrera</td>
+                    <td>Agrega método de pago</td>
+                    <td>Tarjeta 1</td>
+                    <td>20/7/2020 08:52 AM</td>
+                </tr>
+
+                <tr>
+                    <td>Parqueo3</td>
+                    <td>Perfil de Parqueo</td>
+                    <td>El Covid</td>
+                    <td>Habilitar convenio</td>
+                    <td>Convenio2</td>
+                    <td>11/8/2020 02:37 PM</td>
+                </tr>
+
+                <tr>
+                    <td>Empresa2</td>
+                    <td>Perfil de Empresa</td>
+                    <td>Rostipollos</td>
+                    <td>Actualiza convenio</td>
+                    <td>Convenio4</td>
+                    <td>01/07/2020 11:03 AM</td>
+                </tr>
+
+            </tbody>
+
+
+        </table>
+
+        <button type="button" id="btn_descargar">Descargar</button>
+
+    </div>
+
+
+    <script src="../../js/simulador_bd.js"></script>
+    <!-- JS de bitacora no se programara hasta tener el servidor -->
+
+</body>
+
+</html>

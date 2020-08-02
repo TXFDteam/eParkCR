@@ -62,6 +62,7 @@ input {
 }
 
 button {
+    font-size: 16px;
     border: none;
     background-color: #E1566F;
     color: #ffffff;

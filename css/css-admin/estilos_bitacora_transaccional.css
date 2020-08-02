@@ -1,12 +1,16 @@
-#principal_hist_reservas {
+#pagina_principal_bitacora {
     padding-left: 18%;
     padding-top: 100px;
+    text-align: center;
+}
+
+#pagina_principal_bitacora {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#principal_hist_reservas h1 {
+#pagina_principal_bitacora h1 {
     margin: 40px;
 }
 
@@ -15,22 +19,23 @@ table {
     width: 1000px;
 }
 
-#tablahistorial td {
+#bitacora td {
     width: 10%;
     padding: 10px;
     text-align: center;
 }
 
-#tablahistorial thead {
+#bitacora thead {
     background-color: #a4b0be;
+    padding: 20px, 0;
     border-bottom: 2px solid black;
 }
 
-#tablahistorial tbody tr:nth-child(even) {
+#bitacora tbody tr:nth-child(even) {
     background-color: #f1f2f6;
 }
 
-#tablahistorial tbody tr:nth-child(odd) {
+#bitacora tbody tr:nth-child(odd) {
     background-color: #ced6e0;
 }
 
@@ -42,6 +47,6 @@ table {
     padding: 30px 0;
 }
 
-.link_ver_recibo {
-    color: rgb(219, 176, 33);
+#pagina_principal_bitacora button {
+    margin-top: 50px;
 }

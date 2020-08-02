@@ -13,22 +13,26 @@
     flex-direction: column;
 }
 
-#sct-info-perfil h1 {
-    align-self: center;
+#sct-info-perfil #contenedor-calificacion {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    margin-right: 1%;
 }
 
-#sct-info-perfil p {
-    align-self: flex-end;
+#sct-info-perfil h1 {
+    align-self: center;
 }
 
 
 /*Estilos del banner*/
 
 #sct-banner {
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     height: 500px;
-    border: 1px #000000 solid;
 }
 
 #sct-banner #btn-google-maps {
@@ -50,6 +54,10 @@
 #contenedor-datos-reserva {
     display: flex;
     padding: 0 1%;
+}
+
+#contenedor-datos-reserva #btn-reservar-espacio {
+    background-color: #ade426;
 }
 
 #contenedor-mapa {
@@ -80,6 +88,12 @@
     padding: 1%;
     display: flex;
     flex-direction: column;
+}
+
+#sct-comentarios button {
+    background-color: #ade426;
+    width: 160px;
+    margin-left: 2.5%;
 }
 
 #sct-comentarios #contenedor-superior {
