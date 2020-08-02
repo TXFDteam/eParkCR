@@ -73,7 +73,7 @@ button {
 
 button:hover {
     color: white;
-    opacity: 0.8;
+    background-color: #dd2849;
     cursor: pointer;
 }
 
