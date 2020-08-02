@@ -13,9 +13,9 @@ const nuevo_nombre_empresa = document.querySelector('#nuevo-nombre-empresa');
 const boton_guardar_datos_empresa = document.querySelector('#btn-guardar-cambios-empresa');
 
 
-const guardar_datos_empresa = (identificador_empresa) => {
+const guardar_datos_empresa = () => {
 
-    empresas.lista_empresas[identificador_empresa].nombre_empresa = nuevo_nombre_empresa.value;
+
 
 
     Swal.fire(
@@ -26,4 +26,4 @@ const guardar_datos_empresa = (identificador_empresa) => {
 };
 
 
-guardar_datos_empresa.addEventListener('click', guardar_datos_empresa(identificador_empresa));
+boton_guardar_datos_empresa.addEventListener('click', guardar_datos_empresa);
