@@ -17,7 +17,6 @@
 
 .col {
     flex: 1;
-    height: 400px;
 }
 
 #col1 {
@@ -33,71 +32,159 @@
 }
 
 input {
-    margin: 4px 10px 10px 15%;
+    margin: 4px 10px 10px 5%;
     width: 300px;
 }
 
 label {
-    margin: 10px 10px 10px 15%;
+    margin: 10px 10px 10px 5%;
     /* border: solid 2px blue; */
 }
 
 legend {
-    margin: 10px 10px 10px 15%;
+    margin: 10px 10px 10px 5%;
 }
 
 h2 {
-    margin: 10px 10px 10px 20%;
+    margin: 10px 10px 10px 5%;
+}
+
+input[type=radio] {
+    margin: 0 0 0 5%;
+    width: auto;
+}
+
+#myFile {
+    margin: 4px 0 10px 5%;
 }
 
 #pisosDropdown {
     width: 300px;
-    margin: 4px 10px 10px 15%;
+    margin: 4px 10px 10px 5%;
 }
 
-#myFile {
-    margin: 4px 0 10px 15%;
+input[type=file] {
+    visibility: hidden;
 }
 
-input[type=checkbox] {
-    margin: 4px 0 0 15%;
-    width: auto;
+#labelMyFileContainer {
+    /* border: solid 2px blue; */
+    display: flex;
+    margin: 4px 0 10px 5%;
 }
 
-#permiso_no {
-    margin-bottom: 20px;
-}
-
-#permiso_yes_label {
-    margin: 0 0 0 0;
-}
-
-#permiso_no_label {
-    margin: 0 0 0 0;
-}
-
-#emp_registro_submitImage {
-    width: 140px;
-    margin-top: 20px;
+#btnMyFile {
+    background-color: white;
+    border: solid 1px gray;
     height: 40px;
+    padding: 10px 40px;
+    float: left;
+    border-radius: 4px;
+    margin-left: 0;
+}
+
+#btnMyFile:hover {
+    color: white;
+    background-color: #dd2849;
+    cursor: pointer;
+    border: none;
+}
+
+#label_si {
+    margin: 0 0 0 0;
+}
+
+#label_no {
+    margin: 0 0 0 0;
+}
+
+.adjuntarClaseBoton {
+    /* border: solid 2px blue; */
+    margin: 0 0 0 5%;
+}
+
+#no {
+    margin-bottom: 20px;
 }
 
 #rowBotones {
     /* border: solid 2px purple; */
     text-align: center;
+    margin-top: 20px;
     float: left;
-    margin-left: 160px;
+    width: 100%;
+    margin: 16px 0 10px 0;
 }
 
-#btn-crearUsuario {
+#btn-crearParqueo {
     margin-right: 20px;
     width: 200px;
+    height: 40px;
 }
 
-#btn-yaTenesCuenta {
+#btn-cancelar {
     width: 200px;
+    height: 40px;
+}
+
+h3 {
+    margin: 6px 10px 4px 5%;
 }
 
 .error {
     border: solid 2px red;
+}
+
+
+/* Estilos de https://programando.paginasweb.cr/ */
+
+.canton,
+.distrito,
+.send {
+    display: none;
+}
+
+.form-desc,
+.data-container,
+.map-container {
+    display: inline;
+    float: left;
+    min-width: 110px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.data-container {
+    justify-content: center;
+    margin-left: 5%;
+    /* border: solid 2px red; */
+    display: block;
+}
+
+.form-val {
+    float: left;
+}
+
+.form-val select {
+    width: 200px;
+    /* border: solid 2px red; */
+    margin-top: 6px;
+}
+
+#coordenadas {
+    width: 200px;
+    /* border: solid 2px yellow; */
+    margin-left: 0;
+}
+
+.map-container {
+    width: 90%;
+    /* border: solid 2px blue; */
+    margin: 2% 0 0 5%;
+}
+
+#map {
+    min-width: 300px;
+    width: 100%;
+    height: 200px;
 }

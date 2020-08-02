@@ -13,9 +13,9 @@ btn_volver_perfil_cliente.addEventListener('click', volver_perfil_cliente);
 const nuevo_nombre_cliente = document.querySelector('#nuevo-nombre-cliente');
 const btn_guardar_cambios_cliente = document.querySelector('#btn-guardar-cambios-cliente');
 
-const guardar_cambios_cliente = (identificador_usuario) => {
+const guardar_cambios_cliente = () => {
 
-    usuarios[identificador_usuario].nombre_usuario = nuevo_nombre_cliente.value;
+
 
 
     Swal.fire(
@@ -27,4 +27,4 @@ const guardar_cambios_cliente = (identificador_usuario) => {
 
 
 
-btn_guardar_cambios_cliente.addEventListener('click', guardar_cambios_cliente(identificador_usuario));
+btn_guardar_cambios_cliente.addEventListener('click', guardar_cambios_cliente);

@@ -145,33 +145,99 @@ const hay_espacios_vacios = () => {
 
 //Función usada para las comprobaciones de hora de reserva.
 const horas_correctas = () => {
+    let resultado = -1;
     let correcto = false;
 
+    //Hora apertura parqueo.
+    let completo_hora_apertura_parqueo = parqueo_seleccionado.hora_apertura;
+    let hora_apertura_parqueo = Number(completo_hora_apertura_parqueo[0] + completo_hora_apertura_parqueo[1]);
+
+    //Hora cierre parqueo.
+    let completo_hora_cierre_parqueo = parqueo_seleccionado.hora_cierre;
+    let hora_cierre_parqueo = Number(completo_hora_cierre_parqueo[0] + completo_hora_cierre_parqueo[1]);
+
+    //Hora entrada elegida
     let fecha_entrada = txt_hora_entrada.value;
     let hora_entrada = Number((fecha_entrada[0] + fecha_entrada[1]));
     let minutos_entrada = Number((fecha_entrada[3] + fecha_entrada[4]));
 
+    //Hora salida elegida.
     let fecha_salida = txt_hora_salida.value;
     let hora_salida = Number((fecha_salida[0] + fecha_salida[1]));
     let minutos_salida = Number((fecha_salida[3] + fecha_salida[4]));
 
-    if (hora_entrada == hora_salida) {
-        if (minutos_entrada < minutos_salida) {
-            correcto = true;
+    //Verifica si el rango elegido está dentro del horario del parqueo.
+    if ((hora_entrada >= hora_apertura_parqueo && hora_entrada < hora_cierre_parqueo) &&
+        (hora_salida >= hora_apertura_parqueo && hora_salida < hora_cierre_parqueo)) {
+
+        //Verifica que la reserva se está haciendo como mínimo después de 30 minutos y como máximo 2 horas a partir de la hora actual.
+        let fecha_actual = new Date();
+        let hora_actual = fecha_actual.getHours();
+        let minutos_actuales = fecha_actual.getMinutes();
+
+        //tratar la hora entrada como minutos.
+        let actual_en_minutos = (hora_actual * 60) + minutos_actuales;
+        let entrada_en_minutos = (hora_entrada * 60) + minutos_entrada;
+
+        //Si la reserva está a una diferencia como mínimo de 30 minutos y un máximo de 120 minutos(2 horas).
+        if (((entrada_en_minutos >= (actual_en_minutos + 30))) &&
+            (entrada_en_minutos <= (actual_en_minutos + 120))) {
+
+            //Verificar si la hora de entrada es menor a la hora de salida.
+            if (hora_entrada == hora_salida) {
+                if (minutos_entrada < minutos_salida) {
+                    correcto = true;
+                }
+            } else if (hora_entrada < hora_salida) {
+                correcto = true;
+            } else {
+                resultado = 3;
+            }
+        } else {
+            //La reserva excede el rango de tiempo minimo de 30 minutos o 2 horas de antelación.
+            resultado = 2;
         }
-    } else if (hora_entrada < hora_salida) {
-        correcto = true;
+    } else {
+        //La hora de entrada o salida está por fuera del horario del parqueo.
+        resultado = 1;
     }
+
 
     if (correcto) {
         txt_hora_entrada.classList.remove('error');
         txt_hora_salida.classList.remove('error');
+        resultado = 0;
     } else {
         txt_hora_entrada.classList.add('error');
         txt_hora_salida.classList.add('error');
+        //La hora de salida es menor o igual a la hora de entrada.
     }
 
-    return correcto;
+    return resultado;
+};
+
+//Función para enviar la reserva al backend
+const guardar_reserva = () => {
+    //Obtener hora de entrada.
+    let fecha_entrada = txt_hora_entrada.value;
+    let hora_entrada = Number(fecha_entrada[0] + fecha_entrada[1]);
+    let mins_entrada = Number(fecha_entrada[3] + fecha_entrada[4]);
+
+    //Obtener hora de salida.
+    let fecha_salida = txt_hora_salida.value;
+    let hora_salida = Number(fecha_salida[0] + fecha_salida[1]);
+    let mins_salida = Number(fecha_salida[3] + fecha_salida[4]);
+
+    //Convertir la hora a minutos.
+    let entrada_en_minutos = (hora_entrada * 60) + mins_entrada;
+    let salida_en_minutos = (hora_salida * 60) + mins_salida;
+
+    //Calcular la el total que se debe pagar.
+    let horas_de_uso = ((salida_en_minutos - entrada_en_minutos) / 60);
+    let total_por_pagar = horas_de_uso * parqueo_seleccionado.tarifa_hora;
+
+    console.log('Por ' + horas_de_uso + ' horas se va a pagar: ' + total_por_pagar);
+    console.log('De tarifa se paga : ' + parqueo_seleccionado.tarifa_hora);
 };
 
 //Función usada para crear una reserva en el parqueo actual.
@@ -179,20 +245,54 @@ const crear_reserva = () => {
     if (info_espacio_seleccionado != null) {
         if (!info_espacio_seleccionado.ocupado) {
             if (!hay_espacios_vacios()) {
-                if (horas_correctas()) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Reserva creada con éxito',
-                        text: 'Podés realizar el pago en el menú de reservas.',
-                    }).then(() => {
-                        window.location.assign("reservas_usuario.html");
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oh no, ha ocurrido un error al hacer la reserva.',
-                        text: 'Revisá los espacios: Hora de entrada y hora de salida y aseguráte que tengan datos correctos.'
-                    });
+
+                let respuesta = horas_correctas();
+
+                switch (respuesta) {
+                    case 0:
+                        //Todo correcto
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Reserva creada con éxito',
+                            text: 'Podés realizar el pago en el menú de reservas.',
+                        }).then(() => {
+                            window.location.assign("reservas_usuario.html");
+                        });
+
+                        //FUNCIÓN PARA GUARDAR LA RESERVA.
+                        guardar_reserva();
+                        break;
+                    case 1:
+                        //La hora de entrada o salida está por fuera del horario del parqueo.
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Oh no, hubo un problema al crear la reserva.',
+                            text: 'El horario que has elegido está por fuera del horario de apertura de este parqueo.',
+                        });
+                        break;
+                    case 2:
+                        //La reserva excede el rango de tiempo minimo de 30 minutos o 2 horas de antelación.
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Oh no, hubo un problema al crear la reserva.',
+                            text: 'La hora de entrada es incorrecta, recordá que las reservas se hacen con un tiempo de aniticipación como mínimo de 30 minutos y como máximo de 2 horas.',
+                        });
+                        break;
+                    case 3:
+                        //La hora de salida es menor o igual a la hora de entrada.
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Oh no, hubo un problema al crear la reserva.',
+                            text: 'Revisá que la hora de salida sea mayor a la hora de entrada.',
+                        });
+                        break;
+                    default:
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Oh no, hubo un problema al crear la reserva.',
+                            text: 'Error desconocido, por favor intentá realizar la reserva de nuevo.',
+                        });
+                        return;
                 }
             } else {
                 Swal.fire({

@@ -5,17 +5,28 @@ const input_nombreSociedad = document.querySelector('#prq-registro-nombre');
 const input_nombreParqueo = document.querySelector('#prq-registro-nombreParqueo');
 const input_contrasena = document.querySelector('#prq-registro-contrasena');
 const input_cedulaJuridica = document.querySelector('#prq-registro-jurídica');
+
+const input_cuenta = document.querySelector('#prq-registro-cuenta');
+const input_telefono = document.querySelector('#prq-registro-telefono');
+
 const input_correo = document.querySelector('#prq-registro-correo');
 const input_confirmarContrasena = document.querySelector('#prq-registro-confirmaContrasena');
-const input_provincia = document.querySelector('#prq-registro-provincia');
-const input_canton = document.querySelector('#prq-registro-canton');
-const input_distrito = document.querySelector('#prq-registro-distrito');
-const input_direccion = document.querySelector('#prq-registro-direccion');
+const input_provincia = document.getElementById("provincias");
+const input_canton = document.getElementById("cantones");
+const input_distrito = document.getElementById("distritos");
+const input_coordenadas = document.getElementById("coordenadas");
 
-const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoTexto');
+const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
 
 
+const validarEmail = (email) => {
+    let error = false;
+    if (!(/@+/.test(email))) {
+        error = true;
+    }
 
+    return error;
+}
 
 const validar = () => {
     let error;
@@ -36,13 +47,21 @@ const validar = () => {
     }
 
 
+    let errorCorreo = validarEmail(input_correo.value);
 
-    let emailval = /^[^@]*@[^@]*$/;
-    if (input_correo.value.match(emailval)) {
-        input_correo.classList.remove('error');
+    if (errorCorreo) {
+        input_correo.classList.add('error');
+    } else {
+        input_correo.remove('error');
+    }
+
+
+    let telval = /[0-9]{4}[0-9]{4}/;
+    if (input_telefono.value.match(telval)) {
+        input_telefono.classList.remove('error');
     } else {
         error = true;
-        input_correo.classList.add('error');
+        input_telefono.classList.add('error');
     }
 
 
@@ -89,20 +108,28 @@ const obtener_datos = () => {
         let nombreSociedad = input_nombreSociedad.value;
         let nombreParqueo = input_nombreParqueo.value;
         let contrasena = input_contrasena.value;
-        let permisoFuncionamiento = document.querySelector('.prq-registro-permiso:checked').value;
+        let permiso = document.querySelector('input[name="permiso"]:checked').value;
         let cedulaJuridica = input_cedulaJuridica.value;
+
+        let cuenta = input_cuenta.value;
+        let telefono = input_telefono.value;
+
         let correo = input_correo.value;
         let confirmarContrasena = input_confirmarContrasena.value;
-        let provincia = input_provincia.value;
-        let canton = input_canton.value;
-        let distrito = input_distrito.value;
-        let direccion = input_direccion.value;
+        let provincia = input_provincia.options[input_provincia.selectedIndex].text;
+        let cantones = input_canton.options[input_canton.selectedIndex].text;
+        let distritos = input_distrito.options[input_distrito.selectedIndex].text;
+        let coordenadas = input_coordenadas.value;
 
         console.log('Nombre Sociedad: ', nombreSociedad);
         console.log('Nombre Parqueo: ', nombreParqueo);
         console.log('Contrasena: ', contrasena);
-        console.log('Permiso funcionamiento: ', permisoFuncionamiento);
+        console.log('Permiso funcionamiento: ', permiso);
         console.log('Cedula juridica: ', cedulaJuridica);
+
+        console.log('Cuenta: ', cuenta);
+        console.log('Telefono: ', telefono);
+
         console.log('Correo: ', correo);
         console.log('Confirmar contrasena: ', confirmarContrasena);
         console.log('Provincia: ', provincia);

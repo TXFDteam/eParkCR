@@ -14,7 +14,7 @@ const input_correo = document.querySelector('#emp_registro_correo');
 const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
 
 
-const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
+
 
 const input_provincia = document.getElementById("provincias");
 const input_canton = document.getElementById("cantones");
@@ -25,12 +25,21 @@ btn_yaTenesCuenta.addEventListener('click', function() {
     window.location.assign('iniciar-sesion.html')
 });
 
+const validarEmail = (email) => {
+    let error = false;
+    if (!(/@+/.test(email))) {
+        error = true;
+    }
+
+    return error;
+}
 
 const validar = () => {
     let error;
     let campos_requeridos = document.querySelectorAll('[required]');
 
     let tamanno = campos_requeridos.length;
+
 
 
 
@@ -53,19 +62,18 @@ const validar = () => {
     }
 
 
-    var len = document.querySelectorAll('input[type="radio"]:checked').length
-    if (len <= 0) {
-        error = true;
-        label_permisoFuncionamiento.classList.add('error');
 
-    } else {
-        label_permisoFuncionamiento.classList.remove('error');
-    }
 
     return error;
 };
 
 const obtener_datos = () => {
+
+    if (!(/@+/.test(input_correo.value))) {
+        input_correo.classList.add('error');
+    } else {
+        input_correo.classList.remove('error');
+    }
     let error = validar();
     if (error == true) {
         Swal.fire({
@@ -86,7 +94,7 @@ const obtener_datos = () => {
         let nombreEmpresa = input_nombreEmpresa.value;
         let nombreEncargado = input_nombreEncargado.value;
         let contrasena = input_contrasena.value;
-        let permiso = document.querySelector('input[name="permiso"]:checked').value;
+
         let imagen = input_imagen.value;
         let cedulaJuridica = input_cedulaJuridica.value;
         let correo = input_correo.value;
@@ -99,7 +107,7 @@ const obtener_datos = () => {
         console.log('Nombre empresa: ', nombreEmpresa);
         console.log('Nombre encargado: ', nombreEncargado);
         console.log('Contrasena: ', contrasena);
-        console.log('Permiso funcionamiento: ', permiso);
+
         console.log('Cedula juridica: ', cedulaJuridica);
         console.log('Imagen: ', imagen);
         console.log('Correo: ', correo);
