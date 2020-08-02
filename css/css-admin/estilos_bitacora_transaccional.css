@@ -14,37 +14,42 @@
     margin: 40px;
 }
 
+
+/* 
+
+
+/* ------------ ESTILOS DE LAS TABLAS - REPORTES ------------ 
+
 table {
     border-collapse: collapse;
     width: 1000px;
 }
 
-#bitacora td {
-    width: 10%;
+td {
     padding: 10px;
     text-align: center;
 }
 
-#bitacora thead {
-    background-color: #a4b0be;
+thead {
+    background-color: #f7835f;
     padding: 20px, 0;
     border-bottom: 2px solid black;
 }
 
-#bitacora tbody tr:nth-child(even) {
-    background-color: #f1f2f6;
+thead td {
+    padding: 20px 0;
 }
 
-#bitacora tbody tr:nth-child(odd) {
-    background-color: #ced6e0;
+tbody tr:nth-child(odd) {
+    background-color: #ffe694;
 }
+
+tbody tr:nth-child(even) {
+    background-color: #fffabb;
+} */
 
 #principal_hist_reservas button {
     margin-top: 50px;
-}
-
-#tablahistorial thead td {
-    padding: 30px 0;
 }
 
 #pagina_principal_bitacora button {
