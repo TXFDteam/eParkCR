@@ -11,7 +11,7 @@
     Flex-direction: row;
     flex-wrap: wrap;
     /* border: solid 2px red; */
-    margin: 3% 5% 0 5%;
+    margin: 2% 5% 0 5%;
 }
 
 .col {
@@ -19,12 +19,10 @@
 }
 
 #col1 {
-    height: 380px;
     /* border: solid 2px blue; */
 }
 
 #col2 {
-    height: 380px;
     /* border: solid 2px orange; */
 }
 
@@ -46,49 +44,137 @@ h2 {
     margin: 10px 10px 10px 25%;
 }
 
+input[type=radio] {
+    margin: 0 0 0 25%;
+    width: auto;
+}
+
 #myFile {
     margin: 4px 0 10px 25%;
 }
 
-input[type=checkbox] {
-    margin: 4px 0 0 25%;
-    width: auto;
+input[type=file] {
+    visibility: hidden;
+}
+
+#labelMyFileContainer {
+    /* border: solid 2px blue; */
+    display: flex;
+    margin: 4px 0 10px 25%;
+}
+
+#btnMyFile {
+    background-color: white;
+    border: solid 1px gray;
+    height: 40px;
+    padding: 10px 40px;
+    float: left;
+    border-radius: 4px;
+    margin-left: 0;
+}
+
+#btnMyFile:hover {
+    color: white;
+    background-color: #dd2849;
+    cursor: pointer;
+    border: none;
+}
+
+#label_si {
+    margin: 0 0 0 0;
+}
+
+#label_no {
+    margin: 0 0 0 0;
+}
+
+#titulo_adjuntar {
+    /* border: solid 2px blue; */
+    margin: 16px 0 10px 25%;
 }
 
 #prq-registro-no {
     margin-bottom: 20px;
 }
 
-#prq-registro-permiso-yes-label {
-    margin: 0 0 0 0;
-}
-
-#prq-registro-permiso-no-label {
-    margin: 0 0 0 0;
-}
-
-#prq-registro-submitImage {
-    width: 140px;
-    margin-top: 20px;
-}
-
 #prq-registro-botones {
     /* border: solid 2px purple; */
     text-align: center;
+    margin-top: 20px;
     float: left;
-    margin-left: 20%;
-    margin-bottom: 60px;
+    width: 100%;
+    margin: 16px 0 10px 0;
 }
 
 #btn-prq-registro-crearPerfil {
     margin-right: 20px;
     width: 200px;
+    height: 40px;
 }
 
 #btn-prq-registro-yaTenesCuenta {
     width: 200px;
+    height: 40px;
+}
+
+h3 {
+    margin: 6px 10px 0 25%;
 }
 
 .error {
     border: solid 2px red;
+}
+
+
+/* Estilos de https://programando.paginasweb.cr/ */
+
+.canton,
+.distrito,
+.send {
+    display: none;
+}
+
+.form-desc,
+.data-container,
+.map-container {
+    display: inline;
+    float: left;
+    min-width: 110px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.data-container {
+    justify-content: center;
+    margin-left: 25%;
+    /* border: solid 2px red; */
+    display: block;
+}
+
+.form-val {
+    float: left;
+}
+
+.form-val select {
+    width: 200px;
+    /* border: solid 2px red; */
+    margin-top: 6px;
+}
+
+#coordenadas {
+    width: 200px;
+    /* border: solid 2px yellow; */
+    margin-left: 0;
+}
+
+.map-container {
+    width: 80%;
+    /* border: solid 2px blue; */
+    margin: 2% 0 0 10%;
+}
+
+#map {
+    min-width: 300px;
+    width: 100%;
+    height: 200px;
 }
