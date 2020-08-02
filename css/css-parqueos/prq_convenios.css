@@ -72,6 +72,11 @@
         text-decoration: underline #70a1ff;
         color: #70a1ff;
     }
+    
+    .btn-editar-convenio {
+        display: flex;
+        flex-direction: row-reverse;
+    }
     /*Tablas*/
     /*
 .info-parqueos table {
