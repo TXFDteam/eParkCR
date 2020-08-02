@@ -25,12 +25,21 @@ btn_yaTenesCuenta.addEventListener('click', function() {
     window.location.assign('iniciar-sesion.html')
 });
 
+const validarEmail = (email) => {
+    let error = false;
+    if (!(/@+/.test(email))) {
+        error = true;
+    }
+
+    return error;
+}
 
 const validar = () => {
     let error;
     let campos_requeridos = document.querySelectorAll('[required]');
 
     let tamanno = campos_requeridos.length;
+
 
 
 
@@ -66,6 +75,12 @@ const validar = () => {
 };
 
 const obtener_datos = () => {
+
+    if (!(/@+/.test(input_correo.value))) {
+        input_correo.classList.add('error');
+    } else {
+        input_correo.classList.remove('error');
+    }
     let error = validar();
     if (error == true) {
         Swal.fire({

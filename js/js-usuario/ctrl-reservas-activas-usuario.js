@@ -1,5 +1,6 @@
 'use strict';
 
+let no_hay_reservas = document.querySelector('#no-hay-reservas');
 let contenedor_reservas = document.querySelector('#contenedor-reservas');
 let parqueo_reserva = document.querySelector('#espacio-parqueo');
 let fecha_reserva = document.querySelector('#espacio-fecha');
@@ -40,9 +41,10 @@ for (let u = 1; u <= usuarios.cant_usuarios; u++) {
                 hora_salida_reserva.innerHTML = reservas[identificador_reserva].hora_salida;
                 estado_reserva.innerHTML = reservas[identificador_reserva].estado_reserva;
                 if (reservas[identificador_reserva].estado_reserva == 'Paga') {
-
+                    contenedor_reservas.classList.add('esconder-contenedor');
+                    no_hay_reservas.classList.remove('esconder-noHayReservas');
                 } else {
-
+                    no_hay_reservas.classList.add('esconder-noHayReservas');
                 }
                 break;
 
