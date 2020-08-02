@@ -15,6 +15,7 @@ body a {
     justify-content: space-between;
     align-items: center;
     z-index: 2;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.5);
 }
 
 .nav-principal a {
@@ -53,7 +54,7 @@ body a {
 
 .menu-lateral {
     margin-top: 100px;
-    background-color: #EB7100;
+    background-color: #8ab733;
     position: fixed;
     height: 100%;
     width: 18%;

@@ -3,7 +3,7 @@
 }
 
 .parqueo-cerrado {
-    background-color: #f50022c7;
+    background-color: #f54757c7;
 }
 
 .carta-parqueo {
@@ -13,6 +13,7 @@
     width: 340px;
     margin-left: 1%;
     margin-top: 2%;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
 }
 
 .carta-parqueo:hover {
@@ -24,7 +25,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 1px #000 solid;
     height: 180px;
 }
 
@@ -49,8 +49,19 @@
 
 .carta-parqueo .contenedor-inferior {
     /*Este contenedor es el que funciona para mostrar nombre y dirección del parqueo*/
+    height: 90px;
+    display: flex;
     flex-direction: column;
-    border: 1px #000 solid;
-    flex-direction: row;
-    padding: 0 5px;
+    justify-content: space-around;
+}
+
+.carta-parqueo h3 {
+    font-size: 22px;
+    flex-flow: 2;
+    padding: 0 2%;
+}
+
+.carta-parqueo p {
+    flex-flow: 1;
+    padding: 0 2%;
 }

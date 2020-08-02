@@ -15,12 +15,8 @@ const PLANTILLA_CONTENIDO_CONT_SUPERIOR =
     '</div>';
 
 const PLANTILLA_CONTENIDO_CONT_INFERIOR =
-    '<div> \n' +
     '<h3>[NOMBRE_PARQUEO]</h3> \n' +
-    '<p>[UBI_PARQUEO]</p> \n' +
-    '</div> \n' +
-    '</div> \n' +
-    '</div>';
+    '<p>[UBI_PARQUEO]</p> \n';
 
 //Elementos usados para filtros.
 const ventana_filtros = document.querySelector('.sct-filtrar-parqueos');
