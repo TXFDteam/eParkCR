@@ -14,7 +14,7 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
     '<p>Tarifa: [TARIFA]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-ubicacion\"> \n' +
-    '<p>Ubicacion: [UBICACION]</p> \n' +
+    '<p>Ubicación: [UBICACION]</p> \n' +
     '</div> \n' +
 
     '</div>';
@@ -30,7 +30,7 @@ const crear_cuadro_parqueo = (p_parqueo) => {
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
     nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', p_parqueo.nombre);
     nueva_plantilla = nueva_plantilla.replace('[CANTIDAD_ESPACIOS]', p_parqueo.cant_espacios);
-    nueva_plantilla = nueva_plantilla.replace('[TARIFA]', '₡' + p_parqueo.tarifa_hora);
+    nueva_plantilla = nueva_plantilla.replace('[TARIFA]', p_parqueo.tarifa_hora);
     nueva_plantilla = nueva_plantilla.replace('[UBICACION]', p_parqueo.ubicacion);
 
     //Link a lista de usuarios
