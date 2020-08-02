@@ -15,7 +15,14 @@ const input_direccion = document.querySelector('#prq-registro-direccion');
 const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoTexto');
 
 
+const validarEmail = (email) => {
+    let error = false;
+    if (!(/@+/.test(email))) {
+        error = true;
+    }
 
+    return error;
+}
 
 const validar = () => {
     let error;
@@ -36,14 +43,24 @@ const validar = () => {
     }
 
 
+    let errorCorreo = validarEmail(input_correo.value);
 
-    let emailval = /^[^@]*@[^@]*$/;
-    if (input_correo.value.match(emailval)) {
-        input_correo.classList.remove('error');
-    } else {
-        error = true;
+    if (errorCorreo) {
         input_correo.classList.add('error');
+    } else {
+        input_correo.remove('error');
     }
+
+
+
+    /*
+        let emailval = /^[^@]*@[^@]*$/;
+        if (input_correo.value.match(emailval)) {
+            input_correo.classList.remove('error');
+        } else {
+            error = true;
+            input_correo.classList.add('error');
+        }*/
 
 
     if (input_contrasena.value.match(input_confirmarContrasena.value)) {
