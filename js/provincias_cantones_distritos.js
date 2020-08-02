@@ -1,6 +1,71 @@
 'use strict';
 
-
+let provincias = {
+    cant_provincias: 7,
+    provincia_1: {
+        nombre: 'San José',
+        cant_cantones: 7,
+        cantones: {
+            canton_1: {
+                nombre: 'Central',
+                cant_distritos: 10,
+                distritos: {
+                    distrito_1: {
+                        nombre: 'Nombre distrito 1'
+                    }
+                }
+            },
+            canton_2: {
+                nombre: 'Escazú',
+                cant_distritos: 10,
+                distritos: {
+                    distrito_1: {
+                        nombre: 'Nombre distrito 1'
+                    }
+                }
+            },
+            canton_3: {
+                nombre: 'Desamparados',
+                cant_distritos: 10,
+                distritos: {
+                    distrito_1: {
+                        nombre: 'Nombre distrito 1'
+                    }
+                }
+            }
+        }
+    },
+    provincia_2: {
+        nombre: 'Nombre provincia 2',
+        cant_cantones: 7,
+        cantones: {
+            canton_1: {
+                nombre: 'Nombre canton 2',
+                cant_distritos: 10,
+                distritos: {
+                    distrito_1: {
+                        nombre: 'Nombre distrito 1'
+                    },
+                    distrito_2: {
+                        nombre: 'Nombre distrito 2'
+                    },
+                    distrito_3: {
+                        nombre: 'Nombre distrito 3'
+                    }
+                }
+            },
+            canton_2: {
+                nombre: 'Nombre canton 2',
+                cant_distritos: 10,
+                distritos: {
+                    distrito_1: {
+                        nombre: 'Nombre distrito 1'
+                    }
+                }
+            }
+        }
+    }
+};
 
 
 
