@@ -9,7 +9,9 @@ body a {
 /*Primer banner*/
 
 #primer-banner {
-    background-image: url(../imgs/imgs-parqueos/raban-haaijk-wftNpcjCHT4-unsplash.jpg);
+    background-image: url(../imgs/imgs_parqueos/claudio-schwarz-purzlbaum-fAmj2spOqxc-unsplash.jpg);
+    background-size: cover;
+    background-position-y: center;
     height: 700px;
     border: 1px solid black;
 }
@@ -19,6 +21,8 @@ body a {
     font-size: 40px;
     margin-top: 125px;
     margin-bottom: 50px;
+    color: white;
+    font-weight: bold;
 }
 
 .contenedor-cuadros {
@@ -34,21 +38,25 @@ body a {
 .cuadro-usuarios {
     width: 330px;
     height: 380px;
-    border: 1px solid black;
-    margin-right: 105px;
+    border: 2px solid white;
+    margin-left: 5%;
+    margin-right: 55px;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.45);
 }
 
 .cuadro-usuarios p {
     font-size: 28px;
     margin-top: 20%;
+    color: white;
+    font-weight: 900;
 }
 
 .cuadro-usuarios button {
     width: 150px;
     height: 45px;
     font-size: 16px;
-    margin-top: 45%;
+    margin-top: 65%;
 }
 
 
@@ -57,47 +65,73 @@ body a {
 .cuadro-empresas {
     width: 330px;
     height: 380px;
-    border: 1px solid black;
+    border: 2px solid white;
+    margin-right: 105px;
     text-align: center;
+    background-color: rgb(0, 0, 0, 0.45);
 }
 
 .cuadro-empresas p {
     font-size: 28px;
     margin-top: 20%;
+    color: white;
+    font-weight: 900;
 }
 
 .cuadro-empresas button {
     width: 150px;
     height: 45px;
     font-size: 16px;
-    margin-top: 45%;
+    margin-top: 65%;
 }
 
 
 /*Segundo banner*/
 
 #segundo-banner {
-    height: 350px;
-    border: 1px solid black;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.contenedor-pasos {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    text-align: center;
 }
 
 #segundo-banner h3 {
-    font-size: 40px;
-    margin-bottom: 10px;
+    font-size: 50px;
+    margin-bottom: 0px;
 }
 
 #segundo-banner p {
     font-size: 20px;
+    margin-bottom: 5%;
 }
 
 #segundo-banner i {
     font-size: 90px;
-    margin-top: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+}
+
+#icono-usuario {
+    color: #4cd137;
+}
+
+#icono-parqueo {
+    color: #0652DD;
+}
+
+#icono-calendario {
+    color: #d63031;
+}
+
+#icono-estrella {
+    color: #fff200;
 }
 
 
@@ -105,6 +139,11 @@ body a {
 
 
 /*Parte superior*/
+
+#tercer-banner {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
 
 .banner3-superior {
     display: flex;
@@ -114,7 +153,6 @@ body a {
 }
 
 .info-superior {
-    border: 1px solid black;
     height: 585px;
     width: 50%;
     display: flex;
@@ -123,8 +161,8 @@ body a {
 }
 
 .img-superior {
-    background-image: url('../imgs/imgs-parqueos/autos-214033_1920.jpg');
-    border: 1px solid black;
+    background-image: url('../imgs/imgs_parqueos/car-1149997_1920.jpg');
+    background-size: cover;
     height: 585px;
     width: 50%;
 }
@@ -140,13 +178,13 @@ body a {
 }
 
 .img-medio {
-    border: 1px solid black;
+    background-image: url('../imgs/imgs_parqueos/girl-923101_1920.jpg');
+    background-size: cover;
     height: 585px;
     width: 50%;
 }
 
 .info-medio {
-    border: 1px solid black;
     height: 585px;
     width: 50%;
     display: flex;
@@ -165,7 +203,6 @@ body a {
 }
 
 .info-inferior {
-    border: 1px solid black;
     height: 585px;
     width: 50%;
     display: flex;
@@ -174,7 +211,8 @@ body a {
 }
 
 .img-inferior {
-    border: 1px solid black;
+    background-image: url('../imgs/imgs_parqueos/man-916494_1920.jpg');
+    background-size: cover;
     height: 585px;
     width: 50%;
 }
