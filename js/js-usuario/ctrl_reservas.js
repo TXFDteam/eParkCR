@@ -308,7 +308,10 @@ const publicar_comentario = () => {
 
 const eliminar_comentario = () => {
     if (comentario_usuario_ingresado != null) {
-        console.log('Reseña eliminada');
+        Swal.fire({
+            icon: 'success',
+            title: 'Reseña eliminada',
+        });
         //Eliminar comentario del DB.
     }
 };
