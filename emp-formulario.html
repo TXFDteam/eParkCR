@@ -41,17 +41,29 @@
                 <label for='emp_registro_juridica'>Cédula jurídica</label><br>
                 <input type='text' id='emp_registro_juridica' required><br>
 
-                <legend id="permisoFuncionamientoLabel">Tienes permiso activo de funcionamiento?</legend>
+                <!-- <legend id="permisoFuncionamientoLabel">Tienes permiso activo de funcionamiento?</legend>
                 <input type="checkbox" id="emp_registro_permiso_yes" class="emp_registro_permiso" value="Yes">
                 <label for="emp_registro_permiso_yes" id="emp_registro_permiso_yes_label">Yes</label><br>
                 <input type="checkbox" id="emp_registro_no" class="emp_registro_permiso" value="No">
-                <label for="emp_registro_permiso_no" id="emp_registro_permiso_no_label">No</label><br>
+                <label for="emp_registro_permiso_no" id="emp_registro_permiso_no_label">No</label><br> -->
 
-                <form id="emp_regsitro_formFinal">
-                    <label for="myFile">Adjunta una imagen de perfil de tu empresa</label><br>
-                    <input type="file" id="myFile" value="Buscar" name="filename"><br>
-                    <input type="submit" value="Adjuntar imagen" id="emp_registro_submitImage">
-                </form>
+                <div class="radio">
+
+                    <h2 id="permisoFuncionamientoLabel">Tenés permiso de funcionamiento?</h2>
+                    <input type="radio" id="si" name="permiso" value="si">
+                    <label for="si" id="label_si">Si</label><br>
+                    <input type="radio" id="no" name="permiso" value="no">
+                    <label for="no" id="label_no">No</label><br>
+
+                </div>
+
+
+                <div id="emp_registro_formFinal">
+                    <label for="myFile" class="button" id="labelMyFile">Haz click aquí para adjuntar una imagen de perfil de tu empresa</label><br>
+                    <input type="file" id="myFile"><br>
+                </div>
+
+
 
 
 
