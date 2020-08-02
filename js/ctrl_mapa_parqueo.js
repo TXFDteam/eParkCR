@@ -4,9 +4,11 @@
 
 const slt_piso_actual = document.querySelector('#slt-piso');
 
+let interactuable = false;
+
 //Esta función se usa para llenar el mapa del parqueo con espacios interactivos.
 //<p_espacio_parqueo> referencia al espacio de un parqueo del que se va a obtener los datos.
-const crear_espacio_parqueo = (p_espacio_parqueo, p_interactuable = false) => {
+const crear_espacio_parqueo = (p_espacio_parqueo) => {
     let nuevo_espacio = document.createElement('div');
     let id_espacio = document.createElement('h3');
     let icono_espacio = document.createElement('div');
@@ -17,18 +19,30 @@ const crear_espacio_parqueo = (p_espacio_parqueo, p_interactuable = false) => {
     icono_espacio.classList.add('icono-espacio');
     switch (p_espacio_parqueo.tipo_icono) {
         case 0:
-            icono_espacio.classList.add('icono-espacio-carro');
+            if (p_espacio_parqueo.ocupado && interactuable) {
+                icono_espacio.classList.add('icono-espacio-carro-claro');
+            } else {
+                icono_espacio.classList.add('icono-espacio-carro');
+            }
             break;
         case 1:
-            icono_espacio.classList.add('icono-espacio-moto');
+            if (p_espacio_parqueo.ocupado && interactuable) {
+                icono_espacio.classList.add('icono-espacio-moto-claro');
+            } else {
+                icono_espacio.classList.add('icono-espacio-moto');
+            }
             break;
         case 2:
-            icono_espacio.classList.add('icono-espacio-discapacidad');
+            if (p_espacio_parqueo.ocupado && interactuable) {
+                icono_espacio.classList.add('icono-espacio-discapacidad-claro');
+            } else {
+                icono_espacio.classList.add('icono-espacio-discapacidad');
+            }
             break;
     };
 
     //Marcar en rojo si está ocupado.
-    if (p_espacio_parqueo.ocupado) {
+    if (p_espacio_parqueo.ocupado && interactuable) {
         nuevo_espacio.classList.add('ocupado');
     }
 
@@ -40,7 +54,7 @@ const crear_espacio_parqueo = (p_espacio_parqueo, p_interactuable = false) => {
     contenedor_espacios_en_mapa.appendChild(nuevo_espacio);
 
     //Conectar el evento click para que se actualice el espacio seleccionado.
-    if (p_interactuable) {
+    if (interactuable) {
         nuevo_espacio.addEventListener('click', () => {
             actualizar_espacio_seleccionado(p_espacio_parqueo, nuevo_espacio);
         });
@@ -55,7 +69,6 @@ const actualizar_espacios_mapa = (p_piso) => {
 
     //Para que se muestren como máximo X cantidad de espacios.
     let primer_espacio = ((hoja_actual_piso - 1) * max_espacios_por_piso) + 1;
-    let espacios_creados = 0;
 
     let cant_espacios = p_piso.cant_espacios;
 
@@ -65,8 +78,6 @@ const actualizar_espacios_mapa = (p_piso) => {
     for (let i = primer_espacio; i <= cant_espacios; i++) {
         let identificador_espacio = ('espacio_' + i); //Clave del JSON.
         crear_espacio_parqueo(p_piso.espacios[identificador_espacio], true);
-
-        espacios_creados++;
     };
 };
 
@@ -93,9 +104,10 @@ const piso_actual_cambiado = () => {
 
 //Llamar a esta función para inicializar datos del mapa basado en el parqueo que se envía como parámetro.
 //<p_parqueo> Parqueo del que se desea ver los datos.
-const inicializar_mapa = (p_parqueo) => {
+const inicializar_mapa = (p_parqueo, p_interactuable = false) => {
     //Por defecto se muestra el piso 1.
     piso_actual = 1;
+    interactuable = p_interactuable;
 
     //Actualizar los datos del comboBox para el piso actual.
     slt_piso_actual.innerHTML = '';

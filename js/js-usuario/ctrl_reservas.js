@@ -39,6 +39,7 @@ const ventana_crear_comentario_mensaje = document.querySelector('#txt-mensaje');
 const ventana_crear_comentario_slt_calificacion = document.querySelector('#slt-calificacion');
 
 //Información del parqueo.
+const banner = document.querySelector('#sct-banner');
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
 const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
 const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
@@ -119,14 +120,18 @@ const llenar_info_parqueo = (p_parqueo) => {
         return;
     }
 
+
+    let url = "url(" + "../../imgs/imgs_parqueos/" + p_parqueo.imagen_perfil + ")";
+    banner.style.backgroundImage = url;
+
     lbl_nombre_parqueo.textContent = p_parqueo.nombre;
     txt_comentarios_nombre_parqueo.textContent = p_parqueo.nombre;
 
-    lbl_calificacion_promedio.textContent = "Calificación promedio: " + p_parqueo.calificacion_promedio;
+    lbl_calificacion_promedio.textContent = 'Calificación promedio: ' + p_parqueo.calificacion_promedio;
 
     //Para mostrar los datos en el mapa.
     //Esta función está en ctrl_mapa_parqueo.js
-    inicializar_mapa(parqueo_actual);
+    inicializar_mapa(parqueo_actual, true);
 };
 
 const hay_espacios_vacios = () => {
