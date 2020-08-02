@@ -1,0 +1,42 @@
+#principal_hist_reservas {
+    padding-left: 18%;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#principal_hist_reservas h1 {
+    margin: 40px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 1000px;
+}
+
+#tablahistorial td {
+    width: 10%;
+    padding: 10px;
+    text-align: center;
+}
+
+#tablahistorial thead {
+    background-color: #a4b0be;
+}
+
+#tablahistorial tbody tr:nth-child(even) {
+    background-color: #f1f2f6;
+}
+
+#tablahistorial tbody tr:nth-child(odd) {
+    background-color: #ced6e0;
+}
+
+#principal_hist_reservas button {
+    margin-top: 50px;
+}
+
+#tablahistorial thead td {
+    padding: 30px 0;
+}
