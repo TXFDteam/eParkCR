@@ -1259,7 +1259,7 @@ let reservas = {
         tarjeta_creditada: ''
     },
     reserva7: {
-        id_usuario: usuarios.usuario7.id_usuario,
+        id_usuario: usuarios.usuario1.id_usuario,
         nombre_usuario: usuarios.usuario7.nombre_usuario,
         parqueo_seleccionado: parqueos.parqueo_3.nombre,
         fecha_reserva: '30/08/2020',
