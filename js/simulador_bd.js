@@ -1209,7 +1209,9 @@ let empresas = {
             nombre_empresa: 'Adidas',
             codigo_empresa: '100',
             contrasenna_empresa: 'adidas1',
-            estado: 'ACTIVO'
+            estado: 'ACTIVO',
+            nombre_encargado: 'Diego Rivera',
+            ubicacion: 'San José'
         },
         empresa_2: {
             correo_empresa: 'x2@gmail.com',
@@ -1217,7 +1219,9 @@ let empresas = {
             nombre_empresa: 'Banco Nacional',
             codigo_empresa: '101',
             contrasenna_empresa: 'banconacional1',
-            estado: 'INACTIVO'
+            estado: 'INACTIVO',
+            nombre_encargado: 'Carlos Vargas',
+            ubicacion: 'Alajuela'
         },
         empresa_3: {
             correo_empresa: 'x1@gmail.com',
@@ -1225,7 +1229,9 @@ let empresas = {
             nombre_empresa: 'Banco popular',
             codigo_empresa: '102',
             contrasenna_empresa: 'bancopopular1',
-            estado: 'ACTIVO'
+            estado: 'ACTIVO',
+            nombre_encargado: 'Antonio Gómez',
+            ubicacion: 'Cartago'
         }
     }
 };

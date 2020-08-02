@@ -71,7 +71,7 @@ const validar = () => {
     }
 
 
-    var len = document.querySelectorAll('input[type="checkbox"]:checked').length
+    var len = document.querySelectorAll('input[type="radio"]:checked').length
     if (len <= 0) {
         error = true;
         label_permisoFuncionamiento.classList.add('error');
