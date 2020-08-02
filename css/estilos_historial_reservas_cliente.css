@@ -10,7 +10,8 @@
     margin: 40px;
 }
 
-table {
+
+/* table {
     border-collapse: collapse;
     width: 1000px;
 }
@@ -22,24 +23,24 @@ table {
 }
 
 #tablahistorial thead {
-    background-color: #a4b0be;
+    background-color: #f7835f;
     border-bottom: 2px solid black;
-}
-
-#tablahistorial tbody tr:nth-child(even) {
-    background-color: #f1f2f6;
-}
-
-#tablahistorial tbody tr:nth-child(odd) {
-    background-color: #ced6e0;
-}
-
-#principal_hist_reservas button {
-    margin-top: 50px;
 }
 
 #tablahistorial thead td {
     padding: 30px 0;
+}
+
+#tablahistorial tbody tr:nth-child(even) {
+    background-color: #f9fc61;
+}
+
+#tablahistorial tbody tr:nth-child(odd) {
+    background-color: #fdff86;
+} */
+
+#principal_hist_reservas button {
+    margin-top: 50px;
 }
 
 .link_ver_recibo {

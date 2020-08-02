@@ -11,7 +11,8 @@
     margin: 40px;
 }
 
-table {
+
+/* table {
     border-collapse: collapse;
     width: 1000px;
 }
@@ -34,7 +35,7 @@ table {
 
 #tabla_reporte_ingresos tbody tr:nth-child(odd) {
     background-color: #ced6e0;
-}
+} */
 
 #pagina_principal_reporte_ingresos button {
     margin-top: 50px;
