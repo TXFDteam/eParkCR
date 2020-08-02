@@ -100,6 +100,16 @@ historial_reservas.addEventListener('click', function() {
     marcar_link(historial_reservas);
 });
 
+ingresos_admin.addEventListener('click', function() {
+    ingresos_admin.href = '../../html/htmls-admin/reporte_ingresos_admin.html';
+    marcar_link(ingresos_admin);
+});
+
+actividad_aplicacion.addEventListener('click', function() {
+    actividad_aplicacion.href = '../../html/htmls-admin/bitacora_transaccional_admin.html';
+    marcar_link(actividad_aplicacion);
+});
+
 config_cuenta_admin.addEventListener('click', function() {
     config_cuenta_admin.href = '../../html/htmls-admin/perfil_administrador.html';
 });
