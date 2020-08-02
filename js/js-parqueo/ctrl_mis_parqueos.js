@@ -8,13 +8,13 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
     '<p>[PARQUEO]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-fecha-vencimiento\"> \n' +
-    '<p>Fecha de vencimiento: [CANTIDAD_ESPACIOS]</p> \n' +
+    '<p>Cantidad de espacios: [CANTIDAD_ESPACIOS]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-empleados\"> \n' +
-    '<p>Cantidad de empleados: [TARIFA]</p> \n' +
+    '<p>Tarifa: [TARIFA]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-descuento\"> \n' +
-    '<p>Descuento: [UBICACION]</p> \n' +
+    '<p>Ubicacion: [UBICACION]</p> \n' +
     '</div> \n' +
 
     '</div>';
@@ -30,7 +30,7 @@ const crear_cuadro_parqueo = (p_parqueo) => {
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
     nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', p_parqueo.nombre);
     nueva_plantilla = nueva_plantilla.replace('[CANTIDAD_ESPACIOS]', p_parqueo.cant_espacios);
-    nueva_plantilla = nueva_plantilla.replace('[TARIFA]', p_parqueo.tarifa_hora);
+    nueva_plantilla = nueva_plantilla.replace('[TARIFA]', '₡' + p_parqueo.tarifa_hora);
     nueva_plantilla = nueva_plantilla.replace('[UBICACION]', p_parqueo.ubicacion);
 
     //Link a lista de usuarios
