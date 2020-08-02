@@ -13,22 +13,42 @@ btn_volver_perfil_parqueo.addEventListener('click', volver_perfil_parqueo);
 
 const btn_guardar_cambios_parqueo = document.querySelector('#btn-guardar-cambios-parqueo');
 
-const nuevo_nombre_duenno_parqueo = document.querySelector('#nuevo-nombre-cliente');
+
 const nueva_cuenta_bancaria_parqueo = document.querySelector('#nueva-cuenta-bancaria-parqueo');
 
-const guardar_cambios_parqueo = (identificador_duenno) => {
 
-    duennos_parqueos[identificador_duenno].nombre = nuevo_nombre_duenno_parqueo.value;
-    duennos_parqueos[identificador_duenno].cuenta_bancaria = nueva_cuenta_bancaria_parqueo.value;
+const guardar_cambios_parqueo = () => {
 
-
-    Swal.fire(
-        'Perfil actualizado',
-        'Por favor espera unos minutos para que los cambios se reflejen en el sistema',
-        'success'
-    )
-};
+    //se validara la cuenta bancaria IBAN, en Costa Rica usualmente tienen 20 digitos
 
 
+    let expresion_cuenta_bancaria = /^[0-9]{20,20}$/;
+    let error = false;
 
-btn_guardar_cambios_parqueo.addEventListener('click', guardar_cambios_parqueo(identificador_duenno));
+
+    if (expresion_cuenta_bancaria.test(nueva_cuenta_bancaria_parqueo.value)) {
+        console.log('Cuenta correcta');
+        nueva_cuenta_bancaria_parqueo.classList.remove('error');
+
+    } else {
+        console.log('Cuenta no valida');
+        error = true;
+        nueva_cuenta_bancaria_parqueo.classList.add('error');
+
+    }
+
+
+
+    if (!error) {
+
+        Swal.fire(
+            'Perfil actualizado',
+            'Por favor espera unos minutos para que los cambios se reflejen en el sistema',
+            'success'
+        )
+    }
+
+}
+
+
+btn_guardar_cambios_parqueo.addEventListener('click', guardar_cambios_parqueo);
