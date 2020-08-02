@@ -179,17 +179,19 @@
                 <label for='prq-registro-jurídica'>Cédula jurídica</label><br>
                 <input type='text' id='prq-registro-jurídica' required><br>
 
-                <label for='prq-registro-correo'>Correo electrónico</label><br>
-                <input type='email' id='prq-registro-correo' required><br>
+                <label for='prq-registro-cuenta'>Cuenta IBAN</label><br>
+                <input type='text' id='prq-registro-cuenta' required><br>
+
+
+                <label for='prq-registro-telefono'>Teléfono</label><br>
+                <input type='tel' id='prq-registro-telefono' name="phone" placeholder="1234-4567" required><br>
 
                 <div class="radio">
-
                     <h2 id="permisoFuncionamientoLabel">Tenés permiso de funcionamiento?</h2>
                     <input type="radio" id="si" name="permiso" value="si">
                     <label for="si" id="label_si">Si</label><br>
                     <input type="radio" id="no" name="permiso" value="no">
                     <label for="no" id="label_no">No</label><br>
-
                 </div>
 
 
@@ -212,6 +214,9 @@
 
             <div class="col" id="col2">
 
+                <label for='prq-registro-correo'>Correo electrónico</label><br>
+                <input type='email' id='prq-registro-correo' required><br>
+
                 <label for='prq-registro-contrasena'>Contraseña</label><br>
                 <input type='password' id='prq-registro-contrasena' required><br>
 
@@ -228,7 +233,7 @@
                                 Provincia:
                             </div>
                             <div class="form-val">
-                                <select id="provincias" name="provincia" onchange="getCantones(this.value);">
+                                <select id="provincias" name="provincia" onchange="getCantones(this.value);" required>
                     </select>
                             </div>
                         </div>

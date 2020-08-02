@@ -10,6 +10,144 @@
     <link rel="stylesheet" href="css/estilos-generales.css">
     <link rel="stylesheet" href="css/prq_registro_espacios.css">
     <title>Registrar parqueo</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+    <script>
+        //            console.log('pages/new.html?lat='+ lat +'&lon='+lon');
+        $(document).ready(function() {
+            getData(
+                "https://ubicaciones.paginasweb.cr/provincias.json",
+                function(data) {
+                    $("#provincias").html(arrayToOptions(data));
+                }
+            );
+        });
+        var map;
+        var geocoder;
+        var crLat = 9.6301892;
+        var crLng = -84.2541843;
+
+        function initMap() {
+            geocoder = new google.maps.Geocoder();
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: crLat,
+                    lng: crLng
+                },
+                zoom: 7,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            });
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: {
+                    lat: crLat,
+                    lng: crLng
+                }
+            });
+            google.maps.event.addListener(marker, 'dragend', function() {
+                onMakerMove(marker);
+            });
+        }
+
+        function codeAddress(address) {
+            geocoder.geocode({
+                'address': address
+            }, function(results, status) {
+
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    marker.setPosition(results[0].geometry.location);
+                    onMakerMove(marker);
+                } else {
+                    console.debug('No pudimos obtener la dirección porque: ' + status);
+                }
+            });
+        }
+
+        function onMakerMove(marker) {
+            $("#coordenadas").val(marker.getPosition().toString().replace('(', '').replace(')', ''));
+        }
+
+        function getCantones(idProvincia) {
+            map.setZoom(9);
+            codeAddress("Costa Rica, " + $('#provincias option:selected').text());
+            getData(
+                "https://ubicaciones.paginasweb.cr/provincia/" + idProvincia + "/cantones.json",
+                function(data) {
+                    $("#cantones").html(arrayToOptions(data));
+                    $(".canton").show();
+                    $(".distrito").hide();
+                    $(".send").hide();
+                }
+            );
+        }
+
+        function getDistritos(idCanton) {
+            var query = "Costa Rica, " + $('#provincias option:selected').text() + ', ' + $('#cantones option:selected').text();
+            // console.log(query);
+            map.setZoom(12);
+            codeAddress(query);
+            var idProvincia = $("#provincias").val();
+            getData(
+                "https://ubicaciones.paginasweb.cr/provincia/" + idProvincia + "/canton/" + idCanton + "/distritos.json",
+                function(data) {
+                    $("#distritos").html(arrayToOptions(data));
+                    $(".distrito").show();
+                    $(".send").hide();
+                }
+            );
+        }
+
+        function distritoSelected() {
+            var query = "Costa Rica, " + jQuery('#provincias option:selected').text() + "," + jQuery('#cantones option:selected').text() + "," + jQuery('#distritos option:selected').text();
+            map.setZoom(15);
+            codeAddress(query);
+            $('.send').show()
+        }
+
+        function arrayToOptions(array) {
+            var html = "<option>Seleccione una opción</option>";
+            for (key in array) {
+                html += "<option value='" + key + "'>" + array[key] + "</option>";
+            }
+            return html;
+        }
+
+        function getData(url, callback) {
+            $.ajax({
+                dataType: "json",
+                url: url,
+                success: function(data) {
+                    callback(data);
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+        }
+
+        function sendData() {
+            var data = $("#ubicationForm").serialize();
+            alert(data);
+            // send data to server via ajax
+            return false;
+        }
+    </script>
+
+    <style>
+
+    </style>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9752069833756569",
+            enable_page_level_ads: true
+        });
+    </script>
+
 </head>
 
 <body>
@@ -35,24 +173,32 @@
                 <input type='text' id='nombre_parqueo' required><br>
 
                 <label for='cedulaJuridica'>Cédula Jurídica</label><br>
-                <input type='text' id='cedulaJuridica' required>
+                <input type='text' id='cedulaJuridica' required><br>
 
-                <legend id="permisoFuncionamientoLabel">Tienes permiso activo de funcionamiento?</legend>
-                <input type="checkbox" id="permiso_yes" class="permiso" value="Yes">
-                <label for="permiso_yes" id="permiso_yes_label">Yes</label><br>
-                <input type="checkbox" id="permiso_no" class="permiso" value="No">
-                <label for="permiso_no" id="permiso_no_label">No</label><br>
+                <label for='prq-registro-correo'>Correo electrónico</label><br>
+                <input type='email' id='prq-registro-correo' required><br>
+
+                <div class="radio">
+                    <h2 id="permisoFuncionamientoLabel">Tenés permiso de funcionamiento?</h2>
+                    <input type="radio" id="si" name="permiso" value="si">
+                    <label for="si" id="label_si">Si</label><br>
+                    <input type="radio" id="no" name="permiso" value="no">
+                    <label for="no" id="label_no">No</label><br>
+                </div>
 
                 <label for='tarifa'>Tarifa</label><br>
-                <input type='number' id='tarifa' required>
+                <input type='number' id='tarifa' required><br>
 
                 <label for='horaApertura'>Hora de apertura</label><br>
-                <input type='time' id='horaApertura' required>
+                <input type='time' id='horaApertura' required><br>
 
                 <label for='horaCierre'>Hora de cierre</label><br>
-                <input type='time' id='horaCierre' required>
+                <input type='time' id='horaCierre' required><br>
 
-
+                <div id='rowBotones'>
+                    <button type="button" id='btn-crearParqueo' class="btn">Crear parqueo</button>
+                    <button type="button" id='btn-cancelar' class="btn">Cancelar</button>
+                </div>
 
             </div>
 
@@ -64,7 +210,7 @@
                 <label for='pisosDropdown'>Piso seleccionado</label><br>
                 <select id='pisosDropdown' name='pisos_select' required>
                     <option>1</option>
-                </select>
+                </select><br>
 
                 <label for='espaciosDiscapacidad'>Espacios para personas con dispacidad</label><br>
                 <input type='number' id='espaciosDiscapacidad' required><br>
@@ -75,40 +221,92 @@
                 <label for='espaciosAuto'>Espacios para automóviles</label><br>
                 <input type='number' id='espaciosAuto' required><br>
 
+
+                <h3>Enlaces de tus redes sociales:</h3>
+                <label for='facebook'>Facebook</label><br>
+                <input type='text' id='facebook'><br>
+
+                <label for='instagram'>Instagram</label><br>
+                <input type='text' id='instagram'><br>
+
+
+
+
             </div>
 
 
             <div id='col3' class='col'>
 
-                <form id="imagenBanner">
-                    <label for="myFile">Adjunta una imagen para el banner de tu parqueo</label><br>
-                    <input type="file" id="myFile" value="Buscar" name="filename"><br>
-                    <input type="submit" value="Adjuntar imagen" id="submitImage">
-                </form>
+                <p id="titulo_adjuntarBanner" class="adjuntarClaseBoton">Adjuntá una imagen para el banner</p>
+                <div id="labelMyFileContainer">
+                    <label for="myFile" class="button" id="btnMyFile">Adjuntar</label><br>
+                    <input type="file" id="myFile"><br>
+                </div>
 
-                <form id="imagenCarta">
-                    <label for="myFile">Adjunta una imagen para el perfil de tu parqueo</label><br>
-                    <input type="file" id="myFileParqueoEspacios" value="Buscar" name="filename"><br>
-                    <input type="submit" value="Adjuntar imagen" id="submitImageParqueoEspacios">
-                </form>
+                <p id="titulo_adjuntarPerfil" class="adjuntarClaseBoton">Adjuntá una imagen de perfil</p>
+                <div id="labelMyFileContainer">
+                    <label for="myFile" class="button" id="btnMyFile">Adjuntar</label><br>
+                    <input type="file" id="myFile"><br>
+                </div>
 
-                <h2>Ubicación</h2>
-                <label for='emp_registro_direccion'>Ingresá la ubicación de tu empresa</label><br>
-                <input type='text' placeholder="Provincia" id='provincia' required><br>
-                <input type='text' placeholder="Cantón" id='canton' required><br>
-                <input type='text' placeholder="Distrito" id='distrito' required><br>
-                <input type='text' placeholder="Dirección exacta" id='direccion' required><br>
+
+                <h3>
+                    Seleccioná tu ubicación
+                </h3>
+                <form id="ubicationForm" onsubmit="return sendData();">
+                    <div class="data-container">
+                        <div class="form-row">
+                            <div class="form-desc">
+                                Provincia:
+                            </div>
+                            <div class="form-val">
+                                <select id="provincias" name="provincia" onchange="getCantones(this.value);" required>
+                    </select>
+                            </div>
+                        </div>
+                        <div class="form-row canton">
+                            <div class="form-desc">
+                                Cantón:
+                            </div><br>
+                            <div class="form-val">
+                                <select id="cantones" name="canton" onchange="getDistritos(this.value);">
+                    </select>
+                            </div>
+                        </div>
+                        <div class="form-row distrito">
+                            <div class="form-desc">
+                                Distrito:
+                            </div>
+                            <div class="form-val">
+                                <select id="distritos" name="distrito" onchange="distritoSelected();">
+                    </select>
+                            </div>
+                        </div>
+                        <div class="form-row coordenadas">
+                            <div class="form-desc">
+                                Coordenadas:
+                            </div>
+                            <div class="form-val">
+                                <input type="text" id="coordenadas" name="coordenadas" value="9.6301892, -84.2541843" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <div id="map"></div>
+                    </div>
+                    <!-- <div class="form-row send">
+                        <input type="submit" value="Enviar" />
+                    </div> -->
+                </form>
 
             </div>
 
         </div>
 
-        <div id='rowBotones'>
-            <button type="button" id='btn-crearParqueo' class="btn">Crear parqueo</button>
-            <button type="button" id='btn-cancelar' class="btn">Cancelar</button>
-        </div>
+
 
     </main>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3cOQNB4cQjQDSGWiB_nT2H2pEOuD3w60&callback=initMap" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="/js/control-sesiones.js"></script>
     <script src="/js/prq_registroEspacios.js"></script>
