@@ -19,6 +19,11 @@
     padding: 2%;
 }
 
+.info-parqueos h2 {
+    font-size: 40px;
+    padding-bottom: 40px;
+}
+
 #cuadros-parqueos {
     display: flex;
     flex-direction: row;
