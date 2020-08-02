@@ -11,12 +11,13 @@
     Flex-direction: row;
     flex-wrap: wrap;
     /* border: solid 2px red; */
+    height: 500px;
     /* margin: 0 5% 0 5%; */
 }
 
 .col {
     flex: 1;
-    height: 380px;
+    /* border: solid 2px red; */
 }
 
 #col1 {
@@ -56,9 +57,33 @@ input[type=radio] {
 
 input[type=file] {
     visibility: hidden;
-    margin: 0;
-    padding: 0;
-    width: 100px;
+}
+
+#labelMyFileContainer {
+    margin-top: 40px;
+}
+
+#labelMyFile {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    border: solid 1px gray;
+    height: 120px;
+    padding: 10px;
+}
+
+#labelMyFile:hover {
+    color: white;
+    background-color: #dd2849;
+    cursor: pointer;
+}
+
+#adjuntarImagen {
+    /* border: solid 2px red; */
+    margin: 10px 10px 10px 0;
+    display: flex;
+    float: left;
+    align-content: center;
 }
 
 #label_si {
@@ -75,8 +100,6 @@ input[type=file] {
     margin-top: 20px;
     float: left;
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 #btn_emp_registro_crearPerfil {
@@ -90,17 +113,66 @@ input[type=file] {
     height: 40px;
 }
 
-#emp_registro_formFinal {
-    display: flex;
-    border-radius: 4%;
-    background-color: white;
-    margin: 30px 0 0 20%;
-    color: black;
-    border: solid 1px darkgray;
-    text-align: center;
+.error {
+    border: solid 2px red;
+}
+
+
+/* Estilos de https://programando.paginasweb.cr/ */
+
+.canton,
+.distrito,
+.send {
+    display: none;
+}
+
+.form-desc,
+.data-container,
+.map-container {
+    display: inline;
+    float: left;
+    min-width: 110px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.map-container {
+    margin-left: 20%;
+}
+
+.data-container {
+    justify-content: center;
+    margin-left: 20%;
+    /* border: solid 2px red; */
+    display: block;
+}
+
+.form-val {
+    float: left;
+}
+
+.form-val select {
+    width: 200px;
+    /* border: solid 2px red; */
+    margin-top: 6px;
+}
+
+#coordenadas {
+    width: 200px;
+    /* border: solid 2px yellow; */
+    margin-left: 0;
+}
+
+.map-container {
     width: 60%;
 }
 
-.error {
-    border: solid 2px red;
+#map {
+    min-width: 200px;
+    width: 100%;
+    height: 200px;
+}
+
+h3 {
+    margin: 6px 10px 0 20%;
 }

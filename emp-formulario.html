@@ -10,6 +10,145 @@
     <link rel="stylesheet" href="css/estilos-generales.css">
     <link rel="stylesheet" href="css/emp-formulario.css">
     <title>Registrar empresa</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+    <script>
+        //            console.log('pages/new.html?lat='+ lat +'&lon='+lon');
+        $(document).ready(function() {
+            getData(
+                "https://ubicaciones.paginasweb.cr/provincias.json",
+                function(data) {
+                    $("#provincias").html(arrayToOptions(data));
+                }
+            );
+        });
+        var map;
+        var geocoder;
+        var crLat = 9.6301892;
+        var crLng = -84.2541843;
+
+        function initMap() {
+            geocoder = new google.maps.Geocoder();
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: crLat,
+                    lng: crLng
+                },
+                zoom: 7,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            });
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: {
+                    lat: crLat,
+                    lng: crLng
+                }
+            });
+            google.maps.event.addListener(marker, 'dragend', function() {
+                onMakerMove(marker);
+            });
+        }
+
+        function codeAddress(address) {
+            geocoder.geocode({
+                'address': address
+            }, function(results, status) {
+
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    marker.setPosition(results[0].geometry.location);
+                    onMakerMove(marker);
+                } else {
+                    console.debug('No pudimos obtener la dirección porque: ' + status);
+                }
+            });
+        }
+
+        function onMakerMove(marker) {
+            $("#coordenadas").val(marker.getPosition().toString().replace('(', '').replace(')', ''));
+        }
+
+        function getCantones(idProvincia) {
+            map.setZoom(9);
+            codeAddress("Costa Rica, " + $('#provincias option:selected').text());
+            getData(
+                "https://ubicaciones.paginasweb.cr/provincia/" + idProvincia + "/cantones.json",
+                function(data) {
+                    $("#cantones").html(arrayToOptions(data));
+                    $(".canton").show();
+                    $(".distrito").hide();
+                    $(".send").hide();
+                }
+            );
+        }
+
+        function getDistritos(idCanton) {
+            var query = "Costa Rica, " + $('#provincias option:selected').text() + ', ' + $('#cantones option:selected').text();
+            // console.log(query);
+            map.setZoom(12);
+            codeAddress(query);
+            var idProvincia = $("#provincias").val();
+            getData(
+                "https://ubicaciones.paginasweb.cr/provincia/" + idProvincia + "/canton/" + idCanton + "/distritos.json",
+                function(data) {
+                    $("#distritos").html(arrayToOptions(data));
+                    $(".distrito").show();
+                    $(".send").hide();
+                }
+            );
+        }
+
+        function distritoSelected() {
+            var query = "Costa Rica, " + jQuery('#provincias option:selected').text() + "," + jQuery('#cantones option:selected').text() + "," + jQuery('#distritos option:selected').text();
+            map.setZoom(15);
+            codeAddress(query);
+            $('.send').show()
+        }
+
+        function arrayToOptions(array) {
+            var html = "<option>Seleccione una opción</option>";
+            for (key in array) {
+                html += "<option value='" + key + "'>" + array[key] + "</option>";
+            }
+            return html;
+        }
+
+        function getData(url, callback) {
+            $.ajax({
+                dataType: "json",
+                url: url,
+                success: function(data) {
+                    callback(data);
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+        }
+
+        function sendData() {
+            var data = $("#ubicationForm").serialize();
+            alert(data);
+            // send data to server via ajax
+            return false;
+        }
+    </script>
+
+    <style>
+
+    </style>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9752069833756569",
+            enable_page_level_ads: true
+        });
+    </script>
+
+
 </head>
 
 <body>
@@ -41,6 +180,11 @@
                 <label for='emp_registro_juridica'>Cédula jurídica</label><br>
                 <input type='text' id='emp_registro_juridica' required><br>
 
+                <label for='emp_registro_correo'>Correo electrónico</label><br>
+                <input type='email' id='emp_registro_correo' required><br>
+
+
+
                 <!-- <legend id="permisoFuncionamientoLabel">Tienes permiso activo de funcionamiento?</legend>
                 <input type="checkbox" id="emp_registro_permiso_yes" class="emp_registro_permiso" value="Yes">
                 <label for="emp_registro_permiso_yes" id="emp_registro_permiso_yes_label">Yes</label><br>
@@ -58,13 +202,16 @@
                 </div>
 
 
-                <div id="emp_registro_formFinal">
+                <div id="labelMyFileContainer">
                     <label for="myFile" class="button" id="labelMyFile">Haz click aquí para adjuntar una imagen de perfil de tu empresa</label><br>
                     <input type="file" id="myFile"><br>
                 </div>
 
 
-
+                <div id="emp_registro_botones">
+                    <button type="button" id='btn_emp_registro_crearPerfil'>Crear Perfil</button>
+                    <button type="button" id='btn_emp_registro_yaTenesCuenta'>Ya tenés cuenta?</button>
+                </div>
 
 
 
@@ -74,8 +221,6 @@
 
 
 
-                <label for='emp_registro_correo'>Correo electrónico</label><br>
-                <input type='email' id='emp_registro_correo' required><br>
 
                 <label for='emp_registro_contrasena'>Contraseña</label><br>
                 <input type='password' id='emp_registro_contrasena' required><br>
@@ -83,25 +228,79 @@
                 <label for='emp_registro_confirmaContrasena'>Confirmá tu contraseña</label><br>
                 <input type='password' id='emp_registro_confirmaContrasena' required><br>
 
-                <h2>Ubicación</h2>
+
+
+                <h3>
+                    Seleccioná tu ubicación
+                </h3>
+                <form id="ubicationForm" onsubmit="return sendData();">
+                    <div class="data-container">
+                        <div class="form-row">
+                            <div class="form-desc">
+                                Provincia:
+                            </div>
+                            <div class="form-val">
+                                <select id="provincias" name="provincia" onchange="getCantones(this.value);">
+                    </select>
+                            </div>
+                        </div>
+                        <div class="form-row canton">
+                            <div class="form-desc">
+                                Cantón:
+                            </div><br>
+                            <div class="form-val">
+                                <select id="cantones" name="canton" onchange="getDistritos(this.value);">
+                    </select>
+                            </div>
+                        </div>
+                        <div class="form-row distrito">
+                            <div class="form-desc">
+                                Distrito:
+                            </div>
+                            <div class="form-val">
+                                <select id="distritos" name="distrito" onchange="distritoSelected();">
+                    </select>
+                            </div>
+                        </div>
+                        <div class="form-row coordenadas">
+                            <div class="form-desc">
+                                Coordenadas:
+                            </div>
+                            <div class="form-val">
+                                <input type="text" id="coordenadas" name="coordenadas" value="9.6301892, -84.2541843" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <div id="map"></div>
+                    </div>
+                    <!-- <div class="form-row send">
+                        <input type="submit" value="Enviar" />
+                    </div> -->
+                </form>
+                <!-- </div>
+                        <h2>Ubicación</h2>
                 <label for='emp_registro_direccion'>Ingresá la ubicación de tu empresa</label><br>
                 <input type='text' placeholder="Provincia" id='emp_registro_provincia' required><br>
                 <input type='text' placeholder="Cantón" id='emp_registro_canton' required><br>
                 <input type='text' placeholder="Distrito" id='emp_registro_distrito' required><br>
                 <input type='text' placeholder="Dirección exacta" id='emp_registro_direccion' required><br>
-            </div>
-        </div>
-        <div id="emp_registro_botones">
-            <button type="button" id='btn_emp_registro_crearPerfil'>Crear Perfil</button>
-            <button type="button" id='btn_emp_registro_yaTenesCuenta'>Ya tenés cuenta?</button>
+                    </div>
+            </div> -->
 
-        </div>
 
 
     </main>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3cOQNB4cQjQDSGWiB_nT2H2pEOuD3w60&callback=initMap" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="/js/control-sesiones.js"></script>
     <script src="/js/emp_formulario_validaciones.js"></script>
+
+
+
+
+
+
 </body>
 
 </html>

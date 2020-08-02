@@ -12,12 +12,14 @@ const input_imagen = document.getElementById('myFile');
 
 const input_correo = document.querySelector('#emp_registro_correo');
 const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
-const input_provincia = document.querySelector('#emp_registro_provincia');
-const input_canton = document.querySelector('#emp_registro_canton');
-const input_distrito = document.querySelector('#emp_registro_distrito');
-const input_direccion = document.querySelector('#emp_registro_direccion');
+
 
 const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
+
+const input_provincia = document.getElementById("provincias");
+const input_canton = document.getElementById("cantones");
+const input_distrito = document.getElementById("distritos");
+const input_coordenadas = document.getElementById("coordenadas");
 
 btn_yaTenesCuenta.addEventListener('click', function() {
     window.location.assign('iniciar-sesion.html')
@@ -63,8 +65,6 @@ const validar = () => {
     return error;
 };
 
-
-
 const obtener_datos = () => {
     let error = validar();
     if (error == true) {
@@ -91,12 +91,10 @@ const obtener_datos = () => {
         let cedulaJuridica = input_cedulaJuridica.value;
         let correo = input_correo.value;
         let confirmarContrasena = input_confirmarContrasena.value;
-        let provincia = input_provincia.value;
-        let canton = input_canton.value;
-        let distrito = input_distrito.value;
-        let direccion = input_direccion.value;
-
-
+        let provincia = input_provincia.options[input_provincia.selectedIndex].text;
+        let cantones = input_canton.options[input_canton.selectedIndex].text;
+        let distritos = input_distrito.options[input_distrito.selectedIndex].text;
+        let coordenadas = input_coordenadas.value;
 
         console.log('Nombre empresa: ', nombreEmpresa);
         console.log('Nombre encargado: ', nombreEncargado);
@@ -107,9 +105,10 @@ const obtener_datos = () => {
         console.log('Correo: ', correo);
         console.log('Confirmar contrasena: ', confirmarContrasena);
         console.log('Provincia: ', provincia);
-        console.log('Canton: ', canton);
-        console.log('Distrito: ', distrito);
-        console.log('Direccion: ', direccion);
+        console.log('Canton: ', cantones);
+        console.log('Distrito: ', distritos);
+        console.log('Coordenada: ', coordenadas);
+
 
 
     }
