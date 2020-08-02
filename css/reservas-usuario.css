@@ -67,5 +67,5 @@
 }
 
 .mostrar-noHayReservas {
-    visibility: show;
+    display: block;
 }
