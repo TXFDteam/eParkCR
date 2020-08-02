@@ -1,9 +1,9 @@
 .parqueo-abierto {
-    color: #ffffff;
+    background-color: #81ef07c7;
 }
 
 .parqueo-cerrado {
-    color: #F50054;
+    background-color: #f50022c7;
 }
 
 .carta-parqueo {
@@ -30,12 +30,15 @@
 
 .carta-parqueo .contendor-info-parqueo {
     /*Este contenedor funciona para hacer un contraste entre la foto del parqueo y el texto que muestra el estado y calificación del parqueo*/
-    background-color: rgb(0, 0, 0, 0.3);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0 5px;
     overflow: hidden;
+}
+
+.carta-parqueo .contendor-info-parqueo p {
+    color: #ffffff;
 }
 
 
