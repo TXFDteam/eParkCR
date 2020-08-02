@@ -79,6 +79,7 @@ input[type=checkbox] {
 #emp_registro_submitImage {
     width: 140px;
     margin-top: 20px;
+    height: 40px;
 }
 
 #rowBotones {
@@ -90,11 +91,11 @@ input[type=checkbox] {
 
 #btn-crearUsuario {
     margin-right: 20px;
-    width: 140px;
+    width: 200px;
 }
 
 #btn-yaTenesCuenta {
-    width: 140px;
+    width: 200px;
 }
 
 .error {

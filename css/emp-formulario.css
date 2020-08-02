@@ -82,10 +82,12 @@ input[type=checkbox] {
 #btn_emp_registro_crearPerfil {
     margin-right: 20px;
     width: 140px;
+    height: 40px;
 }
 
 #btn_emp_registro_yaTenesCuenta {
     width: 140px;
+    height: 40px;
 }
 
 .error {

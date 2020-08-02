@@ -76,5 +76,6 @@ a {
 }
 
 #btn_mis_convenios {
-    /* border: solid 2px red; */
+    width: 200px;
+    height: 40px;
 }

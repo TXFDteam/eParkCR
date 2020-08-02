@@ -75,6 +75,7 @@ a {
     font-size: 20px;
 }
 
-#btn_buscarParqueos {
-    /* border: solid 2px red; */
+#btn_mis_parqueos {
+    width: 200px;
+    height: 40px;
 }

@@ -46,9 +46,10 @@ input {
 
 #btn-registrarConvenio {
     margin-top: 40px;
-    width: 180px;
+    width: 200px;
     margin-left: 25%;
     /* border: solid 2px violet; */
+    height: 40px;
 }
 
 .error {

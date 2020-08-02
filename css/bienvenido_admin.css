@@ -76,5 +76,6 @@ a {
 }
 
 #btn_solicitudesRegistro {
-    /* border: solid 2px red; */
+    width: 200px;
+    height: 40px;
 }
