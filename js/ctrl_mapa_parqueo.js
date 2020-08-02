@@ -3,8 +3,12 @@
 //Si se quiere que los espacios del parqueo sean interactuables cuando se presionan debe existir una función actualizar_espacio_seleccionado(p_espacio_parqueo, nuevo_espacio) para ser conectada.
 
 const slt_piso_actual = document.querySelector('#slt-piso');
+const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
 
 let interactuable = false;
+
+let piso_actual = 1;
+let parqueo_actual;
 
 //Esta función se usa para llenar el mapa del parqueo con espacios interactivos.
 //<p_espacio_parqueo> referencia al espacio de un parqueo del que se va a obtener los datos.
@@ -68,14 +72,12 @@ const actualizar_espacios_mapa = (p_piso) => {
     //Se crea un ciclo para ejecutar la función de crear espacios X cantidad de veces.
 
     //Para que se muestren como máximo X cantidad de espacios.
-    let primer_espacio = ((hoja_actual_piso - 1) * max_espacios_por_piso) + 1;
-
     let cant_espacios = p_piso.cant_espacios;
 
     //Limpiar el mapa.
     contenedor_espacios_en_mapa.innerHTML = '';
 
-    for (let i = primer_espacio; i <= cant_espacios; i++) {
+    for (let i = 1; i <= cant_espacios; i++) {
         let identificador_espacio = ('espacio_' + i); //Clave del JSON.
         crear_espacio_parqueo(p_piso.espacios[identificador_espacio], true);
     };
@@ -90,9 +92,6 @@ const cambiar_piso = (i_piso_seleccionado) => {
     let cant_espacios = piso.cant_espacios;
 
     //Se define cuantas hojas tendrá este piso basado en la cantidad de espacios.
-    //cant_hoja_piso = Math.ceil(cant_espacios / max_espacios_por_piso);
-    hoja_actual_piso = 1;
-
     actualizar_espacios_mapa(piso);
 };
 
@@ -106,6 +105,7 @@ const piso_actual_cambiado = () => {
 //<p_parqueo> Parqueo del que se desea ver los datos.
 const inicializar_mapa = (p_parqueo, p_interactuable = false) => {
     //Por defecto se muestra el piso 1.
+    parqueo_actual = p_parqueo;
     piso_actual = 1;
     interactuable = p_interactuable;
 

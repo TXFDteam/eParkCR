@@ -42,7 +42,6 @@ const ventana_crear_comentario_slt_calificacion = document.querySelector('#slt-c
 const banner = document.querySelector('#sct-banner');
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
 const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
-const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
 const contenedor_comentarios = document.querySelector('#contenedor-comentarios');
 
 //Elementos para el form de la reserva.
@@ -56,15 +55,10 @@ const datos_requeridos = document.querySelectorAll('[required]');
 
 //#region Variables
 //Se define por fuera para ser usado en este script.
-let parqueo_actual;
+let parqueo_seleccionado;
 let info_espacio_seleccionado;
 let elemento_espacio_seleccionado;
 
-//Para el mapa de parqueo.
-let piso_actual = 1;
-let max_espacios_por_piso = 19;
-let cant_hoja_piso = 1;
-let hoja_actual_piso = 1;
 //#endregion
 
 //#region lógica para reservas
@@ -114,9 +108,9 @@ const obtener_parqueo_actual = () => {
 //Esta función se debe llamar al inicio para actualizar los datos de la página usando datos del parqueo seleccionado.
 //<p_parqueo> El parqueo del que se va a obtener los datos.
 const llenar_info_parqueo = (p_parqueo) => {
-    parqueo_actual = p_parqueo;
+    parqueo_seleccionado = p_parqueo;
 
-    if (parqueo_actual == '') {
+    if (parqueo_seleccionado == '') {
         return;
     }
 
@@ -131,7 +125,7 @@ const llenar_info_parqueo = (p_parqueo) => {
 
     //Para mostrar los datos en el mapa.
     //Esta función está en ctrl_mapa_parqueo.js
-    inicializar_mapa(parqueo_actual, true);
+    inicializar_mapa(parqueo_seleccionado, true);
 };
 
 const hay_espacios_vacios = () => {
@@ -258,7 +252,7 @@ const obtener_comentarios = () => {
         let comentario_actual = comentarios[identificador];
 
         //Muestra solo los comentarios que corresponden a este parqueo.
-        if (comentario_actual.id_parqueo == parqueo_actual.codigo) {
+        if (comentario_actual.id_parqueo == parqueo_seleccionado.codigo) {
             //Guardar una copia del comentario que dejó el usuario en este parqueo.
             if (comentario_actual.id_usuario == usuario_ingresado.id_usuario) {
                 console.log('Ya hay un comentario realizado por este usuario.');
@@ -303,7 +297,7 @@ const publicar_comentario = () => {
         //Si no existe lo crea.
         console.log('Creo nuevo comentario:');
         console.log('id_usuario: ' + usuario_ingresado.id_usuario);
-        console.log('id_parqueo: ' + parqueo_actual.codigo);
+        console.log('id_parqueo: ' + parqueo_seleccionado.codigo);
         console.log('cantidad_estrellas: ' + ventana_crear_comentario_slt_calificacion.value);
         console.log('fecha: ' + fecha_actual);
         console.log('mensaje: ' + ventana_crear_comentario_mensaje.value);
@@ -341,8 +335,8 @@ const obtener_usuario_ingresado = () => {
 
 //Mostrar info del parqueo.
 usuario_ingresado = obtener_usuario_ingresado();
-parqueo_actual = parqueos[obtener_parqueo_actual()];
-llenar_info_parqueo(parqueo_actual);
+parqueo_seleccionado = parqueos[obtener_parqueo_actual()];
+llenar_info_parqueo(parqueo_seleccionado);
 obtener_comentarios();
 
 //Eventos.
