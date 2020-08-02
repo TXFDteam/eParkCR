@@ -22,7 +22,14 @@ const plantilla_carta_comentario =
     '<p>[MENSAJE]</p>\n' +
     '</div>';
 
-//Quemado para pruebas.
+//Redes sociales.
+const clase_facebook = 'fa-facebook';
+const clase_twitter = 'fa-twitter';
+const clase_instagram = 'fa-instagram';
+
+const contenedor_redes_sociales = document.querySelector('#redes-sociales');
+
+//Usuario.
 let usuario_ingresado;
 let comentario_usuario_ingresado;
 
@@ -105,6 +112,36 @@ const obtener_parqueo_actual = () => {
     return '';
 };
 
+//Esta función se usa para crear un icono de red social basado en los parámetros recibidos.
+//<p_clase> La clase que corresponde al icono por mostrar.
+//<p_enlace> El enlace a esa red social.
+const crear_icono_red_social = (p_clase, p_enlace) => {
+    let nuevo_icono = document.createElement('a');
+
+    nuevo_icono.classList.add('fab');
+    nuevo_icono.classList.add(p_clase);
+    nuevo_icono.href = p_enlace;
+
+    contenedor_redes_sociales.appendChild(nuevo_icono);
+};
+
+//Funcion usada para llenar todo lo relacionado con redes sociales del parqueo seleccionado.
+const llenar_info_redes_sociales = () => {
+    let enlace_facebook = parqueo_seleccionado.enlaces_redes.facebook;
+    let enlace_twitter = parqueo_seleccionado.enlaces_redes.twitter;
+    let enlace_instagram = parqueo_seleccionado.enlaces_redes.instagram;
+
+    if (enlace_facebook != '') {
+        crear_icono_red_social(clase_facebook, enlace_facebook);
+    }
+    if (enlace_twitter != '') {
+        crear_icono_red_social(clase_twitter, enlace_twitter);
+    }
+    if (enlace_instagram != '') {
+        crear_icono_red_social(clase_instagram, enlace_instagram);
+    }
+};
+
 //Esta función se debe llamar al inicio para actualizar los datos de la página usando datos del parqueo seleccionado.
 //<p_parqueo> El parqueo del que se va a obtener los datos.
 const llenar_info_parqueo = (p_parqueo) => {
@@ -114,7 +151,6 @@ const llenar_info_parqueo = (p_parqueo) => {
         return;
     }
 
-
     let url = "url(" + "../../imgs/imgs_parqueos/" + p_parqueo.imagen_perfil + ")";
     banner.style.backgroundImage = url;
 
@@ -122,6 +158,8 @@ const llenar_info_parqueo = (p_parqueo) => {
     txt_comentarios_nombre_parqueo.textContent = p_parqueo.nombre;
 
     lbl_calificacion_promedio.textContent = 'Calificación promedio: ' + p_parqueo.calificacion_promedio;
+
+    llenar_info_redes_sociales();
 
     //Para mostrar los datos en el mapa.
     //Esta función está en ctrl_mapa_parqueo.js

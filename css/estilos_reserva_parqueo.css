@@ -9,6 +9,7 @@
 
 #sct-info-perfil {
     margin-top: 2%;
+    margin-bottom: 1%;
     display: flex;
     flex-direction: column;
 }
@@ -16,8 +17,26 @@
 #sct-info-perfil #contenedor-calificacion {
     align-self: flex-end;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-right: 1%;
+}
+
+#sct-info-perfil #redes-sociales {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 5%;
+}
+
+#sct-info-perfil #redes-sociales a {
+    font-size: 32px;
+    color: #e99f2f;
+    margin-left: 5%;
+}
+
+#sct-info-perfil #redes-sociales a:hover {
+    text-decoration: none;
+    color: #c8e232;
 }
 
 #sct-info-perfil h1 {

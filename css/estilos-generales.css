@@ -96,21 +96,35 @@ button:focus {
 }
 
 
-/*Este estilo general es para las tablas que cambian de color cada fila*/
+/* ------------ ESTILOS DE LAS TABLAS - REPORTES ------------ */
 
-.estilo-header {
-    background-color: #a4b0be;
+.tabla_reporte table {
+    border-collapse: collapse;
+    width: 1000px;
 }
 
-
-/*
-.estilo-tabla tr:nth-child(even) {
-    background-color: #dfe4ea;
+.tabla_reporte td {
+    padding: 10px;
+    text-align: center;
 }
 
-.estilo-tabla tr:nth-child(odd) {
-    background-color: #f1f2f6;
-}*/
+.tabla_reporte thead {
+    background-color: #f7835f;
+    padding: 20px, 0;
+    border-bottom: 2px solid black;
+}
+
+.tabla_reporte thead td {
+    padding: 20px 0;
+}
+
+.tabla_reporte tbody tr:nth-child(odd) {
+    background-color: #ffe694;
+}
+
+.tabla_reporte tbody tr:nth-child(even) {
+    background-color: #fffabb;
+}
 
 
 /*BOTON DE ACTIVACION DE USUARIOS*/
