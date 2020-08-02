@@ -13,7 +13,7 @@ inicio.addEventListener('click', function() {
 });*/
 
 convenios.addEventListener('click', function() {
-    convenios.href = '../../html/htmls-empresas/convenios-empresa.html';
+    //convenios.href = '../../html/htmls-empresas/convenios-empresa.html';
     //marcar_link(info_usuarios_admin);
 });
 
