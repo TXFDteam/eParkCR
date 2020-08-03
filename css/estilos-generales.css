@@ -165,6 +165,9 @@ button:focus {
     #btn-descargar {
         display: none;
     }
+    #btn_descargar {
+        display: none;
+    }
     .nav-principal {
         display: none;
     }

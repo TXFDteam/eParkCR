@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
     <link rel="stylesheet" href="../../css/reservas-usuario.css">
 </head>
 
@@ -35,42 +36,49 @@
             <section id="contenedor-principal">
 
                 <div id="contenedor-reservas" class="contenedor-reservas">
-                    <h2 id="no-hay-reservas">No hay reservas activas</h2>
+
                     <div class="primera-columna">
+
                         <h2>Reservas</h2>
                         <div>
-                            <h3>Parqueo</h3>
-                            <p id="espacio-parqueo"></p>
+                            <h3 id="no-hay-reservas">No hay reservas activas</h2>
                         </div>
-                        <div>
-                            <h3>Fecha</h3>
-                            <p id="espacio-fecha"></p>
-                        </div>
-                        <div>
-                            <h3>Hora de entrada</h3>
-                            <p id="espacio-hora-entrada"></p>
-                        </div>
-                        <div>
-                            <h3>Hora de salida</h3>
-                            <p id="espacio-hora-salida"></p>
-                        </div>
-                        <div>
+
+                        <div id="div-estado">
                             <h3>Estado</h3>
                             <p id="estado-reserva"></p>
                         </div>
+                        <div id="div-btn-cancelar">
+                            <button type="button" id="btn-cancelar-reservacion">Cancelar reservación</button>
+                        </div>
+                        <div id="div-btn-pagar">
+                            <button type="button" id="btn-pagar">Pagar</button>
+                        </div>
+                        <div id="div-btn-historial">
+                            <button type="button" id="btn-historial-reservas">Historial de reservas</button>
+                        </div>
+
+
                     </div>
 
                     <div class="segunda-columna">
+                        <div id="div-parqueo">
+                            <h3>Parqueo</h3>
+                            <p id="espacio-parqueo"></p>
+                        </div>
+                        <div id="div-fecha">
+                            <h3>Fecha</h3>
+                            <p id="espacio-fecha"></p>
+                        </div>
+                        <div id="div-hora-entrada">
+                            <h3>Hora de entrada</h3>
+                            <p id="espacio-hora-entrada"></p>
+                        </div>
+                        <div id="div-hora-salida">
+                            <h3>Hora de salida</h3>
+                            <p id="espacio-hora-salida"></p>
+                        </div>
 
-                        <div>
-                            <button type="button" id="btn-cancelar-reservacion">Cancelar reservación</button>
-                        </div>
-                        <div>
-                            <button type="button" id="btn-pagar">Pagar</button>
-                        </div>
-                        <div>
-                            <button type="button" id="btn-historial-reservas">Historial de reservas</button>
-                        </div>
                     </div>
 
                 </div>
@@ -78,6 +86,7 @@
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/control-sesiones.js"></script>
     <script src="../../js/js-usuario/ctrl-reservas-activas-usuario.js"></script>
