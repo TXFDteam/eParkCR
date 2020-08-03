@@ -62,8 +62,8 @@ tbody tr:nth-child(even) {
     }
     #bitacora_transaccional_admin {
         display: block;
-        width: 800px;
-        margin-right: 100px;
+        width: 1050px;
+        margin-right: 250px;
     }
     #btn_descargar {
         display: none;

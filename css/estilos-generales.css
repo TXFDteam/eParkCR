@@ -138,20 +138,39 @@ button:focus {
 
 .estilo-btn-activar-usuario {
     margin: 5px;
-    min-width: 100px;
+    min-width: 120px;
     margin-left: 20%;
 }
 
 .estilo-btn-activar-duenno {
     margin: 5px;
-    min-width: 100px;
+    min-width: 120px;
     margin-left: 12%;
 }
 
 .estilo-btn-activar-empresa {
     margin: 5px;
-    min-width: 100px;
+    min-width: 120px;
     margin-left: 27%;
+}
+
+@media print {
+    .info-reservas {
+        margin-right: 100px;
+    }
+    #tabla_reporte_ingresos {
+        width: 1050px;
+        margin-right: 190px;
+    }
+    #btn-descargar {
+        display: none;
+    }
+    .nav-principal {
+        display: none;
+    }
+    .menu-lateral {
+        display: none;
+    }
 }
 
 

@@ -1,6 +1,8 @@
 'use strict';
 
 const btn_prq_registro_crearPerfil = document.querySelector('#btn-prq-registro-crearPerfil');
+const btn_yaTenesCuenta = document.querySelector('#btn-prq-registro-yaTenesCuenta');
+
 const input_nombreSociedad = document.querySelector('#prq-registro-nombre');
 const input_nombreParqueo = document.querySelector('#prq-registro-nombreParqueo');
 const input_contrasena = document.querySelector('#prq-registro-contrasena');
@@ -8,6 +10,7 @@ const input_cedulaJuridica = document.querySelector('#prq-registro-jurídica');
 
 const input_cuenta = document.querySelector('#prq-registro-cuenta');
 const input_telefono = document.querySelector('#prq-registro-telefono');
+const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
 
 const input_correo = document.querySelector('#prq-registro-correo');
 const input_confirmarContrasena = document.querySelector('#prq-registro-confirmaContrasena');
@@ -16,8 +19,10 @@ const input_canton = document.getElementById("cantones");
 const input_distrito = document.getElementById("distritos");
 const input_coordenadas = document.getElementById("coordenadas");
 
-const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
 
+btn_yaTenesCuenta.addEventListener('click', function() {
+    window.location.assign('iniciar-sesion.html')
+});
 
 
 
@@ -49,7 +54,11 @@ const validar = () => {
     }
 
 
-    let telval = /[0-9]{4}[0-9]{4}/;
+
+
+
+
+    let telval = /[0-9]{4}-[0-9]{4}/;
     if (input_telefono.value.match(telval)) {
         input_telefono.classList.remove('error');
     } else {
@@ -84,7 +93,7 @@ const obtener_datos = () => {
     let error = validar();
     if (error == true) {
         Swal.fire({
-            'title': "No se ha podido registrar el usuario",
+            'title': "No se ha podido registrar",
             'icon': 'warning',
             'text': 'Revise los campos resaltados'
         });
@@ -92,9 +101,11 @@ const obtener_datos = () => {
     } else {
         // Impresion de los valores del formulario
         Swal.fire({
-            'title': 'El usuario se registro correctamente',
+            'title': 'Se registró correctamente',
             'icon': "success",
-            'text': 'Revise su correo electronico'
+            'text': 'Revise su información'
+        }).then(function() {
+            window.location = '../../html/htmls-parqueos/bienvenido_parqueo.html';
         });
 
 
@@ -126,9 +137,9 @@ const obtener_datos = () => {
         console.log('Correo: ', correo);
         console.log('Confirmar contrasena: ', confirmarContrasena);
         console.log('Provincia: ', provincia);
-        console.log('Canton: ', canton);
-        console.log('Distrito: ', distrito);
-        console.log('Direccion: ', direccion);
+        console.log('Canton: ', cantones);
+        console.log('Distrito: ', distritos);
+        console.log('Direccion: ', coordenadas);
 
 
     }

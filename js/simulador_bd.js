@@ -22,7 +22,7 @@ let duennos_parqueos = {
         fecha_nacimiento: '24/05/1990',
         cuenta_bancaria: '64242597623299142925',
         contraseña: '5823475',
-        estado_general: 'ACTIVO'
+        estado_general: 'DESACTIVAR'
     },
     duenno_parqueo2: {
         id_usuario: 'D2',
@@ -32,7 +32,7 @@ let duennos_parqueos = {
         fecha_nacimiento: '15/02/1956',
         cuenta_bancaria: '12590400132454751841',
         contraseña: '9719369',
-        estado_general: 'ACTIVO'
+        estado_general: 'DESACTIVAR'
     },
     duenno_parqueo3: {
         id_usuario: 'D3',
@@ -42,7 +42,7 @@ let duennos_parqueos = {
         fecha_nacimiento: '11/05/1949',
         cuenta_bancaria: '57487621933142413286',
         contraseña: '3067245',
-        estado_general: 'ACTIVO'
+        estado_general: 'DESACTIVAR'
     }
 }
 
@@ -665,7 +665,7 @@ let parqueos = {
         calificacion_promedio: 5,
         abierto: false,
         tarifa_hora: 800,
-        estado: 'ACTIVO',
+        estado: 'DESACTIVAR',
         cant_pisos: 1,
         hora_apertura: '07:00',
         hora_cierre: '22:00',
@@ -857,7 +857,7 @@ let parqueos = {
         calificacion_promedio: 4.7,
         abierto: true,
         tarifa_hora: 1500,
-        estado: 'ACTIVO',
+        estado: 'DESACTIVAR',
         cant_pisos: 2,
         hora_apertura: '09:00',
         hora_cierre: '22:00',
@@ -944,7 +944,7 @@ let parqueos = {
         calificacion_promedio: 3.85,
         abierto: true,
         tarifa_hora: 1000,
-        estado: 'ACTIVO',
+        estado: 'DESACTIVAR',
         cant_pisos: 1,
         hora_apertura: '07:00',
         hora_cierre: '22:00',
@@ -1017,7 +1017,7 @@ let usuarios = {
         n_identificacion: '11811',
         fecha_nacimiento: '27/01/2001',
         contraseña: '11111111',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: { //Este estado es el de la aplicación
             tarjeta_1: {
                 numero_tarjeta: '4444 4444 4444 4444',
@@ -1044,7 +1044,7 @@ let usuarios = {
         n_identificacion: '11812',
         fecha_nacimiento: '20/04/2001',
         contraseña: '111111117',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
             tarjeta_1: {
                 numero_tarjeta: '4444 4444 4444 4444',
@@ -1077,7 +1077,7 @@ let usuarios = {
         n_identificacion: '11814',
         fecha_nacimiento: '27/05/2000',
         contraseña: '111111111465',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1089,7 +1089,7 @@ let usuarios = {
         n_identificacion: '11815',
         fecha_nacimiento: '27/01/1995',
         contraseña: '1111111174',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1102,7 +1102,7 @@ let usuarios = {
         n_identificacion: '11816',
         fecha_nacimiento: '27/01/1997',
         contraseña: '1111111123',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1115,7 +1115,7 @@ let usuarios = {
         n_identificacion: '11817',
         fecha_nacimiento: '27/01/1980',
         contraseña: '111111187',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1128,7 +1128,7 @@ let usuarios = {
         n_identificacion: '11818',
         fecha_nacimiento: '27/08/1998',
         contraseña: '111111182',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1141,7 +1141,7 @@ let usuarios = {
         n_identificacion: '11819',
         fecha_nacimiento: '27/7/1990',
         contraseña: '111115555',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1154,7 +1154,7 @@ let usuarios = {
         n_identificacion: '11819',
         fecha_nacimiento: '10/01/1999',
         contraseña: '111111956',
-        estado_general: 'ACTIVO'
+        estado_general: 'DESACTIVAR'
     },
     usuario11: {
         id_usuario: '11',
@@ -1164,7 +1164,7 @@ let usuarios = {
         n_identificacion: '118110',
         fecha_nacimiento: '21/04/2001',
         contraseña: '111119644',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1177,7 +1177,7 @@ let usuarios = {
         n_identificacion: '118112',
         fecha_nacimiento: '22/04/1996',
         contraseña: '111111784',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1190,7 +1190,7 @@ let usuarios = {
         n_identificacion: '1181113',
         fecha_nacimiento: '04/8/1993',
         contraseña: '111111245',
-        estado_general: 'ACTIVO',
+        estado_general: 'DESACTIVAR',
         tarjetas: {
 
         }
@@ -1209,7 +1209,7 @@ let empresas = {
             nombre_empresa: 'Adidas',
             codigo_empresa: '100',
             contrasenna_empresa: 'adidas1',
-            estado: 'ACTIVO',
+            estado_empresa: 'DESACTIVAR',
             nombre_encargado: 'Diego Rivera',
             ubicacion: 'San José'
         },
@@ -1219,7 +1219,7 @@ let empresas = {
             nombre_empresa: 'Banco Nacional',
             codigo_empresa: '101',
             contrasenna_empresa: 'banconacional1',
-            estado: 'INACTIVO',
+            estado_empresa: 'ACTIVAR',
             nombre_encargado: 'Carlos Vargas',
             ubicacion: 'Alajuela'
         },
@@ -1229,7 +1229,7 @@ let empresas = {
             nombre_empresa: 'Banco popular',
             codigo_empresa: '102',
             contrasenna_empresa: 'bancopopular1',
-            estado: 'ACTIVO',
+            estado_empresa: 'DESACTIVAR',
             nombre_encargado: 'Antonio Gómez',
             ubicacion: 'Cartago'
         }
@@ -1254,31 +1254,31 @@ let convenios_empresa = {
                 id_empleado: usuarios.usuario1.id_usuario,
                 correo_usuario: usuarios.usuario1.correo_usuario,
                 nombre_empleado: usuarios.usuario1.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             },
             empleado2: {
                 id_empleado: usuarios.usuario2.id_usuario,
                 correo_usuario: usuarios.usuario2.correo_usuario,
                 nombre_empleado: usuarios.usuario2.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             },
             empleado3: {
                 id_empleado: usuarios.usuario3.id_usuario,
                 correo_usuario: usuarios.usuario3.correo_usuario,
                 nombre_empleado: usuarios.usuario3.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             },
             empleado4: {
                 id_empleado: usuarios.usuario4.id_usuario,
                 correo_usuario: usuarios.usuario4.correo_usuario,
                 nombre_empleado: usuarios.usuario4.nombre_usuario,
-                estado: 'INACTIVO'
+                estado: 'ACTIVAR'
             },
             empleado5: {
                 id_empleado: usuarios.usuario5.id_usuario,
                 correo_usuario: usuarios.usuario5.correo_usuario,
                 nombre_empleado: usuarios.usuario5.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             }
         }
     },
@@ -1295,31 +1295,31 @@ let convenios_empresa = {
                 id_empleado: usuarios.usuario6.id_usuario,
                 correo_usuario: usuarios.usuario6.correo_usuario,
                 nombre_empleado: usuarios.usuario6.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             },
             empleado2: {
                 id_empleado: usuarios.usuario7.id_usuario,
                 correo_usuario: usuarios.usuario7.correo_usuario,
                 nombre_empleado: usuarios.usuario7.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             },
             empleado3: {
                 id_empleado: usuarios.usuario8.id_usuario,
                 correo_usuario: usuarios.usuario8.correo_usuario,
                 nombre_empleado: usuarios.usuario8.nombre_usuario,
-                estado: 'INACTIVO'
+                estado: 'ACTIVAR'
             },
             empleado4: {
                 id_empleado: usuarios.usuario9.id_usuario,
                 correo_usuario: usuarios.usuario9.correo_usuario,
                 nombre_empleado: usuarios.usuario9.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             },
             empleado5: {
                 id_empleado: usuarios.usuario10.id_usuario,
                 correo_usuario: usuarios.usuario10.correo_usuario,
                 nombre_empleado: usuarios.usuario10.nombre_usuario,
-                estado: 'INACTIVO'
+                estado: 'ACTIVAR'
             }
         },
     },
@@ -1335,19 +1335,19 @@ let convenios_empresa = {
                 id_empleado: usuarios.usuario11.id_usuario,
                 correo_usuario: usuarios.usuario11.correo_usuario,
                 nombre_empleado: usuarios.usuario11.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             },
             empleado2: {
                 id_empleado: usuarios.usuario12.id_usuario,
                 correo_usuario: usuarios.usuario12.correo_usuario,
                 nombre_empleado: usuarios.usuario12.nombre_usuario,
-                estado: 'INACTIVO'
+                estado: 'ACTIVAR'
             },
             empleado3: {
                 id_empleado: usuarios.usuario13.id_usuario,
                 correo_usuario: usuarios.usuario13.correo_usuario,
                 nombre_empleado: usuarios.usuario13.nombre_usuario,
-                estado: 'ACTIVO'
+                estado: 'DESACTIVAR'
             },
 
         }

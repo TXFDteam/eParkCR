@@ -19,7 +19,11 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
 
     '</div>';
 
+let correo_actual = localStorage.getItem('correo');
+let contrasenna_actual = localStorage.getItem('contrasenna');
+console.log(correo_actual);
 
+console.log(contrasenna_actual);
 
 const nombre_parqueo = (p_nombre_convenio) => {
     console.log('El convenio es: ' + p_nombre_convenio);
@@ -64,9 +68,22 @@ const crear_cuadro_convenio = (p_convenio) => {
 let mostrar_convenios = () => {
     tabla_convenios.innerHTML = '';
     for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
-        let identificador_convenio = ('convenio' + i);
-        console.log(identificador_convenio);
-        crear_cuadro_convenio(convenios_empresa[identificador_convenio]);
+        let identificador_empresa = ('empresa_' + i);
+
+        if (empresas.lista_empresas[identificador_empresa].correo_empresa == correo_actual && empresas.lista_empresas[identificador_empresa].contrasenna_empresa == contrasenna_actual) {
+
+            for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
+                let identificador_convenio = ('convenio' + i);
+                if (empresas.lista_empresas[identificador_empresa].nombre_empresa == convenios_empresa[identificador_convenio].empresa) {
+
+                    let identificador_convenio = ('convenio' + i);
+                    console.log(identificador_convenio);
+                    crear_cuadro_convenio(convenios_empresa[identificador_convenio]);
+                    break;
+                }
+            }
+        }
+
     }
 };
 mostrar_convenios();

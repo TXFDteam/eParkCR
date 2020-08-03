@@ -35,8 +35,8 @@
     }
     .tabla-info #tabla-reservas {
         display: block;
-        width: 900px;
-        margin-right: 100px;
+        width: 1050px;
+        margin-right: 190px;
     }
     #btn-descargar {
         display: none;
