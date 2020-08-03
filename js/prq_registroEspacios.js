@@ -51,7 +51,26 @@ const validar = () => {
         }
     }
 
+    if (document.getElementById('provincias').value == 'Seleccione una opción') {
+        error = true;
+        input_provincia.classList.add('error');
+    } else {
+        input_provincia.classList.remove('error');
+    }
 
+    if (document.getElementById('cantones').value == 'Seleccione una opción') {
+        error = true;
+        input_canton.classList.add('error');
+    } else {
+        input_canton.classList.remove('error');
+    }
+
+    if (document.getElementById('distritos').value == 'Seleccione una opción') {
+        error = true;
+        input_distrito.classList.add('error');
+    } else {
+        input_distrito.classList.remove('error');
+    }
 
 
     var len = document.querySelectorAll('input[type="radio"]:checked').length
