@@ -118,6 +118,33 @@ const validar_espacios = () => {
 
 }
 
+
+//Funcion para evaluar que los numeros de tarjeta y CVV esten completos
+const validar_numeros = () => {
+    let inp_extension_tarjeta = inp_numero_tarjeta;
+    let inp_extension_codigo = inp_cod_seguridad;
+    let error = true;
+
+
+    if (inp_extension_tarjeta.value.length < 19) {
+        inp_extension_tarjeta.classList.add('error');
+    } else {
+        error = false;
+        inp_extension_tarjeta.classList.remove('error');
+
+        if (inp_extension_codigo.value.length < 3) {
+            inp_extension_codigo.classList.add('error');
+            error = true;
+        } else {
+            error = false;
+            inp_extension_codigo.classList.remove('error');
+        };
+    };
+
+    return error;
+};
+
+
 //Mensaje de error
 const mensaje_error = () => {
     Swal.fire({
@@ -131,13 +158,21 @@ const mensaje_error = () => {
 const obtener_datos = () => {
 
     let error_espacios = validar_espacios();
+    let error_numeros = validar_numeros();
 
     if (error_espacios) {
         console.log('Error al llenar formulario');
         mensaje_error();
     } else {
-        console.log('Formulario llenado correctamente');
-        enviar_datos()
+
+        if (error_numeros) {
+            console.log('Error en los datos ingresados');
+            mensaje_error();
+        } else {
+
+            console.log('Formulario llenado correctamente');
+            enviar_datos()
+        };
 
     };
 };

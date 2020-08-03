@@ -33,7 +33,7 @@ const obtener_usuario_ingresado = () => {
 
 
 //const id_usuario = obtener_usuario_ingresado();
-const id_usuario_actual = usuarios.usuario1.id_usuario;
+const id_usuario_actual = obtener_usuario_ingresado();
 
 
 

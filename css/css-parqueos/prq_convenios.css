@@ -76,6 +76,7 @@
     .btn-editar-convenio {
         display: flex;
         flex-direction: row-reverse;
+        margin-top: 40px;
     }
     /*Tablas*/
     /*

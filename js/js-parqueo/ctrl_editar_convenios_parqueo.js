@@ -3,7 +3,7 @@
 const btn_volver_convenios = document.querySelector('#btn-volver-convenios');
 
 const volver_convenios = () => {
-    window.location.assign('../../html/htmls-parqueos/prq_convenios.html');
+    window.location.assign('../../html/htmls-parqueos/prq_convenios_asociados.html');
 };
 
 

@@ -10,7 +10,7 @@ const link_btn_regresar = document.querySelector('#btn_regresar');
 
 //Enlace de regreso al Historial de reservas
 link_btn_regresar.addEventListener('click', () => {
-    window.location.assign('historial_reservas_cliente.html');
+    window.location.assign('cl_pagar_pendientes.html');
 });
 
 
