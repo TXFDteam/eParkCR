@@ -10,6 +10,11 @@ btn_volver_perfil_cliente.addEventListener('click', volver_perfil_cliente);
 
 
 
+//Validacion datos cliente
+
+
+
+
 const nuevo_nombre_cliente = document.querySelector('#nuevo-nombre-cliente');
 const btn_guardar_cambios_cliente = document.querySelector('#btn-guardar-cambios-cliente');
 
@@ -20,7 +25,7 @@ const guardar_cambios_cliente = () => {
 
     Swal.fire(
         'Perfil actualizado',
-        'Por favor espera unos minutos para que los cambios se reflejen en el sistema',
+        'Si ha dejado algún espacio en blanco no requerido, la información se mantendrá como estaba previamente',
         'success'
     )
 };

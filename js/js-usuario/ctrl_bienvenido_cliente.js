@@ -1,15 +1,12 @@
 'use strict';
 
-const btn_buscarParqueos = document.querySelector('#btn_buscarParqueos');
+const btn_buscarParqueos = document.querySelector('#btn-buscarParqueos');
 
 const txt_titulo = document.querySelector('#txt-titulo-bienvenida');
 
-let usuario_ingresado;
+let nombre_usuario_actual;
 
-const actualizar_datos = () => {
-    txt_titulo.textContent = 'Bienvenido ' + usuario_ingresado.nombre_usuario;
-    btn_principal.textContent = 'Buscar parqueos';
-};
+
 
 
 const obtener_usuario_ingresado = () => {
@@ -21,20 +18,18 @@ const obtener_usuario_ingresado = () => {
         let usuario_actual = usuarios[identificador_usuario];
 
         if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
-            return usuario_actual;
+            nombre_usuario_actual = usuarios[identificador_usuario].nombre_usuario;
+
+            txt_titulo.textContent = 'Bienvenido ' + nombre_usuario_actual;
+            break;
         }
 
     }
-    usuario_ingresado = '';
 };
 
+obtener_usuario_ingresado();
 
 
-const redireccionar_bienvenido_cliente = () => {
+btn_buscarParqueos.addEventListener('click', function() {
     window.location.assign('../../html/htmls-usuarios/buscar_parqueos.html');
-};
-
-usuario_ingresado = obtener_usuario_ingresado();
-actualizar_datos();
-
-btn_buscarParqueos.addEventListener('click', redireccionar_bienvenido_cliente);
+});
