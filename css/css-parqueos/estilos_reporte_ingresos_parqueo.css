@@ -1,0 +1,42 @@
+#principal_ingresos_parqueo {
+    padding-left: 18%;
+    padding-top: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#principal_ingresos_parqueo h1 {
+    margin: 40px;
+}
+
+#tabla_reporte_ingresos_parqueo {
+    width: 1000px;
+}
+
+#principal_ingresos_parqueo button {
+    margin-top: 50px;
+}
+
+
+/*SI SE LE DA CLICK AL BOTÓN DE DESCARGAR*/
+
+@media print {
+    .info-reservas {
+        margin-right: 100px;
+    }
+    #tabla_reporte_ingresos {
+        width: 1000px;
+        margin-right: 100px;
+    }
+    #btn-descargar {
+        display: none;
+    }
+    .nav-principal {
+        display: none;
+    }
+    .menu-lateral {
+        display: none;
+    }
+}
