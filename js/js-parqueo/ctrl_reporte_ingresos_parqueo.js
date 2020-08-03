@@ -80,11 +80,9 @@ const listar_reporte = () => {
 
     tabla_reporte_ingresos_header.appendChild(head);
 
-    //AQUÍ CREA LOS DATOS DE LA TABLA
 
-    //Para efectos de la presentacion: tomar valores del parqueo 1
-    // for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-    let identificador_num_parqueo = 'parqueo_1' //('parqueo_' + i); valor tomado por defecto: parqueo_1
+    //Calculo de datos para la tabla
+    let identificador_num_parqueo = 'parqueo_1';
     let ingresos_totales = 0;
     let porcentaje_comision = administrador.comision / 100;
     let total_comision = 0;
@@ -109,7 +107,7 @@ const listar_reporte = () => {
     ganancias_del_parqueo = ingresos_totales - total_comision;
 
 
-    listar_datos_tabla(parqueos[identificador_num_parqueo], cantidad_reservas, horas_promedio, ingresos_totales, total_comision, ganancias_del_parqueo);
+    listar_datos_tabla(parqueos[identificador_num_parqueo], cantidad_reservas, horas_promedio.toFixed(2), ingresos_totales, total_comision, ganancias_del_parqueo);
     // }
 };
 

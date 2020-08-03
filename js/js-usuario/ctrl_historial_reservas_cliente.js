@@ -71,11 +71,11 @@ const listar_historial_reservas = () => {
 
 
             if (reservas[identificador_reserva].estado_reserva == 'Paga') {
-                fila.insertCell().innerHTML = reservas[identificador_reserva].monto_final;
+                fila.insertCell().innerHTML = ('₡' + reservas[identificador_reserva].monto_final);
                 fila.insertCell().innerHTML = 'Cancelado' + boton_recibo;
 
             } else {
-                fila.insertCell().innerHTML = reservas[identificador_reserva].monto_total;
+                fila.insertCell().innerHTML = ('₡' + reservas[identificador_reserva].monto_total);
                 fila.insertCell().innerHTML = reservas[identificador_reserva].estado_reserva;
             }
 
