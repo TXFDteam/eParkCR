@@ -35,6 +35,9 @@
     .info-perfil #editar-perfil {
         width: 100%;
         text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
     .info-perfil #editar-perfil div {
