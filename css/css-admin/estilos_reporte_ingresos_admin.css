@@ -15,32 +15,6 @@
     width: 1000px;
 }
 
-
-/* table {
-    border-collapse: collapse;
-    width: 1000px;
-}
-
-#tabla_reporte_ingresos td {
-    width: 10%;
-    padding: 10px;
-    text-align: center;
-}
-
-#tabla_reporte_ingresos thead {
-    background-color: #a4b0be;
-    padding: 20px, 0;
-    border-bottom: 2px solid black;
-}
-
-#tabla_reporte_ingresos tbody tr:nth-child(even) {
-    background-color: #f1f2f6;
-}
-
-#tabla_reporte_ingresos tbody tr:nth-child(odd) {
-    background-color: #ced6e0;
-} */
-
 #pagina_principal_reporte_ingresos button {
     margin-top: 50px;
 }
