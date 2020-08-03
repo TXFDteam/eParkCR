@@ -668,7 +668,7 @@ let parqueos = {
         estado: 'ACTIVO',
         cant_pisos: 1,
         hora_apertura: '07:00',
-        hora_cierre: '20:00',
+        hora_cierre: '22:00',
         pisos: {
             piso_1: {
                 cant_espacios: 33,
@@ -860,7 +860,7 @@ let parqueos = {
         estado: 'ACTIVO',
         cant_pisos: 2,
         hora_apertura: '09:00',
-        hora_cierre: '20:00',
+        hora_cierre: '22:00',
         pisos: {
             piso_1: {
                 cant_espacios: 7,
