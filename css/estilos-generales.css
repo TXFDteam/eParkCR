@@ -138,19 +138,19 @@ button:focus {
 
 .estilo-btn-activar-usuario {
     margin: 5px;
-    min-width: 100px;
+    min-width: 120px;
     margin-left: 20%;
 }
 
 .estilo-btn-activar-duenno {
     margin: 5px;
-    min-width: 100px;
+    min-width: 120px;
     margin-left: 12%;
 }
 
 .estilo-btn-activar-empresa {
     margin: 5px;
-    min-width: 100px;
+    min-width: 120px;
     margin-left: 27%;
 }
 
