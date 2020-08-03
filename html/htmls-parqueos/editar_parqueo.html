@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar convenios </title>
+    <title>Editar parqueo </title>
 
 
 
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
     <link rel="stylesheet" href="../../css/estilos-generales.css">
-    <link rel="stylesheet" href="../../css/css-parqueos/editar_convenios_parqueo.css">
+    <link rel="stylesheet" href="../../css/css-parqueos/editar_parqueo.css">
 
 
 </head>
@@ -52,7 +52,7 @@
 
 
                 <div class="perfil-superior">
-                    <h1>Edita tus convenios</h1>
+                    <h1>Edita tus parqueos</h1>
 
 
                 </div>
@@ -60,11 +60,11 @@
                 <div class="info-perfil">
 
 
-                    <form id="editar-convenio">
+                    <form id="editar-parqueo">
                         <div>
-                            <label for="seleccionar-convenio">Selecciona el convenio a editar:</label>
+                            <label for="seleccionar-parqueo">Selecciona el parqueo a editar:</label>
 
-                            <select name="arreglo-convenios" id="arreglo-convenios">
+                            <select name="arreglo-parqueos" id="arreglo-parqueos">
                                 <option value = "">Seleccione</option>
                                 
                         </select>
@@ -73,10 +73,36 @@
 
                         <div>
 
-                            <label for="nuevo-porcentaje-convenio">Porcentaje del convenio:</label>
+                            <label for="nueva-tarifa-parqueo">Tarifa del parqueo:</label>
 
-                            <input type="number" id="nuevo-porcentaje-convenio" name="nuevo-porcentaje-convenio"><span>%</span>
+                            <span>₡</span> <input type="number" id="nueva-tarifa-parqueo">
                         </div>
+
+                        <div>
+
+                            <label for="nueva-hora-apertura">Hora de apertura:</label>
+
+                            <input type="time" id="nueva-hora-apertura">
+                        </div>
+
+                        <div>
+
+                            <label for="nueva-hora-salida">Hora de salida:</label>
+
+                            <input type="time" id="nueva-hora-salida">
+                        </div>
+
+                        <div>
+                            <label for="nueva-foto-banner-parqueo">Imagen para el banner:</label>
+                            <input type="file" id="nueva-foto-banner-parqueo" accept="image/png, image/jpeg">
+                        </div>
+
+                        <div>
+                            <label for="nueva-foto-perfil-parqueo">Imagen de perfil:</label>
+                            <input type="file" id="nueva-foto-perfil-parqueo" accept="image/png, image/jpeg">
+                        </div>
+
+
 
 
                     </form>
@@ -88,11 +114,11 @@
                 <div class="botones">
 
                     <div>
-                        <button id="btn-volver-convenios">Regresar a convenios</button>
+                        <button id="btn-volver-parqueos">Regresar a parqueos</button>
                     </div>
 
                     <div>
-                        <button id="btn-guardar-datos-convenio">Guardar cambios</button>
+                        <button id="btn-guardar-datos-parqueo">Guardar cambios</button>
                     </div>
                 </div>
             </div>
@@ -102,7 +128,7 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-    <script src="../../js/js-parqueo/ctrl_editar_convenios_parqueo.js"></script>
+    <script src="../../js/js-parqueo/ctrl_editar_parqueos.js"></script>
 
 
 </body>
