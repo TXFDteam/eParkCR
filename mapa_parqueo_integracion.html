@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <!--Estilos obligados para dar formato al mapa del parqueo-->
     <link rel="stylesheet" href="css/estilos_mapa_parqueo.css">
     <link rel="stylesheet" href="css/espacio_parqueo.css">
 </head>
 
 <body>
+    <!--Este div es obligado incluirlo usando el mismo formato para la jeraruquía-->
     <div id="contenedor-mapa">
         <div id="mapa-parqueo">
             <label for="">Estás viendo:</label>
@@ -27,8 +29,11 @@
     <script src="js/simulador_bd.js"></script>
     <script src="js/ctrl_mapa_parqueo.js"></script>
 
+    <!--Este es el script que está asociado al html-->
     <script>
         'use strict';
+        //Se llama la función inicializar_mapa() que se encuentra en ctrl_mapa_parqueo.js
+        //Recibe como parámetro el parqueo del que obtendrá los datos para generar el mapa.
         inicializar_mapa(parqueos['parqueo_1']);
     </script>
 </body>
