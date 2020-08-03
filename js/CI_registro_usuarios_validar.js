@@ -59,6 +59,12 @@ const validar = () => {
         input_correo.classList.add('error');
     }
 
+    if (input_contrasena.value.match(input_confirmarContrasena.value)) {
+        input_correo.classList.remove('error');
+    } else {
+        error = true;
+        input_confirmarContrasena.classList.add('error');
+    }
 
     var nacimiento = new Date(input_fechaNacimiento.value);
     var edad = calcular_edad(nacimiento);
