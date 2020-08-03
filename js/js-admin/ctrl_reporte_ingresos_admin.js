@@ -22,12 +22,15 @@ btn_descargar.addEventListener('click', function() {
 
 
 
-const listar_datos_tabla = (parq) => {
+const listar_datos_tabla = (parq, pingresos, pcomision, pganancias) => {
     let fila = tabla_reporte_ingresos_body.insertRow();
 
     fila.insertCell().innerHTML = parq.codigo;
     fila.insertCell().innerHTML = parq.nombre;
-    fila.insertCell().innerHTML = parq.hora_entrada;
+    fila.insertCell().innerHTML = pingresos;
+    fila.insertCell().innerHTML = pcomision;
+    fila.insertCell().innerHTML = pganancias;
+
     /*
         if (reservas[identificador_reserva].estado_reserva == 'Paga') {
             fila.insertCell().innerHTML = reservas[identificador_reserva].monto_final;
@@ -55,7 +58,14 @@ const listar_reporte = () => {
     //AQUÍ CREA LOS DATOS DE LA TABLA
     for (let i = 1; i <= parqueos.cant_parqueos; i++) {
         let identificador_parqueo = ('parqueo_' + i);
-        listar_datos_tabla(parqueos[identificador_parqueo]);
+        let ingresos_totales;
+        let comision;
+        let ganancias;
+
+
+
+
+        listar_datos_tabla(parqueos[identificador_parqueo, ]);
     }
 };
 

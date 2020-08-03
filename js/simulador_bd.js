@@ -7,7 +7,7 @@ let administrador = {
     nombre: 'admin_principal',
     correo_admin: 'admin@admin.com',
     contrasenna_admin: 'admin.admin1',
-    comision: '8%',
+    comision: 8,
     telefono: '2594-1245'
 }
 
@@ -668,7 +668,7 @@ let parqueos = {
         estado: 'ACTIVO',
         cant_pisos: 1,
         hora_apertura: '07:00',
-        hora_cierre: '20:00',
+        hora_cierre: '22:00',
         pisos: {
             piso_1: {
                 cant_espacios: 33,
@@ -860,7 +860,7 @@ let parqueos = {
         estado: 'ACTIVO',
         cant_pisos: 2,
         hora_apertura: '09:00',
-        hora_cierre: '20:00',
+        hora_cierre: '22:00',
         pisos: {
             piso_1: {
                 cant_espacios: 7,
@@ -1375,6 +1375,7 @@ let reservas = {
     reserva1: {
         id_usuario: usuarios.usuario1.id_usuario,
         nombre_usuario: usuarios.usuario1.nombre_usuario,
+        id_parqueo: parqueos.parqueo_1.codigo,
         parqueo_seleccionado: parqueos.parqueo_1.nombre,
         fecha_reserva: '29/07/2020',
         hora_entrada: '8:00',
@@ -1390,6 +1391,7 @@ let reservas = {
     reserva2: {
         id_usuario: usuarios.usuario2.id_usuario,
         nombre_usuario: usuarios.usuario2.nombre_usuario,
+        id_parqueo: parqueos.parqueo_1.codigo,
         parqueo_seleccionado: parqueos.parqueo_1.nombre,
         fecha_reserva: '29/07/2020',
         hora_entrada: '21:00',
@@ -1405,6 +1407,7 @@ let reservas = {
     reserva3: {
         id_usuario: usuarios.usuario3.id_usuario,
         nombre_usuario: usuarios.usuario3.nombre_usuario,
+        id_parqueo: parqueos.parqueo_2.codigo,
         parqueo_seleccionado: parqueos.parqueo_2.nombre,
         fecha_reserva: '30/07/2020',
         hora_entrada: '12:00',
@@ -1420,6 +1423,7 @@ let reservas = {
     reserva4: {
         id_usuario: usuarios.usuario4.id_usuario,
         nombre_usuario: usuarios.usuario4.nombre_usuario,
+        id_parqueo: parqueos.parqueo_3.codigo,
         parqueo_seleccionado: parqueos.parqueo_3.nombre,
         fecha_reserva: '31/07/2020',
         hora_entrada: '10:00',
@@ -1435,6 +1439,7 @@ let reservas = {
     reserva5: {
         id_usuario: usuarios.usuario5.id_usuario,
         nombre_usuario: usuarios.usuario5.nombre_usuario,
+        id_parqueo: parqueos.parqueo_1.codigo,
         parqueo_seleccionado: parqueos.parqueo_1.nombre,
         fecha_reserva: '1/08/2020',
         hora_entrada: '13:00',
@@ -1450,6 +1455,7 @@ let reservas = {
     reserva6: {
         id_usuario: usuarios.usuario6.id_usuario,
         nombre_usuario: usuarios.usuario6.nombre_usuario,
+        id_parqueo: parqueos.parqueo_2.codigo,
         parqueo_seleccionado: parqueos.parqueo_2.nombre,
         fecha_reserva: '5/08/2020',
         hora_entrada: '6:00',
@@ -1465,6 +1471,7 @@ let reservas = {
     reserva7: {
         id_usuario: usuarios.usuario1.id_usuario,
         nombre_usuario: usuarios.usuario7.nombre_usuario,
+        id_parqueo: parqueos.parqueo_3.codigo,
         parqueo_seleccionado: parqueos.parqueo_3.nombre,
         fecha_reserva: '30/08/2020',
         hora_entrada: '9:00',
@@ -1480,6 +1487,7 @@ let reservas = {
     reserva8: {
         id_usuario: usuarios.usuario8.id_usuario,
         nombre_usuario: usuarios.usuario8.nombre_usuario,
+        id_parqueo: parqueos.parqueo_3.codigo,
         parqueo_seleccionado: parqueos.parqueo_3.nombre,
         fecha_reserva: '15/08/2020',
         hora_entrada: '14:00',

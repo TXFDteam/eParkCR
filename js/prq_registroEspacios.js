@@ -21,9 +21,6 @@ const input_facebook = document.querySelector('#facebook');
 
 const input_instagram = document.querySelector('#instagram');
 
-
-
-
 const input_provincia = document.getElementById("provincias");
 const input_canton = document.getElementById("cantones");
 const input_distrito = document.getElementById("distritos");
