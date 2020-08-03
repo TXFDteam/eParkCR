@@ -21,46 +21,51 @@
 
 #col1 {
     /* border: solid 2px blue; */
+    margin-right: 20px;
 }
 
 #col2 {
     /* border: solid 2px orange; */
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #col3 {
     /* border: solid 2px red; */
+    margin-left: 20px;
 }
 
 input {
-    margin: 4px 10px 10px 5%;
-    width: 300px;
+    margin: 4px 10px 10px 0;
+    width: 100%;
+    height: 40px;
 }
 
 label {
-    margin: 10px 10px 10px 5%;
+    margin: 10px 10px 10px 0;
     /* border: solid 2px blue; */
 }
 
 legend {
-    margin: 10px 10px 10px 5%;
+    margin: 10px 10px 10px 0;
 }
 
 h2 {
-    margin: 10px 10px 10px 5%;
+    margin: 10px 10px 10px 0;
 }
 
 input[type=radio] {
-    margin: 0 0 0 5%;
+    margin: 0 0 0 0;
     width: auto;
 }
 
 #myFile {
-    margin: 4px 0 10px 5%;
+    margin: 4px 0 10px 0;
 }
 
 #pisosDropdown {
     width: 300px;
-    margin: 4px 10px 10px 5%;
+    margin: 4px 10px 10px 0;
 }
 
 input[type=file] {
@@ -70,7 +75,7 @@ input[type=file] {
 #labelMyFileContainer {
     /* border: solid 2px blue; */
     display: flex;
-    margin: 4px 0 10px 5%;
+    margin: 4px 0 10px 0;
 }
 
 #btnMyFile {
@@ -98,13 +103,35 @@ input[type=file] {
     margin: 0 0 0 0;
 }
 
+#si {
+    height: 20px;
+    width: 20px;
+    margin-bottom: 10px;
+}
+
+#no {
+    height: 20px;
+    width: 20px;
+}
+
 .adjuntarClaseBoton {
     /* border: solid 2px blue; */
-    margin: 0 0 0 5%;
+    margin: 0 0 0 0;
 }
 
 #no {
     margin-bottom: 20px;
+}
+
+#permisoFuncionamientoLabel {
+    /* border: solid 2px brown; */
+    width: 100%;
+}
+
+#pisosDropdown {
+    margin: 4px 10px 10px 0;
+    width: 100%;
+    height: 40px;
 }
 
 #rowBotones {
@@ -128,7 +155,7 @@ input[type=file] {
 }
 
 h3 {
-    margin: 6px 10px 4px 5%;
+    margin: 6px 10px 4px 0;
 }
 
 .error {
@@ -156,31 +183,48 @@ h3 {
 
 .data-container {
     justify-content: center;
-    margin-left: 5%;
+    margin-left: 0;
     /* border: solid 2px red; */
     display: block;
+    width: 100%;
 }
 
 .form-val {
     float: left;
+    width: 100%;
 }
 
 .form-val select {
-    width: 200px;
+    width: 100%;
     /* border: solid 2px red; */
     margin-top: 6px;
 }
 
+#provincias {
+    width: 100%;
+    height: 40px;
+}
+
+#cantones {
+    width: 100%;
+    height: 40px;
+}
+
+#distritos {
+    width: 100%;
+    height: 40px;
+}
+
 #coordenadas {
-    width: 200px;
+    width: 100%;
     /* border: solid 2px yellow; */
     margin-left: 0;
 }
 
 .map-container {
-    width: 90%;
+    width: 100%;
     /* border: solid 2px blue; */
-    margin: 2% 0 0 5%;
+    margin: 2% 0 0 0;
 }
 
 #map {

@@ -20,37 +20,35 @@
 
 #col1 {
     /* border: solid 2px blue; */
+    margin-right: 40px;
 }
 
 #col2 {
     /* border: solid 2px orange; */
+    margin-left: 40px;
 }
 
 input {
-    margin: 4px 10px 10px 25%;
-    width: 300px;
+    margin: 4px 10px 10px 0;
+    width: 100%;
+    height: 40px;
 }
 
 label {
-    margin: 10px 10px 10px 25%;
+    margin: 10px 10px 10px 0;
     /* border: solid 2px blue; */
 }
 
 legend {
-    margin: 10px 10px 10px 25%;
+    margin: 10px 10px 10px 0;
 }
 
 h2 {
-    margin: 10px 10px 10px 25%;
-}
-
-input[type=radio] {
-    margin: 0 0 0 25%;
-    width: auto;
+    margin: 10px 0 10px 0;
 }
 
 #myFile {
-    margin: 4px 0 10px 25%;
+    margin: 4px 0 10px 0;
 }
 
 input[type=file] {
@@ -60,7 +58,7 @@ input[type=file] {
 #labelMyFileContainer {
     /* border: solid 2px blue; */
     display: flex;
-    margin: 4px 0 10px 25%;
+    margin: 4px 0 10px 0;
 }
 
 #btnMyFile {
@@ -80,30 +78,46 @@ input[type=file] {
     border: none;
 }
 
-#label_si {
+input[type=radio] {
     margin: 0 0 0 0;
+}
+
+#label_si {
+    margin: auto;
+    /* border: solid 2px red; */
 }
 
 #label_no {
     margin: 0 0 0 0;
 }
 
-#titulo_adjuntar {
-    /* border: solid 2px blue; */
-    margin: 16px 0 10px 25%;
+#si {
+    height: 20px;
+    width: 20px;
+    margin-bottom: 10px;
 }
 
-#prq-registro-no {
-    margin-bottom: 20px;
+#no {
+    height: 20px;
+    width: 20px;
+}
+
+#permisoFuncionamientoLabel {
+    /* border: solid 2px brown; */
+    width: 100%;
+}
+
+#titulo_adjuntar {
+    /* border: solid 2px blue; */
+    margin: 16px 0 10px 0;
 }
 
 #prq-registro-botones {
     /* border: solid 2px purple; */
     text-align: center;
-    margin-top: 20px;
     float: left;
     width: 100%;
-    margin: 16px 0 10px 0;
+    margin: 60px 0 40px 0;
 }
 
 #btn-prq-registro-crearPerfil {
@@ -118,7 +132,7 @@ input[type=file] {
 }
 
 h3 {
-    margin: 6px 10px 0 25%;
+    margin: 6px 0 0 0;
 }
 
 .error {
@@ -146,35 +160,53 @@ h3 {
 
 .data-container {
     justify-content: center;
-    margin-left: 25%;
+    margin-left: 0;
     /* border: solid 2px red; */
     display: block;
+    width: 100%;
 }
 
 .form-val {
     float: left;
+    width: 100%;
+    /* border: solid 2px pink; */
 }
 
 .form-val select {
-    width: 200px;
+    width: 100%;
     /* border: solid 2px red; */
     margin-top: 6px;
 }
 
+#provincias {
+    width: 100%;
+    height: 40px;
+}
+
+#cantones {
+    width: 100%;
+    height: 40px;
+}
+
+#distritos {
+    width: 100%;
+    height: 40px;
+}
+
 #coordenadas {
-    width: 200px;
+    width: 100%;
     /* border: solid 2px yellow; */
     margin-left: 0;
 }
 
 .map-container {
-    width: 80%;
+    width: 100%;
     /* border: solid 2px blue; */
-    margin: 2% 0 0 10%;
+    margin: 2% 0 0 0;
 }
 
 #map {
     min-width: 300px;
     width: 100%;
-    height: 200px;
+    height: 400px;
 }
