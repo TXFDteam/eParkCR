@@ -18,11 +18,9 @@ let solicitud_seleccionada = localStorage.getItem('solicitud_seleccionada');
 
 let fila;
 
-let parqueo_actual;
-let piso_actual = 1;
-let hoja_actual_piso;
-let max_espacios_por_piso;
-const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
+
+
+//const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
 
 const listar_info_solicitud = (sol) => {
 

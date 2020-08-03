@@ -7,15 +7,9 @@ const input_nombreEmpresa = document.querySelector('#emp_registro_nombre');
 const input_nombreEncargado = document.querySelector('#emp_registro_nombreEncargado');
 const input_contrasena = document.querySelector('#emp_registro_contrasena');
 const input_cedulaJuridica = document.querySelector('#emp_registro_juridica');
-
 const input_imagen = document.getElementById('myFile');
-
-const input_correo = document.querySelector('#emp_registro_correo');
+const input_correo = document.querySelector('#cuentaComercial_correo');
 const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
-
-
-
-
 const input_provincia = document.getElementById("provincias");
 const input_canton = document.getElementById("cantones");
 const input_distrito = document.getElementById("distritos");
@@ -25,23 +19,12 @@ btn_yaTenesCuenta.addEventListener('click', function() {
     window.location.assign('iniciar-sesion.html')
 });
 
-const validarEmail = (email) => {
-    let error = false;
-    if (!(/@+/.test(email))) {
-        error = true;
-    }
-
-    return error;
-}
 
 const validar = () => {
     let error;
     let campos_requeridos = document.querySelectorAll('[required]');
 
     let tamanno = campos_requeridos.length;
-
-
-
 
     for (let i = 0; i < tamanno; i++) {
         // Verifica si el campo de texto está en blanco
@@ -53,12 +36,41 @@ const validar = () => {
         }
     }
 
+    let emailval = /^[^@]*@[^@]*$/;
+    if (input_correo.value.match(emailval)) {
+        input_correo.classList.remove('error');
+    } else {
+        error = true;
+        input_correo.classList.add('error');
+    }
+
 
     if (input_contrasena.value.match(input_confirmarContrasena.value)) {
         input_correo.classList.remove('error');
     } else {
         error = true;
         input_confirmarContrasena.classList.add('error');
+    }
+
+    if (document.getElementById('provincias').value == 'Seleccione una opción') {
+        error = true;
+        input_provincia.classList.add('error');
+    } else {
+        input_provincia.classList.remove('error');
+    }
+
+    if (document.getElementById('cantones').value == 'Seleccione una opción') {
+        error = true;
+        input_canton.classList.add('error');
+    } else {
+        input_canton.classList.remove('error');
+    }
+
+    if (document.getElementById('distritos').value == 'Seleccione una opción') {
+        error = true;
+        input_distrito.classList.add('error');
+    } else {
+        input_distrito.classList.remove('error');
     }
 
 
@@ -68,26 +80,20 @@ const validar = () => {
 };
 
 const obtener_datos = () => {
-
-    if (!(/@+/.test(input_correo.value))) {
-        input_correo.classList.add('error');
-    } else {
-        input_correo.classList.remove('error');
-    }
     let error = validar();
     if (error == true) {
         Swal.fire({
-            'title': "No se ha podido registrar el usuario",
+            'title': "No te has podido registrar",
             'icon': 'warning',
-            'text': 'Revise los campos resaltados'
+            'text': 'Revisá los campos resaltados'
         });
 
     } else {
         // Impresion de los valores del formulario
         Swal.fire({
-            'title': 'El usuario se registro correctamente',
+            'title': 'Te registraste correctamente',
             'icon': "success",
-            'text': 'Revise su información'
+            'text': 'Revisá tu información'
         }).then(function() {
             window.location = '../../index.html';
         });
@@ -96,7 +102,6 @@ const obtener_datos = () => {
         let nombreEmpresa = input_nombreEmpresa.value;
         let nombreEncargado = input_nombreEncargado.value;
         let contrasena = input_contrasena.value;
-
         let imagen = input_imagen.value;
         let cedulaJuridica = input_cedulaJuridica.value;
         let correo = input_correo.value;

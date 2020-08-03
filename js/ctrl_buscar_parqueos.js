@@ -61,6 +61,23 @@ const abrir_perfil_parqueo = (p_nombre_parqueo) => {
     window.location.assign("reservas_perfil_parqueo.html");
 }
 
+const parqueo_abierto = (p_parqueo) => {
+    let fecha_actual = new Date();
+    let s_hora_actual = fecha_actual.getHours();
+    let s_minutos_actuales = fecha_actual.getMinutes();
+
+    let s_hora_actual_completa = s_hora_actual + '.' + s_minutos_actuales;
+    let f_hora_actual = parseFloat(s_hora_actual_completa);
+
+    let f_hora_apertura = parseFloat(p_parqueo.hora_apertura.replace(':', '.'));
+    let f_hora_cierre = parseFloat(p_parqueo.hora_cierre.replace(':', '.'));
+    //Verificar que la hora actual esté dentro del horario de apertura del parqueo.
+    if (f_hora_actual >= f_hora_apertura && f_hora_actual <= f_hora_cierre) {
+        return true;
+    }
+    return false;
+}
+
 const parqueo_cumple_con_filtros = (p_parqueo) => {
     let filtros_usados = 0;
     let filtros_cumplidos = 0;
@@ -124,8 +141,10 @@ const crear_carta_parqueo = (p_parqueo) => {
     contenedor_superior.classList.add('contenedor-superior');
 
     let nueva_plantilla_cont_superior = PLANTILLA_CONTENIDO_CONT_SUPERIOR;
+
+    //Estado del parqueo (Abierto, cerrado).
     let estado_parqueo;
-    if (p_parqueo.abierto) {
+    if (parqueo_abierto(p_parqueo)) {
         estado_parqueo = 'Abierto';
         nueva_plantilla_cont_superior = nueva_plantilla_cont_superior.replace('[CLASE_ESTADO_PARQUEO]', 'parqueo-abierto');
     } else {

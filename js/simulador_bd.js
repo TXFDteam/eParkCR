@@ -312,7 +312,7 @@ let solicitudes_parqueos = {
         ubicacion_parqueo: 'San José',
         estado_parqueo: 'Revisión',
         cant_pisos: 1,
-        cant_espacios: 33,
+        cant_espacios: 19,
         pisos: {
             piso_1: {
                 cant_espacios: 33,
@@ -489,6 +489,92 @@ let solicitudes_parqueos = {
 
 
     sol_parqueo2: {
+        parqueo: {
+            codigo: '11232',
+            nombre: 'Parqueo López López',
+            imagen_preview: 'Lopez_Lopez_preview.jpg',
+            imagen_perfil: 'Lopez_Lopez_perfil.jpg',
+            duenno_parqueo: duennos_parqueos.duenno_parqueo2.nombre,
+            email: 'contacto@parqueolopezlopez.com',
+            cedula_juridica: '12ji2jdjsid21ijo',
+            permiso_funcionamiento: '1282932niu91',
+            enlaces_redes: { facebook: '', twitter: '', instagram: 'https://www.instagram.com/?hl=es' },
+            ubicacion: 'Heredia',
+            calificacion_promedio: 4.7,
+            abierto: true,
+            tarifa_hora: 1500,
+            estado: 'DESACTIVAR',
+            cant_pisos: 2,
+            hora_apertura: '09:00',
+            hora_cierre: '22:00',
+            pisos: {
+                piso_1: {
+                    cant_espacios: 7,
+                    espacios: {
+                        espacio_1: {
+                            id: 'C1',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_2: {
+                            id: 'C2',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_3: {
+                            id: 'D3',
+                            tipo_icono: 2,
+                            ocupado: false
+                        },
+                        espacio_4: {
+                            id: 'M1',
+                            tipo_icono: 1,
+                            ocupado: false
+                        },
+                        espacio_5: {
+                            id: 'M2',
+                            tipo_icono: 1,
+                            ocupado: true
+                        },
+                        espacio_6: {
+                            id: 'D1',
+                            tipo_icono: 2,
+                            ocupado: false
+                        },
+                        espacio_7: {
+                            id: 'D2',
+                            tipo_icono: 2,
+                            ocupado: true
+                        }
+                    }
+                },
+                piso_2: {
+                    cant_espacios: 4,
+                    espacios: {
+                        espacio_1: {
+                            id: 'C4',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_2: {
+                            id: 'M5',
+                            tipo_icono: 1,
+                            ocupado: false
+                        },
+                        espacio_3: {
+                            id: 'D6',
+                            tipo_icono: 2,
+                            ocupado: true
+                        },
+                        espacio_4: {
+                            id: 'D7',
+                            tipo_icono: 2,
+                            ocupado: false
+                        }
+                    }
+                }
+            }
+        },
         nombre_parqueo: 'Parqueo la lima',
         duenno_parqueo: 'Jose Fernández López',
         email_parqueo: 'contacto@parqueolalima.com',
@@ -569,6 +655,77 @@ let solicitudes_parqueos = {
     },
 
     sol_parqueo3: {
+        parqueo: {
+            codigo: '111921',
+            nombre: 'Parqueo el Covid',
+            imagen_preview: 'El_covid_preview.jpg',
+            imagen_perfil: 'El_covid_perfil.jpg',
+            duenno_parqueo: duennos_parqueos.duenno_parqueo3.nombre,
+            email: 'contacto@parqueoelcovid.com',
+            cedula_juridica: '12ji2ojd11212122jo',
+            permiso_funcionamiento: 'AAbshaSkawiu91',
+            enlaces_redes: { facebook: 'https://es-la.facebook.com/', twitter: 'https://twitter.com/?lang=es', instagram: 'https://www.instagram.com/?hl=es' },
+            ubicacion: 'San José',
+            calificacion_promedio: 3.85,
+            abierto: true,
+            tarifa_hora: 1000,
+            estado: 'DESACTIVAR',
+            cant_pisos: 1,
+            hora_apertura: '07:00',
+            hora_cierre: '22:00',
+            pisos: {
+                piso_1: {
+                    cant_espacios: 9,
+                    espacios: {
+                        espacio_1: {
+                            id: 'C1',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_2: {
+                            id: 'C2',
+                            tipo_icono: 0,
+                            ocupado: true
+                        },
+                        espacio_3: {
+                            id: 'C3',
+                            tipo_icono: 0,
+                            ocupado: false
+                        },
+                        espacio_4: {
+                            id: 'M1',
+                            tipo_icono: 1,
+                            ocupado: false
+                        },
+                        espacio_5: {
+                            id: 'M2',
+                            tipo_icono: 1,
+                            ocupado: true
+                        },
+                        espacio_6: {
+                            id: 'D1',
+                            tipo_icono: 2,
+                            ocupado: false
+                        },
+                        espacio_7: {
+                            id: 'D2',
+                            tipo_icono: 2,
+                            ocupado: true
+                        },
+                        espacio_8: {
+                            id: 'D3',
+                            tipo_icono: 2,
+                            ocupado: true
+                        },
+                        espacio_9: {
+                            id: 'D4',
+                            tipo_icono: 2,
+                            ocupado: true
+                        }
+                    }
+                }
+            }
+        },
         nombre_parqueo: 'Parqueo cr7',
         duenno_parqueo: 'Benito Martinez Balvin',
         email_parqueo: 'contacto@parqueocr7.com',
@@ -632,7 +789,8 @@ let solicitudes_parqueos = {
             }
         }
     }
-};
+
+}
 
 
 
@@ -667,8 +825,8 @@ let parqueos = {
         tarifa_hora: 800,
         estado: 'DESACTIVAR',
         cant_pisos: 1,
-        hora_apertura: '07:00',
-        hora_cierre: '22:00',
+        hora_apertura: '07:20',
+        hora_cierre: '23:30',
         pisos: {
             piso_1: {
                 cant_espacios: 33,
@@ -860,7 +1018,7 @@ let parqueos = {
         estado: 'DESACTIVAR',
         cant_pisos: 2,
         hora_apertura: '09:00',
-        hora_cierre: '22:00',
+        hora_cierre: '20:00',
         pisos: {
             piso_1: {
                 cant_espacios: 7,
@@ -946,8 +1104,8 @@ let parqueos = {
         tarifa_hora: 1000,
         estado: 'DESACTIVAR',
         cant_pisos: 1,
-        hora_apertura: '07:00',
-        hora_cierre: '22:00',
+        hora_apertura: '06:00',
+        hora_cierre: '21:45',
         pisos: {
             piso_1: {
                 cant_espacios: 9,
@@ -1421,7 +1579,7 @@ let reservas = {
         tarjeta_creditada: usuarios.usuario3.tarjetas.tarjeta_1
     },
     reserva4: {
-        id_usuario: usuarios.usuario1.id_usuario,
+        id_usuario: usuarios.usuario4.id_usuario,
         nombre_usuario: usuarios.usuario4.nombre_usuario,
         id_parqueo: parqueos.parqueo_3.codigo,
         parqueo_seleccionado: parqueos.parqueo_3.nombre,
@@ -1437,7 +1595,7 @@ let reservas = {
         tarjeta_creditada: usuarios.usuario4.tarjetas.tarjeta_1
     },
     reserva5: {
-        id_usuario: usuarios.usuario1.id_usuario,
+        id_usuario: usuarios.usuario5.id_usuario,
         nombre_usuario: usuarios.usuario1.nombre_usuario,
         id_parqueo: parqueos.parqueo_1.codigo,
         parqueo_seleccionado: parqueos.parqueo_1.nombre,
@@ -1469,7 +1627,7 @@ let reservas = {
         tarjeta_creditada: ''
     },
     reserva7: {
-        id_usuario: usuarios.usuario1.id_usuario,
+        id_usuario: usuarios.usuario7.id_usuario,
         nombre_usuario: usuarios.usuario1.nombre_usuario,
         id_parqueo: parqueos.parqueo_3.codigo,
         parqueo_seleccionado: parqueos.parqueo_3.nombre,

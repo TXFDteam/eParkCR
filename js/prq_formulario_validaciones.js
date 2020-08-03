@@ -53,7 +53,26 @@ const validar = () => {
         input_correo.classList.add('error');
     }
 
+    if (document.getElementById('provincias').value == 'Seleccione una opción') {
+        error = true;
+        input_provincia.classList.add('error');
+    } else {
+        input_provincia.classList.remove('error');
+    }
 
+    if (document.getElementById('cantones').value == 'Seleccione una opción') {
+        error = true;
+        input_canton.classList.add('error');
+    } else {
+        input_canton.classList.remove('error');
+    }
+
+    if (document.getElementById('distritos').value == 'Seleccione una opción') {
+        error = true;
+        input_distrito.classList.add('error');
+    } else {
+        input_distrito.classList.remove('error');
+    }
 
 
 
@@ -105,7 +124,7 @@ const obtener_datos = () => {
             'icon': "success",
             'text': 'Revise su información'
         }).then(function() {
-            window.location = '../../html/htmls-parqueos/bienvenido_parqueo.html';
+            window.location = '../../index.html';
         });
 
 
