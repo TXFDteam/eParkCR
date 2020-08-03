@@ -1,5 +1,17 @@
 'use strict';
 
+
+
+const btn_editar_parqueo = document.querySelector('#btn-editar-parqueo');
+
+const editar_parqueos = () => {
+    window.location.assign('../../html/htmls-parqueos/editar_parqueo.html');
+};
+
+
+
+btn_editar_parqueo.addEventListener('click', editar_parqueos);
+
 const tabla_parqueos = document.querySelector('#cuadros-parqueos');
 
 const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
