@@ -101,8 +101,8 @@ button:focus {
 
 .tabla_reporte table {
     border-collapse: collapse;
-    width: 1000px;
     margin-top: 4%;
+    min-width: 1050px;
 }
 
 .tabla_reporte td {
@@ -136,8 +136,22 @@ button:focus {
 
 /*BOTON DE ACTIVACION DE USUARIOS*/
 
-.estilo-btn-activar {
+.estilo-btn-activar-usuario {
     margin: 5px;
+    min-width: 100px;
+    margin-left: 20%;
+}
+
+.estilo-btn-activar-duenno {
+    margin: 5px;
+    min-width: 100px;
+    margin-left: 12%;
+}
+
+.estilo-btn-activar-empresa {
+    margin: 5px;
+    min-width: 100px;
+    margin-left: 27%;
 }
 
 

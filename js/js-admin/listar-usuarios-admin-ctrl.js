@@ -48,7 +48,7 @@ const listar_usuarios = (usuario) => {
     });
     console.log(btn_activar.id);
 
-    btn_activar.classList.add('estilo-btn-activar');
+    btn_activar.classList.add('estilo-btn-activar-usuario');
 
     //fila.insertCell().innerHTML = btn_activar;
 
@@ -115,7 +115,7 @@ const listar_parqueos = (parqueo) => {
     console.log(btn_activar.id);
 
 
-    btn_activar.classList.add('estilo-btn-activar');
+    btn_activar.classList.add('estilo-btn-activar-duenno');
 
     //fila.insertCell().innerHTML = btn_activar;
 
@@ -181,7 +181,7 @@ const listar_empresas = (emp) => {
     console.log(btn_activar.id);
 
 
-    btn_activar.classList.add('estilo-btn-activar');
+    btn_activar.classList.add('estilo-btn-activar-empresa');
 
     //fila.insertCell().innerHTML = btn_activar;
 

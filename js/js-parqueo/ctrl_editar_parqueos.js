@@ -15,14 +15,14 @@ btn_volver_parqueos.addEventListener('click', volver_parqueos);
 //datos editar parqueo
 
 const btn_guardar_datos_parqueo = document.querySelector('#btn-guardar-datos-parqueo');
+const input_hora_apertura = document.querySelector('#nueva-hora-apertura');
+const input_hora_salida = document.querySelector('#nueva-hora-salida');
 
 const guardar_datos_parqueo = () => {
 
-    const input_hora_apertura = document.querySelector('#nueva-hora-apertura');
-    const input_hora_salida = document.querySelector('#nueva-hora-salida');
 
-    let hora_apertura = new Date(input_hora_apertura.value);
-    let hora_salida = new Date(input_hora_salida.value);
+    let hora_apertura = Number(input_hora_apertura[0] + input_hora_apertura[1]);
+    let hora_salida = Number(input_hora_salida[0] + input_hora_salida[1]);
     let error = false;
 
 
@@ -49,4 +49,4 @@ const guardar_datos_parqueo = () => {
 };
 
 
-btn_guardar_datos_parqueo.addEventListener('click', guardar_datos_parqueo)
+btn_guardar_datos_parqueo.addEventListener('click', guardar_datos_parqueo);

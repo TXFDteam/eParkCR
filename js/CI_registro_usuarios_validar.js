@@ -137,6 +137,8 @@ const obtener_datos = () => {
             'title': 'El usuario se registro correctamente',
             'icon': "success",
             'text': 'Revise su información'
+        }).then(function() {
+            window.location = '../../html/htmls-usuarios/bienvenido_cliente.html';
         });
 
         let nombre = input_nombre.value;
