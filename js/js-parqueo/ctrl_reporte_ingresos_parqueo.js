@@ -9,6 +9,8 @@ const btn_descargar = document.querySelector('#btn-descargar');
 let array_reservas;
 let head;
 let fila;
+let contrasenna = localStorage.getItem('contrasenna');
+let correo = localStorage.getItem('correo');
 
 
 
@@ -23,30 +25,12 @@ btn_descargar.addEventListener('click', function() {
 
 
 
-//#region /* --------------------- Identificador de usuario actual -------------------- */
-const obtener_usuario_ingresado = () => {
-    let contrasenna = localStorage.getItem('contrasenna');
-    let correo = localStorage.getItem('correo');
-
-    for (let i = 1; i < usuarios.cant_usuarios; i++) {
-        let identificador_usuario = ('usuario' + i);
-        let usuario_actual = usuarios[identificador_usuario];
-
-        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
-            return usuario_actual;
-        }
-
-    }
-    usuario_ingresado = '';
-};
-//#endregion
-const id_usuario = obtener_usuario_ingresado();
-
-
 
 
 /* ------------------------ Funcion imprimir en html ------------------------ */
 const listar_datos_tabla = (parq, pcantidad_reservas, phoras_promedio, pingresos, pcomision, pganancias) => {
+
+
     let fila = tabla_reporte_ingresos_body.insertRow();
 
     fila.insertCell().innerHTML = parq.nombre;
@@ -56,16 +40,12 @@ const listar_datos_tabla = (parq, pcantidad_reservas, phoras_promedio, pingresos
     fila.insertCell().innerHTML = '₡' + pcomision;
     fila.insertCell().innerHTML = '₡' + pganancias;
 
-
-
-
     tabla_reporte_ingresos_body.appendChild(fila);
 };
 
 
 
-
-
+/* -------------- Funcion para obtener los datos para la tabla -------------- */
 
 const listar_reporte = () => {
     tabla_reporte_ingresos_header.innerHTML = '';
@@ -79,6 +59,35 @@ const listar_reporte = () => {
     head.insertCell().innerHTML = 'Balance total';
 
     tabla_reporte_ingresos_header.appendChild(head);
+
+
+
+
+
+    for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
+        let identificador_duenno = ('duenno_parqueo' + d);
+
+        if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
+
+
+            /*  for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+                 let identificador_parqueo = ('parqueo_' + i);
+                 if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
+                     crear_cuadro_parqueo(parqueos[identificador_parqueo]);
+                     break;
+                 }
+             } */
+
+
+
+
+
+        }
+    }
+
+
+
+
 
 
     //Calculo de datos para la tabla
@@ -108,7 +117,7 @@ const listar_reporte = () => {
 
 
     listar_datos_tabla(parqueos[identificador_num_parqueo], cantidad_reservas, horas_promedio.toFixed(2), ingresos_totales, total_comision, ganancias_del_parqueo);
-    // }
+
 };
 
 
