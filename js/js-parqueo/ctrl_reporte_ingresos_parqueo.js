@@ -64,34 +64,30 @@ const listar_reporte = () => {
 
 
 
-    for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
+    /* for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
         let identificador_duenno = ('duenno_parqueo' + d);
 
         if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
 
 
-            /*  for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-                 let identificador_parqueo = ('parqueo_' + i);
-                 if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
-                     crear_cuadro_parqueo(parqueos[identificador_parqueo]);
-                     break;
-                 }
-             } */
+            for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+                let identificador_parqueo = ('parqueo_' + i);
+                if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
+                    crear_cuadro_parqueo(parqueos[identificador_parqueo]);
+                    break;
+                }
+            }
 
 
 
 
 
         }
-    }
-
-
-
-
+    } */
 
 
     //Calculo de datos para la tabla
-    let identificador_num_parqueo = 'parqueo_1';
+    let identificador_num_parqueo = 'parqueo_1'; //Default: datos de parqueo 1 solamente
     let ingresos_totales = 0;
     let porcentaje_comision = administrador.comision / 100;
     let total_comision = 0;
