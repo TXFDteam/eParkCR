@@ -7,15 +7,9 @@ const input_nombreEmpresa = document.querySelector('#emp_registro_nombre');
 const input_nombreEncargado = document.querySelector('#emp_registro_nombreEncargado');
 const input_contrasena = document.querySelector('#emp_registro_contrasena');
 const input_cedulaJuridica = document.querySelector('#emp_registro_juridica');
-
 const input_imagen = document.getElementById('myFile');
-
-const input_correo = document.querySelector('#emp_registro_correo');
+const input_correo = document.querySelector('#cuentaComercial_correo');
 const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
-
-
-
-
 const input_provincia = document.getElementById("provincias");
 const input_canton = document.getElementById("cantones");
 const input_distrito = document.getElementById("distritos");
@@ -31,9 +25,6 @@ const validar = () => {
     let campos_requeridos = document.querySelectorAll('[required]');
 
     let tamanno = campos_requeridos.length;
-
-
-
 
     for (let i = 0; i < tamanno; i++) {
         // Verifica si el campo de texto está en blanco
@@ -59,6 +50,13 @@ const validar = () => {
     } else {
         error = true;
         input_confirmarContrasena.classList.add('error');
+    }
+
+    if (document.getElementById('provincias').value == 'Seleccione una opción') {
+        error = true;
+        input_provincia.classList.add('error');
+    } else {
+        input_provincia.classList.remove('error');
     }
 
 
