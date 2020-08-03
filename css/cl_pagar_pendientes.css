@@ -33,6 +33,10 @@
     height: 300px;
 }
 
+.izquierda div {
+    margin-bottom: 50px;
+}
+
 #menu_moneda {
     display: flex;
     flex-direction: column;
