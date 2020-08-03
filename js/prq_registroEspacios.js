@@ -100,6 +100,8 @@ const obtener_datos = () => {
             'title': 'El usuario se registro correctamente',
             'icon': "success",
             'text': 'Revise su información'
+        }).then(function() {
+            window.location = 'bienvenido_parqueo.html';
         });
 
 

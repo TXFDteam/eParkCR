@@ -21,18 +21,18 @@
 
 #col1 {
     /* border: solid 2px blue; */
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 #col2 {
     /* border: solid 2px orange; */
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 #col3 {
     /* border: solid 2px red; */
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 input {
