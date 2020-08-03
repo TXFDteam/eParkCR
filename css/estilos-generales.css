@@ -65,7 +65,7 @@ button {
     border: none;
     background-color: #E1566F;
     color: #ffffff;
-    border-radius: 4%;
+    border-radius: 5px;
     height: 50px;
     transition-duration: 0.1s;
     min-width: 200px;
@@ -102,6 +102,7 @@ button:focus {
 .tabla_reporte table {
     border-collapse: collapse;
     width: 1000px;
+    margin-top: 4%;
 }
 
 .tabla_reporte td {
@@ -125,6 +126,10 @@ button:focus {
 
 .tabla_reporte tbody tr:nth-child(even) {
     background-color: #fffabb;
+}
+
+.tabla_reporte input {
+    padding: 10px;
 }
 
 

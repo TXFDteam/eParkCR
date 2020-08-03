@@ -29,51 +29,55 @@
             <p id='CI-registro-usuarios-p'>Llená tus datos para registrarte</p>
         </div>
 
-        <div class='CI-registro-usuarios-container'>
-            <div id='CI-registro-form-box1' class='CI-registro-column'>
+        <form class="myForm">
+
+            <div class='CI-registro-usuarios-container'>
+                <div id='CI-registro-form-box1' class='CI-registro-column'>
 
 
-                <label for='CI-registro-nombre'>Nombre completo</label><br>
-                <input type='text' id='CI-registro-nombre' required><br>
+                    <label for='CI-registro-nombre'>Nombre completo</label><br>
+                    <input type='text' id='CI-registro-nombre' required><br>
 
 
-                <!-- for='CI-registro-tipoID' -->
-                <label>Tipo de identificación</label><br>
-                <select id='CI-registro-tipoID' required>
+                    <!-- for='CI-registro-tipoID' -->
+                    <label>Tipo de identificación</label><br>
+                    <select id='CI-registro-tipoID' required>
                     <option value="1" name='ID'>Cédula de identidad</option>
                     <option value="2" name='ID'>Cédula de residencia</option>
                     <option value="3" name='ID'>Pasaporte</option>
                 </select><br>
 
-                <label for='CI-registro-ID'>Identificación</label><br>
-                <input type='text' id='CI-registro-ID' required><br>
+                    <label for='CI-registro-ID'>Identificación</label><br>
+                    <input type='text' id='CI-registro-ID' required><br>
 
-                <label for='CI-registro-fecha'>Fecha de nacimiento</label><br>
-                <input type='date' id='CI-registro-fecha' required><br>
+                    <label for='CI-registro-fecha'>Fecha de nacimiento</label><br>
+                    <input type='date' id='CI-registro-fecha' required><br>
 
-            </div>
+                </div>
 
-            <div id='CI-registro-form-box2' class='CI-registro-column'>
+                <div id='CI-registro-form-box2' class='CI-registro-column'>
 
-                <label for='CI-registro-correo'>Correo electrónico</label><br>
-                <input type='email' id='CI-registro-correo' required><br>
+                    <label for='Cl-registro-correo'>Correo electrónico</label><br>
+                    <input type='email' id='CI-registro-correo' pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Invalid email address" required><br>
 
-                <label for='CI-registro-contrasena'>Contraseña</label><br>
-                <input type='password' id='CI-registro-contrasena' required>
+                    <label for='CI-registro-contrasena'>Contraseña</label><br>
+                    <input type='password' id='CI-registro-contrasena' required>
 
-                <div>
-                    <label for='CI-registro-confirmarcontra' id="CI-registro-confirmarcontra-label">Confirmar contraseña</label><br>
-                    <input type='password' id='CI-registro-confirmarcontra' required><br>
+                    <div>
+                        <label for='CI-registro-confirmarcontra' id="CI-registro-confirmarcontra-label">Confirmar contraseña</label><br>
+                        <input type='password' id='CI-registro-confirmarcontra' required><br>
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
+            <div id='CI-registro-form-box3'>
+                <button type="button" id='btn-crearUsuario' class="btn">Crear usuario</button>
+                <button type="button" id='btn-yaTenesCuenta' class="btn">Ya tenés cuenta?</button>
+            </div>
 
-        <div id='CI-registro-form-box3'>
-            <button type="button" id='btn-crearUsuario' class="btn">Crear usuario</button>
-            <button type="button" id='btn-yaTenesCuenta' class="btn">Ya tenés cuenta?</button>
-        </div>
+        </form>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

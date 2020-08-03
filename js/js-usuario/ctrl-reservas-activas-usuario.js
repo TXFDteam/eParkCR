@@ -22,6 +22,10 @@ console.log(contrasenna_actual);
 btn_pagar.addEventListener('click', function() {
     window.location.assign("cl_pagar_pendientes.html");
 });
+btn_pagar.addEventListener('click', function() {
+    window.location.assign("cl_pagar_pendientes.html");
+});
+
 
 
 for (let u = 1; u <= usuarios.cant_usuarios; u++) {
