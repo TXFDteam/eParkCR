@@ -11,6 +11,16 @@ const btn_descargar = document.querySelector('#btn_descargar');
 let boton_recibo = '<br><a class=\"link_ver_recibo\" href=\"../htmls-usuarios/recibo_pago_clientes.html\"> (Ver recibo)</a>';
 
 
+
+/* ----------------- Opcion descargar reporte para imprimir ----------------- */
+btn_descargar.addEventListener('click', function() {
+    let printContent = document.querySelector('#tablahistorial');
+
+    window.print(printContent);
+
+});
+
+
 /* --------------------- Identificador de usuario actual -------------------- */
 //Para probar el JS se preestablece usuario1: const id_usuario = usuarios.usuario1;
 
@@ -26,7 +36,7 @@ const obtener_usuario_ingresado = () => {
             return usuario_actual;
         }
     }
-    usuario_ingresado = '';
+
 };
 
 
@@ -38,15 +48,18 @@ const id_usuario_actual = obtener_usuario_ingresado();
 
 
 const listar_historial_reservas = () => {
-    console.log('check1');
+
 
 
     for (let i = 1; i <= reservas.cant_reservas; i++) {
         let identificador_reserva = ('reserva' + i);
+        /*     console.log('check 2 ' + identificador_reserva);
+               console.log('check 3 ' + reservas[identificador_reserva].id_usuario);
+               console.log('check 4 ' + id_usuario_actual.id_usuario); */
 
 
 
-        if (reservas[identificador_reserva].id_usuario == id_usuario_actual) {
+        if (reservas[identificador_reserva].id_usuario == id_usuario_actual.id_usuario) {
 
             let fila = tabla_hist_reserv_body.insertRow();
 

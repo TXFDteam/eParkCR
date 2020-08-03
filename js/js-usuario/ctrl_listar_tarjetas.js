@@ -13,13 +13,7 @@ btn_agregar_tarjeta.addEventListener('click', function() {
 
 
 /* --------------------- Identificador de usuario actual -------------------- */
-//Para probar el JS se preestablece usuario1
-
-
-const id_usuario = usuarios.usuario1;
-/* obtener_usuario_ingresado();
-
-    const obtener_usuario_ingresado = () => {
+const obtener_usuario_ingresado = () => {
     let contrasenna = localStorage.getItem('contrasenna');
     let correo = localStorage.getItem('correo');
 
@@ -33,8 +27,11 @@ const id_usuario = usuarios.usuario1;
 
     }
     usuario_ingresado = '';
-}; */
+};
 
+
+
+const id_usuario = obtener_usuario_ingresado();
 
 
 /* ---------------------- Plantilla de tarjetas ---------------------- */
@@ -48,7 +45,7 @@ const plantilla_tarjeta = '<div class=\"detalle_tarjeta\"> \n' +
     '</div> \n' +
 
     '<div class=\"detalle_tarjeta\"> \n' +
-    '<button type=\"button\"> \n' +
+    '<button type=\"button\" class=\"boton_eliminar\" > \n' +
     '<i class=\"fas fa-times\"> \n' +
     '</i> \n' +
     '</button> \n' +

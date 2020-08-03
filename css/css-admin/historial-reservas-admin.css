@@ -38,20 +38,6 @@
         width: 900px;
         margin-right: 100px;
     }
-    /*
-    .tabla-info #tabla-reservas td {
-        padding: 10px;
-    }
-    .tabla-info #tabla-reservas thead {
-        background-color: #a4b0be;
-    }
-    .tabla-info #tabla-reservas tbody tr:nth-child(even) {
-        background-color: #f1f2f6;
-    }
-    .tabla-info #tabla-reservas tbody tr:nth-child(odd) {
-        background-color: #ced6e0;
-    }
-    */
     #btn-descargar {
         display: none;
     }

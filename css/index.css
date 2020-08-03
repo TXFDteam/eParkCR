@@ -140,14 +140,8 @@ body a {
 
 /*Tercer banner*/
 
-br {
-    font-size: 5px;
-}
-
 
 /*Parte superior*/
-
-#tercer-banner {}
 
 .banner3-superior {
     display: flex;
@@ -176,6 +170,7 @@ br {
     padding-bottom: 50px;
     font-weight: 550;
     text-align: center;
+    line-height: 30px;
 }
 
 .img-superior {
@@ -214,6 +209,7 @@ br {
     padding-bottom: 50px;
     font-weight: 550;
     text-align: center;
+    line-height: 30px;
 }
 
 .info-medio {
@@ -256,6 +252,7 @@ br {
     padding-bottom: 50px;
     font-weight: 550;
     text-align: center;
+    line-height: 30px;
 }
 
 .img-inferior {

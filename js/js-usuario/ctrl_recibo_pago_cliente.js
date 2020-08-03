@@ -5,12 +5,21 @@ const output_recibo_horas = document.querySelector('#detalle_recibo_horas');
 const output_recibo_monto_final = document.querySelector('#detalle_recibo_monto');
 const output_recibo_tarjeta = document.querySelector('#detalle_recibo_tarjeta');
 const link_btn_regresar = document.querySelector('#btn_regresar');
-
+const btn_descargar = document.querySelector('#btn_descargar');
 
 
 //Enlace de regreso al Historial de reservas
 link_btn_regresar.addEventListener('click', () => {
     window.location.assign('cl_pagar_pendientes.html');
+});
+
+
+/* ----------------- Opcion descargar reporte para imprimir ----------------- */
+btn_descargar.addEventListener('click', function() {
+    let printContent = document.querySelector('#tabla_recibo');
+
+    window.print(printContent);
+
 });
 
 
