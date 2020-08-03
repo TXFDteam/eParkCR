@@ -35,22 +35,12 @@ const validar = () => {
         }
     }
 
-
-
-    let emailval = /^[^@]*@[^@]*$/;
-    if (input_correo.value.match(emailval)) {
+    var mailformat = /^\S+@\S+$/;
+    if (input_correo.value.match(mailformat)) {
         input_correo.classList.remove('error');
     } else {
         error = true;
         input_correo.classList.add('error');
-    }
-
-
-    if (input_contrasena.value.match(input_confirmarContrasena.value)) {
-        input_correo.classList.remove('error');
-    } else {
-        error = true;
-        input_confirmarContrasena.classList.add('error');
     }
 
 
@@ -61,6 +51,30 @@ const validar = () => {
 
 
 
+// const obtener_datos = () => {
+//     let error = validar();
+//     if (error == true) {
+//         Swal.fire({
+//             'title': "No se ha podido registrar el usuario",
+//             'icon': 'warning',
+//             'text': 'Revise los campos resaltados'
+//         });
+
+//     } else if (!(/[a-zA-Z]+\s+/.test(input_nombre))) {
+//         input_nombre.classList.add('error');
+//         Swal.fire({
+//             icon: 'warning',
+//             'text': 'Debe verificar el nombre con los apellidos'
+//         });
+//     } else {
+//         // Impresion de los valores del formulario
+//         Swal.fire({
+//             'title': 'El usuario se registro correctamente',
+//             'icon': "success",
+//             'text': 'Revise su información'
+//         });
+//         input_nombre.classList.remove('error');
+
 const obtener_datos = () => {
     let error = validar();
     if (error == true) {
@@ -70,12 +84,6 @@ const obtener_datos = () => {
             'text': 'Revise los campos resaltados'
         });
 
-    } else if (!(/[a-zA-Z]+\s+/.test(input_nombre))) {
-        input_nombre.classList.add('error');
-        Swal.fire({
-            icon: 'warning',
-            'text': 'Debe verificar el nombre con los apellidos'
-        });
     } else {
         // Impresion de los valores del formulario
         Swal.fire({
@@ -83,17 +91,16 @@ const obtener_datos = () => {
             'icon': "success",
             'text': 'Revise su información'
         });
-        input_nombre.classList.remove('error');
 
         let nombre = input_nombre.value;
+        var tipoID = document.getElementById('CI-registro-tipoID').selectedOptions[0].text;
         let contrasena = input_contrasena.value;
         let fechaNacimiento = input_fechaNacimiento.value;
         let ID = input_ID.value;
         let correo = input_correo.value;
-        let confirmarContrasena = input_confirmarContrasena.value;
-        // var tipoID = input_tipoID.options[input_tipoID.selectedIndex].value;
 
-        var tipoID = document.getElementById('CI-registro-tipoID').selectedOptions[0].text;
+
+        let confirmarContrasena = input_confirmarContrasena.value;
 
 
         console.log('Nombre: ', nombre);
