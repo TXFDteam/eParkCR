@@ -10,7 +10,7 @@ const btn_descargar = document.querySelector('#btn_descargar');
 
 //Enlace de regreso al Historial de reservas
 link_btn_regresar.addEventListener('click', () => {
-    window.location.assign('cl_pagar_pendientes.html');
+    window.location.assign('historial_reservas_cliente.html');
 });
 
 
@@ -26,7 +26,7 @@ btn_descargar.addEventListener('click', function() {
 
 
 /* --------------------- Identificador de usuario actual -------------------- */
-//Para probar el JS se preestablece usuario1
+//Para probar el JS se preestablece usuario1, reserva1
 
 /*const obtener_usuario_ingresado = () => {
     let contrasenna = localStorage.getItem('contrasenna');
@@ -44,7 +44,7 @@ btn_descargar.addEventListener('click', function() {
 }; */
 
 const id_usuario = usuarios.usuario1; //obtener_usuario_ingresado();
-const numreserva = 'reserva1';
+const numreserva = 'reserva7';
 
 
 const mostrar_recibo = (pnumreserva) => {

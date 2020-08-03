@@ -64,4 +64,7 @@
     .menu-lateral {
         display: none;
     }
+    .link_ver_recibo {
+        display: none;
+    }
 }
