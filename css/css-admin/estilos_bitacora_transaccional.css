@@ -55,3 +55,23 @@ tbody tr:nth-child(even) {
 #pagina_principal_bitacora button {
     margin-top: 50px;
 }
+
+@media print {
+    #bitacora_transaccional_admin {
+        margin-right: 100px;
+    }
+    #bitacora_transaccional_admin {
+        display: block;
+        width: 800px;
+        margin-right: 100px;
+    }
+    #btn_descargar {
+        display: none;
+    }
+    .nav-principal {
+        display: none;
+    }
+    .menu-lateral {
+        display: none;
+    }
+}
