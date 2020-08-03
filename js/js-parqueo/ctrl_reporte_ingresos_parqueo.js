@@ -46,11 +46,12 @@ const id_usuario = obtener_usuario_ingresado();
 
 
 /* ------------------------ Funcion imprimir en html ------------------------ */
-const listar_datos_tabla = (parq, pingresos, pcomision, pganancias) => {
+const listar_datos_tabla = (parq, pcantidad_reservas, phoras_promedio, pingresos, pcomision, pganancias) => {
     let fila = tabla_reporte_ingresos_body.insertRow();
 
-    fila.insertCell().innerHTML = parq.codigo;
     fila.insertCell().innerHTML = parq.nombre;
+    fila.insertCell().innerHTML = pcantidad_reservas;
+    fila.insertCell().innerHTML = phoras_promedio;
     fila.insertCell().innerHTML = '₡' + pingresos;
     fila.insertCell().innerHTML = '₡' + pcomision;
     fila.insertCell().innerHTML = '₡' + pganancias;
@@ -70,37 +71,46 @@ const listar_reporte = () => {
     tabla_reporte_ingresos_header.innerHTML = '';
     tabla_reporte_ingresos_body.innerHTML = '';
     head = tabla_reporte_ingresos_header.insertRow();
-    head.insertCell().innerHTML = 'Id';
-    head.insertCell().innerHTML = 'Nombre del parqueo';
+    head.insertCell().innerHTML = 'Nombre del Parqueo';
+    head.insertCell().innerHTML = 'Total de reservas';
+    head.insertCell().innerHTML = 'Horas promedio';
     head.insertCell().innerHTML = 'Ingresos totales';
     head.insertCell().innerHTML = 'Total comisión';
-    head.insertCell().innerHTML = 'Ganancias del parqueo';
+    head.insertCell().innerHTML = 'Balance total';
 
     tabla_reporte_ingresos_header.appendChild(head);
 
     //AQUÍ CREA LOS DATOS DE LA TABLA
-    for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-        let identificador_num_parqueo = ('parqueo_' + i);
-        let ingresos_totales = 0;
-        let porcentaje_comision = administrador.comision / 100;
-        let total_comision = 0;
-        let ganancias_del_parqueo = 0;
-        let id_parqueo = parqueos[identificador_num_parqueo].codigo;
 
+    //Para efectos de la presentacion: tomar valores del parqueo 1
+    // for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+    let identificador_num_parqueo = 'parqueo_1' //('parqueo_' + i); valor tomado por defecto: parqueo_1
+    let ingresos_totales = 0;
+    let porcentaje_comision = administrador.comision / 100;
+    let total_comision = 0;
+    let ganancias_del_parqueo = 0;
+    let id_parqueo = parqueos[identificador_num_parqueo].codigo;
+    let cantidad_reservas = 0;
+    let total_horas = 0;
+    let horas_promedio = 0;
 
-        for (let j = 1; j <= reservas.cant_reservas; j++) {
-            let identificador_reserva = ('reserva' + j);
+    for (let j = 1; j <= reservas.cant_reservas; j++) {
+        let identificador_reserva = ('reserva' + j);
 
-            if (reservas[identificador_reserva].id_parqueo == id_parqueo) {
-                ingresos_totales += new Number(reservas[identificador_reserva].monto_total);
-            };
+        if (reservas[identificador_reserva].id_parqueo == id_parqueo) {
+            ingresos_totales += new Number(reservas[identificador_reserva].monto_total);
+            cantidad_reservas++;
+            total_horas += new Number(reservas[identificador_reserva].horas);
         };
+    };
 
-        total_comision = ingresos_totales * porcentaje_comision;
-        ganancias_del_parqueo = ingresos_totales - total_comision;
+    total_comision = ingresos_totales * porcentaje_comision;
+    horas_promedio = total_horas / cantidad_reservas;
+    ganancias_del_parqueo = ingresos_totales - total_comision;
 
-        listar_datos_tabla(parqueos[identificador_num_parqueo], ingresos_totales, total_comision, ganancias_del_parqueo);
-    }
+
+    listar_datos_tabla(parqueos[identificador_num_parqueo], cantidad_reservas, horas_promedio, ingresos_totales, total_comision, ganancias_del_parqueo);
+    // }
 };
 
 
