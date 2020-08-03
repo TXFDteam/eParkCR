@@ -11,6 +11,10 @@
     margin: 40px;
 }
 
+#tabla_reporte_ingresos {
+    width: 1000px;
+}
+
 
 /* table {
     border-collapse: collapse;
@@ -43,4 +47,40 @@
 
 #tabla_reporte_ingresos thead td {
     padding: 20px 0;
+}
+
+
+/*SI SE LE DA CLICK AL BOTÓN DE DESCARGAR*/
+
+@media print {
+    .info-reservas {
+        margin-right: 100px;
+    }
+    #tabla_reporte_ingresos {
+        width: 1000px;
+        margin-right: 100px;
+    }
+    /*
+    .tabla-info #tabla-reservas td {
+        padding: 10px;
+    }
+    .tabla-info #tabla-reservas thead {
+        background-color: #a4b0be;
+    }
+    .tabla-info #tabla-reservas tbody tr:nth-child(even) {
+        background-color: #f1f2f6;
+    }
+    .tabla-info #tabla-reservas tbody tr:nth-child(odd) {
+        background-color: #ced6e0;
+    }
+    */
+    #btn-descargar {
+        display: none;
+    }
+    .nav-principal {
+        display: none;
+    }
+    .menu-lateral {
+        display: none;
+    }
 }

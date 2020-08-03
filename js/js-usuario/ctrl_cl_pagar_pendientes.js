@@ -30,33 +30,37 @@ btn_link_generar_recibo.addEventListener('click', () => {
 
 
 
-/* --------------------- Identificador de usuario actual -------------------- */
-//Para probar el JS se preestablece usuario1: const id_usuario = usuarios.usuario1;
-
-/* const obtener_usuario_ingresado = () => {
-    let contrasenna = localStorage.getItem('contrasenna');
-    let correo = localStorage.getItem('correo');
-
-    for (let i = 1; i < usuarios.cant_usuarios; i++) {
-        let identificador_usuario = ('usuario' + i);
-        let usuario_actual = usuarios[identificador_usuario];
-
-        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
-            return usuario_actual;
-        }
-    }
-    usuario_ingresado = '';
-}; */
-
-
 
 /* Datos tomados por default para probar el JS (Id de la reserva, tipo de cambio) */
 const id_usuario = usuarios.usuario1; //obtener_usuario_ingresado();
 const numreserva = 'reserva1';
 let signoMoneda = '₡';
 
+let correo_actual = localStorage.getItem('correo');
+let contrasenna_actual = localStorage.getItem('contrasenna');
 
+for (let u = 1; u <= usuarios.cant_usuarios; u++) {
+    let identificador_usuario = ('usuario' + u);
+    //SI EL CORREO Y  CONTRASEÑA ALMACENADOS EN INICIAR SESION PROCEDE A ASIGNAR LOS VALORES DEL USUARIO LOGEADO
+    if (usuarios[identificador_usuario].correo_usuario == correo_actual && usuarios[identificador_usuario].contraseña == contrasenna_actual) {
+        console.log(usuarios[identificador_usuario].id_usuario);
 
+        for (let r = 1; r <= reservas.cant_reservas; r++) {
+            let identificador_reserva = ('reserva' + r);
+            console.log(reservas[identificador_reserva].id_usuario);
+            if (usuarios[identificador_usuario].id_usuario == reservas[identificador_reserva].id_usuario) {
+
+                output_pend_parqueo.innerHTML = reservas[identificador_reserva].parqueo_seleccionado;
+                output_pend_fecha.innerHTML = reservas[identificador_reserva].fecha_reserva;
+                output_pend_horas.innerHTML = reservas[identificador_reserva].hora_entrada;
+                output_pend_monto.innerHTML = reservas[identificador_reserva].monto_final;
+                break;
+
+            }
+        };
+        break;
+    };
+};
 
 
 /* ----------------- Funcion para calcular y mostrar el monto final ---------------- 
@@ -105,7 +109,7 @@ btn_calcular_monto.addEventListener('click', calcular_monto(numreserva));*/
 
 
 
-const mostrar_tarjetas = (pnumreserva) => {
+const mostrar_tarjetas = () => {
 
     for (let i = 1; i <= Object.keys(id_usuario.tarjetas).length; i++) {
         let id_tarjeta = ('tarjeta_' + i);
@@ -120,13 +124,11 @@ const mostrar_tarjetas = (pnumreserva) => {
 };
 
 
-
-
-
+/*
 let mostrar_informacion = (pnumreserva) => {
 
 
-    mostrar_tarjetas(pnumreserva);
+    mostrar_tarjetas();
 
     //Extraer los valores de la base de datos
     let parqueo = (reservas[pnumreserva].parqueo_seleccionado);
@@ -159,7 +161,7 @@ let mostrar_informacion = (pnumreserva) => {
 };
 
 //Invoca funcion para imprimir los datos de la reservacion
-mostrar_informacion(numreserva);
+mostrar_informacion(numreserva);*/
 
 
 

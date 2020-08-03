@@ -100,10 +100,6 @@ mostrar_usuarios();
 
 btn_descargar.addEventListener('click', function() {
     let printContent = document.querySelector('#printable-area');
-    //let originalContent = document.body.innerHTML;
-
-    //document.body.innerHTML = printContent;
     window.print(printContent);
 
-    //document.body.innerHTML = originalContent;
 });
