@@ -68,6 +68,7 @@ button {
     border-radius: 5px;
     height: 50px;
     transition-duration: 0.1s;
+    min-width: 200px;
 }
 
 button:hover {
