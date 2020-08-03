@@ -7,7 +7,7 @@ let administrador = {
     nombre: 'admin_principal',
     correo_admin: 'admin@admin.com',
     contrasenna_admin: 'admin.admin1',
-    comision: '8%',
+    comision: 8,
     telefono: '2594-1245'
 }
 
@@ -1375,6 +1375,7 @@ let reservas = {
     reserva1: {
         id_usuario: usuarios.usuario1.id_usuario,
         nombre_usuario: usuarios.usuario1.nombre_usuario,
+        id_parqueo
         parqueo_seleccionado: parqueos.parqueo_1.nombre,
         fecha_reserva: '29/07/2020',
         hora_entrada: '8:00',
