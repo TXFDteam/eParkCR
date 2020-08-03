@@ -19,14 +19,7 @@ const input_coordenadas = document.getElementById("coordenadas");
 const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
 
 
-const validarEmail = (email) => {
-    let error = false;
-    if (!(/@+/.test(email))) {
-        error = true;
-    }
 
-    return error;
-}
 
 const validar = () => {
     let error;
@@ -47,12 +40,12 @@ const validar = () => {
     }
 
 
-    let errorCorreo = validarEmail(input_correo.value);
-
-    if (errorCorreo) {
-        input_correo.classList.add('error');
+    var mailformat = /^\S+@\S+$/;
+    if (input_correo.value.match(mailformat)) {
+        input_correo.classList.remove('error');
     } else {
-        input_correo.remove('error');
+        error = true;
+        input_correo.classList.add('error');
     }
 
 
