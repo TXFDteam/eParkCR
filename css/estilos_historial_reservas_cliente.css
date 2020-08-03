@@ -46,3 +46,22 @@
 .link_ver_recibo {
     color: rgb(219, 176, 33);
 }
+
+@media print {
+    #principal_hist_reservas {
+        margin-right: 100px;
+    }
+    #tablahistorial {
+        width: 750px;
+        margin-right: 35px;
+    }
+    #btn_descargar {
+        display: none;
+    }
+    .nav-principal {
+        display: none;
+    }
+    .menu-lateral {
+        display: none;
+    }
+}
