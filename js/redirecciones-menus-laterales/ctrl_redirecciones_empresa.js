@@ -16,6 +16,6 @@ convenios.addEventListener('click', function() {
 });
 
 config_cuenta_empresa.addEventListener('click', function() {
-    config_cuenta_empresa.href = '../../perfil_empresa.html';
+    config_cuenta_empresa.href = '../../html/htmls-empresas/perfil_empresa.html';
     //marcar_link(historial_reservas);
 });
