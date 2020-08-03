@@ -1399,7 +1399,7 @@ let reservas = {
         horas: '',
         descuento: '',
         estado_reserva: 'Activa',
-        monto_total: '',
+        monto_total: '3000',
         espacio_seleccionado: parqueos.parqueo_1.pisos.piso_1.espacios.espacio_6.id,
         monto_final: '',
         tarjeta_creditada: ''
