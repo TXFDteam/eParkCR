@@ -27,25 +27,3 @@
 
 
 /*TABLA*/
-
-table {
-    margin-top: 5%;
-    border-collapse: collapse;
-    width: 1000px;
-}
-
-#tabla-solicitudes td {
-    padding: 10px;
-}
-
-#tabla-solicitudes thead {
-    background-color: #a4b0be;
-}
-
-#tabla-solicitudes tbody tr:nth-child(even) {
-    background-color: #f1f2f6;
-}
-
-#tabla-solicitudes tbody tr:nth-child(odd) {
-    background-color: #ced6e0;
-}
