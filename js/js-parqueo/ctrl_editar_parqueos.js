@@ -18,6 +18,22 @@ const btn_guardar_datos_parqueo = document.querySelector('#btn-guardar-datos-par
 const input_hora_apertura = document.querySelector('#nueva-hora-apertura');
 const input_hora_salida = document.querySelector('#nueva-hora-salida');
 
+
+const parqueo_1 = document.querySelector('#parqueo-1');
+const parqueo_2 = document.querySelector('#parqueo-2');
+const parqueo_3 = document.querySelector('#parqueo-3');
+
+
+parqueo_1.innerHTML = parqueos.parqueo_1.nombre;
+
+parqueo_2.innerHTML = parqueos.parqueo_2.nombre;
+
+parqueo_3.innerHTML = parqueos.parqueo_3.nombre;
+
+
+
+
+
 const guardar_datos_parqueo = () => {
 
 

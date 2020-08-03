@@ -62,11 +62,14 @@
 
                     <form id="editar-convenio">
                         <div>
-                            <label for="seleccionar-convenio">Selecciona el convenio a editar:</label>
+                            <label for="seleccionar-convenio">Selecciona el convenio con empresa a editar:</label>
                         </div>
                         <div>
                             <select name="arreglo-convenios" id="arreglo-convenios">
-                                <option value = "">Seleccione</option>
+                                <option value = "0" >Seleccione</option>
+                                <option value = "1" id = "convenio-1">Convenio 1</option><span>
+                                <option value = "2" id = "convenio-2">Convenio 2</option><span>
+                                <option value = "3" id = "convenio-3">Convenio 3</option><span>
                             
                                 
                         </select>
@@ -105,7 +108,9 @@
         </section>
 
     </main>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_parqueo.js"></script>
     <script src="../../js/js-parqueo/ctrl_editar_convenios_parqueo.js"></script>
 
