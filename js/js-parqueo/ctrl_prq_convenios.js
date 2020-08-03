@@ -79,9 +79,18 @@ let mostrar_convenios = () => {
         let identificador_duenno = ('duenno_parqueo' + d);
         if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
 
-            for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
-                let identificador_convenio = ('convenio' + i);
-                crear_cuadro_convenio(convenios_empresa[identificador_convenio]);
+            for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+                let identificador_parqueo = ('parqueo_' + i);
+                if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
+
+                    for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
+                        let identificador_convenio = ('convenio' + i);
+                        if (convenios_empresa[identificador_convenio].parqueo == parqueos[identificador_parqueo].nombre) {
+                            crear_cuadro_convenio(convenios_empresa[identificador_convenio]);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

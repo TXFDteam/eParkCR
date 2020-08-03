@@ -94,8 +94,12 @@ let mostrar_parqueos = () => {
 
             for (let i = 1; i <= parqueos.cant_parqueos; i++) {
                 let identificador_parqueo = ('parqueo_' + i);
-                crear_cuadro_parqueo(parqueos[identificador_parqueo]);
+                if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
+                    crear_cuadro_parqueo(parqueos[identificador_parqueo]);
+                    break;
+                }
             }
+
         }
     }
 
