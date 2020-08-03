@@ -118,7 +118,7 @@ const obtener_datos = () => {
             'icon': "success",
             'text': 'Revise su información'
         }).then(function() {
-            window.location = '../../html/htmls-usuarios/bienvenido_cliente.html';
+            window.location = '../../index.html';
         });
 
         let nombre = input_nombre.value;

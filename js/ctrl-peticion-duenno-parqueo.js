@@ -70,7 +70,7 @@ const datos_peticion = () => {
             button: true,
         }).then((willDelete) => {
             if (willDelete) {
-                window.location.assign("index.html");
+                window.location.assign("prq-formulario.html");
             }
         })
     }

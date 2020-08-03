@@ -25,14 +25,6 @@ btn_yaTenesCuenta.addEventListener('click', function() {
     window.location.assign('iniciar-sesion.html')
 });
 
-const validarEmail = (email) => {
-    let error = false;
-    if (!(/@+/.test(email))) {
-        error = true;
-    }
-
-    return error;
-}
 
 const validar = () => {
     let error;
@@ -53,6 +45,14 @@ const validar = () => {
         }
     }
 
+    let emailval = /^[^@]*@[^@]*$/;
+    if (input_correo.value.match(emailval)) {
+        input_correo.classList.remove('error');
+    } else {
+        error = true;
+        input_correo.classList.add('error');
+    }
+
 
     if (input_contrasena.value.match(input_confirmarContrasena.value)) {
         input_correo.classList.remove('error');
@@ -62,32 +62,24 @@ const validar = () => {
     }
 
 
-
-
     return error;
 };
 
 const obtener_datos = () => {
-
-    if (!(/@+/.test(input_correo.value))) {
-        input_correo.classList.add('error');
-    } else {
-        input_correo.classList.remove('error');
-    }
     let error = validar();
     if (error == true) {
         Swal.fire({
-            'title': "No se ha podido registrar el usuario",
+            'title': "No te has podido registrar",
             'icon': 'warning',
-            'text': 'Revise los campos resaltados'
+            'text': 'Revisá los campos resaltados'
         });
 
     } else {
         // Impresion de los valores del formulario
         Swal.fire({
-            'title': 'El usuario se registro correctamente',
+            'title': 'Te registraste correctamente',
             'icon': "success",
-            'text': 'Revise su información'
+            'text': 'Revisá tu información'
         }).then(function() {
             window.location = '../../index.html';
         });
@@ -96,7 +88,6 @@ const obtener_datos = () => {
         let nombreEmpresa = input_nombreEmpresa.value;
         let nombreEncargado = input_nombreEncargado.value;
         let contrasena = input_contrasena.value;
-
         let imagen = input_imagen.value;
         let cedulaJuridica = input_cedulaJuridica.value;
         let correo = input_correo.value;

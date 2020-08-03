@@ -37,6 +37,8 @@ const validar = () => {
     }
 
 
+
+
     return error;
 };
 
@@ -57,6 +59,8 @@ const obtener_datos = () => {
             'title': 'El usuario se registro correctamente',
             'icon': "success",
             'text': 'Revise su correo electronico'
+        }).then(function() {
+            window.location = '../../emp-formulario.html';
         });
 
         let correo = input_correo.value;

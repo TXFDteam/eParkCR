@@ -105,7 +105,7 @@ const obtener_datos = () => {
             'icon': "success",
             'text': 'Revise su información'
         }).then(function() {
-            window.location = '../../html/htmls-parqueos/bienvenido_parqueo.html';
+            window.location = '../../index.html';
         });
 
 
