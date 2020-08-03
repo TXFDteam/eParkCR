@@ -19,6 +19,33 @@ let conv = localStorage.getItem('convenio_seleccionado');
 let fila;
 
 
+let cambiar_estado_boton_empleado = (x) => {
+    for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
+        let identificador_convenio = ('convenio' + i);
+
+        for (let e = 1; e <= convenios_empresa[identificador_convenio].cant_empleados; e++) {
+
+            let identificador_empleado = ('empleado' + e);
+
+            if (x.id == "input" + convenios_empresa[identificador_convenio].empleados[identificador_empleado].id_empleado) {
+
+                x.addEventListener('click', function() {
+
+                    if (x.value == 'ACTIVAR') {
+                        x.value = "DESACTIVAR";
+                        convenios_empresa[identificador_convenio].empleados[identificador_empleado].estado = "DESACTIVAR";
+                    } else if (x.value == 'DESACTIVAR') {
+                        x.value = "ACTIVAR";
+                        convenios_empresa[identificador_convenio].empleados[identificador_empleado].estado = "ACTIVAR";
+                    }
+                    localStorage.setItem('convenios_empresa', JSON.stringify(convenios_empresa));
+
+                })
+            }
+        }
+    }
+};
+
 const listar_usuarios = (empleado) => {
 
     fila = tabla_usuarios.insertRow();
@@ -31,18 +58,9 @@ const listar_usuarios = (empleado) => {
     btn_activar.id = "input" + empleado.id_empleado; //.id_empleado
 
     btn_activar.value = empleado.estado;
-    btn_activar.addEventListener('click', function() {
-        if (this.value == "INACTIVO") {
-            this.value = "ACTIVO";
-            empleado.estado = "ACTIVO";
-        } else
-        if (this.value == "ACTIVO") {
-            this.value = "INACTIVO";
-            empleado.estado = "INACTIVO";
-        }
-        localStorage.setItem('convenios_empresa', JSON.stringify(convenios_empresa));
-    });
+    cambiar_estado_boton_empleado(btn_activar);
     console.log(btn_activar.id);
+    console.log(btn_activar.value);
 
 
     btn_activar.classList.add('estilo-btn-activar');
@@ -68,9 +86,7 @@ let mostrar_usuarios = () => {
     //Variable que tiene el numero de convenio en que se encuentra el código de convenio del convenio seleccionado en el cuadro de convenios.
     let idConvenio;
 
-    if (localStorage.getItem('convenios_empresa')) {
-        convenios_empresa = JSON.parse(localStorage.getItem('convenios_empresa'));
-    };
+
 
     for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
         let identificador_convenio = ('convenio' + i);
@@ -91,14 +107,21 @@ let mostrar_usuarios = () => {
 
     //Este if crea la lista de usuarios si el codigo de convenio es el mismo
     if (det = true) {
+
         for (let x = 1; x <= convEmpleados; x++) {
 
             //Esta variable determina el numero de empleado dentro del ciclo
             let identificador_empleado = ('empleado' + x);
 
+
+
             listar_usuarios(idConvenio.empleados[identificador_empleado]);
         }
+
     }
+};
+if (localStorage.getItem('convenios_empresa')) {
+    convenios_empresa = JSON.parse(localStorage.getItem('convenios_empresa'));
 };
 mostrar_usuarios();
 console.log(n_parqueo);

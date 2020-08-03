@@ -139,13 +139,7 @@ let mostrar_usuarios = () => {
 btn_usurio_estandar.addEventListener('click', () => {
     mostrar_usuarios();
 });
-/*
-btn_activar.addEventListener('click', function() {
-    if (localStorage.getItem('parqueos')) {
-        parqueos = JSON.parse(localStorage.getItem('parqueos'));
-    };
-    cambiar_estado_boton_usuario();
-});*/
+
 
 
 //PARQUEOS
@@ -191,9 +185,7 @@ let mostrar_parqueos = () => {
 
     tabla_usuarios_header.appendChild(head);
 
-    if (localStorage.getItem('parqueos')) {
-        parqueos = JSON.parse(localStorage.getItem('parqueos'));
-    };
+
 
     for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
         let identificador_duenno = ('duenno_parqueo' + d);
@@ -204,7 +196,9 @@ let mostrar_parqueos = () => {
 btn_parqueo.addEventListener('click', () => {
     mostrar_parqueos();
 });
-
+if (localStorage.getItem('duennos')) {
+    duennos_parqueos = JSON.parse(localStorage.getItem('duennos'));
+};
 
 //EMPRESAS
 
@@ -224,7 +218,7 @@ const listar_empresas = (emp) => {
     btn_activar.value = emp.estado_empresa;
     cambiar_estado_boton_empresa(btn_activar);
     console.log(btn_activar.id);
-    console.log(btn_activar.estado);
+    console.log(btn_activar.value);
 
 
     btn_activar.classList.add('estilo-btn-activar-empresa');
@@ -249,12 +243,13 @@ let mostrar_empresas = () => {
 
     tabla_usuarios_header.appendChild(head);
 
-    if (localStorage.getItem('empresas')) {
-        empresas = JSON.parse(localStorage.getItem('empresas'));
-    };
+
 
     for (let i = 1; i <= empresas.cant_empresas; i++) {
         let identificador_empresa = ('empresa_' + i);
+
+
+
         listar_empresas(empresas.lista_empresas[identificador_empresa]);
         console.log(empresas.lista_empresas[identificador_empresa].estado_empresa);
     }
@@ -262,4 +257,10 @@ let mostrar_empresas = () => {
 
 btn_empresa.addEventListener('click', () => {
     mostrar_empresas();
+    if (localStorage.getItem('empresas')) {
+        empresas = JSON.parse(localStorage.getItem('empresas'));
+    };
 });
+if (localStorage.getItem('empresas')) {
+    empresas = JSON.parse(localStorage.getItem('empresas'));
+};

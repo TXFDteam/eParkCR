@@ -24,10 +24,7 @@
     width: 700px;
 }
 
-table td input {
-    padding: 10px;
-}
-
 .estilo-btn-activar {
-    margin: 5px;
+    min-width: 120px;
+    margin-left: 28%;
 }

@@ -2,12 +2,6 @@
 
 let a_inicio_perfil = document.querySelector('#link-inicio');
 
-if (a_inicio_perfil) {
-    a_inicio_perfil.addEventListener('click', function() {
-        a_inicio_perfil.href = "../../perfil_empresa.html";
-    })
-};
-
 
 const btn_editar_perfil_empresa = document.querySelector('#btn-editar-perfil-empresa');
 
