@@ -63,6 +63,7 @@ for (let u = 1; u <= usuarios.cant_usuarios; u++) {
 };
 
 
+//#region 
 /* ----------------- Funcion para calcular y mostrar el monto final ---------------- 
 
 const calcular_monto = (pnumreserva) => {
@@ -104,7 +105,7 @@ const calcular_monto = (pnumreserva) => {
 
 
 btn_calcular_monto.addEventListener('click', calcular_monto(numreserva));*/
-
+//#endregion
 
 
 
@@ -123,13 +124,14 @@ const mostrar_tarjetas = () => {
 
 };
 
+mostrar_tarjetas();
 
+
+//#region 
 /*
 let mostrar_informacion = (pnumreserva) => {
 
-
-    mostrar_tarjetas();
-
+  
     //Extraer los valores de la base de datos
     let parqueo = (reservas[pnumreserva].parqueo_seleccionado);
     let fecha = (reservas[pnumreserva].fecha_reserva);
@@ -162,7 +164,7 @@ let mostrar_informacion = (pnumreserva) => {
 
 //Invoca funcion para imprimir los datos de la reservacion
 mostrar_informacion(numreserva);*/
-
+//#endregion
 
 
 
