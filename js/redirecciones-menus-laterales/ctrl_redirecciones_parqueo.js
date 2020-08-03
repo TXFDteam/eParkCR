@@ -13,8 +13,8 @@ inicio.addEventListener('click', function() {
 });*/
 
 convenios.addEventListener('click', function() {
-    //convenios.href = '../../html/htmls-empresas/convenios-empresa.html';
-    //marcar_link(info_usuarios_admin);
+    convenios.href = '../../html/htmls-parqueos/prq_convenios_asociados.html';
+
 });
 
 config_cuenta_empresa.addEventListener('click', function() {
