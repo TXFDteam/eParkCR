@@ -28,7 +28,6 @@ const calcular_edad = (pfecha_nacimiento) => {
         if (fecha_actual.getMonth() == pfecha_nacimiento.getMonth() && fecha_actual.getDate() < pfecha_nacimiento.getDate()) {
             edad -= 1;
         }
-
     }
     return edad;
 };
@@ -38,8 +37,6 @@ const validar = () => {
     let campos_requeridos = document.querySelectorAll('[required]');
 
     let tamanno = campos_requeridos.length;
-
-
 
     for (let i = 0; i < tamanno; i++) {
         // Verifica si el campo de texto está en blanco
@@ -75,38 +72,8 @@ const validar = () => {
         error = true;
         input_fechaNacimiento.classList.add('error');
     }
-
-
     return error;
 };
-
-
-
-
-
-// const obtener_datos = () => {
-//     let error = validar();
-//     if (error == true) {
-//         Swal.fire({
-//             'title': "No se ha podido registrar el usuario",
-//             'icon': 'warning',
-//             'text': 'Revise los campos resaltados'
-//         });
-
-//     } else if (!(/[a-zA-Z]+\s+/.test(input_nombre))) {
-//         input_nombre.classList.add('error');
-//         Swal.fire({
-//             icon: 'warning',
-//             'text': 'Debe verificar el nombre con los apellidos'
-//         });
-//     } else {
-//         // Impresion de los valores del formulario
-//         Swal.fire({
-//             'title': 'El usuario se registro correctamente',
-//             'icon': "success",
-//             'text': 'Revise su información'
-//         });
-//         input_nombre.classList.remove('error');
 
 const obtener_datos = () => {
     let error = validar();
@@ -152,3 +119,27 @@ const obtener_datos = () => {
 };
 
 btn_crearUsuario.addEventListener('click', obtener_datos);
+
+// const obtener_datos = () => {
+//     let error = validar();
+//     if (error == true) {
+//         Swal.fire({
+//             'title': "No se ha podido registrar el usuario",
+//             'icon': 'warning',
+//             'text': 'Revise los campos resaltados'
+//         });
+
+//     } else if (!(/[a-zA-Z]+\s+/.test(input_nombre))) {
+//         input_nombre.classList.add('error');
+//         Swal.fire({
+//             icon: 'warning',
+//             'text': 'Debe verificar el nombre con los apellidos'
+//         });
+//     } else {
+//         // Impresion de los valores del formulario
+//         Swal.fire({
+//             'title': 'El usuario se registro correctamente',
+//             'icon': "success",
+//             'text': 'Revise su información'
+//         });
+//         input_nombre.classList.remove('error');
