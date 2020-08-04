@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+}
+
+#sct-contenedor-principal {
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+#sct-contenedor-principal div {
+    margin-top: 60px;
+}
+
+#sct-contenedor-principal h1 {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#sct-contenedor-principal h2 {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#sct-contenedor-principal h3 {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#sct-contenedor-principal li {
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
