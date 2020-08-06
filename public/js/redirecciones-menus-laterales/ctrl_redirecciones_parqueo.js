@@ -11,12 +11,7 @@ const config_cuenta_empresa = document.querySelector('#config-cuenta');
 
 
 link_inicio.addEventListener('click', function() {
-    link_inicio.href = '../../html/htmls-parqueos/bienvenido_parqueo.html';
-
-});
-
-inicio.addEventListener('click', function() {
-    inicio.href = '../../html/htmls-parqueos/bienvenido_parqueo.html';
+    link_inicio.href = '../../html/htmls-parqueos/prq_mis_parqueos.html';
 
 });
 

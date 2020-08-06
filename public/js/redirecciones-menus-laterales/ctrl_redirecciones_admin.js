@@ -80,12 +80,10 @@ let marcar_link = (x) => {
 
 
 link_inicio.addEventListener('click', function() {
-    link_inicio.href = '../../html/htmls-admin/bienvenido_admin.html';
+    link_inicio.href = '../../html/htmls-admin/lista-solicitudes-registro.html';
 });
 
-inicio.addEventListener('click', function() {
-    inicio.href = '../../html/htmls-admin/bienvenido_admin.html';
-});
+
 solicitudes_registro.addEventListener('click', function() {
     solicitudes_registro.href = '../../html/htmls-admin/lista-solicitudes-registro.html';
     marcar_link(solicitudes_registro);
