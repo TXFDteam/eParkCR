@@ -34,22 +34,32 @@ p {
 
 label {
     /* border: solid 2px orange; */
-    margin: 6px 0 10px 10px;
-    width: 100%;
+    margin: 10px 10px 10px 0;
 }
 
 input {
     /* border: solid 2px blue; */
-    margin: 6px 0 20px 10px;
-    width: 380px;
+    margin: 4px 10px 10px 0;
+    width: 100%;
+    height: 40px;
+}
+
+#contenedor_button {
+    display: flex;
+    /* border: solid 2px #E1566F; */
+    width: 100%;
+    justify-content: center;
 }
 
 #btn-registrarConvenio {
-    margin-top: 40px;
-    width: 200px;
-    margin-left: 25%;
-    /* border: solid 2px violet; */
-    height: 40px;
+    font-size: 16px;
+    border: none;
+    background-color: #E1566F;
+    color: #ffffff;
+    border-radius: 5px;
+    height: 50px;
+    transition-duration: 0.1s;
+    min-width: 200px;
 }
 
 .error {

@@ -61,24 +61,24 @@ let obtener_datos_y_validar = () => {
     localStorage.setItem('contrasenna', input_contrasenna.value);
 
     if (correo == administrador.correo_admin && contrasenna == administrador.contrasenna_admin) {
-        window.location.assign("../../html/htmls-admin/bienvenido_admin.html");
+        window.location.assign("../../public/html/htmls-admin/lista-solicitudes-registro.html");
     }
     for (let u = 1; u <= usuarios.cant_usuarios; u++) {
         let identificador_usuario = ('usuario' + u);
         if (correo == usuarios[identificador_usuario].correo_usuario && contrasenna == usuarios[identificador_usuario].contraseña) {
-            window.location.assign("../../html/htmls-usuarios/bienvenido_cliente.html");
+            window.location.assign("../../public/html/htmls-usuarios/buscar_parqueos.html");
         }
     };
     for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
         let identificador_duenno = ('duenno_parqueo' + d);
         if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
-            window.location.assign("../../html/htmls-parqueos/bienvenido_parqueo.html");
+            window.location.assign("../../public/html/htmls-parqueos/prq_mis_parqueos.html");
         }
     };
     for (let e = 1; e <= empresas.cant_empresas; e++) {
         let identificador_empresa = ('empresa_' + e);
         if (correo == empresas.lista_empresas[identificador_empresa].correo_empresa && contrasenna == empresas.lista_empresas[identificador_empresa].contrasenna_empresa) {
-            window.location.assign("../../html/htmls-empresas/bienvenido_empresa.html");
+            window.location.assign("../../public/html/htmls-empresas/convenios-empresa.html");
         }
     }
 

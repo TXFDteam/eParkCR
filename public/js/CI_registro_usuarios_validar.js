@@ -119,27 +119,3 @@ const obtener_datos = () => {
 };
 
 btn_crearUsuario.addEventListener('click', obtener_datos);
-
-// const obtener_datos = () => {
-//     let error = validar();
-//     if (error == true) {
-//         Swal.fire({
-//             'title': "No se ha podido registrar el usuario",
-//             'icon': 'warning',
-//             'text': 'Revise los campos resaltados'
-//         });
-
-//     } else if (!(/[a-zA-Z]+\s+/.test(input_nombre))) {
-//         input_nombre.classList.add('error');
-//         Swal.fire({
-//             icon: 'warning',
-//             'text': 'Debe verificar el nombre con los apellidos'
-//         });
-//     } else {
-//         // Impresion de los valores del formulario
-//         Swal.fire({
-//             'title': 'El usuario se registro correctamente',
-//             'icon': "success",
-//             'text': 'Revise su información'
-//         });
-//         input_nombre.classList.remove('error');
