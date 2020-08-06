@@ -1,5 +1,7 @@
 'use strict';
 
+//HAY QUE CAMBIAR LOS DATOS CUANDO LOS FORMATOS DE USUARIOS DENTRO DE LA BASE DE DATOS ESTÉN LISTOS
+
 const registrar_usuario = async(pcodigo, pnombre, pdireccion, ptelefono, pcorreo) => {
     await axios({
         method: 'post',
