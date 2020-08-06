@@ -11,7 +11,6 @@ const schema_duenno_parqueo = new mongoose.Schema({
     telefono: { type: String, required: true, unique: false },
     cuenta_bancaria: { type: String, required: true, unique: true },
     estado_general: { type: String, required: true, unique: false }
-
 });
 
 module.exports = mongoose.model('Registro', schema_duenno_parqueo, 'duennos_parqueos');

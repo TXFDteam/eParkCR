@@ -15,7 +15,7 @@ const schema_cliente = new mongoose.Schema({
         fecha_expiracion: { type: String, required: true, unique: false },
         predeterminada: { type: Boolean, required: true, unique: false },
         nombre_tarjeta: { type: String, required: true, unique: false },
-        codigo_seguridad: { type: String, required: true, unique: true }
+        codigo_seguridad: { type: Number, required: true, unique: false }
     }]
 });
 
