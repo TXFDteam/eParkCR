@@ -1,12 +1,11 @@
 'use strict'
 
 //Relacionar la informacion del HTML
-//const tabla_reporte_ingresos_header = document.querySelector('#tabla_reporte_ingresos thead');
 const tabla_reporte_ingresos_body = document.querySelector('#tabla_reporte_ingresos tbody');
 const tabla_reporte_ingresos_header = document.querySelector('#tabla_reporte_ingresos thead');
 const btn_descargar = document.querySelector('#btn-descargar');
 
-
+//Variables globales
 let array_reservas;
 let head;
 let fila;
@@ -18,8 +17,8 @@ btn_descargar.addEventListener('click', function() {
     let printContent = document.querySelector('#tabla_reporte_ingresos');
 
     window.print(printContent);
-
 });
+
 
 
 /* ------------------------ Funcion imprimir en html ------------------------ */
@@ -32,9 +31,6 @@ const listar_datos_tabla = (parq, pingresos, pcomision, pganancias) => {
     fila.insertCell().innerHTML = '₡' + pcomision;
     fila.insertCell().innerHTML = '₡' + pganancias;
 
-
-
-
     tabla_reporte_ingresos_body.appendChild(fila);
 };
 
@@ -42,8 +38,10 @@ const listar_datos_tabla = (parq, pingresos, pcomision, pganancias) => {
 
 
 
-
+/* ----------------- Funcion obtener los datos para la tabla ---------------- */
 const listar_reporte = () => {
+
+    //Imprime el header de la tabla
     tabla_reporte_ingresos_header.innerHTML = '';
     tabla_reporte_ingresos_body.innerHTML = '';
     head = tabla_reporte_ingresos_header.insertRow();
@@ -54,7 +52,9 @@ const listar_reporte = () => {
     head.insertCell().innerHTML = 'Ganancias del parqueo';
 
     tabla_reporte_ingresos_header.appendChild(head);
-    //AQUÍ CREA LOS DATOS DE LA TABLA
+
+
+    //Se lee cada uno de los parqueos de la app
     for (let i = 1; i <= parqueos.cant_parqueos; i++) {
         let identificador_num_parqueo = ('parqueo_' + i);
         let ingresos_totales = 0;
@@ -64,6 +64,7 @@ const listar_reporte = () => {
         let id_parqueo = parqueos[identificador_num_parqueo].codigo;
 
 
+        //Se calcula los datos de la tabla desde cada reservacion perteneciente al parqueo 'parqueo_i'
         for (let j = 1; j <= reservas.cant_reservas; j++) {
             let identificador_reserva = ('reserva' + j);
 

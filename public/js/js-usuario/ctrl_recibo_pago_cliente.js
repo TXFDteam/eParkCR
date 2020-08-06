@@ -1,4 +1,6 @@
 'use strict'
+
+//Enlaces al html
 const output_recibo_parqueo = document.querySelector('#detalle_recibo_parqueo');
 const output_recibo_fecha = document.querySelector('#detalle_recibo_fecha');
 const output_recibo_horas = document.querySelector('#detalle_recibo_horas');
@@ -19,18 +21,18 @@ btn_descargar.addEventListener('click', function() {
     let printContent = document.querySelector('#tabla_recibo');
 
     window.print(printContent);
-
 });
 
 
 
+//Variables globales
+let contrasenna = localStorage.getItem('contrasenna');
+let correo = localStorage.getItem('correo');
+
+
 
 /* --------------------- Identificador de usuario actual -------------------- */
-//Para probar el JS se preestablece usuario1, reserva1
-
-/*const obtener_usuario_ingresado = () => {
-    let contrasenna = localStorage.getItem('contrasenna');
-    let correo = localStorage.getItem('correo');
+const obtener_usuario_ingresado = () => {
 
     for (let i = 1; i < usuarios.cant_usuarios; i++) {
         let identificador_usuario = ('usuario' + i);
@@ -40,13 +42,16 @@ btn_descargar.addEventListener('click', function() {
             return usuario_actual;
         }
     }
-    usuario_ingresado = '';
-}; */
-
-const id_usuario = usuarios.usuario1; //obtener_usuario_ingresado();
-const numreserva = 'reserva7';
+};
 
 
+/* -------- Constantes para identificar el usuario y reserva actuales ------- */
+const id_usuario = obtener_usuario_ingresado();
+const numreserva = 'reserva7'; //Se toma la reserva 7 para corroborar que el codigo funcione correctamente
+
+
+
+/* ---------------------- Imprimir los datos del recibo --------------------- */
 const mostrar_recibo = (pnumreserva) => {
 
     //Extraigo la informacion de la base de datos
@@ -70,18 +75,18 @@ const mostrar_recibo = (pnumreserva) => {
     datoMonto.innerHTML = monto;
     datoTarjeta.innerHTML = tarjeta;
 
+
     //Incluir los datos llenados a los contenedores preexistentes del html
     output_recibo_parqueo.appendChild(datoParqueo);
     output_recibo_fecha.appendChild(datoFecha);
     output_recibo_horas.appendChild(datoHoras);
     output_recibo_monto_final.appendChild(datoMonto);
     output_recibo_tarjeta.appendChild(datoTarjeta);
-
-}
-
+};
 
 
 
+/* ------------- (Solo imprime los datos si el recibo esta pagado) ------------ */
 if (reservas[numreserva].estado_reserva == 'Paga') {
     mostrar_recibo(numreserva);
 }

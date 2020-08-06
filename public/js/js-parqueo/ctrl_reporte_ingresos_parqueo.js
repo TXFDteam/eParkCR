@@ -1,11 +1,16 @@
 'use strict'
 
+//Falta reconoer los parqueos que pertenecen al usuario-dueno-de-parqueo logueado
+
+
+
+/* ----------------------------- Enlaces al html ---------------------------- */
 const tabla_reporte_ingresos_body = document.querySelector('#tabla_reporte_ingresos_parqueo tbody');
 const tabla_reporte_ingresos_header = document.querySelector('#tabla_reporte_ingresos_parqueo thead');
 const btn_descargar = document.querySelector('#btn-descargar');
 
 
-
+/* ------------------------ Variables globales del JS ----------------------- */
 let array_reservas;
 let head;
 let fila;
@@ -14,14 +19,12 @@ let correo = localStorage.getItem('correo');
 
 
 
-//#region /* ----------------- Opcion descargar reporte para imprimir ----------------- */
+/* ----------------- Opcion descargar reporte para imprimir ----------------- */
 btn_descargar.addEventListener('click', function() {
     let printContent = document.querySelector('#tabla_reporte_ingresos');
 
     window.print(printContent);
-
 });
-//#endregion
 
 
 
@@ -29,7 +32,6 @@ btn_descargar.addEventListener('click', function() {
 
 /* ------------------------ Funcion imprimir en html ------------------------ */
 const listar_datos_tabla = (parq, pcantidad_reservas, phoras_promedio, pingresos, pcomision, pganancias) => {
-
 
     let fila = tabla_reporte_ingresos_body.insertRow();
 
@@ -45,11 +47,14 @@ const listar_datos_tabla = (parq, pcantidad_reservas, phoras_promedio, pingresos
 
 
 
-/* -------------- Funcion para obtener los datos para la tabla -------------- */
 
+/* -------------- Funcion para obtener los datos para la tabla -------------- */
 const listar_reporte = () => {
+
+    //Se imprime el header de la tabla
     tabla_reporte_ingresos_header.innerHTML = '';
     tabla_reporte_ingresos_body.innerHTML = '';
+
     head = tabla_reporte_ingresos_header.insertRow();
     head.insertCell().innerHTML = 'Nombre del Parqueo';
     head.insertCell().innerHTML = 'Total de reservas';
@@ -62,32 +67,33 @@ const listar_reporte = () => {
 
 
 
+    //Reconocer el usuario de parqueo logueado y sus parqueos asociados**
+    //#region
+    /*  for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
+    let identificador_duenno = ('duenno_parqueo' + d);
+
+    if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
 
 
-    /* for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
-        let identificador_duenno = ('duenno_parqueo' + d);
-
-        if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
-
-
-            for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-                let identificador_parqueo = ('parqueo_' + i);
-                if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
-                    crear_cuadro_parqueo(parqueos[identificador_parqueo]);
-                    break;
-                }
+        for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+            let identificador_parqueo = ('parqueo_' + i);
+            if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
+                crear_cuadro_parqueo(parqueos[identificador_parqueo]);
+                break;
             }
-
-
-
-
-
         }
+
+
+
+
+
+    }
     } */
+    //#endregion    
 
 
-    //Calculo de datos para la tabla
-    let identificador_num_parqueo = 'parqueo_1'; //Default: datos de parqueo 1 solamente
+    //Calculo de datos para la tabla** default para parqueo1
+    let identificador_num_parqueo = 'parqueo_1'; //Default: datos de parqueo 1 solamente para probar el html
     let ingresos_totales = 0;
     let porcentaje_comision = administrador.comision / 100;
     let total_comision = 0;
