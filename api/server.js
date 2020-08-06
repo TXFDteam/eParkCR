@@ -52,5 +52,19 @@ function handleError(res, reason, message, code) {
     res.status(code || 500).json({ "error": message });
 }
 
-// Conexión a todas la rutas.
-//app.use('/api', require('./routes/producto.route'));
+/*------------- CONEXIÓN A TODAS LAS RUTAS-------------------*/
+
+/*-------Conexión a clientes------------*/
+
+
+
+/*-------Conexión a dueños de parqueo------------*/
+//Solicitud de parqueo
+app.use('/api', require('./routes/routes_dueño_parqueo/solicitud_parqueos.route.js'));
+
+
+
+/*-------Conexión a empresas-------------*/
+
+
+/*-------Conexión admin-------------------*/

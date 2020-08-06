@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 
-const usuario = require('../models/models-usuario/cliente.model');
+const usuario = require('../models/models_usuario/cliente.model');
 
 router.post('/registrar-usuario', (req, res) => {
     let datos = req.body;

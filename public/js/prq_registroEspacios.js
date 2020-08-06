@@ -18,7 +18,7 @@ const input_espaciosMotos = document.querySelector('#espaciosMotos');
 const input_espaciosAuto = document.querySelector('#espaciosAuto');
 
 const input_facebook = document.querySelector('#facebook');
-
+const input_twitter = document - querySelector('#twitter');
 const input_instagram = document.querySelector('#instagram');
 
 const input_provincia = document.getElementById("provincias");
@@ -121,12 +121,17 @@ const obtener_datos = () => {
         let espaciosAutos = input_espaciosAuto.value;
 
         let facebook = input_facebook.value;
+        let twitter = input_twitter.value;
         let instagram = input_instagram.value;
 
         let provincia = input_provincia.value;
         let canton = input_canton.value;
         let distrito = input_distrito.value;
         let coordenadas = input_coordenadas.value;
+
+
+
+        registrar_solicitud_parqueo(correo, nombreParqueo, cedulaJuridica, tarifa, horaApertura, horaCierre, pisos, facebook, instagram, twitter, coordenadas);
 
         console.log('Nombre parqueo: ', nombreParqueo);
         console.log('Cedula juridica: ', cedulaJuridica);
@@ -152,5 +157,9 @@ const obtener_datos = () => {
 
     }
 };
+let contador_solicitudes_parqueo = 0;
 
-btn_crearParqueo.addEventListener('click', obtener_datos);
+btn_crearParqueo.addEventListener('click', () => {
+    contador_solicitudes_parqueo += 1;
+    obtener_datos();
+});

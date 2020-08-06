@@ -15,6 +15,10 @@
     margin: 0 5% 0 5%;
 }
 
+.col-container label {
+    margin-bottom: 5%;
+}
+
 .col {
     flex: 1;
 }
@@ -42,7 +46,7 @@ input {
 }
 
 label {
-    margin: 10px 10px 10px 0;
+    margin-bottom: 20px;
     /* border: solid 2px blue; */
 }
 
@@ -55,7 +59,6 @@ h2 {
 }
 
 input[type=radio] {
-    margin: 0 0 0 0;
     width: auto;
 }
 

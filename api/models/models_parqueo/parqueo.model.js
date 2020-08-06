@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 //Instagram: instagram
 
 const schema_parqueo = new mongoose.Schema({
-    codigo: { type: String, required: true, unique: true },
+    id: { type: String, required: true, unique: true },
     nombre: { type: String, required: true, unique: false },
     imagen_carta: { type: String, required: true, unique: false },
     imagen_perfil: { type: String, required: true, unique: false },
@@ -35,7 +35,8 @@ const schema_parqueo = new mongoose.Schema({
             tipo_vehiculo: { type: String, required: true, unique: false },
             ocupado: { type: String, required: true, unique: false }
         }]
-    }]
+    }],
+    estado_general: { type: String, required: true, unique: false }
 });
 
 //Exportar modulo para ser usado en el router desde el servidor.
