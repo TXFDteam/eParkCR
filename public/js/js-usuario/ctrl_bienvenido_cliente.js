@@ -6,9 +6,6 @@ const txt_titulo = document.querySelector('#txt-titulo-bienvenida');
 
 let nombre_usuario_actual;
 
-
-
-
 const obtener_usuario_ingresado = () => {
     let contrasenna = localStorage.getItem('contrasenna');
     let correo = localStorage.getItem('correo');
@@ -29,7 +26,8 @@ const obtener_usuario_ingresado = () => {
 
 obtener_usuario_ingresado();
 
-
-btn_buscarParqueos.addEventListener('click', function() {
-    window.location.assign('../../html/htmls-usuarios/buscar_parqueos.html');
-});
+if (btn_buscarParqueos != null) {
+    btn_buscarParqueos.addEventListener('click', function() {
+        window.location.assign('../../html/htmls-usuarios/buscar_parqueos.html');
+    });
+}

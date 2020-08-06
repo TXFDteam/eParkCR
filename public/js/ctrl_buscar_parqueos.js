@@ -78,10 +78,34 @@ const parqueo_abierto = (p_parqueo) => {
     return false;
 }
 
+//Esta función se usa para eliminar los espacios de un string enviado como parámetro.
+const custom_trim = (p_string) => {
+    let new_string = p_string;
+
+    while (new_string.includes(' ')) {
+        new_string = new_string.replace(' ', '')
+    }
+    return new_string;
+};
+
+const eliminar_acentos = (p_string) => {
+    return p_string.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+};
+
+//Esta función se usa para comparar string siendo Case sensitive y también que los espacios no afecten.
+const filtros_comparar_strings = (p_string_original, p_string_filtro) => {
+    //Cortar strings y pasar a mayúsculas.
+    p_string_original = eliminar_acentos(custom_trim(p_string_original.toUpperCase()));
+    p_string_filtro = eliminar_acentos(p_string_filtro.toUpperCase().trim());
+
+    return (p_string_original == p_string_filtro || p_string_original.includes(p_string_filtro));
+};
+
 const parqueo_cumple_con_filtros = (p_parqueo) => {
     let filtros_usados = 0;
     let filtros_cumplidos = 0;
 
+    //ESTADO
     if (filtrando_parqueos_abiertos) {
         filtros_usados++;
 
@@ -89,20 +113,23 @@ const parqueo_cumple_con_filtros = (p_parqueo) => {
             filtros_cumplidos++;
         }
     }
+    //UBICACIÓN ACTUAL.
     if (filtrando_por_ubicacion_actual) {
         filtros_usados++;
 
-        if (p_parqueo.ubicacion == ubicacion_actual) {
+        if (filtros_comparar_strings(p_parqueo.ubicacion, ubicacion_actual)) {
             filtros_cumplidos++;
         }
     }
+    //NOMBRE.
     if (filtro_nombre != '') {
         filtros_usados++;
 
-        if (p_parqueo.nombre == filtro_nombre) {
+        if (filtros_comparar_strings(p_parqueo.nombre, filtro_nombre)) {
             filtros_cumplidos++;
         }
     }
+    //CALIFICACIÓN
     if (filtro_calificacion != 0) {
         filtros_usados++;
 
@@ -110,10 +137,11 @@ const parqueo_cumple_con_filtros = (p_parqueo) => {
             filtros_cumplidos++;
         }
     }
+    //UBICACIÓN PERSONALIZADA.
     if (filtro_ubicacion != '') {
         filtros_usados++;
 
-        if (p_parqueo.ubicacion == filtro_ubicacion) {
+        if (filtros_comparar_strings(p_parqueo.ubicacion, filtro_ubicacion)) {
             filtros_cumplidos++;
         }
     }
@@ -227,7 +255,7 @@ const aplicar_filtros = () => {
 
     ocultar_ventana_filtros();
     mostrar_parqueos();
-
+    /*
     console.log('filtrando estado: ' + filtrando_parqueos_abiertos);
     console.log('filtrando estrellas: ' + filtrando_por_calificacion);
     console.log('filtrando ubicacion actual: ' + filtrando_por_ubicacion_actual);
@@ -235,6 +263,7 @@ const aplicar_filtros = () => {
     console.log('filtro calificacion: ' + filtro_calificacion);
     console.log('filtro nombre: ' + filtro_nombre);
     console.log('filtro ubicacion: ' + filtro_ubicacion);
+    */
 };
 
 //Funciones que se llaman cuando se cambia el valor de un checkbox.
