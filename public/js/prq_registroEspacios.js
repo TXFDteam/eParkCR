@@ -18,7 +18,7 @@ const input_espaciosMotos = document.querySelector('#espaciosMotos');
 const input_espaciosAuto = document.querySelector('#espaciosAuto');
 
 const input_facebook = document.querySelector('#facebook');
-const input_twitter = document - querySelector('#twitter');
+const input_twitter = document.querySelector('#twitter');
 const input_instagram = document.querySelector('#instagram');
 
 const input_provincia = document.getElementById("provincias");
@@ -26,7 +26,7 @@ const input_canton = document.getElementById("cantones");
 const input_distrito = document.getElementById("distritos");
 const input_coordenadas = document.getElementById("coordenadas");
 
-const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
+const label_permisoFuncionamiento = document.querySelector('#labelPermiso');
 
 btn_cancelar.addEventListener('click', function() {
     window.location.assign('perfil_parqueo.html')
@@ -72,14 +72,13 @@ const validar = () => {
         input_distrito.classList.remove('error');
     }
 
-
-    var len = document.querySelectorAll('input[type="radio"]:checked').length
-    if (len <= 0) {
-        error = true;
+    // var down = document.getElementById("down");
+    var file = document.getElementById("permiso");
+    if (file.files.length == 0) {
         label_permisoFuncionamiento.classList.add('error');
-
     } else {
         label_permisoFuncionamiento.classList.remove('error');
+        // down.innerHTML = "Archivo seleccionado"
     }
 
     return error;
@@ -101,7 +100,7 @@ const obtener_datos = () => {
             'icon': "success",
             'text': 'Revise su información'
         }).then(function() {
-            window.location = 'bienvenido_parqueo.html';
+            window.location = '../../iniciar-sesion.html';
         });
 
 
@@ -110,7 +109,7 @@ const obtener_datos = () => {
 
         let correo = input_correo.value;
 
-        let permiso = document.querySelector('input[name="permiso"]:checked').value;
+        let permiso = document.getElementById('permiso').value;
         let tarifa = input_tarifa.value;
         let horaApertura = input_horaApertura.value;
         let horaCierre = input_horaCierre.value;

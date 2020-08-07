@@ -176,14 +176,16 @@
 
                 <label for='prq-registro-correo'>Correo electrónico</label><br>
                 <input type='email' id='prq-registro-correo' required><br>
+                <p id="labelPermiso">Adjuntá tu permiso de funcionamiento aquí</p><br>
+                <div id='file_upload'>
 
-                <div class="radio">
-                    <h2 id="permisoFuncionamientoLabel">Tenés permiso de funcionamiento?</h2>
-                    <input type="radio" id="si" name="permiso" value="si">
-                    <label for="si" id="label_si">Si</label><br>
-                    <input type="radio" id="no" name="permiso" value="no">
-                    <label for="no" id="label_no">No</label><br>
-                </div>
+                    <label class="custom-file-upload">
+                        <input type="file" id="permiso" required/>
+                       Adjuntar
+                    </label>
+
+                </div><br>
+                <p id="down" style="color:green; font-size: 20px; font-weight: bold;"></p><br>
 
                 <label for='tarifa'>Tarifa</label><br>
                 <input type='number' id='tarifa' required><br>
