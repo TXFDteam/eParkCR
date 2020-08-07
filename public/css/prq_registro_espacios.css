@@ -75,33 +75,42 @@ input[type="file"] {
 .custom-file-upload {
     display: inline-block;
     cursor: pointer;
-    height: 40px;
+    height: 20px;
     width: 100%;
     text-align: center;
     padding-top: 10px;
 }
 
-#file_upload {
+.file_upload {
     width: 100%;
     height: 40px;
-    background-color: white;
-    border: solid 1px gray;
+    color: #ffffff;
+    background-color: #E1566F;
     float: left;
     border-radius: 4px;
     margin-bottom: 30px;
 }
 
-#file_upload:hover {
+#file_upload2 {
+    /* border: solid 2px blue; */
+    margin-bottom: 10px;
+}
+
+#file_upload3 {
+    /* border: solid 2px green; */
+    margin-top: 30px;
+}
+
+.file_upload:hover {
     color: white;
     background-color: #dd2849;
     cursor: pointer;
-    border: none;
 }
 
-#labelMyFileContainer {
-    /* border: solid 2px blue; */
-    display: flex;
-    margin: 4px 0 10px 0;
+#labelBanner {
+    /* border: solid 4px red; */
+    color: black;
+    margin-top: 10px;
 }
 
 #btnMyFile {
@@ -181,7 +190,7 @@ input[type="file"] {
 }
 
 h3 {
-    margin: 6px 10px 4px 0;
+    margin: 10px 10px 4px 0;
 }
 
 .error {
@@ -213,6 +222,7 @@ h3 {
     /* border: solid 2px red; */
     display: block;
     width: 100%;
+    margin-top: 0;
 }
 
 .form-val {
@@ -250,7 +260,7 @@ h3 {
 .map-container {
     width: 100%;
     /* border: solid 2px blue; */
-    margin: 2% 0 0 0;
+    margin: 4% 0 0 0;
 }
 
 #map {

@@ -147,7 +147,6 @@
             enable_page_level_ads: true
         });
     </script>
-
 </head>
 
 <body>
@@ -176,8 +175,8 @@
 
                 <label for='prq-registro-correo'>Correo electrónico</label><br>
                 <input type='email' id='prq-registro-correo' required><br>
-                <p id="labelPermiso">Adjuntá tu permiso de funcionamiento aquí</p><br>
-                <div id='file_upload'>
+                <p id="labelPermiso">Adjuntá tu permiso de funcionamiento aquí</p>
+                <div class='file_upload'>
 
                     <label class="custom-file-upload">
                         <input type="file" id="permiso" required/>
@@ -185,7 +184,7 @@
                     </label>
 
                 </div><br>
-                <p id="down" style="color:green; font-size: 20px; font-weight: bold;"></p><br>
+
 
                 <label for='tarifa'>Tarifa</label><br>
                 <input type='number' id='tarifa' required><br>
@@ -237,73 +236,78 @@
 
 
             <div id='col3' class='col'>
+                <p id="labelPerfil">Adjuntá tu imagen de perfil aquí</p>
 
-                <p id="titulo_adjuntarBanner" class="adjuntarClaseBoton">Adjuntá una imagen para el banner</p>
-                <div id="labelMyFileContainer">
-                    <label for="myFile" class="button" id="btnMyFile">Adjuntar</label><br>
-                    <input type="file" id="myFile"><br>
+                <div class='file_upload' id="file_upload2">
+
+                    <label class="custom-file-upload">
+                        <input type="file" id="imagenPerfil" required/>
+                       Adjuntar
+                    </label>
+                    <p id="labelBanner">Adjuntá tu imagen de banner aquí</p>
                 </div>
+                <div class='file_upload' id="file_upload3">
 
-                <p id="titulo_adjuntarPerfil" class="adjuntarClaseBoton">Adjuntá una imagen de perfil</p>
-                <div id="labelMyFileContainer">
-                    <label for="myFile" class="button" id="btnMyFile">Adjuntar</label><br>
-                    <input type="file" id="myFile"><br>
+                    <label class="custom-file-upload">
+                        <input type="file" id="imagenBanner" required/>
+                       Adjuntar
+                    </label>
+
                 </div>
-
-
-                <h3>
-                    Seleccioná tu ubicación
-                </h3>
-                <form id="ubicationForm" onsubmit="return sendData();">
-                    <div class="data-container">
-                        <div class="form-row">
-                            <div class="form-desc">
-                                Provincia:
-                            </div>
-                            <div class="form-val">
-                                <select id="provincias" name="provincia" onchange="getCantones(this.value);" required>
+                <div id="mapa">
+                    <h3>
+                        Seleccioná tu ubicación
+                    </h3>
+                    <form id="ubicationForm" onsubmit="return sendData();">
+                        <div class="data-container">
+                            <div class="form-row">
+                                <div class="form-desc">
+                                    Provincia:
+                                </div>
+                                <div class="form-val">
+                                    <select id="provincias" name="provincia" onchange="getCantones(this.value); " required>
                     </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row canton">
-                            <div class="form-desc">
-                                Cantón:
-                            </div><br>
-                            <div class="form-val">
-                                <select id="cantones" name="canton" onchange="getDistritos(this.value);">
+                            <div class="form-row canton">
+                                <div class="form-desc">
+                                    Cantón:
+                                </div><br>
+                                <div class="form-val">
+                                    <select id="cantones" name="canton" onchange="getDistritos(this.value);">
                     </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row distrito">
-                            <div class="form-desc">
-                                Distrito:
-                            </div>
-                            <div class="form-val">
-                                <select id="distritos" name="distrito" onchange="distritoSelected();">
+                            <div class="form-row distrito">
+                                <div class="form-desc">
+                                    Distrito:
+                                </div>
+                                <div class="form-val">
+                                    <select id="distritos" name="distrito" onchange="distritoSelected();">
                     </select>
+                                </div>
+                            </div>
+                            <div class="form-row coordenadas">
+                                <div class="form-desc">
+                                    Coordenadas:
+                                </div>
+                                <div class="form-val">
+                                    <input type="text" id="coordenadas" name="coordenadas" value="9.6301892, -84.2541843" />
+                                </div>
                             </div>
                         </div>
-                        <div class="form-row coordenadas">
-                            <div class="form-desc">
-                                Coordenadas:
-                            </div>
-                            <div class="form-val">
-                                <input type="text" id="coordenadas" name="coordenadas" value="9.6301892, -84.2541843" />
-                            </div>
+                        <div class="map-container">
+                            <div id="map"></div>
                         </div>
-                    </div>
-                    <div class="map-container">
-                        <div id="map"></div>
-                    </div>
-                    <!-- <div class="form-row send">
-                        <input type="submit" value="Enviar" />
+                        <!-- <div class="form-row send ">
+                        <input type="submit " value="Enviar " />
                     </div> -->
-                </form>
+                    </form>
+
+                </div>
 
             </div>
-
         </div>
-
         <div id='rowBotones'>
             <button type="button" id='btn-crearParqueo' class="btn">Crear parqueo</button>
             <button type="button" id='btn-cancelar' class="btn">Cancelar</button>
