@@ -56,8 +56,9 @@ const validar = () => {
         input_correo.classList.add('error');
     }
 
-    if (input_contrasena.value.match(input_confirmarContrasena.value)) {
-        input_correo.classList.remove('error');
+    var contrasena = input_contrasena.value;
+    if (input_confirmarContrasena.value.match(contrasena)) {
+        input_confirmarContrasena.classList.remove('error');
     } else {
         error = true;
         input_confirmarContrasena.classList.add('error');
@@ -91,27 +92,27 @@ const obtener_datos = () => {
             'icon': "success",
             'text': 'Revise su información'
         }).then(function() {
-            window.location = '../../index.html';
+            window.location = 'index.html';
         });
 
         let nombre = input_nombre.value;
         var tipoID = document.getElementById('CI-registro-tipoID').selectedOptions[0].text;
         let contrasena = input_contrasena.value;
+        let confirmarContrasena = input_confirmarContrasena.value;
         let fechaNacimiento = input_fechaNacimiento.value;
         let ID = input_ID.value;
         let correo = input_correo.value;
 
 
-        let confirmarContrasena = input_confirmarContrasena.value;
-
 
         console.log('Nombre: ', nombre);
         console.log('Tipo de ID: ', tipoID);
         console.log('Contrasena: ', contrasena);
+        console.log('Confirmar contrasena: ', confirmarContrasena);
         console.log('Fecha de nacimiento: ', fechaNacimiento);
         console.log('ID: ', ID);
         console.log('Correo: ', correo);
-        console.log('Confirmar contrasena: ', confirmarContrasena);
+
 
 
 
