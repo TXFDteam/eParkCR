@@ -7,8 +7,8 @@ const input_nombreEmpresa = document.querySelector('#emp_registro_nombre');
 const input_nombreEncargado = document.querySelector('#emp_registro_nombreEncargado');
 const input_contrasena = document.querySelector('#emp_registro_contrasena');
 const input_cedulaJuridica = document.querySelector('#emp_registro_juridica');
-const input_imagen = document.getElementById('myFile');
-const input_correo = document.querySelector('#cuentaComercial_correo');
+const label_imagenPerfil = document.querySelector('#labelPerfil');
+const input_correo_empresa = document.querySelector('#emp_correo');
 const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
 const input_provincia = document.getElementById("provincias");
 const input_canton = document.getElementById("cantones");
@@ -37,16 +37,24 @@ const validar = () => {
     }
 
     let emailval = /^[^@]*@[^@]*$/;
-    if (input_correo.value.match(emailval)) {
-        input_correo.classList.remove('error');
+    if (input_correo_empresa.value.match(emailval)) {
+        input_correo_empresa.classList.remove('error');
     } else {
         error = true;
-        input_correo.classList.add('error');
+        input_correo_empresa.classList.add('error');
+    }
+
+    var file = document.getElementById("imagenPerfil");
+    if (file.files.length == 0) {
+        label_imagenPerfil.classList.add('error');
+    } else {
+        label_imagenPerfil.classList.remove('error');
+
     }
 
 
     if (input_contrasena.value.match(input_confirmarContrasena.value)) {
-        input_correo.classList.remove('error');
+        input_confirmarContrasena.classList.remove('error');
     } else {
         error = true;
         input_confirmarContrasena.classList.add('error');
@@ -95,16 +103,16 @@ const obtener_datos = () => {
             'icon': "success",
             'text': 'Revisá tu información'
         }).then(function() {
-            window.location = '../../index.html';
+            window.location = 'index.html';
         });
 
 
         let nombreEmpresa = input_nombreEmpresa.value;
         let nombreEncargado = input_nombreEncargado.value;
         let contrasena = input_contrasena.value;
-        let imagen = input_imagen.value;
+        let imagenPerfil = document.getElementById('imagenPerfil').value;
         let cedulaJuridica = input_cedulaJuridica.value;
-        let correo = input_correo.value;
+        let correo = input_correo_empresa.value;
         let confirmarContrasena = input_confirmarContrasena.value;
         let provincia = input_provincia.options[input_provincia.selectedIndex].text;
         let cantones = input_canton.options[input_canton.selectedIndex].text;
@@ -116,7 +124,7 @@ const obtener_datos = () => {
         console.log('Contrasena: ', contrasena);
 
         console.log('Cedula juridica: ', cedulaJuridica);
-        console.log('Imagen: ', imagen);
+        console.log('Imagen perfil: ', imagenPerfil);
         console.log('Correo: ', correo);
         console.log('Confirmar contrasena: ', confirmarContrasena);
         console.log('Provincia: ', provincia);
@@ -128,5 +136,8 @@ const obtener_datos = () => {
 
     }
 };
-
-btn_emp_registro_crearPerfil.addEventListener('click', obtener_datos);
+let contador_solicitudes_empresa = 0;
+btn_emp_registro_crearPerfil.addEventListener('click', () => {
+    contador_solicitudes_empresa += 1;
+    obtener_datos();
+});

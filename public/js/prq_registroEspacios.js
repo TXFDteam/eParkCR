@@ -87,7 +87,7 @@ const validar = () => {
     if (file.files.length == 0) {
         label_imagenPerfil.classList.add('error');
     } else {
-        label_imagenBanner.classList.remove('error');
+        label_imagenPerfil.classList.remove('error');
 
     }
 
