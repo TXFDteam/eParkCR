@@ -1,6 +1,5 @@
 'use strict';
 
-//SE USA EL ROUTE.JS EN LUGAR DE ESTE
 
 const express = require('express');
 const router = express.Router();
@@ -60,5 +59,26 @@ router.get('/listar-duennos-parqueo', (req, res) => {
             })
         }
     });
+});
+
+router.put('/modificar-dueño-parqueo', (req, res) => {
+
+    Duenno_parqueo.updateOne({ id: req.body.id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el dueño de parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        }
+
+    );
 });
 module.exports = router;

@@ -69,3 +69,4 @@ app.use('/api', require('./routes/routes_dueño_parqueo/solicitud_parqueos.route
 
 
 /*-------Conexión admin-------------------*/
+app.use('/api', require('./routes/routes_admin/info_admin.route'));
