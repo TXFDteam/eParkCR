@@ -9,6 +9,7 @@ const input_contrasena = document.querySelector('#prq-registro-contrasena');
 const input_cedulaJuridica = document.querySelector('#prq-registro-jurídica');
 
 const input_cuenta = document.querySelector('#prq-registro-cuenta');
+const input_imagen_perfil = document.querySelector('#myFile');
 const input_telefono = document.querySelector('#prq-registro-telefono');
 const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
 
@@ -53,26 +54,6 @@ const validar = () => {
         input_correo.classList.add('error');
     }
 
-    if (document.getElementById('provincias').value == 'Seleccione una opción') {
-        error = true;
-        input_provincia.classList.add('error');
-    } else {
-        input_provincia.classList.remove('error');
-    }
-
-    if (document.getElementById('cantones').value == 'Seleccione una opción') {
-        error = true;
-        input_canton.classList.add('error');
-    } else {
-        input_canton.classList.remove('error');
-    }
-
-    if (document.getElementById('distritos').value == 'Seleccione una opción') {
-        error = true;
-        input_distrito.classList.add('error');
-    } else {
-        input_distrito.classList.remove('error');
-    }
 
 
 
@@ -93,18 +74,8 @@ const validar = () => {
         input_confirmarContrasena.classList.add('error');
     }
 
+}
 
-    var len = document.querySelectorAll('input[type="radio"]:checked').length
-    if (len <= 0) {
-        error = true;
-        label_permisoFuncionamiento.classList.add('error');
-
-    } else {
-        label_permisoFuncionamiento.classList.remove('error');
-    }
-
-    return error;
-};
 
 
 
@@ -124,30 +95,29 @@ const obtener_datos = () => {
             'icon': "success",
             'text': 'Revise su información'
         }).then(function() {
-            window.location = '../../index.html';
+            window.location = 'index.html';
         });
 
 
         let nombreSociedad = input_nombreSociedad.value;
-        let nombreParqueo = input_nombreParqueo.value;
         let contrasena = input_contrasena.value;
-        let permiso = document.querySelector('input[name="permiso"]:checked').value;
         let cedulaJuridica = input_cedulaJuridica.value;
 
         let cuenta = input_cuenta.value;
+        let imagen_perfil = input_imagen_perfil.value;
         let telefono = input_telefono.value;
 
         let correo = input_correo.value;
         let confirmarContrasena = input_confirmarContrasena.value;
-        let provincia = input_provincia.options[input_provincia.selectedIndex].text;
-        let cantones = input_canton.options[input_canton.selectedIndex].text;
-        let distritos = input_distrito.options[input_distrito.selectedIndex].text;
-        let coordenadas = input_coordenadas.value;
+
+
+
+        registrar_duenno_parqueo(correo, nombreSociedad, cedulaJuridica, contrasena, telefono, cuenta, imagen_perfil);
+
 
         console.log('Nombre Sociedad: ', nombreSociedad);
-        console.log('Nombre Parqueo: ', nombreParqueo);
         console.log('Contrasena: ', contrasena);
-        console.log('Permiso funcionamiento: ', permiso);
+
         console.log('Cedula juridica: ', cedulaJuridica);
 
         console.log('Cuenta: ', cuenta);
@@ -155,10 +125,6 @@ const obtener_datos = () => {
 
         console.log('Correo: ', correo);
         console.log('Confirmar contrasena: ', confirmarContrasena);
-        console.log('Provincia: ', provincia);
-        console.log('Canton: ', cantones);
-        console.log('Distrito: ', distritos);
-        console.log('Direccion: ', coordenadas);
 
 
     }

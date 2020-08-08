@@ -27,7 +27,7 @@ const schema_solicitud_parqueo = new mongoose.Schema({
     }],
     foto_perfil: { type: String, required: false, unique: false },
     foto_banner: { type: String, required: false, unique: false },
-    estado_general: { type: String }
+    estado_general: { type: String, required: true, unique: false }
 });
 
 module.exports = mongoose.model('Solicitud_parqueo', schema_solicitud_parqueo, 'solicitudes_parqueos');

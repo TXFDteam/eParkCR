@@ -19,8 +19,7 @@ const registrar_solicitud_parqueo = async(pcorreo, pnombreParqueo, pcedulaJuridi
                 'twitter': ptwitter
 
             },
-            'coordenadas': pcoordenadas,
-            'estado_general': 'ACTIVAR'
+            'coordenadas': pcoordenadas
 
         }
 

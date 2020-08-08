@@ -60,7 +60,8 @@ function handleError(res, reason, message, code) {
 
 /*-------Conexión a dueños de parqueo------------*/
 //Solicitud de parqueo
-app.use('/api', require('./routes/routes_dueño_parqueo/solicitud_parqueos.route.js'));
+app.use('/api', require('./routes/registro_duenno_parqueo.route.js'));
+app.use('/api', require('./routes/routes_dueño_parqueo/solicitud_parqueos.route'));
 
 
 
