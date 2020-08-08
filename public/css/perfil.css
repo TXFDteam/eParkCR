@@ -10,6 +10,26 @@
     text-align: center;
 }
 
+
+/*FOTO PERFIL*/
+
+
+/*
+.foto-perfil {
+    background-image: url(https://res.cloudinary.com/txfd/image/upload/v1596930518/william-krause-X6MykoLxjvU-unsplash_wjwazv.jpg);
+    background-image: url();
+    background-size: cover;
+    background-position-y: center;
+    height: 1000px;
+    width: 1000px;
+}*/
+
+
+/*.fotos-perfiles-usuarios {
+    height: 100px;
+    width: 100px;
+}*/
+
 .perfil-superior {
     display: flex;
     align-items: center;
@@ -23,8 +43,8 @@
 }
 
 #contenedor-perfil .foto-perfil {
-    height: 170px;
-    width: 170px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
     border: 1px solid black;
 }

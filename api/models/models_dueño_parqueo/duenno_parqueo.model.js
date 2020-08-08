@@ -9,7 +9,7 @@ const schema_duenno_parqueo = new mongoose.Schema({
     contraseña: { type: String, required: true, unique: false },
     telefono: { type: String, required: true, unique: false },
     cuenta_bancaria: { type: String, required: true, unique: true },
-    foto_perfil: { type: String, required: true, unique: false },
+    foto_perfil: { type: String, required: false, unique: false },
     estado_general: { type: String, required: true, unique: false }
 });
 

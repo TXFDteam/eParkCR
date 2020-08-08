@@ -85,6 +85,12 @@ button:focus {
     display: none;
 }
 
+.foto-perfil {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
+
 
 /*PARA VERIFICAR INPUTS*/
 

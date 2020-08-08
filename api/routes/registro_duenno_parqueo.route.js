@@ -11,10 +11,10 @@ let contador_duennos_parqueos = 0;
 router.post('/registro-duenno-parqueo', (req, res) => {
     let datos = req.body;
 
-    contador_duennos_parqueos = contador_duennos_parqueos + 1;
+    contador_duennos_parqueos += 1;
 
     let duenno_parqueo_nuevo = new Duenno_parqueo({
-        id: 'd' + contador_duennos_parqueos,
+        id: datos.id,
         correo: datos.correo,
         nombre: datos.nombre,
         n_identificacion: datos.n_identificacion,
@@ -61,7 +61,7 @@ router.get('/listar-duennos-parqueo', (req, res) => {
     });
 });
 
-router.put('/modificar-dueño-parqueo', (req, res) => {
+router.put('/modificar-duenno-parqueo', (req, res) => {
 
     Duenno_parqueo.updateOne({ id: req.body.id }, {
             $set: req.body

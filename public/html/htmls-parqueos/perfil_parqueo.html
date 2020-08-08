@@ -49,8 +49,10 @@
                 <!--Vista de Perfil-->
 
                 <div class="perfil-superior">
-                    <h1>Parqueo</h1>
-                    <div class="foto-perfil"></div>
+                    <h1>Dueño de parqueo</h1>
+                    <div id="foto-perfil-dueño" class="foto-perfil">
+
+                    </div>
 
                 </div>
 
@@ -79,8 +81,8 @@
                             <p>Dueño de parqueo</p>
                         </div>
                         <div>
-                            <h3>Fecha de nacimiento:</h3>
-                            <p id="nacimiento-duenno-parqueo"></p>
+                            <h3>Teléfono:</h3>
+                            <p id="telefono-duenno-parqueo"></p>
 
                         </div>
 
@@ -106,9 +108,11 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/control-sesiones.js"></script>
     <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_parqueo.js"></script>
+    <script src="../../js/js-servicio/registro_duennos_parqueos_servicio.js"></script>
     <script src="../../js/js_parqueo/ctrl_perfil_parqueo.js"></script>
     <script src="../../js/js_parqueo/ctrl_cerrar_cuenta_parqueo.js"></script>
 
