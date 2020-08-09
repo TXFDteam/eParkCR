@@ -43,24 +43,26 @@ let mostrar_datos_dueño = async() => {
 
 
     //d va a ser el  contador para encontrar los duennos de los parqueos
-    for (let c = 1; c <= info_duennos_parqueo.length; c++) {
+    for (let c = 0; c < info_duennos_parqueo.length; c++) {
         if (correo == info_duennos_parqueo[c].correo && contrasenna == info_duennos_parqueo[c].contraseña) {
-            let foto = document.createElement('img');
-            foto.srcset = info_duennos_parqueo[c].foto_perfil
-                //foto.className= 'foto-perfil';
-            foto.classList.add('foto-perfil');
+            /* let foto = document.createElement('img');
+             foto.srcset = info_duennos_parqueo[c].foto_perfil
+                 //foto.className= 'foto-perfil';
+             foto.classList.add('foto-perfil');*/
 
             nombre_duenno_parqueo.innerHTML = info_duennos_parqueo[c].nombre;
             correo_duenno_parqueo.innerHTML = info_duennos_parqueo[c].correo;
             cuenta_bancaria_duenno_parqueo.innerHTML = info_duennos_parqueo[c].cuenta_bancaria;
             telefono_duenno_parqueo.innerHTML = info_duennos_parqueo[c].telefono;
 
-            foto_perfil_div.appendChild(foto);
+            //foto_perfil_div.appendChild(foto);
             break;
         }
     }
 };
 mostrar_datos_dueño();
+
+
 /*
 for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
     let identificador_duenno = ('duenno_parqueo' + d);

@@ -9,7 +9,8 @@ const input_contrasena = document.querySelector('#prq-registro-contrasena');
 const input_cedulaJuridica = document.querySelector('#prq-registro-jurídica');
 
 const input_cuenta = document.querySelector('#prq-registro-cuenta');
-const input_imagen_perfil = document.querySelector('#myFile');
+//const btn_imagen = document.querySelector('#btn-imagen');
+const foto = document.querySelector('#foto-usuario');
 const input_telefono = document.querySelector('#prq-registro-telefono');
 const label_permisoFuncionamiento = document.querySelector('#permisoFuncionamientoLabel');
 
@@ -46,7 +47,7 @@ const validar = () => {
     }
 
 
-    var mailformat = /^\S+@\S+$/;
+    let mailformat = /^\S+@\S+$/;
     if (input_correo.value.match(mailformat)) {
         input_correo.classList.remove('error');
     } else {
@@ -73,8 +74,10 @@ const validar = () => {
         error = true;
         input_confirmarContrasena.classList.add('error');
     }
-
+    return error;
 }
+
+
 
 
 let contador_dueños = 2;
@@ -105,14 +108,14 @@ const obtener_datos = () => {
         let cedulaJuridica = input_cedulaJuridica.value;
 
         let cuenta = input_cuenta.value;
-        let imagen_perfil = input_imagen_perfil.value;
         let telefono = input_telefono.value;
+        let foto_url = foto.src;
 
         let correo = input_correo.value;
         let confirmarContrasena = input_confirmarContrasena.value;
 
         contador_dueños += 1;
-        registrar_duenno_parqueo(correo, nombreSociedad, cedulaJuridica, contrasena, telefono, cuenta, imagen_perfil);
+        registrar_duenno_parqueo(correo, nombreSociedad, cedulaJuridica, contrasena, telefono, cuenta, foto_url);
 
 
         console.log('Nombre Sociedad: ', nombreSociedad);

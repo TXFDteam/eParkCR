@@ -13,12 +13,9 @@ const schema_solicitud_parqueo = new mongoose.Schema({
     hora_apertura: { type: String, required: true, unique: true },
     hora_cierre: { type: String, required: true, unique: true },
     pisos: { type: Number, required: true, unique: true },
-    piso: [{
-        espacios_discapacidad: { type: Number, required: true, unique: true },
-        espacios_motos: { type: Number, required: true, unique: true },
-        espacios_automoviles: { type: Number, required: true, unique: true },
-
-    }],
+    espacios_discapacidad: { type: Number, required: true, unique: true },
+    espacios_motos: { type: Number, required: true, unique: true },
+    espacios_automoviles: { type: Number, required: true, unique: true },
     redes_sociales: [{
         facebook: { type: String, required: false, unique: false },
         twitter: { type: String, required: false, unique: false },

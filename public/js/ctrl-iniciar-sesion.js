@@ -67,7 +67,7 @@ let obtener_datos_y_validar = async() => {
     localStorage.setItem('contrasenna', input_contrasenna.value);
 
     //DETERMINAR EL DUEÑO DE PARQUEO PARA LOGEAR
-    for (let c = 1; c <= info_duennos_parqueo.length; c++) {
+    for (let c = 0; c < info_duennos_parqueo.length; c++) {
         if (correo == info_duennos_parqueo[c].correo && contrasenna == info_duennos_parqueo[c].contraseña) {
 
             window.location.assign("../../public/html/htmls-parqueos/prq_mis_parqueos.html");
