@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Ingresos</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
+    <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/css-admin/estilos_reporte_ingresos_admin.css">
+</head>
+
+<body>
+
+    <div class="nav-principal">
+
+        <a href="" id="link-inicio">eParkCR</a>
+        <div class="nav-derecha">
+            <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
+        </div>
+    </div>
+
+    <div class="menu-lateral">
+
+        <a href="" class="primer-link-menu-lateral" id="link-admin">Inicio</a>
+        <a href="" id="solicitudes-registro">Solicitudes de registro</a>
+        <a href="" id="info-usuarios-admin">Información de usuarios</a>
+        <a href="" id="historial-reservas">Historial de reservas</a>
+        <a href="" id="ingresos-admin">Ingresos</a>
+        <a href="" id="actividad-aplicacion">Actividad de la aplicación</a>
+        <a href="" id="configuracion-cuenta-admin">Configuración de la cuenta</a>
+    </div>
+
+    <div id="pagina_principal_reporte_ingresos">
+        <h1>Ingresos de los parqueos</h1>
+
+
+        <div id="reporte_ingresos_admin">
+
+            <table class="tabla_reporte" id="tabla_reporte_ingresos">
+                <thead>
+
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+            <button type="button" id="btn-descargar">Descargar</button>
+
+        </div>
+
+    </div>
+
+
+    <script src="../../js/simulador_bd.js"></script>
+    <script src="../../js/control-sesiones.js"></script>
+    <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_admin.js"></script>
+    <script src="../../js/js-admin/ctrl_reporte_ingresos_admin.js"></script>
+</body>
+
+</html>

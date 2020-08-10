@@ -1,0 +1,135 @@
+<!-- D.B.
+
+23 de julio de 2020
+
+Cliente - Formulario para agregar metodos de pago a la aplicacion  -->
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar métodos de pago</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos_formulario_tarjetas.css">
+
+
+</head>
+
+<body>
+
+    <!-- --------------------  Menu header -------------------- -->
+    <div class="nav-principal">
+        <p>Marca</p>
+        <div class="nav-derecha">
+            <a href="" id="link-registrarse">Registrarse</a>
+            <a href="" id="link-iniciar-sesion">Iniciar sesión</a>
+        </div>
+    </div>
+
+    <!-- --------------------  Menu lateral cliente ---------------- -->
+    <div class="menu-lateral">
+
+        <a href="" id="primer-link">Inicio</a>
+        <a href="">X</a>
+        <a href="">X</a>
+        <a href="">X</a>
+        <a href="">X</a>
+        <a href="" id="ultimo-link">X</a>
+    </div>
+
+
+    <!-- -------------------------- Seccion principal -------------------------- -->
+    <div id="sct-contenedor-principal">
+
+        <div id="titulo-principal">
+            <h1>Agregá tus métodos de pago</h1>
+        </div>
+
+
+
+        <form id="formulario_agregar_tarjetas">
+
+            <div class="item_form_tarjetas">
+                <label for="nombre_tarjeta">Nombre en la tarjeta</label>
+                <input type="text" id="nombre_tarjeta" required>
+            </div>
+
+            <div class="item_form_tarjetas">
+                <label for="numero_tarjeta">Numero de tarjeta</label>
+                <div id="logo_tarjeta"></div>
+                <input type="tel" id="numero_tarjeta" maxlength="19" required>
+            </div>
+
+            <div class="item_form_tarjetas">
+                <label for="codigo-seguridad">Código de seguridad</label>
+                <input type="text" id="codigo-seguridad" required>
+            </div>
+
+            <div class="item_form_tarjetas">
+                <label for="mes-expiracion">Fecha de expiración</label>
+                <div class="select_form_tarjetas">
+                    <select name="" id="mes-expiracion" required>
+                           
+                        <option value="" selected disabled>- Mes -</option>
+                        <option value="01">01</option>
+                        <option value="02">02 </ption>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+
+                    </select>
+
+                    <select name="" id="anno-expiracion" required>
+                        <option value="" selected disabled>- Año -</option>
+                        <option value="20">2020</option>
+                        <option value="21">2021</option>
+                        <option value="22">2022</option>
+                        <option value="23">2023</option>
+                        <option value="24">2024</option>
+                        <option value="25">2025</option>
+                        <option value="26">2026</option>
+                        <option value="27">2027</option>
+                        <option value="28">2028</option>
+                        <option value="29">2029</option>
+                        <option value="30">2030</option>
+                        <option value="31">2031</option>
+                        <option value="32">2032</option>
+                        <option value="33">2033</option>
+                        <option value="34">2034</option>
+                        <option value="35">2035</option>
+                        </select>
+                </div>
+            </div>
+
+
+            <div id="button_form_tarjetas">
+                <button type="button" id="btn-agregar-tarjeta">Agregar tarjeta</button>
+                <button type="button" id="btn-cancelar"><a href="listar_tarjetas.html">Cancelar</a></button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</body>
+
+<!-- -------------------------- footer -------------------------- -->
+<script src="https://kit.fontawesome.com/16599b263d.js" crossorigin="anonymous"></script>
+<script src="js/ctrl_formulario_tarjetas.js"></script>
+
+</html>

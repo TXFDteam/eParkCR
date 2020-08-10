@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eParkCR - Buscar parqueos</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/carta_parqueo.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos_filtrar_parqueos.css">
+    <link rel="stylesheet" href="css/estilos_buscar_parqueos.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-principal">
+            <a href="inicio_cliente.html" id="link-inicio">Marca</a>
+            <div class="nav-derecha">
+                <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--El contenedor principal se divide en 2, uno para el menú lateral y otro para el contenido de la página-->
+        <div class="menu-lateral">
+            <a href="inicio_cliente.html" id="link-inicio">Inicio</a>
+            <a href="buscar_parqueos.html" id="link-buscar-parqueos">Buscar parqueos</a>
+            <a href="reservas_usuario.html" id="link-reservas">Reservas</a>
+            <a href="perfil_cliente.html" id="link-configuracion">Configuración de la cuenta</a>
+        </div>
+
+        <!--Ventana para filtrar parqueos-->
+        <div class="sct-filtrar-parqueos oculto">
+            <div id="ventana-contenedor-principal">
+                <div id="contenedor-superior">
+                    <div>
+                        <h3>Filtrar parqueos</h3>
+                        <div>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <button id="btn-salir">X</button>
+                    </div>
+                </div>
+
+                <div id="contenedor-inferior">
+                    <form>
+                        <label for="chb-usar-filtros">Usar filtros</label>
+                        <input type="checkbox" id="chb-usar-filtros">
+                        <label for="chb-estado-abierto">Estado (Abierto)</label>
+                        <input type="checkbox" id="chb-estado-abierto">
+                        <label for="chb-ubicacion-actual">Usar ubicación actual</label>
+                        <input type="checkbox" id="chb-ubicacion-actual">
+                        <label for="slt-calificacion">Calificación</label>
+                        <select name="" id="slt-calificacion">
+                            <option value="0">No usar</option>
+                            <option value="5">5 estrellas</option>
+                            <option value="4">4 estrellas</option>
+                            <option value="3">3 estrellas</option>
+                            <option value="2">2 estrellas</option>
+                            <option value="1">1 estrella</option>
+                        </select>
+                        <label for="txt-ubicacion">Ubicación</label>
+                        <input type="text" id="txt-ubicacion" class="txt-input">
+                        <label for="txt-nombre">Nombre</label>
+                        <input type="text" id="txt-nombre" class="txt-input">
+                    </form>
+
+                    <div id="contenedor-botones">
+                        <button id="btn-reiniciar-filtros">Reiniciar filtros</button>
+                        <button id="btn-aplicar-filtros">Aplicar filtros</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="sct-contenedor-principal">
+            <div class="sct-contenido-buscar-parqueos">
+                <div id="sct-contenedor-titulo">
+                    <div>
+                        <h1>Buscar parqueos</h1>
+                        <!--<p id="txt-filtros">Filtrando por: </p>-->
+                    </div>
+                    <div>
+                        <button id="btn-filtros">Filtros</button>
+                    </div>
+                </div>
+
+                <div id="sct-contenedor-carta-parqueos">
+                    <!--Aquí se crean las cartas de los perfiles de parqueos-->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/simulador_bd.js"></script>
+    <script src="js/ctrl_buscar_parqueos.js"></script>
+</body>
+
+</html>

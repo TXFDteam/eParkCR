@@ -1,0 +1,93 @@
+#contenedor-principal {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*Info principal*/
+
+.contenedor-reservas {
+    margin-top: 120px;
+    margin-left: 18%;
+    height: 980px;
+    width: 82%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor-reservas h3 {
+    font-size: 20px;
+}
+
+#no-hay-reservas {
+    margin-bottom: 40px;
+}
+
+.contenedor-reservas p {
+    text-align: center;
+    font-size: 16px;
+}
+
+
+/*Primera columna*/
+
+.primera-columna h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20%
+}
+
+.primera-columna h3 {
+    font-size: 24px;
+    margin-bottom: 12%;
+}
+
+.primera-columna p {
+    font-size: 18px;
+    margin-bottom: 15%;
+}
+
+.primera-columna {
+    padding-right: 20%;
+}
+
+.primera-columna h3 {
+    margin-top: 20px;
+}
+
+.primera-columna button {
+    margin-top: 25%;
+    font-size: 16px;
+    padding: 10px;
+    width: 200px;
+}
+
+
+/*SEGUNDA COLUMNA*/
+
+.segunda-columna {
+    margin-right: 100px;
+    margin-top: 145px;
+}
+
+.segunda-columna h3 {
+    font-size: 24px;
+    margin-bottom: 20%;
+}
+
+.segunda-columna p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 35%;
+}
+
+
+/*ESTILOS DINAMICOS DEPENDIENDO EL ESTADO DE LA RESERVA*/
+
+.o-ocultar {
+    visibility: hidden;
+}
+
+.o-aparecer {
+    visibility: visible;
+}

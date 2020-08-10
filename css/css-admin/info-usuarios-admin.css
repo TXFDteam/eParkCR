@@ -1,0 +1,29 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.info-usuarios {
+    margin-top: 120px;
+    margin-left: 18%;
+    height: 980px;
+    width: 82%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-usuarios h2 {
+    font-size: 40px;
+    padding-top: 2%;
+}
+
+.botones button {
+    margin-top: 15%;
+    margin-bottom: 6%;
+}
+
+#tabla-usuarios {
+    width: 1100px;
+}

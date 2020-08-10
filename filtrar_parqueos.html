@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/estilos_filtrar_parqueos.css">
+</head>
+
+<body>
+    <div class="sct-filtrar-parqueos">
+        <div id="ventana-contenedor-principal">
+            <div id="contenedor-superior">
+                <div>
+                    <h3>Filtrar parqueos</h3>
+                    <div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <button id="btn-salir">X</button>
+                </div>
+            </div>
+
+            <div id="contenedor-inferior">
+                <form>
+                    <label for="chb-estado-abierto">Estado (Abierto)</label>
+                    <input type="radio" id="chb-estado-abierto">
+                    <label for="chb-ubicacion-actual">Usar ubicación actual</label>
+                    <input type="radio" id="chb-ubicacion-actual">
+                    <label for="slt-calificacion">Calificación</label>
+                    <select name="" id="slt-calificacion">
+                        <option value="5">5 estrellas</option>
+                        <option value="4">4 estrellas</option>
+                        <option value="3">3 estrellas</option>
+                        <option value="2">2 estrellas</option>
+                        <option value="1">1 estrella</option>
+                    </select>
+                    <label for="txt-ubicacion">Ubicación</label>
+                    <input type="text" id="txt-ubicacion" class="txt-input">
+                    <label for="txt-nombre">Nombre</label>
+                    <input type="text" id="txt-nombre" class="txt-input">
+                </form>
+
+                <div id="contenedor-botones">
+                    <button id="btn-reiniciar-filtros">Reiniciar filtros</button>
+                    <button id="btn-aplicar-filtros">Aplicar filtros</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

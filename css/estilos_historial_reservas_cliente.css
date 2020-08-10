@@ -1,0 +1,70 @@
+#principal_hist_reservas {
+    padding-left: 18%;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#principal_hist_reservas h1 {
+    margin: 40px;
+}
+
+
+/* table {
+    border-collapse: collapse;
+    width: 1000px;
+}
+
+#tablahistorial td {
+    width: 10%;
+    padding: 10px;
+    text-align: center;
+}
+
+#tablahistorial thead {
+    background-color: #f7835f;
+    border-bottom: 2px solid black;
+}
+
+#tablahistorial thead td {
+    padding: 30px 0;
+}
+
+#tablahistorial tbody tr:nth-child(even) {
+    background-color: #f9fc61;
+}
+
+#tablahistorial tbody tr:nth-child(odd) {
+    background-color: #fdff86;
+} */
+
+#principal_hist_reservas button {
+    margin-top: 50px;
+}
+
+.link_ver_recibo {
+    color: rgb(219, 176, 33);
+}
+
+@media print {
+    #principal_hist_reservas {
+        margin-right: 100px;
+    }
+    #tablahistorial {
+        width: 750px;
+        margin-right: 35px;
+    }
+    #btn_descargar {
+        display: none;
+    }
+    .nav-principal {
+        display: none;
+    }
+    .menu-lateral {
+        display: none;
+    }
+    .link_ver_recibo {
+        display: none;
+    }
+}

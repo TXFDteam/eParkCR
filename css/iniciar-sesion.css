@@ -1,0 +1,65 @@
+.login {
+    height: 980px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login .datos-login div {
+    padding-bottom: 4.5%;
+}
+
+.login-principal h1 {
+    font-size: 40px;
+    margin-top: 15%;
+    margin-bottom: 8%;
+}
+
+.login-principal input {
+    width: 85%;
+    height: 40px;
+    font-size: 20px;
+}
+
+.login-principal button {
+    width: 35%;
+    height: 50px;
+    font-size: 20px;
+}
+
+.login-principal a {
+    font-size: 16px;
+    color: green;
+}
+
+
+/*Parte secundaria, debajo del line break*/
+
+.login-secundario {
+    margin-top: 2%;
+    margin-bottom: 10%;
+}
+
+.login-secundario h4 {
+    font-size: 24px;
+    margin-bottom: 3%;
+}
+
+.login-secundario button {
+    width: 350px;
+    padding: 10px;
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+#btn-cliente {
+    margin-right: 15px;
+}
+
+.login-secundario a {
+    font-size: 16px;
+    color: #70a1ff;
+}
