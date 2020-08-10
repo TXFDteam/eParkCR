@@ -5,7 +5,8 @@
 const registrar_usuario = async(pcodigo, pnombre, pdireccion, ptelefono, pcorreo) => {
     await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/registrar-usuario',
+        //ESTE URL ESTÁ BIEN, DEBE COINCIDIR CON LOS DE obtener_todos_usuarios_servicio.js
+        url: 'http://localhost:3000/api/registrar-cliente',
         responseType: 'json',
         data: {
             'codigo_usuario': pcodigo,
@@ -22,19 +23,19 @@ const registrar_usuario = async(pcodigo, pnombre, pdireccion, ptelefono, pcorreo
     });
 };
 
-const obtener_usuarios = async() => {
-    let usuarios;
+const obtener_clientes = async() => {
+    let clientes;
 
     await axios({
             method: 'get',
-            url: 'http://localhost:3000/api/listar-usuarios',
+            url: 'http://localhost:3000/api/listar-clientes',
             responseType: 'json'
         })
         .then((response) => {
-            usuarios = response.data.lista_usuarios;
+            clientes = response.data.lista_clientes;
         })
         .catch((error) => {
             console.log(error);
         });
-    return usuarios;
+    return clientes;
 };

@@ -106,3 +106,19 @@ let mostrar_parqueos = () => {
 }
 
 mostrar_parqueos();
+
+let mostrar_datos_dueño = async() => {
+
+    let info_duennos_parqueo = await obtener_duennos_parqueo();
+
+
+
+    //d va a ser el  contador para encontrar los duennos de los parqueos
+    for (let c = 0; c < info_duennos_parqueo.length; c++) {
+        if (correo == info_duennos_parqueo[c].correo && contrasenna == info_duennos_parqueo[c].contraseña) {
+
+            break;
+        }
+    }
+};
+mostrar_datos_dueño();

@@ -3,15 +3,15 @@
 const express = require('express');
 const router = express.Router();
 
-const solicitud_parqueo = require('../../models/models_dueño_parqueo/solicitud_parqueo.model.js');
+const Solicitud_parqueo = require('../../models/models_dueño_parqueo/solicitud_parqueo.model.js');
 
 let contador_solicitudes_parqueos = 0;
 
-router.post('/dueño-parqueo/solicitud-parqueo', (req, res) => {
+router.post('/solicitud-parqueo', (req, res) => {
     let datos = req.body;
     contador_solicitudes_parqueos += 1;
-    let solicitud_parqueo_nueva = new solicitud_parqueo({
-        id: 'p' + contador_solicitudes_parqueos,
+    let solicitud_parqueo_nueva = new Solicitud_parqueo({
+        id: datos.id,
         correo: datos.correo,
         nombre: datos.nombre,
         n_identificacion: datos.n_identificacion,
@@ -20,7 +20,15 @@ router.post('/dueño-parqueo/solicitud-parqueo', (req, res) => {
         hora_apertura: datos.hora_apertura,
         hora_cierre: datos.hora_cierre,
         pisos: datos.pisos,
-        correo: datos.correo_usuario,
+        espacios_discapacidad: datos.espacios_discapacidad,
+        espacios_motos: datos.espacios_motos,
+        espacios_automoviles: datos.espacios_automoviles,
+        redes_sociales: {
+            facebook: datos.facebook,
+            instagram: datos.instagram,
+            twitter: datos.twitter
+
+        },
         //foto_perfil: datos.foto_perfil,
         //foto_banner: datos.foto_banner,
         estado_general: 'ACTIVAR'
@@ -30,12 +38,13 @@ router.post('/dueño-parqueo/solicitud-parqueo', (req, res) => {
         if (err) {
             res.json({
                 success: false,
-                msj: `La solicitud no se pudo registrar, ocurrió el siguiente error ${err}`
+                msj: 'La solicitud no se pudo registrar, ocurrió el siguiente error',
+                err
             })
         } else {
             res.json({
                 success: true,
-                msj: `La solicitud se registró correctamente`,
+                msj: 'La solicitud se registró correctamente',
                 solicitud_parqueo_almacenada
             })
         }
@@ -43,7 +52,8 @@ router.post('/dueño-parqueo/solicitud-parqueo', (req, res) => {
 });
 
 //ESTA FUNCION ESTA EN DUDA
-router.post('/dueño-parqueo/agregar-piso', (req, res) => {
+/*
+router.post('/duenno-parqueo/agregar-piso', (req, res) => {
     solicitud_parqueo.update({ _id: req.body._id }, {
             $push: {
                 'piso': {
@@ -68,6 +78,27 @@ router.post('/dueño-parqueo/agregar-piso', (req, res) => {
                 })
             }
         });
-});
+});*/
 
+
+router.put('/duenno-parqueo/modificar-parqueo', (req, res) => {
+
+    Duenno_parqueo.updateOne({ id: req.body.id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        }
+
+    );
+});
 module.exports = router;

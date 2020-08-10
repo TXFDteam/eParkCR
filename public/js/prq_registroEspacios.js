@@ -11,8 +11,10 @@ const input_correo = document.querySelector('#prq-registro-correo');
 const input_tarifa = document.querySelector('#tarifa');
 const input_horaApertura = document.querySelector('#horaApertura');
 const input_horaCierre = document.querySelector('#horaCierre');
-const input_pisos = document.querySelector('#pisos');
+
 const input_pisosDropdown = document.querySelector('#pisosDropdown');
+const input_pisos = document.querySelector('#pisos');
+
 const input_espaciosDiscapacidad = document.querySelector('#espaciosDiscapacidad');
 const input_espaciosMotos = document.querySelector('#espaciosMotos');
 const input_espaciosAuto = document.querySelector('#espaciosAuto');
@@ -102,24 +104,19 @@ const validar = () => {
     return error;
 };
 
+let contador_solicitudes_parqueo = 0;
+
 const obtener_datos = () => {
     let error = validar();
     if (error == true) {
         Swal.fire({
-            'title': "No se ha podido registrar el usuario",
+            'title': "No se ha podido registrar el parqueo",
             'icon': 'warning',
             'text': 'Revise los campos resaltados'
         });
 
     } else {
         // Impresion de los valores del formulario
-        Swal.fire({
-            'title': 'El usuario se registro correctamente',
-            'icon': "success",
-            'text': 'Revise su información'
-        }).then(function() {
-            window.location = '../../iniciar-sesion.html';
-        });
 
 
         let nombreParqueo = input_nombreParqueo.value;
@@ -134,7 +131,7 @@ const obtener_datos = () => {
         let horaApertura = input_horaApertura.value;
         let horaCierre = input_horaCierre.value;
         let pisos = input_pisos.value;
-        let pisosDropdown = input_pisosDropdown.value;
+        //let pisosDropdown = input_pisosDropdown.value;
         let espaciosDiscapacidad = input_espaciosDiscapacidad.value;
         let espaciosMotos = input_espaciosMotos.value;
         let espaciosAutos = input_espaciosAuto.value;
@@ -149,8 +146,16 @@ const obtener_datos = () => {
         let coordenadas = input_coordenadas.value;
 
 
+        contador_solicitudes_parqueo += 1;
+        registrar_solicitud_parqueo(contador_solicitudes_parqueo, correo, nombreParqueo, cedulaJuridica, tarifa, horaApertura, horaCierre, pisos, espaciosDiscapacidad, espaciosMotos, espaciosAutos, facebook, instagram, twitter, coordenadas);
 
-        registrar_solicitud_parqueo(correo, nombreParqueo, cedulaJuridica, tarifa, horaApertura, horaCierre, pisos, facebook, instagram, twitter, coordenadas);
+        Swal.fire({
+            'title': 'La solicitud del parqueo se envió correctamente',
+            'icon': "success",
+            'text': 'Pronto se habilitará'
+        }).then(function() {
+            window.location = '../../html/htmls-parqueos/prq_mis_parqueos.html';
+        });
 
         console.log('Nombre parqueo: ', nombreParqueo);
         console.log('Cedula juridica: ', cedulaJuridica);
@@ -162,7 +167,6 @@ const obtener_datos = () => {
         console.log('Hora de apertura: ', horaApertura);
         console.log('Hora de cierre: ', horaCierre);
         console.log('Pisos: ', pisos);
-        console.log('Piso seleccionado: ', pisosDropdown);
         console.log('Espacios para personas con discapacidad: ', espaciosDiscapacidad);
         console.log('Espacios para motos: ', espaciosMotos);
         console.log('Espacios para autos: ', espaciosAutos);
@@ -178,9 +182,9 @@ const obtener_datos = () => {
 
     }
 };
-let contador_solicitudes_parqueo = 0;
+
 
 btn_crearParqueo.addEventListener('click', () => {
-    contador_solicitudes_parqueo += 1;
+
     obtener_datos();
 });

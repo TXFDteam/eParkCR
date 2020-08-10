@@ -1,0 +1,84 @@
+'use strict';
+
+
+const express = require('express');
+const router = express.Router();
+
+const Duenno_parqueo = require('../models/models_dueño_parqueo/duenno_parqueo.model');
+
+let contador_duennos_parqueos = 0;
+
+router.post('/registro-duenno-parqueo', (req, res) => {
+    let datos = req.body;
+
+    contador_duennos_parqueos += 1;
+
+    let duenno_parqueo_nuevo = new Duenno_parqueo({
+        id: datos.id,
+        correo: datos.correo,
+        nombre: datos.nombre,
+        n_identificacion: datos.n_identificacion,
+        fecha_nacimiento: datos.fecha_nacimiento,
+        contraseña: datos.contraseña,
+        telefono: datos.telefono,
+        cuenta_bancaria: datos.cuenta_bancaria,
+        foto_perfil: datos.foto_perfil,
+        estado_general: 'ACTIVAR'
+    });
+
+    duenno_parqueo_nuevo.save((err, duenno_parqueo_almacenado) => {
+        if (err) {
+            res.json({
+                success: false,
+                msj: 'La solicitud no se pudo registrar, ocurrió el siguiente error',
+                err
+            })
+        } else {
+            res.json({
+                success: true,
+                msj: `La solicitud se registró correctamente`,
+                duenno_parqueo_almacenado
+            })
+        }
+    });
+});
+
+router.get('/listar-duennos-parqueo', (req, res) => {
+    Duenno_parqueo.find((err, lista_duennos_parqueos) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'No se pudieron listar los usuarios',
+                err
+            })
+        } else {
+            res.json({
+                resultado: true,
+                msj: 'Se listaron los usuarios correctamente',
+                lista_duennos_parqueos
+            })
+        }
+    });
+});
+
+router.put('/modificar-duenno-parqueo', (req, res) => {
+
+    Duenno_parqueo.updateOne({ id: req.body.id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el dueño de parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        }
+
+    );
+});
+module.exports = router;

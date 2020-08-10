@@ -70,7 +70,7 @@ const datos_peticion = () => {
             button: true,
         }).then((willDelete) => {
             if (willDelete) {
-                window.location.assign("prq-formulario.html");
+                window.location.assign("duenno_parqueo_formulario.html");
             }
         })
     }
