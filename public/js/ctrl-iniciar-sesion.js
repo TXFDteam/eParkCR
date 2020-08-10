@@ -70,7 +70,7 @@ let obtener_datos_y_validar = async() => {
     for (let c = 0; c < info_duennos_parqueo.length; c++) {
         if (correo == info_duennos_parqueo[c].correo && contrasenna == info_duennos_parqueo[c].contraseña) {
 
-            window.location.assign("../../public/html/htmls-parqueos/prq_mis_parqueos.html");
+            window.location.assign("../public/html/htmls-parqueos/prq_mis_parqueos.html");
 
             localStorage.setItem('correo_dueño', info_duennos_parqueo[c].correo);
             localStorage.setItem('contraseña_dueño', info_duennos_parqueo[c].contraseña);
@@ -83,7 +83,7 @@ let obtener_datos_y_validar = async() => {
 
 
     if (correo == info_admin[0].correo && contrasenna == info_admin[0].contraseña) {
-        window.location.assign("../../public/html/htmls-admin/lista-solicitudes-registro.html");
+        window.location.assign("../public/html/htmls-admin/lista-solicitudes-registro.html");
 
     } else {
         Swal.fire({
