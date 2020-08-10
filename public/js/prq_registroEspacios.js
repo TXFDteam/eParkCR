@@ -11,8 +11,10 @@ const input_correo = document.querySelector('#prq-registro-correo');
 const input_tarifa = document.querySelector('#tarifa');
 const input_horaApertura = document.querySelector('#horaApertura');
 const input_horaCierre = document.querySelector('#horaCierre');
+
+const input_pisosDropdown = document.querySelector('#pisosDropdown');
 const input_pisos = document.querySelector('#pisos');
-//const input_pisosDropdown = document.querySelector('#pisosDropdown');
+
 const input_espaciosDiscapacidad = document.querySelector('#espaciosDiscapacidad');
 const input_espaciosMotos = document.querySelector('#espaciosMotos');
 const input_espaciosAuto = document.querySelector('#espaciosAuto');
