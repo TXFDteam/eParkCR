@@ -7,19 +7,21 @@ const router = express.Router();
 
 const Cliente = require('../models/models_usuario/cliente.model');
 
-router.post('/registrar-usuario', (req, res) => {
+router.post('/registrar-cliente', (req, res) => {
     let datos = req.body;
 
-    let usuario_nuevo = new Cliente({
-        codigo: datos.codigo_usuario,
-        nombre: datos.nombre_usuario,
-        direccion: datos.direccion_usuario,
-        telefono: datos.telefono_usuario,
-        correo: datos.correo_usuario,
-        estado: 'Activo'
+    let cliente_nuevo = new Cliente({
+        id: datos.id,
+        correo: datos.correo,
+        nombre: datos.nombre,
+        tipo_identificacion: datos.tipo_identificacion,
+        n_identificacion: datos.n_identificacion,
+        fecha_nacimiento: datos.fecha_nacimiento,
+        contraseña: datos.contraseña,
+        estado_general: 'DESACTIVAR'
     });
 
-    usuario_nuevo.save((err, usuario_almacenado) => {
+    cliente_nuevo.save((err, cliente_almacenado) => {
         if (err) {
             res.json({
                 success: false,
@@ -30,8 +32,47 @@ router.post('/registrar-usuario', (req, res) => {
             res.json({
                 success: true,
                 msj: 'El usuario se registró correctamente',
-                usuario_almacenado
+                cliente_almacenado
             })
         }
     });
 });
+router.get('/listar-clientes', (req, res) => {
+    Cliente.find((err, lista_clientes) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'No se pudieron listar los usuarios',
+                err
+            })
+        } else {
+            res.json({
+                resultado: true,
+                msj: 'Se listaron los usuarios correctamente',
+                lista_clientes
+            })
+        }
+    });
+});
+
+router.put('/modificar-cliente', (req, res) => {
+
+    Cliente.updateOne({ id: req.body.id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el dueño de parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        }
+
+    );
+});
+module.exports = router;

@@ -58,7 +58,8 @@ let obtener_datos_y_validar = async() => {
 
     let info_admin = await obtener_admin();
     console.log(info_admin);
-    //let info_clientes = 
+    let info_clientes = await obtener_clientes();
+    console.log(info_clientes);
     let info_duennos_parqueo = await obtener_duennos_parqueo();
     console.log(info_duennos_parqueo);
 
@@ -66,14 +67,30 @@ let obtener_datos_y_validar = async() => {
     localStorage.setItem('correo', input_correo.value);
     localStorage.setItem('contrasenna', input_contrasenna.value);
 
+    //DETERMINAR EL CLIENTE QUE SE LOGEA
+    for (let c = 0; c < info_clientes.length; c++) {
+        if (correo == info_clientes[c].correo && contrasenna == info_clientes[c].contraseña) {
+
+            window.location.assign("../public/html/htmls-usuarios/perfil_cliente.html");
+
+            localStorage.setItem('correo_cliente', info_clientes[c].correo);
+            localStorage.setItem('contraseña_cliente', info_clientes[c].contraseña);
+
+            console.log(localStorage.getItem('correo_cliente'));
+            console.log(localStorage.getItem('contraseña_cliente'));
+            break;
+        }
+    }
+
+
     //DETERMINAR EL DUEÑO DE PARQUEO PARA LOGEAR
-    for (let c = 0; c < info_duennos_parqueo.length; c++) {
-        if (correo == info_duennos_parqueo[c].correo && contrasenna == info_duennos_parqueo[c].contraseña) {
+    for (let d = 0; d < info_duennos_parqueo.length; d++) {
+        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_duennos_parqueo[d].contraseña) {
 
             window.location.assign("../public/html/htmls-parqueos/prq_mis_parqueos.html");
 
-            localStorage.setItem('correo_dueño', info_duennos_parqueo[c].correo);
-            localStorage.setItem('contraseña_dueño', info_duennos_parqueo[c].contraseña);
+            localStorage.setItem('correo_dueño', info_duennos_parqueo[d].correo);
+            localStorage.setItem('contraseña_dueño', info_duennos_parqueo[d].contraseña);
 
             console.log(localStorage.getItem('correo_dueño'));
             console.log(localStorage.getItem('contraseña_dueño'));

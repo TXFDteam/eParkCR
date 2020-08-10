@@ -2,11 +2,10 @@
 
 const btn_volver_perfil_cliente = document.querySelector('#btn-volver-perfil-cliente');
 
-const volver_perfil_cliente = () => {
-    window.location.assign('../../html/htmls-usuarios/perfil_cliente.html');
-};
 
-btn_volver_perfil_cliente.addEventListener('click', volver_perfil_cliente);
+btn_volver_perfil_cliente.addEventListener('click', () => {
+    window.location.assign('../../html/htmls-usuarios/perfil_cliente.html');
+});
 
 
 

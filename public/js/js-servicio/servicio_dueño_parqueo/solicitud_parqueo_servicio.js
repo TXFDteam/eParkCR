@@ -33,7 +33,7 @@ const registrar_solicitud_parqueo = async(pcontador, pcorreo, pnombreParqueo, pc
     });
 };
 
-const obtener_duennos_parqueo = async() => {
+const obtener_parqueos = async() => {
     let parqueos;
 
     await axios({

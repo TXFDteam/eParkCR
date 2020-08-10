@@ -1,19 +1,20 @@
 'use strict';
 
-//HAY QUE CAMBIAR LOS DATOS CUANDO LOS FORMATOS DE USUARIOS DENTRO DE LA BASE DE DATOS ESTÉN LISTOS
 
-const registrar_usuario = async(pcodigo, pnombre, pdireccion, ptelefono, pcorreo) => {
+const registrar_usuario = async(pid, pcorreo, pnombre, ptipo_identificacion, pn_identificacion, pfecha, pcontraseña) => {
     await axios({
         method: 'post',
         //ESTE URL ESTÁ BIEN, DEBE COINCIDIR CON LOS DE obtener_todos_usuarios_servicio.js
         url: 'http://localhost:3000/api/registrar-cliente',
         responseType: 'json',
         data: {
-            'codigo_usuario': pcodigo,
-            'nombre_usuario': pnombre,
-            'direccion_usuario': pdireccion,
-            'telefono_usuario': ptelefono,
-            'correo_usuario': pcorreo
+            'id': pid,
+            'correo': pcorreo,
+            'nombre': pnombre,
+            'tipo_identificacion': ptipo_identificacion,
+            'n_identificacion': pn_identificacion,
+            'fecha_nacimiento': pfecha,
+            'contraseña': pcontraseña
         }
 
     }).then(response => {

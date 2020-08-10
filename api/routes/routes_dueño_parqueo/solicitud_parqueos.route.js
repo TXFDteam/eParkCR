@@ -79,11 +79,27 @@ router.post('/duenno-parqueo/agregar-piso', (req, res) => {
             }
         });
 });*/
-
+router.get('/listar-parqueos', (req, res) => {
+    Solicitud_parqueo.find((err, parqueo_info) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'No se pudo mostrar la información del admin',
+                err
+            })
+        } else {
+            res.json({
+                resultado: true,
+                msj: 'Se mostró la información del admin correctamente',
+                parqueo_info
+            })
+        }
+    });
+});
 
 router.put('/duenno-parqueo/modificar-parqueo', (req, res) => {
 
-    Duenno_parqueo.updateOne({ id: req.body.id }, {
+    Solicitud_parqueo.updateOne({ id: req.body.id }, {
             $set: req.body
         }, (err, info) => {
             if (err) {

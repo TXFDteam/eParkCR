@@ -76,7 +76,11 @@ const validar = () => {
     return error;
 };
 
+
+let contador_clientes = 1;
+
 const obtener_datos = () => {
+
     let error = validar();
     if (error == true) {
         Swal.fire({
@@ -94,19 +98,33 @@ const obtener_datos = () => {
         }).then(function() {
             window.location = 'index.html';
         });
+        //ESTOS IF VERIFICAN QUE OPCIÓN SELECCIONÓ EL USUARIO EN EL DROPDOWN DE TIPO DE IDENTIFICACIÓN
+        let tipoID = document.getElementById('CI-registro-tipoID').value;
+        console.log('Tipo de ID: ', tipoID);
+
+        let tipo_id;
+        if (tipoID == 1) {
+            tipo_id = 'Cédula de identidad';
+        } else if (tipoID == 2) {
+            tipo_id = 'Cédula de residencia';
+        } else {
+            tipo_id = 'Pasaporte';
+        }
+        console.log('Tipo de ID: ', tipo_id);
 
         let nombre = input_nombre.value;
-        var tipoID = document.getElementById('CI-registro-tipoID').selectedOptions[0].text;
         let contrasena = input_contrasena.value;
         let confirmarContrasena = input_confirmarContrasena.value;
         let fechaNacimiento = input_fechaNacimiento.value;
         let ID = input_ID.value;
         let correo = input_correo.value;
 
+        contador_clientes = 'c' + contador_clientes;
 
+        registrar_usuario(contador_clientes, correo, nombre, tipo_id, ID, fechaNacimiento, contrasena);
 
         console.log('Nombre: ', nombre);
-        console.log('Tipo de ID: ', tipoID);
+
         console.log('Contrasena: ', contrasena);
         console.log('Confirmar contrasena: ', confirmarContrasena);
         console.log('Fecha de nacimiento: ', fechaNacimiento);

@@ -31,12 +31,15 @@ const listar_usuarios = (usuario) => {
     fila.insertCell().innerHTML = usuario.duenno_parqueo;
     fila.insertCell().innerHTML = usuario.email_parqueo;
     fila.insertCell().innerHTML = usuario.cedula_juridica;
-    fila.insertCell().innerHTML = usuario.permiso_funcionamiento;
     fila.insertCell().innerHTML = usuario.ubicacion_parqueo;
 
     tabla_usuarios.appendChild(fila);
 
 };
+
+let arrayParqueos = obtener_parqueos();
+console.log(arrayParqueos);
+
 let mostrar_usuarios = () => {
     tabla_usuarios_header.innerHTML = '';
     tabla_usuarios.innerHTML = '';
@@ -45,14 +48,13 @@ let mostrar_usuarios = () => {
     head.insertCell().innerHTML = 'Dueño';
     head.insertCell().innerHTML = 'Correo';
     head.insertCell().innerHTML = 'Cedula jurídica';
-    head.insertCell().innerHTML = 'Permiso de funcionamiento';
+
     head.insertCell().innerHTML = 'Ubicación';
     tabla_usuarios_header.appendChild(head);
 
-    for (let i = 1; i <= solicitudes_parqueos.cant_solicitudes; i++) {
-        let identificador_solicitud = ('sol_parqueo' + i);
-        if (solicitudes_parqueos[identificador_solicitud].estado_parqueo == "Revisión") {
-            listar_usuarios(solicitudes_parqueos[identificador_solicitud]);
+    for (let i = 1; i <= arrayParqueos.length; i++) {
+        if (arrayParqueos[i].estado_general == "ACTIVAR") {
+            listar_usuarios(arrayParqueos[i]);
         }
     }
 };
