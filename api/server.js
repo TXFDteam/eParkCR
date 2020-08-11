@@ -63,9 +63,8 @@ app.use('/api', require('./routes/registro_duenno_parqueo.route.js'));
 app.use('/api', require('./routes/routes_dueño_parqueo/solicitud_parqueos.route.js'));
 
 
-
 /*-------Conexión a empresas-------------*/
-app.use('/api', require('./routes/routes-empresa/emp_formulario.route.js'));
+app.use('/api', require('./routes/routes.js'));
 
 /*-------Conexión admin-------------------*/
 app.use('/api', require('./routes/routes_admin/info_admin.route.js'));

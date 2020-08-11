@@ -55,18 +55,42 @@
 
                     <form id="editar-perfil">
                         <div>
-                            <label for="nuevo-nombre-empresa">Nombre empresa:</label>
+                            <h3>Codigo:</h3>
+                            <input type='text' id="id"></input>
                         </div>
                         <div>
-                            <input type="text" id="nuevo-nombre-empresa" name="nuevo-nombre-empresa">
+                            <h3>Nombre:</h3>
+                            <input type='text' id="nombre-empresa"></input>
                         </div>
 
+                        <div>
+                            <h3>Correo electrónico:</h3>
+                            <input type='text' id="correo-electronico"></input>
+                        </div>
 
                         <div>
-                            <label for="foto-empresa">Foto de perfil:</label>
+                            <h3>Cedula jurídica:</h3>
+                            <input type='text' id="cedula-juridica" disabled></input>
                         </div>
+
                         <div>
-                            <input type="file" id="foto-empresa" name="foto-empresa" accept="image/png, image/jpeg">
+                            <h3>Contraseña:</h3>
+                            <input type='text' id="contrasena"></input>
+                        </div>
+
+                        <div>
+                            <h3>Encargado:</h3>
+                            <input type='text' id="nombreEncargado"></input>
+                        </div>
+
+                        <div>
+                            <h3>Ubicación:</h3>
+                            <input type='text' id="ubicacion"></input>
+                        </div>
+
+                        <div>
+                            <h3>Estado:</h3>
+                            <input type='text' id="estado" disabled></input>
                         </div>
                     </form>
 
@@ -90,12 +114,19 @@
         </section>
 
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../js/js-servicio/servicio_empresa/emp_formulario_servicio.js"></script>
+    <script src="../../js/js_empresa/ctrl_editar_perfil_empresa.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="../../js/simulador_bd.js"></script>
 
     <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_empresa.js"></script>
     <script src="../../js/control-sesiones.js"></script>
-    <script src="../../js/js_empresa/ctrl_editar_perfil_empresa.js"></script>
+
+
+
 
 </body>
 

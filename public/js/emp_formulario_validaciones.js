@@ -81,9 +81,6 @@ const validar = () => {
         input_distrito.classList.remove('error');
     }
 
-
-
-
     return error;
 };
 
@@ -106,33 +103,15 @@ const obtener_datos = () => {
             window.location = 'index.html';
         });
 
-
-        let nombreEmpresa = input_nombreEmpresa.value;
-        let nombreEncargado = input_nombreEncargado.value;
-        let contrasena = input_contrasena.value;
-        let imagenPerfil = document.getElementById('imagenPerfil').value;
-        let cedulaJuridica = input_cedulaJuridica.value;
         let correo = input_correo_empresa.value;
-        let confirmarContrasena = input_confirmarContrasena.value;
-        let provincia = input_provincia.options[input_provincia.selectedIndex].text;
-        let cantones = input_canton.options[input_canton.selectedIndex].text;
-        let distritos = input_distrito.options[input_distrito.selectedIndex].text;
-        let coordenadas = input_coordenadas.value;
+        let nombre = input_nombreEmpresa.value;
+        let n_identificacion = input_cedulaJuridica.value;
+        let contraseña = input_contrasena.value;
+        let nombre_encargado = input_nombreEncargado.value;
+        let ubicacion = input_coordenadas.value;
+        let foto_perfil = document.getElementById('imagenPerfil').value;
 
-        console.log('Nombre empresa: ', nombreEmpresa);
-        console.log('Nombre encargado: ', nombreEncargado);
-        console.log('Contrasena: ', contrasena);
-
-        console.log('Cedula juridica: ', cedulaJuridica);
-        console.log('Imagen perfil: ', imagenPerfil);
-        console.log('Correo: ', correo);
-        console.log('Confirmar contrasena: ', confirmarContrasena);
-        console.log('Provincia: ', provincia);
-        console.log('Canton: ', cantones);
-        console.log('Distrito: ', distritos);
-        console.log('Coordenada: ', coordenadas);
-
-
+        registrar_empresa(correo, nombre, n_identificacion, contraseña, nombre_encargado, ubicacion, foto_perfil);
 
     }
 };
