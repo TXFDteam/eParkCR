@@ -62,6 +62,8 @@ let obtener_datos_y_validar = async() => {
     console.log(info_clientes);
     let info_duennos_parqueo = await obtener_duennos_parqueo();
     console.log(info_duennos_parqueo);
+    let info_empresas = await obtener_empresas();
+    console.log(info_empresas);
 
     //AQUI GUARDA LOCALMENTE LOS DATOS DE CORREO Y CONTRASEÑA
     localStorage.setItem('correo', input_correo.value);
@@ -81,11 +83,22 @@ let obtener_datos_y_validar = async() => {
             break;
         }
     }
+    //DETERMINAR LA EMPRESA PARA LOGEAR
+    for (let e = 0; e <= info_empresas.length; e++) {
+        if (correo == info_empresas[e].correo && contrasenna == info_empresas[e].contraseña) {
+            window.location.assign("../../public/html/htmls-empresas/perfil_empresa.html");
+            localStorage.setItem('correo_empresa', info_empresas[e].correo);
+            localStorage.setItem('contraseña_empresa', info_empresas[e].contraseña);
 
+            console.log(localStorage.getItem('correo_empresa'));
+            console.log(localStorage.getItem('contraseña_empresa'));
+            break;
+        }
+    }
 
     //DETERMINAR EL DUEÑO DE PARQUEO PARA LOGEAR
     for (let d = 0; d < info_duennos_parqueo.length; d++) {
-        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_duennos_parqueo[d].contraseña) {
+        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_empresas[d].contraseña) {
 
             window.location.assign("../public/html/htmls-parqueos/prq_mis_parqueos.html");
 
@@ -108,20 +121,9 @@ let obtener_datos_y_validar = async() => {
             'icon': 'warning',
             'text': 'Revise que el correo o contraseña sea el correcto'
         });
-        /*for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
-            let identificador_duenno = ('duenno_parqueo' + d);
-            if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
-                window.location.assign("../../public/html/htmls-parqueos/prq_mis_parqueos.html");
-            }
-        }*/
-    }
-    /*for (let e = 1; e <= empresas.cant_empresas; e++) {
-        let identificador_empresa = ('empresa_' + e);
-        if (correo == empresas.lista_empresas[identificador_empresa].correo_empresa && contrasenna == empresas.lista_empresas[identificador_empresa].contrasenna_empresa) {
-            window.location.assign("../../public/html/htmls-empresas/convenios-empresa.html");
-        }
-    }*/
 
+
+    };
 };
 
 //let validar_datos = () => {};

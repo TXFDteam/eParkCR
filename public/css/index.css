@@ -113,7 +113,8 @@ body a {
 #segundo-banner p {
     font-size: 20px;
     margin-bottom: 5%;
-    font-weight: 700;
+    font-weight: 600;
+    line-height: 36px;
 }
 
 #segundo-banner i {
@@ -169,8 +170,9 @@ body a {
     font-size: 20px;
     padding-bottom: 50px;
     font-weight: 550;
-    text-align: left;
-    line-height: 30px;
+    width: 90%;
+    text-align: justify;
+    line-height: 38px;
 }
 
 .img-superior {
@@ -208,8 +210,9 @@ body a {
     font-size: 20px;
     padding-bottom: 50px;
     font-weight: 550;
-    text-align: left;
-    line-height: 30px;
+    width: 90%;
+    text-align: justify;
+    line-height: 38px;
 }
 
 .info-medio {
@@ -251,8 +254,9 @@ body a {
     font-size: 20px;
     padding-bottom: 50px;
     font-weight: 550;
-    text-align: left;
-    line-height: 30px;
+    width: 90%;
+    text-align: justify;
+    line-height: 38px;
 }
 
 .img-inferior {
