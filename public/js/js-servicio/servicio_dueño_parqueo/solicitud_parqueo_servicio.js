@@ -31,7 +31,7 @@ const directo_registrar_parqueo = async(p_nombre, p_img_carta, p_img_perfil, p_i
     });
 };
 
-const registrar_solicitud_parqueo = async(pcontador, pcorreo, pnombreParqueo, pcedulaJuridica, ptarifa, phoraApertura, phoraCierre, ppisos, pdiscapacidad, pmotos, pautomoviles, pfacebook, pinstagram, ptwitter, pcoordenadas) => {
+const registrar_solicitud_parqueo = async(pcorreo, pnombreParqueo, pcedulaJuridica, ptarifa, phoraApertura, phoraCierre, ppisos, pdiscapacidad, pmotos, pautomoviles, pfacebook, pinstagram, ptwitter, pcoordenadas) => {
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/solicitud-parqueo',

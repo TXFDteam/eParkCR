@@ -66,8 +66,8 @@ router.post('/solicitud-parqueo', (req, res) => {
             twitter: datos.twitter
 
         },
-        //foto_perfil: datos.foto_perfil,
-        //foto_banner: datos.foto_banner,
+        foto_perfil: datos.foto_perfil,
+        foto_banner: datos.foto_banner,
         estado_general: 'ACTIVAR'
     });
 

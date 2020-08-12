@@ -239,19 +239,24 @@
                 <p id="labelPerfil">Adjuntá tu imagen de perfil aquí</p>
 
                 <div class='file_upload' id="file_upload2">
+                    <div id="left">
+                        <img id="imagen_parqueo_perfil">
+                    </div>
 
-                    <label class="custom-file-upload">
-                        <input type="file" id="imagenPerfil" required/>
-                       Adjuntar
-                    </label>
+                    <div id="right">
+                        <button type="button" id="imagenPerfil">Adjuntar</button>
+                    </div>
+
                     <p id="labelBanner">Adjuntá tu imagen de banner aquí</p>
                 </div>
                 <div class='file_upload' id="file_upload3">
+                    <div id="left">
+                        <img id="imagen_parqueo_banner">
+                    </div>
 
-                    <label class="custom-file-upload">
-                        <input type="file" id="imagenBanner" required/>
-                       Adjuntar
-                    </label>
+                    <div id="right">
+                        <button type="button" id="imagenBanner">Adjuntar</button>
+                    </div>
 
                 </div>
                 <div id="mapa">
@@ -322,6 +327,13 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../js/control-sesiones.js"></script>
     <script src="../../js/js-servicio/servicio_dueño_parqueo/solicitud_parqueo_servicio.js"></script>
+
+    <script src="../../js/js-servicio/servicio_dueño_parqueo/servicio_registro_imagenPerfil_parqueo.js"></script>
+    <script src="../../js/js-servicio/servicio_dueño_parqueo/servicio_registro_imagenBanner_parqueo.js"></script>
+
+
+
+
     <script src="../../js/prq_registroEspacios.js"></script>
     <script src="../../js/js_parqueo/ctrl_registro_pisos_parqueo.js"></script>
 
