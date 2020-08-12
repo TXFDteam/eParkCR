@@ -48,9 +48,7 @@ router.post('/registrar-parqueo', (req, res) => {
 
 router.post('/solicitud-parqueo', (req, res) => {
     let datos = req.body;
-    contador_solicitudes_parqueos += 1;
     let solicitud_parqueo_nueva = new Solicitud_parqueo({
-        id: datos.id,
         correo: datos.correo,
         nombre: datos.nombre,
         n_identificacion: datos.n_identificacion,

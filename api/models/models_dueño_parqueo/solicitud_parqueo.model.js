@@ -4,7 +4,6 @@
 const mongoose = require('mongoose');
 
 const schema_solicitud_parqueo = new mongoose.Schema({
-    id: { type: String },
     correo: { type: String, required: true, unique: true },
     nombre: { type: String, required: true, unique: true },
     n_identificacion: { type: String, required: true, unique: true },

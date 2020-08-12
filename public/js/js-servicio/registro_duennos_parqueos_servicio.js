@@ -6,7 +6,6 @@ const registrar_duenno_parqueo = async(pcorreo, pnombreParqueo, pcedulaJuridica,
         url: 'http://localhost:3000/api/registro-duenno-parqueo',
         responseType: 'json',
         data: {
-            'id': 'd' + contador_dueños,
             'correo': pcorreo,
             'nombre': pnombreParqueo,
             'n_identificacion': pcedulaJuridica,

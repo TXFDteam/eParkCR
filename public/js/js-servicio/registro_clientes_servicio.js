@@ -8,7 +8,6 @@ const registrar_usuario = async(pid, pcorreo, pnombre, ptipo_identificacion, pn_
         url: 'http://localhost:3000/api/registrar-cliente',
         responseType: 'json',
         data: {
-            'id': pid,
             'correo': pcorreo,
             'nombre': pnombre,
             'tipo_identificacion': ptipo_identificacion,
