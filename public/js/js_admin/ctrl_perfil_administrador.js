@@ -43,7 +43,7 @@ const mostrar_info_admin = async() => {
 
         nombre_admin.innerHTML = info_admin[0].nombre;
         correo_admin.innerHTML = info_admin[0].correo;
-        comision.innerHTML = info_admin[0].comision;
+        comision.innerHTML = (info_admin[0].comision + '%');
         telefono_admin.innerHTML = info_admin[0].telefono;
 
     }
