@@ -18,6 +18,7 @@ const schema_cliente = new mongoose.Schema({
         codigo_seguridad: { type: Number, required: true, unique: false }
     }],*/
     estado_general: { type: String, required: true, unique: false },
+    otp: { type: Number, required: false, unique: false }
 
 });
 

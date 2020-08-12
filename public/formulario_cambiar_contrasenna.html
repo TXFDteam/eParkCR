@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olvidar contraseña</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cambiar_contrasenna.css">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+
+</head>
+
+<body>
+
+    <div class="nav-principal">
+        <a href="index.html" id="link-inicio">eParkCR</a>
+    </div>
+    <div class="contenedor">
+
+        <div class="datos-correo-cambiar-contrasenna">
+            <h1>Rellená los siguientes datos para <br>cambiar la contraseña</h1>
+            <div>
+                <label for="otp">Código</label>
+                <input id="otp" type="text" placeholder="111333" required>
+            </div>
+            <div>
+                <label for="contrasenna-nueva">Nueva contraseña</label>
+                <input id="contrasenna-nueva" type="text" placeholder="ABC1" required>
+            </div>
+            <div>
+                <label for="verificar-contrasenna-nueva">Confirmar contraseña</label>
+                <input id="verificar-contrasenna-nueva" type="text" placeholder="ABC1" required>
+            </div>
+            <button id="btn-cambiar-contrasenna" type="button">Cambiar contraseña</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/creacion_otp.js"></script>
+    <script src="js/js-servicio/cambiar_contrasenna_servicio.js"></script>
+    <script src="js/js-servicio/registro_clientes_servicio.js"></script>
+    <script src="js/js-servicio/registro_duennos_parqueos_servicio.js"></script>
+    <script src="js/js-servicio/servicio_empresa/registrar_empresas_servicio.js"></script>
+    <script src="js/ctrl_cambiar_contrasenna.js"></script>
+</body>
+
+</html>

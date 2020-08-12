@@ -6,23 +6,56 @@
     width: 100%;
 }
 
-.datos-correo-recuperar-contrasenna {
+.datos-correo-cambiar-contrasenna {
+    padding-top: 120px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    margin-bottom: 2%;
+    font-size: 20px;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+input {
+    margin-bottom: 8%;
+    width: 500px;
+    height: 40px;
+}
+
+button {
+    width: 28%;
+    height: 50px;
+    margin-left: 58%;
+}
+
+
+/*
+.datos-correo-cambiar-contrasenna {
     padding-top: 160px;
 }
 
-.datos-correo-recuperar-contrasenna h1 {
-    margin-bottom: 50px;
+.datos-correo-cambiar-contrasenna h2 {
+    margin-bottom: 40px;
 }
 
-.datos-correo-recuperar-contrasenna input {
+.datos-correo-cambiar-contrasenna input {
     margin-bottom: 5%;
     width: 500px;
     height: 40px;
 }
 
-.datos-correo-recuperar-contrasenna button {
+.datos-correo-cambiar-contrasenna button {
     width: 28%;
     height: 50px;
-    margin-left: 29%;
+    margin-left: 60%;
     margin-bottom: 20%;
-}
+}*/

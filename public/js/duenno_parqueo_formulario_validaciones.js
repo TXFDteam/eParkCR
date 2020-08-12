@@ -94,15 +94,6 @@ const obtener_datos = () => {
 
     } else {
         // Impresion de los valores del formulario
-        Swal.fire({
-            'title': 'Se registró correctamente',
-            'icon': "success",
-            'text': 'Revise su información'
-        }).then(function() {
-            window.location = 'index.html';
-        });
-
-
         let nombreSociedad = input_nombreSociedad.value;
         let contrasena = input_contrasena.value;
         let cedulaJuridica = input_cedulaJuridica.value;
@@ -128,6 +119,13 @@ const obtener_datos = () => {
         console.log('Correo: ', correo);
         console.log('Confirmar contrasena: ', confirmarContrasena);
 
+        Swal.fire({
+            'title': 'Se registró correctamente',
+            'icon': "success",
+            'text': 'Revise su información'
+        }).then(function() {
+            window.location = 'index.html';
+        });
 
     }
 };
