@@ -60,9 +60,9 @@ boton_guardar_datos_empresa.addEventListener('click', guardar_datos_empresa);
 
 
 
-
+/*
 const volver_perfil_empresa = () => {
     window.location.assign('../../html/htmls-empresas/perfil_empresa.html');
 };
 
-btn_volver_perfil_empresa.addEventListener('click', volver_perfil_empresa);
+btn_volver_perfil_empresa.addEventListener('click', volver_perfil_empresa);*/

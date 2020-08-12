@@ -11,7 +11,7 @@ if (a_cerrar_sesion) {
         localStorage.setItem('contrasenna', '');
     })
 };
-
+/*
 const verificar_usuario_ingresado = () => {
     //Si no hay ningún usuario ingresado se vuelve al landing page.
     if (localStorage.getItem('correo') == '' || localStorage.getItem('contrasenna') == '') {
@@ -20,4 +20,4 @@ const verificar_usuario_ingresado = () => {
 };
 
 verificar_usuario_ingresado();
-console.log('Si es este.');
+console.log('Si es este.');*/

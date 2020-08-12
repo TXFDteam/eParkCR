@@ -114,8 +114,10 @@ let obtener_datos_y_validar = async() => {
 
     if (correo == info_admin[0].correo && contrasenna == info_admin[0].contraseña) {
         window.location.assign("../public/html/htmls-admin/lista-solicitudes-registro.html");
+
         localStorage.setItem('correo_admin', info_admin[0].correo);
         localStorage.setItem('contraseña_admin', info_admin[0].contraseña);
+
         console.log(localStorage.getItem('correo_admin'));
         console.log(localStorage.getItem('contraseña_admin'));
 

@@ -43,11 +43,11 @@ const datos_peticion = () => {
 
         Swal.fire({
             icon: 'success',
-            'text': 'Podes revisar el correo electrónico y seguir los pasos para cambiar la contraseña',
+            'text': 'Podes revisar el correo electrónico y seguir la información',
             button: true,
         }).then((willDelete) => {
             if (willDelete) {
-                window.location.assign("index.html");
+                window.location.assign("formulario_cambiar_contrasenna.html");
             }
         })
     }
