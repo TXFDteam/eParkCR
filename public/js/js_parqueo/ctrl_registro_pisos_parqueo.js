@@ -1,5 +1,7 @@
 'use strict';
 
+const btn_prueba = document.querySelector('#btn-probar');
+
 let cantidad_pisos = 1;
 let espacios_autos = [0];
 let espacios_discapacitados = [0];
@@ -8,6 +10,79 @@ let espacios_motos = [0];
 let espacios_totales;
 
 let piso_seleccionado;
+
+//Para generar espacios.
+let pisos = [];
+
+let ultimo_D = 1;
+let ultimo_M = 1;
+let ultimo_C = 1;
+
+
+const generar_piso = (p_indice_piso) => {
+    let json_piso = { espacios: [] };
+    let contador_espacios = 0;
+
+    json_piso.espacios[0] = { "codigo": "A01", "tipo": "0", "ocupado": "0" };
+
+    //Crear espacios para discapacitados.
+    for (let i = ultimo_D; i - ultimo_D < espacios_discapacitados[p_indice_piso]; i++) {
+        //Formato.
+        let codigo = '\"';
+        codigo += (i < 10) ? ('D0' + i) : ('D' + i);
+        codigo += '\"';
+
+        json_piso.espacios[contador_espacios] = { "codigo": codigo, "tipo": "0", "ocupado": "0" };
+        contador_espacios++;
+    };
+
+    //Para ser usado en el siguiente piso.
+    ultimo_D = contador_espacios + 1;
+
+    //Crear espacios para motos.
+    for (let i = ultimo_M; i - ultimo_M < espacios_motos[p_indice_piso]; i++) {
+        //Formato.
+        let codigo = '\"';
+        codigo += (i < 10) ? ('M0' + i) : ('M' + i);
+        codigo += '\"';
+
+        json_piso.espacios[contador_espacios] = { "codigo": codigo, "tipo": "1", "ocupado": "0" };
+        contador_espacios++;
+    };
+
+    ultimo_M = contador_espacios + 1;
+
+    //Crear espacios para autos.
+    for (let i = ultimo_C; i - ultimo_C < espacios_autos[p_indice_piso]; i++) {
+        //Formato.
+        let codigo = '\"';
+        codigo += (i < 10) ? ('C0' + i) : ('C' + i);
+        codigo += '\"';
+
+        json_piso.espacios[contador_espacios] = { "codigo": codigo, "tipo": "2", "ocupado": "0" };
+        contador_espacios++;
+    };
+
+    ultimo_C = contador_espacios + 1;
+
+    return json_piso;
+};
+
+const crear_pisos_parqueo = () => {
+    //Reiniciar datos.
+    pisos = [];
+    ultimo_D = 1;
+    ultimo_M = 1;
+    ultimo_C = 1;
+
+    //Para crear los pisos.
+    for (let i = 0; i < cantidad_pisos; i++) {
+        pisos[i] = generar_piso(i);
+    }
+    console.log(pisos);
+};
+
+btn_prueba.addEventListener('click', crear_pisos_parqueo);
 
 const al_cambiar_cantidad_de_pisos = () => {
     cantidad_pisos = input_pisos.value;
@@ -47,5 +122,10 @@ input_pisos.addEventListener('change', al_cambiar_cantidad_de_pisos);
 input_espaciosAuto.addEventListener('change', actualizar_espacios);
 input_espaciosDiscapacidad.addEventListener('change', actualizar_espacios);
 input_espaciosMotos.addEventListener('change', actualizar_espacios);
+
+
+input_pisos.value = 1;
+al_cambiar_cantidad_de_pisos();
+al_cambiar_de_piso();
 
 actualizar_datos_piso(0);
