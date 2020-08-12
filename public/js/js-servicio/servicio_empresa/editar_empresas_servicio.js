@@ -17,14 +17,13 @@ const obtener_empresas = async() => {
     return empresas;
 };
 
-const modificar_empresa = async(p_id, pid, pcorreo, pnombre, pidentificacion, pcontrasena, pencargado, pubicacion, pfoto, pestado) => {
+const modificar_empresa = async(p_id, pcorreo, pnombre, pidentificacion, pcontrasena, pencargado, pubicacion, pfoto, pestado) => {
     await axios({
             method: 'put',
             url: 'http://localhost:3000/api/modificar_empresa',
             responseType: 'json',
             data: {
                 _id: p_id,
-                id: pid,
                 correo: pcorreo,
                 nombre: pnombre,
                 n_identificacion: pidentificacion,
