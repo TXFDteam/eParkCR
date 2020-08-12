@@ -1,6 +1,6 @@
 'use strict';
 
-const btn_prueba = document.querySelector('#btn-probar');
+//const btn_prueba = document.querySelector('#btn-probar');
 
 let cantidad_pisos = 1;
 let espacios_autos = [0];
@@ -18,7 +18,8 @@ let ultimo_D = 1;
 let ultimo_M = 1;
 let ultimo_C = 1;
 
-
+//Esta función crea un objeto piso para ser guardado en el json.
+//<p_indice_piso> El índice del piso que se va a crear.
 const generar_piso = (p_indice_piso) => {
     let json_piso = { espacios: [] };
     let contador_espacios = 0;
@@ -82,7 +83,7 @@ const crear_pisos_parqueo = () => {
     console.log(pisos);
 };
 
-btn_prueba.addEventListener('click', crear_pisos_parqueo);
+//btn_prueba.addEventListener('click', crear_pisos_parqueo);
 
 const al_cambiar_cantidad_de_pisos = () => {
     cantidad_pisos = input_pisos.value;
