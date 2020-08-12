@@ -57,10 +57,6 @@ const mostrar_info = async() => {
         }
     }
 
-
-
-
-
 };
 
 const obtener_datos = () => {

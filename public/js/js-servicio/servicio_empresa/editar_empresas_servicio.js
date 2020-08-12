@@ -30,7 +30,7 @@ const modificar_empresa = async(pcorreo, pnombre, pencargado, pfoto) => {
             }
         })
         .then((response) => {
-            window.location.href = 'perfil_empresa.html';
+            console.log('Datos modificados correctamente');
         })
         .catch((error) => {
             console.log(error);
