@@ -94,15 +94,6 @@ const obtener_datos = () => {
         });
 
     } else {
-        // Impresion de los valores del formulario
-        Swal.fire({
-            'title': 'Te registraste correctamente',
-            'icon': "success",
-            'text': 'Revisá tu información'
-        }).then(function() {
-            window.location = 'index.html';
-        });
-
         let correo = input_correo_empresa.value;
         let nombre = input_nombreEmpresa.value;
         let n_identificacion = input_cedulaJuridica.value;
@@ -112,11 +103,22 @@ const obtener_datos = () => {
         let foto_perfil = document.getElementById('imagenPerfil').value;
 
         registrar_empresa(correo, nombre, n_identificacion, contraseña, nombre_encargado, ubicacion, foto_perfil);
+        // Impresion de los valores del formulario
+        Swal.fire({
+            'title': 'Te registraste correctamente',
+            'icon': "success",
+            'text': 'Revisá tu información'
+        }).then(function() {
+
+            // window.location = 'index.html';
+        });
+
+
 
     }
 };
-let contador_solicitudes_empresa = 0;
+let ids_empresas = 0;
 btn_emp_registro_crearPerfil.addEventListener('click', () => {
-    contador_solicitudes_empresa += 1;
+    ids_empresas += 1;
     obtener_datos();
 });

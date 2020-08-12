@@ -177,7 +177,6 @@ router.post('/registrar_empresa', (req, res) => {
         correo: datos.correo,
         nombre: datos.nombre,
         n_identificacion: datos.n_identificacion,
-        fecha_nacimiento: datos.fecha_nacimiento,
         contraseña: datos.contraseña,
         nombre_encargado: datos.nombre_encargado,
         ubicacion: datos.ubicacion,

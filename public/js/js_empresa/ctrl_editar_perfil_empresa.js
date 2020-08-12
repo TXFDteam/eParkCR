@@ -1,45 +1,13 @@
-// 'use strict';
-
-// const btn_volver_perfil_empresa = document.querySelector('#btn-volver-perfil-empresa');
-
-// const volver_perfil_empresa = () => {
-//     window.location.assign('../../html/htmls-empresas/perfil_empresa.html');
-// };
-
-// btn_volver_perfil_empresa.addEventListener('click', volver_perfil_empresa);
-
-
-// const nuevo_nombre_empresa = document.querySelector('#nuevo-nombre-empresa');
-// const boton_guardar_datos_empresa = document.querySelector('#btn-guardar-cambios-empresa');
-
-
-// const guardar_datos_empresa = () => {
-
-
-
-
-//     Swal.fire(
-//         'Perfil actualizado',
-//         'Si ha dejado algún espacio en blanco no requerido, la información se mantendrá como estaba previamente',
-//         'success'
-//     )
-// };
-
-
-// boton_guardar_datos_empresa.addEventListener('click', guardar_datos_empresa);
-
-
-
 'use strict';
 
 const input_id = document.querySelector('#id');
-const input_correo = document.querySelector('#correo-electronico');
-const input_nombre = document.querySelector('#nombre-empresa');
-const input_identificacion = document.querySelector('#cedula-juridica');
+const input_correo = document.querySelector('#correo_electronico');
+const input_nombre = document.querySelector('#nombre_empresa');
+const input_identificacion = document.querySelector('#cedula_juridica');
 const input_contrasena = document.querySelector('#contrasena');
 const input_encargado = document.querySelector('#nombreEncargado');
 const input_ubicacion = document.querySelector('#ubicacion');
-const input_foto = document.querySelector('#foto_perfil');
+const input_foto = document.querySelector('#fotoPerfil');
 const input_estado = document.querySelector('#estado');
 
 const boton_guardar_datos_empresa = document.querySelector('#btn-guardar-cambios-empresa');
@@ -77,10 +45,44 @@ const mostrar_info = async() => {
 };
 
 const obtener_datos = () => {
-    modificar_producto(_id, input_id.value, input_correo.value, input_nombre.value, input_identificacion.value, input_contrasena.value, input_encargado.value, input_ubicacion.value, input_foto.value, input_estado.value);
+    modificar_empresa(_id, input_id.value, input_correo.value, input_nombre.value, input_identificacion.value, input_contrasena.value, input_encargado.value, input_ubicacion.value, input_foto.value, input_estado.value);
 };
 
 mostrar_info();
 
 
 boton_guardar_datos_empresa.addEventListener('click', obtener_datos);
+
+
+
+
+
+// 'use strict';
+
+// const btn_volver_perfil_empresa = document.querySelector('#btn-volver-perfil-empresa');
+
+// const volver_perfil_empresa = () => {
+//     window.location.assign('../../html/htmls-empresas/perfil_empresa.html');
+// };
+
+// btn_volver_perfil_empresa.addEventListener('click', volver_perfil_empresa);
+
+
+// const nuevo_nombre_empresa = document.querySelector('#nuevo-nombre-empresa');
+// const boton_guardar_datos_empresa = document.querySelector('#btn-guardar-cambios-empresa');
+
+
+// const guardar_datos_empresa = () => {
+
+
+
+
+//     Swal.fire(
+//         'Perfil actualizado',
+//         'Si ha dejado algún espacio en blanco no requerido, la información se mantendrá como estaba previamente',
+//         'success'
+//     )
+// };
+
+
+// boton_guardar_datos_empresa.addEventListener('click', guardar_datos_empresa);
