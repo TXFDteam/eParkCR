@@ -173,7 +173,6 @@ router.post('/registrar_empresa', (req, res) => {
     let datos = req.body;
     ids_empresas += 1;
     let empresa_nueva = new Empresa({
-        id: 'e' + ids_empresas,
         correo: datos.correo,
         nombre: datos.nombre,
         n_identificacion: datos.n_identificacion,

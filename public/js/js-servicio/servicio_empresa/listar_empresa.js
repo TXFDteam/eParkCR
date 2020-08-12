@@ -1,6 +1,5 @@
 'use strict';
 
-const input_id = document.querySelector('#id');
 const input_correo_empresa = document.querySelector('#correo_electronico');
 const input_nombreEmpresa = document.querySelector('#nombre_empresa');
 const input_cedulaJuridica = document.querySelector('#cedula_juridica');
@@ -33,7 +32,6 @@ const mostrar_info = async() => {
     let _id = obtener_parametro_url('_id');
     let empresa = await obtener_empresa_id(_id);
 
-    input_id.value = empresa._id;
     input_correo_empresa.value = empresa.correo;
     input_nombreEmpresa.value = empresa.nombre;
     input_cedulaJuridica.value = empresa.n_identificacion;
@@ -47,7 +45,7 @@ const mostrar_info = async() => {
 };
 
 const obtener_datos = () => {
-    modificar_empresa(_id, input_id.value, input_correo_empresa.value, input_nombreEmpresa.value, input_cedulaJuridica.value, input_contrasena.value, input_nombreEncargado.value, input_coordenadas.value, input_fotoPerfil.value, input_estado.value);
+    modificar_empresa(_id, input_correo_empresa.value, input_nombreEmpresa.value, input_cedulaJuridica.value, input_contrasena.value, input_nombreEncargado.value, input_coordenadas.value, input_fotoPerfil.value, input_estado.value);
 };
 
 mostrar_info();
