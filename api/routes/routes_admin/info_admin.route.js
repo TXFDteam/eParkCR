@@ -58,7 +58,7 @@ router.get('/listar-admin', (req, res) => {
 
 router.put('/modificar-admin', (req, res) => {
 
-    Producto.updateOne({ id: req.body.id }, {
+    Admin.updateOne({ _id: req.body._id }, {
             $set: req.body
         }, (err, info) => {
             if (err) {
