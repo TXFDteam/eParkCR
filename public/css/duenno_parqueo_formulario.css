@@ -55,6 +55,13 @@ input[type=file] {
     visibility: hidden;
 }
 
+#duenno-parqueo-foto {
+    width: 400px;
+    height: 200px;
+    border: solid 2px gray;
+    margin-top: 10px;
+}
+
 #labelMyFileContainer {
     /* border: solid 2px blue; */
     display: flex;
