@@ -10,7 +10,6 @@ const mongoose = require('mongoose');
 //Instagram: instagram
 
 const schema_parqueo = new mongoose.Schema({
-    id: { type: String, required: true, unique: true },
     nombre: { type: String, required: true, unique: false },
     imagen_carta: { type: String, required: true, unique: false },
     imagen_perfil: { type: String, required: true, unique: false },
@@ -26,7 +25,6 @@ const schema_parqueo = new mongoose.Schema({
     coordenadas: { type: String, required: true, unique: false },
     calificacion_promedio: { type: Number, required: true, unique: false },
     tarifa_por_hora: { type: Number, required: true, unique: false },
-    estado: { type: String, required: true, unique: false },
     hora_apertura: { type: String, required: true, unique: false },
     hora_cierre: { type: String, required: true, unique: false },
     pisos: [{
