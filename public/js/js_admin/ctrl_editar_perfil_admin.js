@@ -22,8 +22,20 @@ const btn_guardar_cambios_admin = document.querySelector("#btn-guardar-cambios-a
 
 
 
+const mostrar_info = async() => {
+
+    let info_admin = await obtener_admin();
 
 
+
+    input_nombre_admin.value = info_admin[0].nombre;
+    input_telefono_admin.value = info_admin[0].telefono;
+    input_comision_admin.value = (info_admin[0].comision + '%');
+
+
+}
+
+mostrar_info();
 
 
 
@@ -38,9 +50,7 @@ const guardar_cambios_admin = async() => {
 
 
 
-    // const input_nombre_admin = info_admin[0].nombre;//
-    // const input_telefono_admin = info_admin[0].telefono;//
-    //    const input_comision_admin = (info_admin[0].comision + '%');//
+
 
     //Pendiente de verificar para prepopular datos 
 
