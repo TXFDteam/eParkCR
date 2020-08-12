@@ -57,10 +57,6 @@ const mostrar_info = async() => {
         }
     }
 
-
-
-
-
 };
 
 const obtener_datos = () => {
@@ -71,7 +67,7 @@ mostrar_info();
 
 
 btn_editar_perfil_empresa.addEventListener('click', () => {
-    window.location.href = `../../html/htmls-empresas/editar_perfil_empresa.html?_id=${empresa._id}`;
+    window.location.href = '../../html/htmls-empresas/editar_perfil_empresa.html';
 });
 
 
