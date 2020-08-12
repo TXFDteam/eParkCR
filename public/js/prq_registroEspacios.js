@@ -32,6 +32,10 @@ const label_permisoFuncionamiento = document.querySelector('#labelPermiso');
 const label_imagenPerfil = document.querySelector('#labelPerfil');
 const label_imagenBanner = document.querySelector('#labelBanner');
 
+//Esta variable se usa para ser enviada en el request.
+let pisos_final;
+//
+
 btn_cancelar.addEventListener('click', function() {
     window.location.assign('perfil_parqueo.html')
 });
@@ -144,7 +148,6 @@ const obtener_datos = () => {
         let canton = input_canton.value;
         let distrito = input_distrito.value;
         let coordenadas = input_coordenadas.value;
-
 
         contador_solicitudes_parqueo += 1;
         registrar_solicitud_parqueo(contador_solicitudes_parqueo, correo, nombreParqueo, cedulaJuridica, tarifa, horaApertura, horaCierre, pisos, espaciosDiscapacidad, espaciosMotos, espaciosAutos, facebook, instagram, twitter, coordenadas);

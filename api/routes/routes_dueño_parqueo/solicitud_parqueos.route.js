@@ -5,7 +5,46 @@ const router = express.Router();
 
 const Solicitud_parqueo = require('../../models/models_dueño_parqueo/solicitud_parqueo.model.js');
 
+const Parqueo = require('../../models/models_parqueo/parqueo.model')
 let contador_solicitudes_parqueos = 0;
+
+router.post('/registrar-parqueo', (req, res) => {
+    let datos = req.body;
+    let nuevo_parqueo = new Parqueo({
+        nombre: datos.nombre,
+        imagen_carta: datos.imagen_carta,
+        imagen_perfil: datos.imagen_perfil,
+        id_duenno: datos.id_duenno,
+        email: datos.email,
+        cedula_juridica: datos.cedula_juridica,
+        permiso_funcionamiento: datos.permiso_funcionamiento,
+        enlaces_redes: datos.enlaces_redes,
+        ubicacion: datos.ubicacion,
+        coordenadas: datos.coordenadas,
+        calificacion_promedio: datos.calificacion_promedio,
+        tarifa_por_hora: datos.tarifa_por_hora,
+        hora_apertura: datos.hora_apertura,
+        hora_cierre: datos.hora_cierre,
+        pisos: datos.pisos,
+        estado_general: datos.estado_general
+    });
+
+    nuevo_parqueo.save((err, parqueo_almacenado) => {
+        if (err) {
+            res.json({
+                success: false,
+                msj: 'La solicitud no se pudo registrar, ocurrió el siguiente error',
+                err
+            })
+        } else {
+            res.json({
+                success: true,
+                msj: 'La solicitud se registró correctamente',
+                parqueo_almacenado
+            })
+        }
+    });
+});
 
 router.post('/solicitud-parqueo', (req, res) => {
     let datos = req.body;
