@@ -30,7 +30,7 @@ const mostrar_info = async() => {
 
     input_nombre_admin.value = info_admin[0].nombre;
     input_telefono_admin.value = info_admin[0].telefono;
-    input_comision_admin.value = (info_admin[0].comision + '%');
+    input_comision_admin.value = info_admin[0].comision;
 
 
 }
