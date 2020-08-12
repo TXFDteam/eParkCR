@@ -1,5 +1,5 @@
 'use strict';
-const btn_imagen = document.querySelector('#imagenPerfil');
+const btn_imagen = document.querySelector('#imagenPerfil2');
 const imagen = document.querySelector('#duenno-parqueo-foto');
 //cloudinary
 let widget_cloudinary = cloudinary.createUploadWidget({

@@ -10,7 +10,6 @@ const input_cedulaJuridica = document.querySelector('#prq-registro-jurídica');
 
 const input_cuenta = document.querySelector('#prq-registro-cuenta');
 
-//const btn_adjuntar_imagen = document.querySelector('#imagenPerfil');
 const foto = document.querySelector('#duenno-parqueo-foto');
 
 const input_telefono = document.querySelector('#prq-registro-telefono');
