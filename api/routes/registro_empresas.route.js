@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const Empresa = require('../models/models_empresa/empresa.model.js');
+const mailer = require('../templates/olvidar-contraseña');
 
 router.post('/registrar_empresa', (req, res) => {
     let datos = req.body;
@@ -34,7 +35,7 @@ router.post('/registrar_empresa', (req, res) => {
 });
 
 router.get('/listar_empresas', (req, res) => {
-    Empresa.find((err, empresas_bd) => {
+    Empresa.find((err, lista_empresas) => {
         if (err) {
             res.json({
                 resultado: false,
@@ -43,7 +44,7 @@ router.get('/listar_empresas', (req, res) => {
             });
         } else {
             res.json({
-                empresas_bd
+                lista_empresas
             });
         }
     });
@@ -69,10 +70,7 @@ router.get('/buscar_empresa_id', (req, res) => {
     });
 
 });
-
-
-
-router.put('/modificar_empresa', (req, res) => {
+router.put('/otp_empresa', (req, res) => {
 
     Empresa.updateOne({ _id: req.body._id }, {
             $set: req.body
@@ -87,6 +85,30 @@ router.put('/modificar_empresa', (req, res) => {
                 res.json({
                     info
                 });
+                mailer.enviar_mail(req.body.correo, req.body.otp);
+            }
+        }
+
+    );
+});
+
+
+router.put('/modificar_contrasenna_empresa', (req, res) => {
+
+    Empresa.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar la información',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+
             }
         }
 

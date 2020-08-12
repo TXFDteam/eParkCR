@@ -40,6 +40,8 @@ const datos_peticion = async() => {
     let info_duennos_parqueo = await obtener_duennos_parqueo();
     let info_empresas = await obtener_empresas();
 
+    let input_otp = otp.value;
+
     let error = validar_espacios_vacios();
     let errorContrasennas = verificar_contrasennas();
 
@@ -54,21 +56,21 @@ const datos_peticion = async() => {
     } else {
         //CLIENTES
         for (let c = 0; c < info_clientes.length; c++) {
-            if (info_clientes[c].otp) {
-
+            if (input_otp == info_clientes[c].otp) {
+                modificar_contrasenna_cliente(info_clientes[c]._id, input_contrasenna.value);
             }
         }
         //EMPRESA
         for (let e = 0; e < info_empresas.length; e++) {
-            if (info_empresas[e].otp) {
-
+            if (input_otp == info_empresas[e].otp) {
+                modificar_contrasenna_empresa(info_empresas[e]._id, input_contrasenna.value);
             }
         }
 
         //DUEÑO DE PARQUEO
         for (let d = 0; d < info_duennos_parqueo.length; d++) {
-            if (info_duennos_parqueo[d].otp) {
-
+            if (input_otp == info_duennos_parqueo[d].otp) {
+                modificar_contrasenna_duenno_parqueo(info_duennos_parqueo[d]._id, input_contrasenna.value);
             }
         }
 

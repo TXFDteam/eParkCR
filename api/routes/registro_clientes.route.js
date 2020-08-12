@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 const Cliente = require('../models/models_usuario/cliente.model');
+const mailer = require('../templates/olvidar-contraseña');
 
 router.post('/registrar-cliente', (req, res) => {
     let datos = req.body;
@@ -55,9 +56,9 @@ router.get('/listar-clientes', (req, res) => {
     });
 });
 
-router.put('/modificar-cliente', (req, res) => {
+router.put('/otp-cliente', (req, res) => {
 
-    Cliente.updateOne({ id: req.body.id }, {
+    Cliente.updateOne({ _id: req.body._id }, {
             $set: req.body
         }, (err, info) => {
             if (err) {
@@ -70,6 +71,29 @@ router.put('/modificar-cliente', (req, res) => {
                 res.json({
                     info
                 });
+                mailer.enviar_mail(req.body.correo, req.body.otp);
+            }
+        }
+
+    );
+});
+
+router.put('/modificar-contrasenna-cliente', (req, res) => {
+
+    Cliente.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el dueño de parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+
             }
         }
 

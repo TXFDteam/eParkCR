@@ -18,10 +18,16 @@ const validar_espacios_vacios = () => {
     return error;
 };
 
-const datos_peticion = () => {
+const datos_peticion = async() => {
 
     let correo = btn_correo.value;
 
+    let info_clientes = await obtener_clientes();
+    console.log(info_clientes);
+    let info_duennos_parqueo = await obtener_duennos_parqueo();
+    console.log(info_duennos_parqueo);
+    let info_empresas = await obtener_empresas();
+    console.log(info_empresas);
     let error = validar_espacios_vacios();
 
     if (error) {
@@ -38,8 +44,30 @@ const datos_peticion = () => {
 
     } else {
         btn_correo.classList.remove('error');
-
         console.log(correo);
+
+        //CLIENTES
+        for (let c = 0; c < info_clientes.length; c++) {
+            if (correo == info_clientes[c].correo) {
+                let otp_cliente = makeid(6);
+                otp_cliente(info_clientes[c]._id, info_clientes[c].correo, otp_cliente);
+            }
+        }
+        //EMPRESA
+        for (let e = 0; e < info_empresas.length; e++) {
+            if (correo == info_empresas[e].correo) {
+                let otp_empresa = makeid(6);
+                otp_empresa(info_empresas[e]._id, info_empresas[e].correo, otp_empresa);
+            }
+        }
+
+        //DUEÑO DE PARQUEO
+        for (let d = 0; d < info_duennos_parqueo.length; d++) {
+            if (correo == info_duennos_parqueo[d].correo) {
+                let otp_duenno = makeid(6);
+                otp_duenno_parqueo(info_duennos_parqueo[d]._id, info_duennos_parqueo[d].correo, otp_duenno);
+            }
+        }
 
         Swal.fire({
             icon: 'success',

@@ -5,6 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 const Duenno_parqueo = require('../models/models_dueño_parqueo/duenno_parqueo.model');
+const mailer = require('../templates/olvidar-contraseña');
 
 let contador_duennos_parqueos = 0;
 
@@ -63,7 +64,7 @@ router.get('/listar-duennos-parqueo', (req, res) => {
 
 router.put('/modificar-duenno-parqueo', (req, res) => {
 
-    Duenno_parqueo.updateOne({ id: req.body.id }, {
+    Duenno_parqueo.updateOne({ _id: req.body._id }, {
             $set: req.body
         }, (err, info) => {
             if (err) {
@@ -76,6 +77,50 @@ router.put('/modificar-duenno-parqueo', (req, res) => {
                 res.json({
                     info
                 });
+            }
+        }
+
+    );
+});
+router.put('/otp-duenno-parqueo', (req, res) => {
+
+    Duenno_parqueo.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el dueño de parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+                mailer.enviar_mail(req.body.correo, req.body.otp);
+            }
+        }
+
+    );
+});
+module.exports = router;
+
+router.put('/modificar-contrasenna-duenno-parqueo', (req, res) => {
+
+    Duenno_parqueo.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el dueño de parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+
             }
         }
 
