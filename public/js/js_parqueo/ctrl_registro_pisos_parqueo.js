@@ -80,7 +80,10 @@ const crear_pisos_parqueo = () => {
     for (let i = 0; i < cantidad_pisos; i++) {
         pisos[i] = generar_piso(i);
     }
-    console.log(pisos);
+    console.log('Pisos creados: ' + pisos);
+
+    //Se asigna el valor de los pisos creados al parámetro que se va a enviar en el request.
+    pisos_final = pisos;
 };
 
 //btn_prueba.addEventListener('click', crear_pisos_parqueo);
