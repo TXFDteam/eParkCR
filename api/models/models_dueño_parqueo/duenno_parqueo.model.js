@@ -2,7 +2,6 @@
 const mongoose = require('mongoose');
 
 const schema_duenno_parqueo = new mongoose.Schema({
-    id: { type: String, required: true, unique: true },
     correo: { type: String, required: true, unique: true },
     nombre: { type: String, required: true, unique: false },
     n_identificacion: { type: String, required: true, unique: true },

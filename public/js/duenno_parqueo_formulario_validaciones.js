@@ -81,8 +81,6 @@ const validar = () => {
 
 
 
-let contador_dueños = 2;
-let contador_d;
 
 const obtener_datos = () => {
     let error = validar();
@@ -115,7 +113,6 @@ const obtener_datos = () => {
         let correo = input_correo.value;
         let confirmarContrasena = input_confirmarContrasena.value;
 
-        contador_dueños += 1;
         registrar_duenno_parqueo(correo, nombreSociedad, cedulaJuridica, contrasena, telefono, cuenta, foto_url);
 
 
@@ -135,6 +132,5 @@ const obtener_datos = () => {
 };
 
 btn_prq_registro_crearPerfil.addEventListener('click', function() {
-    contador_dueños = contador_dueños + 1;
     obtener_datos();
 });

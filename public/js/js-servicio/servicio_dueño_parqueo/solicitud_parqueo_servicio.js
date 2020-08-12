@@ -37,7 +37,6 @@ const registrar_solicitud_parqueo = async(pcontador, pcorreo, pnombreParqueo, pc
         url: 'http://localhost:3000/api/solicitud-parqueo',
         responseType: 'json',
         data: {
-            'id': pcontador,
             'correo': pcorreo,
             'nombre': pnombreParqueo,
             'n_identificacion': pcedulaJuridica,
