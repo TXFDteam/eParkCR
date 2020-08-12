@@ -14,7 +14,7 @@ btn_registrar_usuarios.addEventListener('click', function() {
     window.location.assign("CI_registro_usuarios.html");
 });
 btn_registrar_empresas.addEventListener('click', function() {
-    window.location.assign("emp-registro.html");
+    window.location.assign("emp-formulario.html");
 });
 
 
@@ -23,7 +23,7 @@ btn_registrar_usuarios_4banner.addEventListener('click', function() {
     window.location.assign("CI_registro_usuarios.html");
 });
 btn_registrar_duennos_parqueos_4banner.addEventListener('click', function() {
-    window.location.assign("duenno-parqueo-peticion.html");
+    window.location.assign("duenno_parqueo_formulario.html");
 });
 
 btn_registrar_empresas_4banner.addEventListener('click', function() {
