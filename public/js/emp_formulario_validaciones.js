@@ -7,7 +7,6 @@ const input_nombreEmpresa = document.querySelector('#emp_registro_nombre');
 const input_nombreEncargado = document.querySelector('#emp_registro_nombreEncargado');
 const input_contrasena = document.querySelector('#emp_registro_contrasena');
 const input_cedulaJuridica = document.querySelector('#emp_registro_juridica');
-const label_imagenPerfil = document.querySelector('#labelPerfil');
 const input_correo_empresa = document.querySelector('#emp_correo');
 const input_confirmarContrasena = document.querySelector('#emp_registro_confirmaContrasena');
 const input_provincia = document.getElementById("provincias");
@@ -15,8 +14,13 @@ const input_canton = document.getElementById("cantones");
 const input_distrito = document.getElementById("distritos");
 const input_coordenadas = document.getElementById("coordenadas");
 
+const input_foto = document.querySelector('#empresa_foto');
+
+
 btn_yaTenesCuenta.addEventListener('click', function() {
     window.location.assign('iniciar-sesion.html')
+
+
 });
 
 
@@ -42,14 +46,6 @@ const validar = () => {
     } else {
         error = true;
         input_correo_empresa.classList.add('error');
-    }
-
-    var file = document.getElementById("imagenPerfil");
-    if (file.files.length == 0) {
-        label_imagenPerfil.classList.add('error');
-    } else {
-        label_imagenPerfil.classList.remove('error');
-
     }
 
 
@@ -100,7 +96,7 @@ const obtener_datos = () => {
         let contraseña = input_contrasena.value;
         let nombre_encargado = input_nombreEncargado.value;
         let ubicacion = input_coordenadas.value;
-        let foto_perfil = document.getElementById('imagenPerfil').value;
+        let foto_perfil = input_foto.src;
 
         registrar_empresa(correo, nombre, n_identificacion, contraseña, nombre_encargado, ubicacion, foto_perfil);
         // Impresion de los valores del formulario
@@ -110,15 +106,15 @@ const obtener_datos = () => {
             'text': 'Revisá tu información'
         }).then(function() {
 
-            // window.location = 'index.html';
+            window.location = 'index.html';
         });
 
 
 
     }
 };
-let ids_empresas = 0;
+
 btn_emp_registro_crearPerfil.addEventListener('click', () => {
-    ids_empresas += 1;
+
     obtener_datos();
 });

@@ -67,28 +67,19 @@ input[type="file"] {
     width: 100%;
 }
 
+#empresa_foto {
+    width: 200px;
+    height: 200px;
+    border: solid 2px gray;
+    margin-top: 10px;
+}
+
 .custom-file-upload {
     display: inline-block;
     cursor: pointer;
     height: 20px;
     width: 100%;
     text-align: center;
-}
-
-.file_upload {
-    width: 100%;
-    height: 40px;
-    color: #ffffff;
-    background-color: #E1566F;
-    float: left;
-    border-radius: 4px;
-    margin-bottom: 30px;
-}
-
-.file_upload:hover {
-    color: white;
-    background-color: #dd2849;
-    cursor: pointer;
 }
 
 #btnMyFile {
@@ -122,7 +113,7 @@ input[type="file"] {
     text-align: center;
     float: left;
     width: 100%;
-    margin: 60px 0 40px 0;
+    margin: 180px 0 40px 0;
 }
 
 #btn_emp_registro_crearPerfil {

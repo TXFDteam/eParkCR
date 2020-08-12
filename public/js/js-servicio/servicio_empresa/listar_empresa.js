@@ -6,7 +6,7 @@ const input_cedulaJuridica = document.querySelector('#cedula_juridica');
 const input_contrasena = document.querySelector('#contrasena');
 const input_nombreEncargado = document.querySelector('#nombreEncargado');
 const input_coordenadas = document.getElementById("#ubicacion");
-const input_fotoPerfil = document.getElementById("#fotoPerfil");
+const input_fotoPerfil = document.getElementById("#imagenPerfil");
 const input_estado = document.querySelector('#estado');
 
 
