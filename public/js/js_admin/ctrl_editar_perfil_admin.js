@@ -30,6 +30,10 @@ const guardar_cambios_admin = () => {
     let comision_admin = Number(input_comision_admin.value);
     let expresion_telefono = /^[0-9]{4,4}-[0-9]{4,4}$/;
     let error = false;
+    let nombre = input_nombre_admin.value;
+    let telefono = input_telefono_admin.value;
+
+
 
     if (expresion_telefono.test(input_telefono_admin.value)) {
         console.log('Telefono correcto');
@@ -56,11 +60,22 @@ const guardar_cambios_admin = () => {
             'success'
         )
 
-    }
+
+
+        nombre = input_nombre_admin.value;
+        comision_admin = input_comision_admin.value;
+        telefono = input_telefono_admin.value;
+
+
+    };
+
+    modificar_admin(nombre, comision_admin, telefono);
 
 
 
 };
+
+
 
 
 

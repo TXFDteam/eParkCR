@@ -84,7 +84,7 @@ let obtener_datos_y_validar = async() => {
         }
     }
     //DETERMINAR LA EMPRESA PARA LOGEAR
-    for (let e = 0; e <= info_empresas.length; e++) {
+    for (let e = 0; e < info_empresas.length; e++) {
         if (correo == info_empresas[e].correo && contrasenna == info_empresas[e].contraseña) {
             window.location.assign("../../public/html/htmls-empresas/perfil_empresa.html");
             localStorage.setItem('correo_empresa', info_empresas[e].correo);
@@ -98,7 +98,7 @@ let obtener_datos_y_validar = async() => {
 
     //DETERMINAR EL DUEÑO DE PARQUEO PARA LOGEAR
     for (let d = 0; d < info_duennos_parqueo.length; d++) {
-        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_empresas[d].contraseña) {
+        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_duennos_parqueo[d].contraseña) {
 
             window.location.assign("../public/html/htmls-parqueos/prq_mis_parqueos.html");
 
@@ -114,6 +114,10 @@ let obtener_datos_y_validar = async() => {
 
     if (correo == info_admin[0].correo && contrasenna == info_admin[0].contraseña) {
         window.location.assign("../public/html/htmls-admin/lista-solicitudes-registro.html");
+        localStorage.setItem('correo_admin', info_admin[0].correo);
+        localStorage.setItem('contraseña_admin', info_admin[0].contraseña);
+        console.log(localStorage.getItem('correo_admin'));
+        console.log(localStorage.getItem('contraseña_admin'));
 
     } else {
         Swal.fire({

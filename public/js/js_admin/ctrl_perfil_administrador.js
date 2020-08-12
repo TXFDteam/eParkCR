@@ -28,18 +28,24 @@ let comision = document.querySelector('#comision');
 let telefono_admin = document.querySelector('#telefono-admin');
 
 
-let correo = localStorage.getItem('correo');
+let correo = localStorage.getItem('correo_admin');
 console.log(correo);
-let contrasenna = localStorage.getItem('contrasenna');
+let contrasenna = localStorage.getItem('contraseña_admin');
 console.log(contrasenna);
 
-let identificador_admin = administrador;
+//----------
+const mostrar_info_admin = async() => {
+    let info_admin = await obtener_admin();
 
-if (administrador.correo_admin == correo && administrador.contrasenna_admin == contrasenna) {
 
-    nombre_admin.innerHTML = administrador.nombre;
-    correo_admin.innerHTML = administrador.correo_admin;
-    comision.innerHTML = administrador.comision;
-    telefono_admin.innerHTML = administrador.telefono;
 
-}
+    if (info_admin[0].correo == correo && info_admin[0].contraseña == contrasenna) {
+
+        nombre_admin.innerHTML = info_admin[0].nombre;
+        correo_admin.innerHTML = info_admin[0].correo;
+        comision.innerHTML = info_admin[0].comision;
+        telefono_admin.innerHTML = info_admin[0].telefono;
+
+    }
+};
+mostrar_info_admin();
