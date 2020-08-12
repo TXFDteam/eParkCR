@@ -14,6 +14,7 @@ const input_estado = document.querySelector('#estado');
 
 const btn_editar_perfil_empresa = document.querySelector('#btn-editar-perfil-empresa');
 
+/*
 const obtener_parametro_url = (valor) => {
     const location = new URL(window.location.href);
     const parametros = new URLSearchParams(location.search);
@@ -26,23 +27,39 @@ const obtener_parametro_url = (valor) => {
 
 
     return parametro;
-};
+};*/
 
-let _id = obtener_parametro_url('_id');
+//let _id = obtener_parametro_url('_id');
+let correoE = localStorage.getItem('correo_empresa');
+let contrasennaE = localStorage.getItem('contraseña_empresa');
+
+
+let id_empresa;
 
 const mostrar_info = async() => {
-    let _id = obtener_parametro_url('_id');
-    let empresa = await obtener_empresa_id(_id);
+    //let _id = obtener_parametro_url('_id');
+    //let empresa = await obtener_empresa_id(_id);
 
-    input_id.value = empresa.id;
-    input_correo.value = empresa.correo;
-    input_nombre.value = empresa.nombre;
-    input_identificacion.value = empresa.n_identificacion;
-    input_contrasena.value = empresa.contraseña;
-    input_encargado.value = empresa.nombre_encargado;
-    input_ubicacion.value = empresa.ubicacion;
-    input_foto.value = empresa.foto_perfil;
-    input_estado.value = empresa.estado_general;
+    let info_emp = await obtener_empresas();
+
+    for (let e = 0; e <= info_emp.length; e++) {
+        if (correoE == info_emp[e].correo && contrasennaE == info_emp[e].contraseña) {
+            id_empresa = info_emp[e]._id;
+            console.log(id_empresa);
+            input_correo.value = info_emp[e].correo;
+            input_nombre.value = info_emp[e].nombre;
+            input_identificacion.value = info_emp[e].n_identificacion;
+            input_encargado.value = info_emp[e].nombre_encargado;
+            input_ubicacion.value = info_emp[e].ubicacion;
+            input_foto.value = info_emp[e].foto_perfil;
+            input_estado.value = info_emp[e].estado_general;
+            break;
+        }
+    }
+
+
+
+
 
 };
 
