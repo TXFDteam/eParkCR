@@ -19,9 +19,30 @@ const input_comision_admin = document.querySelector('#nueva-comision');
 const btn_guardar_cambios_admin = document.querySelector("#btn-guardar-cambios-admin");
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 const guardar_cambios_admin = async() => {
 
     let info_admin = await obtener_admin();
+
+
+
+    // const input_nombre_admin = info_admin[0].nombre;//
+    // const input_telefono_admin = info_admin[0].telefono;//
+    //    const input_comision_admin = (info_admin[0].comision + '%');//
+
+    //Pendiente de verificar para prepopular datos 
 
 
     //validar datos, el numero no podrá exceder los 8 carácteres y deberá tener un - en medio, mientras que la comision deberá ser entre 1% y 99% máximo.
