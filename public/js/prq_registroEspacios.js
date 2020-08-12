@@ -29,8 +29,10 @@ const input_distrito = document.getElementById("distritos");
 const input_coordenadas = document.getElementById("coordenadas");
 
 const label_permisoFuncionamiento = document.querySelector('#labelPermiso');
-const label_imagenPerfil = document.querySelector('#labelPerfil');
-const label_imagenBanner = document.querySelector('#labelBanner');
+
+const input_foto_perfil = document.querySelector('#imagen_parqueo_perfil');
+const input_foto_banner = document.querySelector('#imagen_parqueo_banner');
+
 
 //Esta variable se usa para ser enviada en el request.
 let pisos_final;
@@ -89,26 +91,11 @@ const validar = () => {
 
     }
 
-    var file = document.getElementById("imagenPerfil");
-    if (file.files.length == 0) {
-        label_imagenPerfil.classList.add('error');
-    } else {
-        label_imagenPerfil.classList.remove('error');
 
-    }
-
-    var file = document.getElementById("imagenBanner");
-    if (file.files.length == 0) {
-        label_imagenBanner.classList.add('error');
-    } else {
-        label_imagenBanner.classList.remove('error');
-
-    }
 
     return error;
 };
 
-let contador_solicitudes_parqueo = 0;
 
 const obtener_datos = () => {
     let error = validar();
@@ -129,8 +116,7 @@ const obtener_datos = () => {
         let correo = input_correo.value;
 
         let permiso = document.getElementById('permiso').value;
-        let imagenPerfil = document.getElementById('imagenPerfil').value;
-        let imagenBanner = document.getElementById('imagenBanner').value;
+
         let tarifa = input_tarifa.value;
         let horaApertura = input_horaApertura.value;
         let horaCierre = input_horaCierre.value;
@@ -149,8 +135,11 @@ const obtener_datos = () => {
         let distrito = input_distrito.value;
         let coordenadas = input_coordenadas.value;
 
-        contador_solicitudes_parqueo += 1;
-        registrar_solicitud_parqueo(contador_solicitudes_parqueo, correo, nombreParqueo, cedulaJuridica, tarifa, horaApertura, horaCierre, pisos, espaciosDiscapacidad, espaciosMotos, espaciosAutos, facebook, instagram, twitter, coordenadas);
+        let foto_perfil = input_foto_perfil.src;
+        let foto_banner = input_foto_banner.src;
+
+
+        registrar_solicitud_parqueo(correo, nombreParqueo, cedulaJuridica, tarifa, horaApertura, horaCierre, pisos, espaciosDiscapacidad, espaciosMotos, espaciosAutos, facebook, instagram, twitter, coordenadas, foto_perfil, foto_banner);
 
         Swal.fire({
             'title': 'La solicitud del parqueo se envió correctamente',
@@ -164,8 +153,8 @@ const obtener_datos = () => {
         console.log('Cedula juridica: ', cedulaJuridica);
         console.log('Correo: ', correo);
         console.log('Permiso funcionamiento: ', permiso);
-        console.log('Imagen perfil: ', imagenPerfil);
-        console.log('Imagen banner: ', imagenBanner);
+        console.log('Imagen perfil: ', foto_perfil);
+        console.log('Imagen banner: ', foto_banner);
         console.log('Tarifa: ', tarifa);
         console.log('Hora de apertura: ', horaApertura);
         console.log('Hora de cierre: ', horaCierre);
