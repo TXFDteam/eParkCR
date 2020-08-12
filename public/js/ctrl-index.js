@@ -27,5 +27,5 @@ btn_registrar_duennos_parqueos_4banner.addEventListener('click', function() {
 });
 
 btn_registrar_empresas_4banner.addEventListener('click', function() {
-    window.location.assign("emp-registro.html");
+    window.location.assign("emp-formulario.html");
 });

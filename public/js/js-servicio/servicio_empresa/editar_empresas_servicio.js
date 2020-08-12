@@ -17,21 +17,16 @@ const obtener_empresas = async() => {
     return empresas;
 };
 
-const modificar_empresa = async(p_id, pcorreo, pnombre, pidentificacion, pcontrasena, pencargado, pubicacion, pfoto, pestado) => {
+const modificar_empresa = async(pcorreo, pnombre, pencargado, pfoto) => {
     await axios({
             method: 'put',
             url: 'http://localhost:3000/api/modificar_empresa',
             responseType: 'json',
             data: {
-                _id: p_id,
                 correo: pcorreo,
                 nombre: pnombre,
-                n_identificacion: pidentificacion,
-                contraseña: pcontrasena,
                 nombre_encargado: pencargado,
-                ubicacion: pubicacion,
                 foto_perfil: pfoto,
-                estado_general: pestado
             }
         })
         .then((response) => {
@@ -42,22 +37,26 @@ const modificar_empresa = async(p_id, pcorreo, pnombre, pidentificacion, pcontra
         });
 };
 
-const obtener_empresa_id = async(p_id) => {
-    let empresa;
 
-    await axios({
-            method: 'get',
-            params: { _id: p_id },
-            url: 'http://localhost:3000/api/buscar_empresa_id',
-            responseType: 'json'
-        })
-        .then((response) => {
-            empresa = response.data.empresas_bd;
-        })
-        .catch((error) => {
-            console.log(error);
-        });
 
-    return empresa;
 
-};
+
+// const obtener_empresa_id = async(p_id) => {
+//     let empresa;
+
+//     await axios({
+//             method: 'get',
+//             params: { _id: p_id },
+//             url: 'http://localhost:3000/api/buscar_empresa_id',
+//             responseType: 'json'
+//         })
+//         .then((response) => {
+//             empresa = response.data.empresas_bd;
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         });
+
+//     return empresa;
+
+// };
