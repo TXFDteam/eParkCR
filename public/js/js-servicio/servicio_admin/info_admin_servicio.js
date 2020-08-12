@@ -16,12 +16,13 @@ const obtener_admin = async() => {
     return info_de_admin;
 };
 
-const modificar_admin = async(pcomision, ptelefono) => {
+const modificar_admin = async(pnombre, pcomision, ptelefono) => {
     await axios({
             method: 'put',
             url: 'http://localhost:3000/api/modificar-admin',
             responseType: 'json',
             data: {
+                nombre: pnombre,
                 comision: pcomision,
                 telefono: ptelefono
             }
