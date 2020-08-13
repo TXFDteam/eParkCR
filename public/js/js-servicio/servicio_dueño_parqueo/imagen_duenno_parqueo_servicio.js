@@ -3,7 +3,7 @@ const btn_imagen = document.querySelector('#btn-adjuntar-imagen');
 const imagen = document.querySelector('#duenno-parqueo-foto');
 //cloudinary
 let widget_cloudinary = cloudinary.createUploadWidget({
-    cloudnName: 'txfd',
+    cloudName: 'txfd',
     uploadPreset: 'proyecto1'
 
 }, (err, result) => {
