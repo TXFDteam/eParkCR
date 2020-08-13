@@ -7,7 +7,7 @@ const obtener_empresas = async() => {
             responseType: 'json'
         })
         .then((response) => {
-            empresas = response.data.empresas_bd;
+            empresas = response.data.lista_empresas;
         })
         .catch((response) => {
             console.log(error);
