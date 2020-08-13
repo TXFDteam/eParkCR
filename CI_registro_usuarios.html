@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/CI_registro_usuarios.css">
+
+    <title>Registrar usuarios</title>
+</head>
+
+<body>
+    <main>
+        <div class="nav-principal">
+            <a href="index.html" id="link-inicio">eParkCR</a>
+            <div class="nav-derecha">
+                <a href="CI_registro_usuarios.html" id="link-registrarse">Registrarse</a>
+                <a href="iniciar-sesion.html" id="link-iniciar-sesion">Iniciar sesión</a>
+            </div>
+        </div>
+
+
+        <div id='CI-registro-usuarios-header'>
+            <h1>Creá tu usuario</h1>
+            <p id='CI-registro-usuarios-p'>Llená tus datos para registrarte</p>
+        </div>
+
+        <form class="myForm">
+
+            <div class='CI-registro-usuarios-container'>
+                <div id='CI-registro-form-box1' class='CI-registro-column'>
+
+
+                    <label for='CI-registro-nombre'>Nombre completo</label><br>
+                    <input type='text' id='CI-registro-nombre' required><br>
+
+
+                    <!-- for='CI-registro-tipoID' -->
+                    <label>Tipo de identificación</label><br>
+                    <select id='CI-registro-tipoID' required>
+                    <option value="1" name='ID'>Cédula de identidad</option>
+                    <option value="2" name='ID'>Cédula de residencia</option>
+                    <option value="3" name='ID'>Pasaporte</option>
+                </select><br>
+
+                    <label for='CI-registro-ID'>Identificación</label><br>
+                    <input type='text' id='CI-registro-ID' required><br>
+
+                    <label for='CI-registro-fecha'>Fecha de nacimiento</label><br>
+                    <input type='date' id='CI-registro-fecha' required><br>
+
+                </div>
+
+                <div id='CI-registro-form-box2' class='CI-registro-column'>
+
+                    <label for='CI-registro-correo'>Correo electrónico</label><br>
+                    <input type='email' id='CI-registro-correo' required><br>
+
+                    <label for='CI-registro-contrasena'>Contraseña</label><br>
+                    <input type='password' id='CI-registro-contrasena' required>
+
+                    <div>
+                        <label for='CI-registro-confirmarcontra' id="CI-registro-confirmarcontra-label">Confirmar contraseña</label><br>
+                        <input type='password' id='CI-registro-confirmarcontra' required><br>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id='CI-registro-form-box3'>
+                <button type="button" id='btn-crearUsuario' class="btn">Crear usuario</button>
+                <button type="button" id='btn-yaTenesCuenta' class="btn">Ya tenés cuenta?</button>
+            </div>
+
+        </form>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="/js/control-sesiones.js"></script>
+    <script src="/js/CI_registro_usuarios_validar.js"></script>
+
+</body>
+
+</html>

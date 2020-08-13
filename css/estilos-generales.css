@@ -1,0 +1,184 @@
+/*
+PROPUESTA DE COLORES:
+Amarillo: #F7E40C
+Amarillo naranja: #D49B0B
+Naranja: #EB7100
+Rojo: #D62900
+Rosa: #E1566F
+Verde:#E1566F
+
+#9ad427
+
+Naranja claro: #e99f2f
+Gris: #505050
+
+Color texto blanco: #ffffff
+Color de texto: #262626
+Color texto claro: #767676
+*/
+
+
+/*
+Para incluir la fuente:
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+a {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+select {
+    font-family: 'Montserrat', sans-serif;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    font-size: 16px;
+    border: none;
+    background-color: #E1566F;
+    color: #ffffff;
+    border-radius: 5px;
+    height: 50px;
+    transition-duration: 0.1s;
+    min-width: 200px;
+}
+
+button:hover {
+    color: white;
+    background-color: #dd2849;
+    cursor: pointer;
+}
+
+button:focus {
+    outline-style: none;
+}
+
+.oculto {
+    display: none;
+}
+
+
+/*PARA VERIFICAR INPUTS*/
+
+.error {
+    border: 2px rgb(224, 47, 47) solid;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ------------ ESTILOS DE LAS TABLAS - REPORTES ------------ */
+
+.tabla_reporte table {
+    border-collapse: collapse;
+    margin-top: 4%;
+    min-width: 1050px;
+}
+
+.tabla_reporte td {
+    padding: 10px;
+    text-align: center;
+    min-width: 150px;
+}
+
+.tabla_reporte thead {
+    background-color: #f7835f;
+    padding: 20px, 0;
+    border-bottom: 2px solid black;
+}
+
+.tabla_reporte thead td {
+    padding: 20px 0;
+}
+
+.tabla_reporte tbody tr:nth-child(odd) {
+    background-color: #ffe694;
+}
+
+.tabla_reporte tbody tr:nth-child(even) {
+    background-color: #fffabb;
+}
+
+.tabla_reporte input {
+    padding: 10px;
+}
+
+
+/*BOTON DE ACTIVACION DE USUARIOS*/
+
+.estilo-btn-activar-usuario {
+    margin: 5px;
+    min-width: 120px;
+    margin-left: 20%;
+}
+
+.estilo-btn-activar-duenno {
+    margin: 5px;
+    min-width: 120px;
+    margin-left: 12%;
+}
+
+.estilo-btn-activar-empresa {
+    margin: 5px;
+    min-width: 120px;
+    margin-left: 27%;
+}
+
+@media print {
+    .info-reservas {
+        margin-right: 100px;
+    }
+    #tabla_reporte_ingresos {
+        width: 1050px;
+        margin-right: 190px;
+    }
+    #btn-descargar {
+        display: none;
+    }
+    #btn_descargar {
+        display: none;
+    }
+    .nav-principal {
+        display: none;
+    }
+    .menu-lateral {
+        display: none;
+    }
+}
+
+
+/*HOVER*/
+
+.selection:hover {
+    background-color: #70a1ff;
+}

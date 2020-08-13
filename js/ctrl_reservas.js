@@ -1,0 +1,522 @@
+'use strict';
+
+//#region Constantes.
+//Elementos que van a cambiar basado en los datos del parqueo.
+const plantilla_carta_comentario =
+    '<div id="contenedor-superior">\n' +
+    '<div id="info-usuario">\n' +
+    '<div id="foto-usuario"></div>\n' +
+
+    '<div id="contenedor-nombre-fecha">\n' +
+    '<h3>[NOMBRE_USUARIO]</h3>\n' +
+    '<p>[FECHA_COMENTARIO]</p>\n' +
+    '</div>\n' +
+    '</div>\n' +
+
+    '<div id="contenedor-calificacion">\n' +
+    '<p>[CALIFICACION]</p>\n' +
+    '</div>\n' +
+    '</div>\n' +
+
+    '<div id="contenedor-mensaje">\n' +
+    '<p>[MENSAJE]</p>\n' +
+    '</div>';
+
+//Quemado para pruebas.
+let usuario_ingresado;
+let comentario_usuario_ingresado;
+
+//Elementos usados para la creación y modificación de comentarios.
+const ventana_crear_comentario = document.querySelector('.sct-crear-comentario');
+const btn_cerrar_ventana_comentario = document.querySelector('#btn-salir');
+const btn_crear_modificar_comentario = document.querySelector('#btn-opcion-comentario');
+
+const btn_eliminar_comentario = document.querySelector('#btn-eliminar-comentario');
+const btn_publicar_comentario = document.querySelector('#btn-publicar');
+
+const txt_comentarios_nombre_parqueo = document.querySelector('#nombre-parqueo');
+const ventana_crear_comentario_mensaje = document.querySelector('#txt-mensaje');
+const ventana_crear_comentario_slt_calificacion = document.querySelector('#slt-calificacion');
+
+//Información del parqueo.
+const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
+const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
+const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
+const contenedor_comentarios = document.querySelector('#contenedor-comentarios');
+
+//Elementos para el form de la reserva.
+const txt_estado_espacio = document.querySelector('#ESTADO_ESPACIO');
+const txt_espacio_seleccionado = document.querySelector('#txt-espacio-seleccionado');
+const txt_fecha_entrada = document.querySelector('#txt-fecha-entrada');
+const txt_hora_entrada = document.querySelector('#txt-hora-entrada');
+const txt_hora_salida = document.querySelector('#txt-hora-salida');
+const btn_reservar_espacio = document.querySelector('#btn-reservar-espacio');
+const datos_requeridos = document.querySelectorAll('[required]');
+
+//Mapa del parqueo
+const slt_piso_actual = document.querySelector('#slt-piso');
+const btn_hoja_anterior = document.querySelector('#btn-hoja-anterior');
+const txt_hoja_actual = document.querySelector('#txt-hoja-actual');
+const btn_hoja_siguiente = document.querySelector('#btn-hoja-siguiente');
+//#endregion
+
+//#region Variables
+//Se define por fuera para ser usado en este script.
+let parqueo_actual;
+let info_espacio_seleccionado;
+let elemento_espacio_seleccionado;
+
+//Para el mapa de parqueo.
+let piso_actual = 1;
+let max_espacios_por_piso = 19;
+let cant_hoja_piso = 1;
+let hoja_actual_piso = 1;
+//#endregion
+
+//#region lógica para reservas
+
+//Esta función se usa para actualizar la información del espacio basado en el que se seleccionó.
+//<p_info_espacio> JSON del espacio seleccionado.
+//<p_espacio_elemento> referencia al elemento html que se seleccionó.
+const actualizar_espacio_seleccionado = (p_info_espacio, p_espacio_elemento) => {
+    //Remover clase seleccionado en el espacio anterior.
+    if (elemento_espacio_seleccionado != null) {
+        elemento_espacio_seleccionado.classList.remove('seleccionado');
+    }
+
+
+    //Uso de la información del espacio seleccionado.
+    txt_espacio_seleccionado.value = p_info_espacio.id;
+    info_espacio_seleccionado = p_info_espacio;
+
+    if (p_info_espacio.ocupado) {
+        txt_estado_espacio.textContent = 'El espacio seleccionado está ocupado.';
+        txt_estado_espacio.classList.add('txt_alerta');
+    } else {
+        txt_estado_espacio.textContent = 'El espacio seleccionado está disponible.';
+        txt_estado_espacio.classList.remove('txt_alerta');
+        //Actualizar referencia el elemento espacio seleccionado.
+        elemento_espacio_seleccionado = p_espacio_elemento;
+        elemento_espacio_seleccionado.classList.add('seleccionado');
+    }
+};
+
+//Esta función se usa para llenar el mapa del parqueo con espacios interactivos.
+//<p_espacio_parqueo> referencia al espacio de un parqueo del que se va a obtener los datos.
+const crear_espacio_parqueo = (p_espacio_parqueo) => {
+    let nuevo_espacio = document.createElement('div');
+    let id_espacio = document.createElement('h3');
+    let icono_espacio = document.createElement('div');
+
+    //Asignar clases y valores.
+    id_espacio.textContent = p_espacio_parqueo.id;
+    nuevo_espacio.classList.add('espacio-parqueo');
+    icono_espacio.classList.add('icono-espacio');
+    switch (p_espacio_parqueo.tipo_icono) {
+        case 0:
+            icono_espacio.classList.add('icono-espacio-carro');
+            break;
+        case 1:
+            icono_espacio.classList.add('icono-espacio-moto');
+            break;
+        case 2:
+            icono_espacio.classList.add('icono-espacio-discapacidad');
+            break;
+    };
+
+    //Marcar en rojo si está ocupado.
+    if (p_espacio_parqueo.ocupado) {
+        nuevo_espacio.classList.add('ocupado');
+    }
+
+    //Crear jerarquía de elementos.
+    nuevo_espacio.appendChild(id_espacio);
+    nuevo_espacio.appendChild(icono_espacio);
+
+    //Agregar el nuevo espacio al mapa del parqueo.
+    contenedor_espacios_en_mapa.appendChild(nuevo_espacio);
+
+    //Conectar el evento click para que se actualice el espacio seleccionado.
+    nuevo_espacio.addEventListener('click', () => {
+        actualizar_espacio_seleccionado(p_espacio_parqueo, nuevo_espacio);
+    });
+};
+
+//Esta función se usa para mostrar TODOS los espacios de un piso.
+//<p_piso> Es la referencia al piso del que se desea mostrar los espacios.
+//<p_cant_espacios> Se usa para saber la cantidad de espacios que posee el piso.
+const actualizar_espacios_mapa = (p_piso) => {
+    //Se crea un ciclo para ejecutar la función de crear espacios X cantidad de veces.
+
+    //Para que se muestren como máximo X cantidad de espacios.
+    let primer_espacio = ((hoja_actual_piso - 1) * max_espacios_por_piso) + 1;
+    let espacios_creados = 0;
+
+    let cant_espacios = p_piso.cant_espacios;
+
+    //Limpiar el mapa.
+    contenedor_espacios_en_mapa.innerHTML = '';
+
+    for (let i = primer_espacio; i <= cant_espacios; i++) {
+        if (espacios_creados >= max_espacios_por_piso) {
+            break;
+        }
+
+        let identificador_espacio = ('espacio_' + i); //Clave del JSON.
+        crear_espacio_parqueo(p_piso.espacios[identificador_espacio]);
+
+        espacios_creados++;
+    };
+};
+
+//Esta función se llama siempre que se quiere mostrar los espacios del piso seleccionado.
+//<i_piso_seleccionado> El índice del piso que se seleccionó.
+const cambiar_piso = (i_piso_seleccionado) => {
+    let id_piso = ('piso_' + i_piso_seleccionado);
+
+    let piso = parqueo_actual.pisos[id_piso];
+    let cant_espacios = piso.cant_espacios;
+
+    //Se define cuantas hojas tendrá este piso basado en la cantidad de espacios.
+    cant_hoja_piso = Math.ceil(cant_espacios / max_espacios_por_piso);
+    hoja_actual_piso = 1;
+
+    actualizar_espacios_mapa(piso);
+};
+
+const obtener_parqueo_actual = () => {
+    //Se obtiene la variable que se guardó anteriormente que define el nombre del parqueo seleccionado.
+    let nombre_parqueo_actual = localStorage.getItem('parqueo_seleccionado');
+
+    //Se busca el parqueo que posee ese nombre.
+    for (let i = 1; i <= parqueos.cant_parqueos; i++) {
+        let identificador_parqueo = ('parqueo_' + i);
+        let nombre_parqueo = parqueos[identificador_parqueo].nombre;
+
+        if (nombre_parqueo == nombre_parqueo_actual) {
+            return identificador_parqueo;
+        }
+    }
+
+    return '';
+};
+
+//Esta función se debe llamar al inicio para actualizar los datos de la página usando datos del parqueo seleccionado.
+//<p_parqueo> El parqueo del que se va a obtener los datos.
+const llenar_info_parqueo = (p_parqueo) => {
+    parqueo_actual = p_parqueo;
+
+    if (parqueo_actual == '') {
+        return;
+    }
+
+    lbl_nombre_parqueo.textContent = p_parqueo.nombre;
+    txt_comentarios_nombre_parqueo.textContent = p_parqueo.nombre;
+
+    lbl_calificacion_promedio.textContent = "Calificación promedio: " + p_parqueo.calificacion_promedio;
+
+    //Por defecto se muestra el piso 1.
+    piso_actual = 1;
+
+    //Actualizar los datos del comboBox para el piso actual.
+    slt_piso_actual.innerHTML = '';
+    for (let i = 1; i <= p_parqueo.cant_pisos; i++) {
+        let nueva_opcion = document.createElement('option');
+        nueva_opcion.textContent = ('Piso ' + i);
+        nueva_opcion.value = (i);
+
+        slt_piso_actual.appendChild(nueva_opcion);
+    }
+
+    cambiar_piso(piso_actual);
+};
+
+//Se llama cuando el comboBox del piso cambia su valor.
+const piso_actual_cambiado = () => {
+    piso_actual = slt_piso_actual.value;
+    cambiar_piso(piso_actual);
+};
+
+//Se llama cuando se presiona un botón para cambiar la hoja que se está mostrando.
+const cambiar_hoja = () => {
+    let id_piso = ('piso_' + piso_actual);
+    let piso = parqueo_actual.pisos[id_piso];
+
+    txt_hoja_actual.textContent = hoja_actual_piso;
+    actualizar_espacios_mapa(piso);
+};
+
+const mostrar_hoja_anterior = () => {
+    if (hoja_actual_piso > 1) {
+        hoja_actual_piso -= 1;
+        cambiar_hoja();
+    }
+};
+
+const mostrar_hoja_siguiente = () => {
+    if (hoja_actual_piso < cant_hoja_piso) {
+        hoja_actual_piso += 1;
+        cambiar_hoja();
+    }
+};
+
+
+const hay_espacios_vacios = () => {
+    let error = false;
+
+    datos_requeridos.forEach(obj_dato_requerido => {
+        if (obj_dato_requerido.value == '') {
+            obj_dato_requerido.classList.add('error');
+            error = true;
+        } else {
+            obj_dato_requerido.classList.remove('error');
+        }
+    });
+
+    return error;
+};
+
+//Función usada para las comprobaciones de hora de reserva.
+const horas_correctas = () => {
+    let correcto = false;
+
+    let fecha_entrada = txt_hora_entrada.value;
+    let hora_entrada = Number((fecha_entrada[0] + fecha_entrada[1]));
+    let minutos_entrada = Number((fecha_entrada[3] + fecha_entrada[4]));
+
+    let fecha_salida = txt_hora_salida.value;
+    let hora_salida = Number((fecha_salida[0] + fecha_salida[1]));
+    let minutos_salida = Number((fecha_salida[3] + fecha_salida[4]));
+
+    if (hora_entrada == hora_salida) {
+        if (minutos_entrada < minutos_salida) {
+            correcto = true;
+        }
+    } else if (hora_entrada < hora_salida) {
+        correcto = true;
+    }
+
+    if (correcto) {
+        txt_hora_entrada.classList.remove('error');
+        txt_hora_salida.classList.remove('error');
+    } else {
+        txt_hora_entrada.classList.add('error');
+        txt_hora_salida.classList.add('error');
+    }
+
+    return correcto;
+};
+
+//Función usada para las comprobaciones de las fechas de reserva.
+const fechas_correctas = () => {
+    let correcto = false;
+
+    let fecha_entrada = new Date(txt_fecha_entrada.value);
+
+    //Para el nuevo funcionamiento
+    if (fecha_entrada != null) {
+        correcto = horas_correctas();
+    } else {
+        correcto = false;
+        txt_fecha_entrada.classList.add('error');
+    }
+
+    if (correcto) {
+        txt_fecha_entrada.classList.remove('error');
+    }
+
+    return correcto;
+
+    //Viejo.
+    let dia_entrada = fecha_entrada.getDate();
+    let mes_entrada = fecha_entrada.getMonth();
+    let anno_entrada = fecha_entrada.getFullYear();
+
+    let fecha_actual = new Date();
+    let dia_actual = fecha_actual.getDate();
+    let mes_actual = fecha_actual.getMonth();
+    let anno_actual = fecha_actual.getFullYear();
+
+    //Primero comprueba el año.
+    if (anno_entrada == anno_actual) {
+        //Luego comprueba si el mes es válido.
+        if (mes_entrada == mes_actual) {
+            //Si el mes es el mismo verifica que el día de entrada sea igual al actual.
+            if (dia_entrada == dia_actual) {
+                //Verifica que las hora de entrada y actual sean válidas
+                if (horas_correctas()) {
+                    correcto = true;
+                }
+            }
+        }
+    }
+
+    if (correcto) {
+        txt_fecha_entrada.classList.remove('error');
+    } else {
+        txt_fecha_entrada.classList.add('error');
+    }
+
+    return correcto;
+};
+
+//Función usada para crear una reserva en el parqueo actual.
+const crear_reserva = () => {
+    if (info_espacio_seleccionado != null) {
+        if (!info_espacio_seleccionado.ocupado) {
+            if (!hay_espacios_vacios()) {
+                if (fechas_correctas()) {
+                    console.log('Reserva creada con éxito.');
+                } else {
+                    console.log('Hubo un problema con la fecha seleccionada para hacer la reserva.')
+                }
+            } else {
+                console.log('Hay espacios vacíos en el form.');
+            }
+        } else {
+            console.log('No se puede crear la reservación porque el espacio seleccionado está ocupado.');
+        }
+    } else {
+        console.log('No se puede crear la reservación, debe seleccionar un espacio para seguir.')
+    }
+};
+//#endregion
+
+//#region Comentarios
+//Esta función obtiene el nombre de un usuario basado en su ID.
+//<p_id>ID del usuario.
+const obtener_nombre_usuario_en_comentario = (p_id) => {
+    for (let i = 1; i < usuarios.cant_usuarios; i++) {
+        let identificador = ('usuario' + i);
+        let usuario_actual = usuarios[identificador];
+        if (usuario_actual.id_usuario == p_id) {
+            return usuario_actual.nombre_usuario;
+        }
+    }
+};
+
+const crear_carta_comentario = (p_comentario) => {
+    let nueva_carta = document.createElement('div');
+    nueva_carta.classList.add('carta-comentario');
+
+    let nueva_plantilla = plantilla_carta_comentario;
+
+    let nombre_usuario = obtener_nombre_usuario_en_comentario(p_comentario.id_usuario);
+    nueva_plantilla = nueva_plantilla.replace('[NOMBRE_USUARIO]', nombre_usuario);
+    nueva_plantilla = nueva_plantilla.replace('[FECHA_COMENTARIO]', p_comentario.fecha);
+    nueva_plantilla = nueva_plantilla.replace('[CALIFICACION]', ('Calificación: ' + p_comentario.cantidad_estrellas));
+    nueva_plantilla = nueva_plantilla.replace('[MENSAJE]', p_comentario.mensaje);
+
+    nueva_carta.innerHTML = nueva_plantilla;
+
+    contenedor_comentarios.appendChild(nueva_carta);
+};
+
+const obtener_comentarios = () => {
+    for (let i = 1; i <= comentarios.total_comentarios; i++) {
+        let identificador = ('comentario_' + i);
+        let comentario_actual = comentarios[identificador];
+
+        //Muestra solo los comentarios que corresponden a este parqueo.
+        if (comentario_actual.id_parqueo == parqueo_actual.codigo) {
+            //Guardar una copia del comentario que dejó el usuario en este parqueo.
+            if (comentario_actual.id_usuario == usuario_ingresado.id_usuario) {
+                console.log('Ya hay un comentario realizado por este usuario.');
+                comentario_usuario_ingresado = comentarios[identificador];
+                btn_crear_modificar_comentario.textContent = 'Modificar reseña';
+                btn_eliminar_comentario.classList.remove('oculto');
+            }
+
+            crear_carta_comentario(comentario_actual);
+        }
+    }
+};
+
+
+const mostrar_ventana_crear_comentario = () => {
+    //Agregar datos del comentario que dejó el usuario anteriormente si lo hay.
+    if (comentario_usuario_ingresado != null) {
+        ventana_crear_comentario_mensaje.textContent = comentario_usuario_ingresado.mensaje;
+    }
+    ventana_crear_comentario.classList.remove('oculto');
+};
+
+const ocultar_ventana_crear_comentario = () => {
+    ventana_crear_comentario.classList.add('oculto');
+};
+
+const publicar_comentario = () => {
+    let fecha = new Date();
+    let dia_actual = fecha.getDate();
+    let mes_actual = fecha.getMonth();
+    let anno_actual = fecha.getFullYear();
+
+    let fecha_actual = dia_actual + '/' + mes_actual + '/' + anno_actual;
+
+    //Si ya existe un comentario lo modifica.
+    if (comentario_usuario_ingresado != null) {
+        console.log('Si pude entrar a editar!!!');
+        comentario_usuario_ingresado.calificacion = ventana_crear_comentario_slt_calificacion.value;
+        comentario_usuario_ingresado.mensaje = ventana_crear_comentario_mensaje.value;
+        comentario_usuario_ingresado.fecha = fecha_actual;
+    } else {
+        //Si no existe lo crea.
+        console.log('Creo nuevo comentario:');
+        console.log('id_usuario: ' + usuario_ingresado.id_usuario);
+        console.log('id_parqueo: ' + parqueo_actual.codigo);
+        console.log('cantidad_estrellas: ' + ventana_crear_comentario_slt_calificacion.value);
+        console.log('fecha: ' + fecha_actual);
+        console.log('mensaje: ' + ventana_crear_comentario_mensaje.value);
+    }
+
+    ocultar_ventana_crear_comentario();
+};
+
+const eliminar_comentario = () => {
+    if (comentario_usuario_ingresado != null) {
+        console.log('Reseña eliminada');
+        //Eliminar comentario del DB.
+    }
+};
+
+
+const obtener_usuario_ingresado = () => {
+    let contrasenna = localStorage.getItem('contrasenna');
+    let correo = localStorage.getItem('correo');
+
+    for (let i = 1; i < usuarios.cant_usuarios; i++) {
+        let identificador_usuario = ('usuario' + i);
+        let usuario_actual = usuarios[identificador_usuario];
+
+        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
+            return usuario_actual;
+        }
+
+    }
+    usuario_ingresado = '';
+};
+
+//#endregion
+
+
+//Mostrar info del parqueo.
+usuario_ingresado = obtener_usuario_ingresado();
+parqueo_actual = parqueos[obtener_parqueo_actual()];
+llenar_info_parqueo(parqueo_actual);
+obtener_comentarios();
+
+//Eventos.
+
+//Comentarios.
+btn_cerrar_ventana_comentario.addEventListener('click', ocultar_ventana_crear_comentario);
+btn_crear_modificar_comentario.addEventListener('click', mostrar_ventana_crear_comentario);
+btn_publicar_comentario.addEventListener('click', publicar_comentario);
+btn_eliminar_comentario.addEventListener('click', eliminar_comentario);
+
+//Mapa parqueo.
+slt_piso_actual.addEventListener('change', piso_actual_cambiado);
+btn_hoja_anterior.addEventListener('click', mostrar_hoja_anterior);
+btn_hoja_siguiente.addEventListener('click', mostrar_hoja_siguiente);
+btn_reservar_espacio.addEventListener('click', crear_reserva);
+
+//btn_reservar_espacio.addEventListener('click', horas_correctas);

@@ -1,0 +1,39 @@
+.carta-comentario {
+    margin-top: 1%;
+    width: 100%;
+    padding: 1% 2%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
+}
+
+.carta-comentario #contenedor-superior {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1%;
+}
+
+.carta-comentario #contenedor-superior #info-usuario {
+    display: flex;
+    flex-direction: row;
+}
+
+.carta-comentario #contenedor-superior #info-usuario #foto-usuario {
+    background-position: center;
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    border: 1px #000000 solid;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.carta-comentario #contenedor-superior #contenedor-calificacion {}
+
+.carta-comentario #contenedor-mensaje {
+    width: 100%;
+    height: 60%;
+}
