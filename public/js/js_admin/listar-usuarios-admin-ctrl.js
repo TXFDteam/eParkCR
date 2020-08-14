@@ -18,12 +18,6 @@ const limite_usuarios_pagina = 20;
 let head;
 let fila;
 
-let info_clientes = await obtener_clientes();
-console.log(info_clientes);
-let info_duennos_parqueo = await obtener_duennos_parqueo();
-console.log(info_duennos_parqueo);
-let info_empresas = await obtener_empresas();
-console.log(info_empresas);
 
 /*-------ESTAS FUNCIONES CAMBIAN EL ESTADO DEL BOTÓN DINÁMICAMENTE--------------*/
 let cambiar_estado_boton_usuario = (x) => {
@@ -113,7 +107,9 @@ const listar_usuarios = (usuario) => {
 
 
 
-let mostrar_usuarios = () => {
+let mostrar_usuarios = async() => {
+    let info_clientes = await obtener_clientes();
+    console.log(info_clientes);
     tabla_usuarios_header.innerHTML = '';
     tabla_usuarios.innerHTML = '';
     head = tabla_usuarios_header.insertRow();
@@ -168,7 +164,9 @@ const listar_duennos = (duenno) => {
     tabla_usuarios.appendChild(fila);
 
 };
-let mostrar_parqueos = () => {
+let mostrar_parqueos = async() => {
+    let info_duennos_parqueo = await obtener_duennos_parqueo();
+    console.log(info_duennos_parqueo);
     tabla_usuarios_header.innerHTML = '';
     tabla_usuarios.innerHTML = '';
 
@@ -224,7 +222,9 @@ const listar_empresas = (emp) => {
 
 };
 
-let mostrar_empresas = () => {
+let mostrar_empresas = async() => {
+    let info_empresas = await obtener_empresas();
+    console.log(info_empresas);
     tabla_usuarios_header.innerHTML = '';
     tabla_usuarios.innerHTML = '';
 
