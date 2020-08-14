@@ -41,9 +41,10 @@ let cambiar_estado_boton_usuario = async(x) => {
     }
 };
 let cambiar_estado_boton_duenno = async(x) => {
+    let info_duennos_parqueo = await obtener_duennos_parqueo();
+    console.log(info_duennos_parqueo);
     for (let d = 0; d < info_duennos_parqueo.length; d++) {
-        let info_duennos_parqueo = await obtener_duennos_parqueo();
-        console.log(info_duennos_parqueo);
+
         if (x._id == "input" + info_duennos_parqueo[d]._id) {
             x.addEventListener('click', function() {
 
@@ -93,7 +94,6 @@ const listar_usuarios = (usuario) => {
     //Esto crea el botón para activar y desactivar un usuario
     let btn_activar = document.createElement('input');
     btn_activar.type = "button";
-    btn_activar.id = "input" + usuario.id_usuario;
 
     btn_activar.value = usuario.estado_general;
     cambiar_estado_boton_usuario(btn_activar);
@@ -129,6 +129,7 @@ let mostrar_usuarios = async() => {
 
 
     for (let i = 0; i < info_clientes[i].length; i++) {
+        console.log(listar_usuarios(info_clientes[i]));
         listar_usuarios(info_clientes[i]);
     }
 
@@ -155,7 +156,6 @@ const listar_duennos = (duenno) => {
     //Esto crea el botón para activar y desactivar un usuario
     let btn_activar = document.createElement('input');
     btn_activar.type = "button";
-    btn_activar.id = "input" + duenno.id_usuario;
 
     btn_activar.value = duenno.estado_general;
     cambiar_estado_boton_duenno(btn_activar);
@@ -211,7 +211,6 @@ const listar_empresas = (emp) => {
     //Esto crea el botón para activar y desactivar un usuario
     let btn_activar = document.createElement('input');
     btn_activar.type = "button";
-    btn_activar.id = "input" + emp.codigo_empresa;
 
     btn_activar.value = emp.estado_empresa;
     cambiar_estado_boton_empresa(btn_activar);
