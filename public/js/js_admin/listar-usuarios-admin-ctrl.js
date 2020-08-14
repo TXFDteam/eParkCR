@@ -128,7 +128,7 @@ let mostrar_usuarios = async() => {
     tabla_usuarios_header.appendChild(head);
 
 
-    for (let i = 0; i < info_clientes[i]; i++) {
+    for (let i = 0; i < info_clientes[i].length; i++) {
         listar_usuarios(info_clientes[i]);
     }
 
