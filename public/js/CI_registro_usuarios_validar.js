@@ -129,7 +129,7 @@ const obtener_datos = () => {
         console.log('Contrasena: ', contrasena);
         console.log('Confirmar contrasena: ', confirmarContrasena);
         console.log('Fecha de nacimiento: ', fechaNacimiento);
-        console.log('ID: ', ID);
+
         console.log('Correo: ', correo);
 
 
