@@ -7,13 +7,11 @@ const router = express.Router();
 const Duenno_parqueo = require('../models/models_dueño_parqueo/duenno_parqueo.model');
 const mailer = require('../templates/olvidar-contraseña');
 
-let contador_duennos_parqueos = 0;
 
 router.post('/registro-duenno-parqueo', (req, res) => {
     let datos = req.body;
 
     let duenno_parqueo_nuevo = new Duenno_parqueo({
-        id: datos._id,
         correo: datos.correo,
         nombre: datos.nombre,
         n_identificacion: datos.n_identificacion,

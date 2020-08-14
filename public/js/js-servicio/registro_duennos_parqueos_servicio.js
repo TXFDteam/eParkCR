@@ -40,17 +40,15 @@ const obtener_duennos_parqueo = async() => {
     return duennos_parqueo;
 };
 
-const modificar_duenno_parqueo = async(pid, pcorreo, pnombre, pcuenta, pfoto) => {
+const modificar_duenno_parqueo = async(pid, pnombre, pcuenta) => {
     await axios({
             method: 'put',
             url: 'http://localhost:3000/api/modificar-duenno-parqueo',
             responseType: 'json',
             data: {
                 _id: pid,
-                correo: pcorreo,
                 nombre: pnombre,
-                cuenta_bancaria: pcuenta,
-                foto_perfil: pfoto,
+                cuenta_bancaria: pcuenta
             }
         })
         .then((response) => {

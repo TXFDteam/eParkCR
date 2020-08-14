@@ -3,23 +3,11 @@
 
 let a_inicio_perfil = document.querySelector('#link-inicio');
 
-if (a_inicio_perfil) {
-    a_inicio_perfil.addEventListener('click', function() {
-        a_inicio_perfil.href = "../../perfil_parqueo.html";
-    })
-};
-
-
-
-const btn_editar_perfil_parqueo = document.querySelector('#btn-editar-perfil-parqueo');
-
-const editar_perfil_parqueo = () => {
-    window.location.assign('../../html/htmls-parqueos/editar_perfil_parqueo.html');
-};
-
-
-
-
+// if (a_inicio_perfil) {
+//     a_inicio_perfil.addEventListener('click', function() {
+//         a_inicio_perfil.href = "../../perfil_parqueo.html";
+//     })
+// };
 
 
 const input_id = document.querySelector('#id');
@@ -33,7 +21,8 @@ const input_foto = document.querySelector('#foto-perfil-dueño-img');
 
 const input_estado = document.querySelector('#estado');
 
-btn_editar_perfil_parqueo.addEventListener('click', editar_perfil_parqueo);
+const btn_editar_perfil_parqueo = document.querySelector('#btn-editar-perfil-parqueo');
+
 
 // let nombre_duenno_parqueo = document.querySelector('#nombre-duenno-parqueo');
 // let correo_duenno_parqueo = document.querySelector('#correo-parqueo');
@@ -43,22 +32,24 @@ btn_editar_perfil_parqueo.addEventListener('click', editar_perfil_parqueo);
 // let foto_perfil_div = document.querySelector('#foto-perfil-dueño');
 // let foto_perfil = document.querySelector('#foto-perfil-dueño-img');
 
-let correo = localStorage.getItem('correo_dueño');
-console.log(correo);
-let contrasenna = localStorage.getItem('contraseña_dueño');
-console.log(contrasenna);
+let correoD = localStorage.getItem('correo_dueño');
+console.log(correoD);
+let contrasennaD = localStorage.getItem('contraseña_dueño');
+console.log(contrasennaD);
+
+
 
 let id_duenno_parqueo;
 
-let mostrar_datos_dueño = async() => {
+let mostrar_info = async() => {
 
     let info_duennos_parqueo = await obtener_duennos_parqueo();
 
 
 
     //d va a ser el  contador para encontrar los duennos de los parqueos
-    for (let d = 0; d < info_duennos_parqueo.length; c++) {
-        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_duennos_parqueo[d].contraseña) {
+    for (let d = 0; d < info_duennos_parqueo.length; d++) {
+        if (correoD == info_duennos_parqueo[d].correo && contrasennaD == info_duennos_parqueo[d].contraseña) {
             id_duenno_parqueo = info_duennos_parqueo[d]._id;
             let foto = document.createElement('img');
             foto.srcset = info_duennos_parqueo[d].foto_perfil
@@ -69,6 +60,7 @@ let mostrar_datos_dueño = async() => {
             input_correo.value = info_duennos_parqueo[d].correo;
             input_cuenta.value = info_duennos_parqueo[d].cuenta_bancaria;
             input_telefono.value = info_duennos_parqueo[d].telefono;
+
             input_estado.value = info_duennos_parqueo[d].estado_general;
 
             // nombre_duenno_parqueo.innerHTML = info_duennos_parqueo[c].nombre;
@@ -82,13 +74,21 @@ let mostrar_datos_dueño = async() => {
     }
 };
 
+
+
 const obtener_datos = () => {
-    modificar_empresa(_id, input_id.value, input_correo.value, input_nombre.value, input_identificacion.value, input_contrasena.value, input_encargado.value, input_ubicacion.value, input_foto.value, input_estado.value);
+    modificar_duenno_parqueo(_id, input_id.value, input_correo.value, input_nombre.value, input_cuenta.value, input_foto.value, input_estado.value);
 };
 
-mostrar_datos_dueño();
+mostrar_info();
 
 
+const editar_perfil_parqueo = () => {
+    window.location.assign('../../html/htmls-parqueos/editar_perfil_parqueo.html');
+};
+
+
+btn_editar_perfil_parqueo.addEventListener('click', editar_perfil_parqueo);
 /*
 for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
     let identificador_duenno = ('duenno_parqueo' + d);

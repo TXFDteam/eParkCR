@@ -23,6 +23,7 @@ const mostrar_info = async() => {
             input_nombre.value = info_empresas[e].nombre;
             input_encargado.value = info_empresas[e].nombre_encargado;
 
+
             break;
         }
     }
@@ -55,10 +56,6 @@ const guardar_datos_empresa = () => {
 
 
 boton_guardar_datos_empresa.addEventListener('click', guardar_datos_empresa);
-
-
-
-
 
 
 const volver_perfil_empresa = () => {
