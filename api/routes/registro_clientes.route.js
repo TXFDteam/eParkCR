@@ -12,13 +12,13 @@ router.post('/registrar-cliente', (req, res) => {
     let datos = req.body;
 
     let cliente_nuevo = new Cliente({
-
         correo: datos.correo,
         nombre: datos.nombre,
         tipo_identificacion: datos.tipo_identificacion,
         n_identificacion: datos.n_identificacion,
         fecha_nacimiento: datos.fecha_nacimiento,
         contraseña: datos.contraseña,
+        foto_perfil: datos.foto_perfil,
         estado_general: 'DESACTIVAR'
     });
 

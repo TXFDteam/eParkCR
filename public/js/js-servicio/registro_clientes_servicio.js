@@ -1,7 +1,7 @@
 'use strict';
 
 
-const registrar_usuario = async(pcorreo, pnombre, ptipo_identificacion, pn_identificacion, pfecha, pcontraseña) => {
+const registrar_usuario = async(pcorreo, pnombre, ptipo_identificacion, pn_identificacion, pfecha, pcontraseña, pfoto) => {
     await axios({
         method: 'post',
         //ESTE URL ESTÁ BIEN, DEBE COINCIDIR CON LOS DE obtener_todos_usuarios_servicio.js
@@ -13,7 +13,8 @@ const registrar_usuario = async(pcorreo, pnombre, ptipo_identificacion, pn_ident
             'tipo_identificacion': ptipo_identificacion,
             'n_identificacion': pn_identificacion,
             'fecha_nacimiento': pfecha,
-            'contraseña': pcontraseña
+            'contraseña': pcontraseña,
+            'foto_perfil': pfoto
         }
 
     }).then(response => {

@@ -3,56 +3,66 @@
 
 let a_inicio_perfil = document.querySelector('#link-inicio');
 
-
+const input_nombre = document.querySelector('#nombre-cliente');
+const input_correo = document.querySelector('#correo-cliente');
+// const input_tarjeta = document.querySelector('#tarjeta-cliente');
+const input_identificacion = document.querySelector('#numero-identificacion-cliente');
+const input_tipoIdentificacion = document.querySelector('#tipo_identificacion');
+const input_fechaNacimiento = document.querySelector('#nacimiento-cliente')
 
 
 const btn_editar_perfil_cliente = document.querySelector('#btn-editar-perfil-cliente');
 
-const editar_perfil_cliente = () => {
-    window.location.assign('../../html/htmls-usuarios/editar_perfil_cliente.html');
-};
-
-btn_editar_perfil_cliente.addEventListener('click', editar_perfil_cliente);
 
 
 
-let nombre_cliente = document.querySelector('#nombre-cliente');
-let correo_electronico = document.querySelector('#correo-cliente');
-let numero_identificacion_cliente = document.querySelector('#numero-identificacion-cliente');
-let nacimiento_cliente = document.querySelector('#nacimiento-cliente');
-let tarjeta_cliente = document.querySelector('#tarjeta-cliente');
+let correoC = localStorage.getItem('correo');
+console.log(correoC);
+let contrasennaC = localStorage.getItem('contrasenna');
+console.log(contrasennaC);
 
-let correo = localStorage.getItem('correo');
-console.log(correo);
-let contrasenna = localStorage.getItem('contrasenna');
-console.log(contrasenna);
+let id_cliente;
 
-
-let mostrar_cliente = async() => {
+let mostrar_info = async() => {
 
     let info_clientes = await obtener_clientes();
 
-
-
-    //d va a ser el  contador para encontrar los duennos de los parqueos
+    //c va a ser el  contador para encontrar los clientes
     for (let c = 0; c < info_clientes.length; c++) {
         if (correo == info_clientes[c].correo && contrasenna == info_clientes[c].contraseña) {
-            /* let foto = document.createElement('img');
-             foto.srcset = info_duennos_parqueo[c].foto_perfil
-                 //foto.className= 'foto-perfil';
-             foto.classList.add('foto-perfil');*/
+            id_cliente = info_emp[e]._id;
+            let foto = document.createElement('img');
+            foto.srcset = info_clientes[c].foto_perfil
+            foto.className = 'foto-perfil';
+            foto.classList.add('foto-perfil');
 
-            nombre_cliente.innerHTML = info_clientes[c].nombre;
-            correo_electronico.innerHTML = info_clientes[c].correo;
-            nacimiento_cliente.innerHTML = info_clientes[c].fecha_nacimiento;
-            numero_identificacion_cliente.innerHTML = info_clientes[c].n_identificacion;
+            input_nombre = info_clientes[c].nombre;
+            input_correo = info_clientes[c].correo;
+            input_identificacion = info_clientes[c].n_identificacion;
+            input_tipoIdentificacion = info_clientes[c].tipo_identificacion;
+            input_fechaNacimiento = info_clientes[c].fecha_nacimiento;
 
-            //foto_perfil_div.appendChild(foto);
+
+            foto_perfil_div.appendChild(foto);
             break;
         }
     }
 };
-mostrar_cliente();
+
+const obtener_datos = () => {
+    modificar_empresa(_id, input_id.value, input_correo.value, input_nombre.value, input_identificacion.value, input_contrasena.value, input_encargado.value, input_ubicacion.value, input_foto.value, input_estado.value);
+};
+
+mostrar_info();
+
+
+
+btn_editar_perfil_cliente.addEventListener('click', () => {
+    window.location.href = '../../html/htmls-usuarios/editar_perfil_cliente.html';
+});
+
+
+
 /*
 for (let u = 1; u <= usuarios.cant_usuarios; u++) {
     let identificador_usuario = ('usuario' + u);

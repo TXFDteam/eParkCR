@@ -50,6 +50,17 @@ input {
     height: 40px;
 }
 
+#cliente_foto {
+    width: 400px;
+    height: 200px;
+    border: solid 2px gray;
+    margin-top: 10px;
+}
+
+#imagenPerfil {
+    width: 400px;
+}
+
 #CI-registro-nombre {
     width: 100%;
 }
@@ -100,7 +111,7 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 120px;
 }
 
 #btn-crearUsuario {

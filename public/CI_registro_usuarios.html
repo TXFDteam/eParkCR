@@ -53,12 +53,14 @@
                     <label for='CI-registro-fecha'>Fecha de nacimiento</label><br>
                     <input type='date' id='CI-registro-fecha' required><br>
 
+                    <label for='CI-registro-correo'>Correo electrónico</label><br>
+                    <input type='email' id='CI-registro-correo' required><br>
+
                 </div>
 
                 <div id='CI-registro-form-box2' class='CI-registro-column'>
 
-                    <label for='CI-registro-correo'>Correo electrónico</label><br>
-                    <input type='email' id='CI-registro-correo' required><br>
+
 
                     <label for='CI-registro-contrasena'>Contraseña</label><br>
                     <input type='password' id='CI-registro-contrasena' required>
@@ -66,6 +68,17 @@
                     <div>
                         <label for='CI-registro-confirmarcontra' id="CI-registro-confirmarcontra-label">Confirmar contraseña</label><br>
                         <input type='password' id='CI-registro-confirmarcontra' required><br>
+                    </div>
+
+                    <p id="labelPerfil">Adjuntá una imagen de perfil para tu empresa aquí</p>
+
+
+                    <div id="left">
+                        <img id="cliente_foto">
+                    </div>
+
+                    <div id="right">
+                        <button type="button" id="imagenPerfil">Adjuntar</button>
                     </div>
 
                 </div>
@@ -82,10 +95,12 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/control-sesiones.js"></script>
     <script src="js/js-servicio/registro_clientes_servicio.js"></script>
     <script src="js/CI_registro_usuarios_validar.js"></script>
+    <script src="js/js-servicio/servicio_usuario/servicio_registro_cliente_imagen.js"></script>
 
 </body>
 

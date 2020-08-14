@@ -11,6 +11,7 @@ const input_ID = document.querySelector('#CI-registro-tipoID');
 const input_n_id = document.querySelector('#CI-registro-ID');
 const input_correo = document.querySelector('#CI-registro-correo');
 const input_confirmarContrasena = document.querySelector('#CI-registro-confirmarcontra');
+const input_foto = document.querySelector("#cliente_foto");
 
 
 btn_yaTenesCuenta.addEventListener('click', function() {
@@ -115,22 +116,24 @@ const obtener_datos = () => {
 
         let nombre = input_nombre.value;
         let contrasena = input_contrasena.value;
-        let confirmarContrasena = input_confirmarContrasena.value;
         let fechaNacimiento = input_fechaNacimiento.value;
         let n_id = input_n_id.value;
         let correo = input_correo.value;
+        let foto_perfil = input_foto.src;
 
 
 
-        registrar_usuario(correo, nombre, tipo_id, n_id, fechaNacimiento, contrasena);
+        registrar_usuario(correo, nombre, tipo_id, n_id, fechaNacimiento, contrasena, foto_perfil);
 
-        console.log('Nombre: ', nombre);
+        // Impresion de los valores del formulario
+        Swal.fire({
+            'title': 'Te registraste correctamente',
+            'icon': "success",
+            'text': 'Revisá tu información'
+        }).then(function() {
 
-        console.log('Contrasena: ', contrasena);
-        console.log('Confirmar contrasena: ', confirmarContrasena);
-        console.log('Fecha de nacimiento: ', fechaNacimiento);
-
-        console.log('Correo: ', correo);
+            window.location = 'index.html';
+        });
 
 
 
