@@ -127,9 +127,9 @@ let mostrar_usuarios = async() => {
     head.insertCell().innerHTML = 'Estado';
     tabla_usuarios_header.appendChild(head);
 
-
+    console.log(listar_usuarios(info_clientes[0]));
     for (let i = 0; i <= info_clientes[i].length; i++) {
-        console.log(listar_usuarios(info_clientes[i]));
+
         listar_usuarios(info_clientes[i]);
     }
 
