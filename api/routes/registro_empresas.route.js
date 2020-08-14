@@ -93,7 +93,6 @@ router.put('/otp_empresa', (req, res) => {
     );
 });
 
-module.exports = router;
 
 router.put('/modificar_contrasenna_empresa', (req, res) => {
 
