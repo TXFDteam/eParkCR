@@ -9,25 +9,16 @@ const input_identificacion = document.querySelector('#cedula_juridica');
 const input_contrasena = document.querySelector('#contrasena');
 const input_encargado = document.querySelector('#nombreEncargado');
 const input_ubicacion = document.querySelector('#ubicacion');
-const input_foto = document.querySelector('#fotoPerfil');
+
+const input_foto_div = document.querySelector('#foto-perfil-emp');
+const input_foto = document.querySelector('#foto-perfil-emp-img');
+
+
 const input_estado = document.querySelector('#estado');
 
 const btn_editar_perfil_empresa = document.querySelector('#btn-editar-perfil-empresa');
 
-/*
-const obtener_parametro_url = (valor) => {
-    const location = new URL(window.location.href);
-    const parametros = new URLSearchParams(location.search);
-    let parametro;
-    if (parametros.get(valor)) {
-        parametro = parametros.get(valor).toLowerCase();
-    } else {
-        parametro = '';
-    }
 
-
-    return parametro;
-};*/
 
 //let _id = obtener_parametro_url('_id');
 let correoE = localStorage.getItem('correo_empresa');
@@ -45,14 +36,20 @@ const mostrar_info = async() => {
     for (let e = 0; e <= info_emp.length; e++) {
         if (correoE == info_emp[e].correo && contrasennaE == info_emp[e].contraseña) {
             id_empresa = info_emp[e]._id;
+            let foto = document.querySelector('img');
+            foto.srcset = info_emp[e].foto_perfil
+            foto.className = 'foto-perfil';
+            foto.classList.add('foto-perfil');
             console.log(id_empresa);
             input_correo.value = info_emp[e].correo;
             input_nombre.value = info_emp[e].nombre;
             input_identificacion.value = info_emp[e].n_identificacion;
             input_encargado.value = info_emp[e].nombre_encargado;
             input_ubicacion.value = info_emp[e].ubicacion;
-            input_foto.value = info_emp[e].foto_perfil;
+
             input_estado.value = info_emp[e].estado_general;
+
+            input_foto_div.appendChild(foto);
             break;
         }
     }

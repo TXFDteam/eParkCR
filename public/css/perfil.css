@@ -35,11 +35,13 @@
     align-items: center;
     flex-direction: column;
     margin-top: 2%;
+    /* border: solid 2px red; */
 }
 
 #contenedor-perfil div h1 {
     font-size: 30px;
     margin-bottom: 3.5%;
+    /* border: solid 2px red; */
 }
 
 #contenedor-perfil .foto-perfil {
@@ -52,32 +54,37 @@
 .info-perfil {
     display: flex;
     margin-top: 5%;
+    /* border: solid 2px red; */
 }
 
 
 /*Espacios entre texto*/
 
 .perfil-izquierda {
-    width: 60%;
-    margin-left: 15%;
+    width: 50%;
+    margin-left: 10%;
+    margin-right: 2.5%;
+    /* border: solid 2px red; */
 }
 
 .perfil-derecha {
-    width: 40%;
-    margin-right: 25%;
-}
-
-.perfil-izquierda h3 {
-    margin-bottom: 2%;
+    width: 50%;
+    margin-right: 10%;
+    margin-left: 2.5%;
+    /* border: solid 2px red; */
 }
 
 .perfil-izquierda p {
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .perfil-derecha div p {
     margin-top: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
+}
+
+h3 {
+    text-align: left;
 }
 
 
@@ -98,6 +105,7 @@
     flex-direction: column;
     justify-content: center;
     margin-top: 100px;
+    margin-bottom: 20px;
 }
 
 #contenedor-perfil .botones a {
@@ -110,4 +118,15 @@
     height: 50px;
     width: 170px;
     margin-top: 15px;
+}
+
+input {
+    margin: 4px 10px 10px 0;
+    width: 100%;
+    height: 40px;
+}
+
+label {
+    margin: 10px 10px 10px 0;
+    /* border: solid 2px blue; */
 }
