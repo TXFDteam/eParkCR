@@ -49,16 +49,16 @@ const datos_peticion = async() => {
         //CLIENTES
         for (let c = 0; c < info_clientes.length; c++) {
             if (correo == info_clientes[c].correo) {
-                let otp_cliente = makeid(6);
-                otp_cliente(info_clientes[c]._id, info_clientes[c].correo, otp_cliente);
+                let otp_n_cliente = makeid(6);
+                otp_cliente(info_clientes[c]._id, info_clientes[c].correo, otp_n_cliente);
                 break;
             }
         }
         //EMPRESA
         for (let e = 0; e < info_empresas.length; e++) {
             if (correo == info_empresas[e].correo) {
-                let otp_empresa = makeid(6);
-                otp_empresa(info_empresas[e]._id, info_empresas[e].correo, otp_empresa);
+                let otp_n_empresa = makeid(6);
+                otp_empresa(info_empresas[e]._id, info_empresas[e].correo, otp_n_empresa);
                 break;
             }
         }
