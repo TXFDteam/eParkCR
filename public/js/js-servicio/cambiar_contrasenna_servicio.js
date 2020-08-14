@@ -12,7 +12,7 @@ const otp_empresa = async(pid, pcorreo, potp) => {
             }
         })
         .then((response) => {
-            console.log('Contraseña modificada correctamente');
+            console.log('OTP creado con éxito');
         })
         .catch((error) => {
             console.log(error);
@@ -31,7 +31,7 @@ const otp_cliente = async(pid, pcorreo, potp) => {
             }
         })
         .then((response) => {
-            console.log('Contraseña modificada correctamente');
+            console.log('OTP creado con éxito');
         })
         .catch((error) => {
             console.log(error);
@@ -49,7 +49,7 @@ const otp_duenno_parqueo = async(pid, pcorreo, potp) => {
             }
         })
         .then((response) => {
-            console.log('Contraseña modificada correctamente');
+            console.log('OTP creado con éxito');
         })
         .catch((error) => {
             console.log(error);

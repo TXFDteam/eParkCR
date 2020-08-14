@@ -18,32 +18,35 @@ const limite_usuarios_pagina = 20;
 let head;
 let fila;
 
-
+let info_clientes = await obtener_clientes();
+console.log(info_clientes);
+let info_duennos_parqueo = await obtener_duennos_parqueo();
+console.log(info_duennos_parqueo);
+let info_empresas = await obtener_empresas();
+console.log(info_empresas);
 
 /*-------ESTAS FUNCIONES CAMBIAN EL ESTADO DEL BOTÓN DINÁMICAMENTE--------------*/
 let cambiar_estado_boton_usuario = (x) => {
-    for (let i = 1; i <= usuarios.cant_usuarios; i++) {
-        let identificador_usuario = ('usuario' + i);
-        if (x.id == "input" + usuarios[identificador_usuario].id_usuario) {
+    for (let i = 0; i < info_clientes.length; i++) {
+        if (x._id == "input" + info_clientes[i]._id) {
             x.addEventListener('click', function() {
 
                 if (x.value == 'ACTIVAR') {
                     x.value = "DESACTIVAR";
-                    usuarios[identificador_usuario].estado_general = "DESACTIVAR";
+                    info_clientes[i].estado_general = "DESACTIVAR";
                 } else if (x.value == 'DESACTIVAR') {
                     x.value = "ACTIVAR";
-                    usuarios[identificador_usuario].estado_general = "ACTIVAR";
+                    info_clientes[i].estado_general = "ACTIVAR";
                 }
-                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
 
             })
         }
     }
 };
 let cambiar_estado_boton_duenno = (x) => {
-    for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
-        let identificador_duenno = ('duenno_parqueo' + d);
-        if (x.id == "input" + duennos_parqueos[identificador_duenno].id_usuario) {
+    for (let d = 0; d < info_duennos_parqueo.length; d++) {
+        if (x._id == "input" + info_duennos_parqueo[d]._id) {
             x.addEventListener('click', function() {
 
                 if (x.value == 'ACTIVAR') {
@@ -53,26 +56,23 @@ let cambiar_estado_boton_duenno = (x) => {
                     x.value = "ACTIVAR";
                     duennos_parqueos[identificador_duenno].estado_general = "ACTIVAR";
                 }
-                localStorage.setItem('duennos', JSON.stringify(duennos_parqueos));
 
             })
         }
     }
 };
 let cambiar_estado_boton_empresa = (x) => {
-    for (let e = 1; e <= empresas.cant_empresas; e++) {
-        let identificador_empresa = ('empresa_' + e);
-        if (x.id == "input" + empresas.lista_empresas[identificador_empresa].codigo_empresa) {
+    for (let e = 0; e < info_empresas.length; e++) {
+        if (x._id == "input" + info_empresas[e]._id) {
             x.addEventListener('click', function() {
 
                 if (x.value == 'ACTIVAR') {
                     x.value = "DESACTIVAR";
-                    empresas.lista_empresas[identificador_empresa].estado_empresa = "DESACTIVAR";
+                    info_empresas[e].estado_general = "DESACTIVAR";
                 } else if (x.value == 'DESACTIVAR') {
                     x.value = "ACTIVAR";
-                    empresas.lista_empresas[identificador_empresa].estado_empresa = "ACTIVAR";
+                    info_empresas[e].estado_general = "ACTIVAR";
                 }
-                localStorage.setItem('empresas', JSON.stringify(empresas));
 
             })
         }
@@ -84,9 +84,9 @@ let cambiar_estado_boton_empresa = (x) => {
 const listar_usuarios = (usuario) => {
 
     fila = tabla_usuarios.insertRow();
-    fila.insertCell().innerHTML = usuario.id_usuario;
-    fila.insertCell().innerHTML = usuario.correo_usuario;
-    fila.insertCell().innerHTML = usuario.nombre_usuario;
+    fila.insertCell().innerHTML = usuario._id;
+    fila.insertCell().innerHTML = usuario.correo;
+    fila.insertCell().innerHTML = usuario.nombre;
     fila.insertCell().innerHTML = usuario.n_identificacion;
     fila.insertCell().innerHTML = usuario.fecha_nacimiento;
 
@@ -125,13 +125,9 @@ let mostrar_usuarios = () => {
     head.insertCell().innerHTML = 'Estado';
     tabla_usuarios_header.appendChild(head);
 
-    if (localStorage.getItem('usuarios')) {
-        usuarios = JSON.parse(localStorage.getItem('usuarios'));
-    };
 
-    for (let i = 1; i <= usuarios.cant_usuarios; i++) {
-        let identificador_usuario = ('usuario' + i);
-        listar_usuarios(usuarios[identificador_usuario]);
+    for (let i = 0; i < info_clientes[i]; i++) {
+        listar_usuarios(info_clientes[i]);
     }
 
 };
@@ -147,11 +143,12 @@ btn_usurio_estandar.addEventListener('click', () => {
 const listar_duennos = (duenno) => {
 
     fila = tabla_usuarios.insertRow();
-    fila.insertCell().innerHTML = duenno.id_usuario;
-    fila.insertCell().innerHTML = duenno.correo_duenno;
+    fila.insertCell().innerHTML = duenno._id;
+    fila.insertCell().innerHTML = duenno.correo;
     fila.insertCell().innerHTML = duenno.nombre;
-    fila.insertCell().innerHTML = duenno.telefono_duenno_parqueo;
-    fila.insertCell().innerHTML = duenno.fecha_nacimiento;
+    fila.insertCell().innerHTML = duenno.n_identificacion;
+    fila.insertCell().innerHTML = duenno.telefono;
+    fila.insertCell().innerHTML = duenno.cuenta_bancaria;
 
     //Esto crea el botón para activar y desactivar un usuario
     let btn_activar = document.createElement('input');
@@ -179,35 +176,32 @@ let mostrar_parqueos = () => {
     head.insertCell().innerHTML = 'Id';
     head.insertCell().innerHTML = 'Correo';
     head.insertCell().innerHTML = 'Nombre';
+    head.insertCell().innerHTML = 'Identificación';
     head.insertCell().innerHTML = 'Teléfono';
-    head.insertCell().innerHTML = 'Fecha de nacimiento';
+    head.insertCell().innerHTML = 'Cuenta bancaria';
     head.insertCell().innerHTML = 'Estado';
 
     tabla_usuarios_header.appendChild(head);
 
-
-
-    for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
-        let identificador_duenno = ('duenno_parqueo' + d);
-        listar_duennos(duennos_parqueos[identificador_duenno]);
+    for (let d = 0; d < info_duennos_parqueo.length; d++) {
+        listar_duennos(info_duennos_parqueo[d]);
     }
 };
 
 btn_parqueo.addEventListener('click', () => {
     mostrar_parqueos();
 });
-if (localStorage.getItem('duennos')) {
-    duennos_parqueos = JSON.parse(localStorage.getItem('duennos'));
-};
+
 
 //EMPRESAS
 
 const listar_empresas = (emp) => {
     fila = tabla_usuarios.insertRow();
-    fila.insertCell().innerHTML = emp.codigo_empresa;
-    fila.insertCell().innerHTML = emp.correo_empresa;
-    fila.insertCell().innerHTML = emp.nombre_empresa;
-    fila.insertCell().innerHTML = emp.cedula_empresa;
+    fila.insertCell().innerHTML = emp._id;
+    fila.insertCell().innerHTML = emp.correo;
+    fila.insertCell().innerHTML = emp.nombre;
+    fila.insertCell().innerHTML = emp.nombre_encargado;
+    fila.insertCell().innerHTML = emp.n_identificacion;
 
 
     //Esto crea el botón para activar y desactivar un usuario
@@ -237,7 +231,8 @@ let mostrar_empresas = () => {
     head = tabla_usuarios_header.insertRow();
     head.insertCell().innerHTML = 'Id';
     head.insertCell().innerHTML = 'Correo';
-    head.insertCell().innerHTML = 'Nombre';
+    head.insertCell().innerHTML = 'Nombre empresa';
+    head.insertCell().innerHTML = 'Nombre encargado';
     head.insertCell().innerHTML = 'Identificacion';
     head.insertCell().innerHTML = 'Estado';
 
@@ -245,22 +240,11 @@ let mostrar_empresas = () => {
 
 
 
-    for (let i = 1; i <= empresas.cant_empresas; i++) {
-        let identificador_empresa = ('empresa_' + i);
-
-
-
-        listar_empresas(empresas.lista_empresas[identificador_empresa]);
-        console.log(empresas.lista_empresas[identificador_empresa].estado_empresa);
+    for (let i = 0; i < info_empresas.length; i++) {
+        listar_empresas(info_empresas[i]);
     }
 };
 
 btn_empresa.addEventListener('click', () => {
     mostrar_empresas();
-    if (localStorage.getItem('empresas')) {
-        empresas = JSON.parse(localStorage.getItem('empresas'));
-    };
 });
-if (localStorage.getItem('empresas')) {
-    empresas = JSON.parse(localStorage.getItem('empresas'));
-};
