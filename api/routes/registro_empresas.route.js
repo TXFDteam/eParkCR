@@ -116,6 +116,29 @@ router.put('/modificar_contrasenna_empresa', (req, res) => {
 });
 
 
+router.put('/modificar_empresa', (req, res) => {
+
+    Empresa.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar la información',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+
+            }
+        }
+
+    );
+});
+
+
 
 
 
