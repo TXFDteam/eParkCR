@@ -12,8 +12,6 @@ let contador_duennos_parqueos = 0;
 router.post('/registro-duenno-parqueo', (req, res) => {
     let datos = req.body;
 
-    contador_duennos_parqueos += 1;
-
     let duenno_parqueo_nuevo = new Duenno_parqueo({
         id: datos.id,
         correo: datos.correo,
