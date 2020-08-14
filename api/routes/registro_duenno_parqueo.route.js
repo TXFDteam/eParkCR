@@ -103,7 +103,7 @@ router.put('/otp-duenno-parqueo', (req, res) => {
 
     );
 });
-module.exports = router;
+
 
 router.put('/modificar-contrasenna-duenno-parqueo', (req, res) => {
 
