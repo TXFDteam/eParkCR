@@ -13,7 +13,7 @@ btn_cliente.addEventListener('click', function() {
     window.location.assign("CI_registro_usuarios.html");
 });
 btn_parqueo.addEventListener('click', function() {
-    window.location.assign("duenno-parqueo-formulario.html");
+    window.location.assign("duenno_parqueo_formulario.html");
 });
 
 
