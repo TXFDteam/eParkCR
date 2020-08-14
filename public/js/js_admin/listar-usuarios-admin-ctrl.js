@@ -128,7 +128,7 @@ let mostrar_usuarios = async() => {
     tabla_usuarios_header.appendChild(head);
 
 
-    for (let i = 0; i < info_clientes[i].length; i++) {
+    for (let i = 0; i <= info_clientes[i].length; i++) {
         console.log(listar_usuarios(info_clientes[i]));
         listar_usuarios(info_clientes[i]);
     }
@@ -212,7 +212,7 @@ const listar_empresas = (emp) => {
     let btn_activar = document.createElement('input');
     btn_activar.type = "button";
 
-    btn_activar.value = emp.estado_empresa;
+    btn_activar.value = emp.estado_general;
     cambiar_estado_boton_empresa(btn_activar);
     console.log(btn_activar.id);
     console.log(btn_activar.value);
