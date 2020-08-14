@@ -51,6 +51,7 @@ const datos_peticion = async() => {
             if (correo == info_clientes[c].correo) {
                 let otp_cliente = makeid(6);
                 otp_cliente(info_clientes[c]._id, info_clientes[c].correo, otp_cliente);
+                break;
             }
         }
         //EMPRESA
@@ -58,6 +59,7 @@ const datos_peticion = async() => {
             if (correo == info_empresas[e].correo) {
                 let otp_empresa = makeid(6);
                 otp_empresa(info_empresas[e]._id, info_empresas[e].correo, otp_empresa);
+                break;
             }
         }
 
@@ -66,6 +68,7 @@ const datos_peticion = async() => {
             if (correo == info_duennos_parqueo[d].correo) {
                 let otp_duenno = makeid(6);
                 otp_duenno_parqueo(info_duennos_parqueo[d]._id, info_duennos_parqueo[d].correo, otp_duenno);
+                break;
             }
         }
 
