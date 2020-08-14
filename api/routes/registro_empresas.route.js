@@ -70,6 +70,7 @@ router.get('/buscar_empresa_id', (req, res) => {
     });
 
 });
+
 router.put('/otp_empresa', (req, res) => {
 
     Empresa.updateOne({ _id: req.body._id }, {
