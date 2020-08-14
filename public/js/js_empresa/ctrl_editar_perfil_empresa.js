@@ -22,7 +22,7 @@ const mostrar_info = async() => {
             input_correo.value = info_empresas[e].correo;
             input_nombre.value = info_empresas[e].nombre;
             input_encargado.value = info_empresas[e].nombre_encargado;
-            input_foto.value = info_empresas[e].foto_perfil;
+
             break;
         }
     }
@@ -38,8 +38,8 @@ mostrar_info();
 
 const guardar_datos_empresa = () => {
 
-    modificar_empresa(id, input_correo.value, input_nombre.value, input_encargado.value, input_foto.value);
-    console.log(id, input_correo.value, input_nombre.value, input_encargado.value, input_foto.value);
+    modificar_empresa(id, input_correo.value, input_nombre.value, input_encargado.value);
+    console.log(id, input_correo.value, input_nombre.value, input_encargado.value);
 
     Swal.fire(
             'Perfil actualizado',
@@ -60,9 +60,9 @@ boton_guardar_datos_empresa.addEventListener('click', guardar_datos_empresa);
 
 
 
-/*
+
 const volver_perfil_empresa = () => {
     window.location.assign('../../html/htmls-empresas/perfil_empresa.html');
 };
 
-btn_volver_perfil_empresa.addEventListener('click', volver_perfil_empresa);*/
+btn_volver_perfil_empresa.addEventListener('click', volver_perfil_empresa);

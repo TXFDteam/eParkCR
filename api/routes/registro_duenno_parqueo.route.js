@@ -13,7 +13,7 @@ router.post('/registro-duenno-parqueo', (req, res) => {
     let datos = req.body;
 
     let duenno_parqueo_nuevo = new Duenno_parqueo({
-        id: datos.id,
+        id: datos._id,
         correo: datos.correo,
         nombre: datos.nombre,
         n_identificacion: datos.n_identificacion,

@@ -12,6 +12,7 @@
         margin-top: 120px;
         text-align: center;
         margin-left: 18%;
+        /* border: solid 2px blue; */
     }
     
     .perfil-superior {
@@ -19,56 +20,66 @@
         align-items: center;
         flex-direction: column;
         margin-top: 2%;
+        /* border: solid 2px gray; */
     }
     
     #contenedor-perfil div h1 {
         font-size: 30px;
         padding: 25px;
+        /* border: solid 2px red; */
     }
     
     .info-perfil {
         display: flex;
-        margin-top: 5%;
         height: 50%;
+        /* border: solid 2px purple; */
     }
     
     .info-perfil #editar-perfil {
         width: 100%;
+        margin: 0 20% 0 20%;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
+        /* border: solid 2px orchid; */
     }
     
     .info-perfil #editar-perfil div {
+        width: 100%;
         font-size: 25px;
         padding: 10px;
+        /* border: solid 2px green; */
     }
-    
-    .info-perfil #editar-perfil div label {
+    /* .info-perfil #editar-perfil div label {
         display: inline-block;
         width: 300px;
-    }
-    
-    .info-perfil #editar-perfil div input {
+    } */
+    /* .info-perfil #editar-perfil div input {
         display: inline-block;
         width: 300px;
         height: 25px;
-    }
-    
-    .info-perfil #editar-perfil select {
+        border: solid 2px red;
+    } */
+    /* .info-perfil #editar-perfil select {
         width: 300px;
+    }
+     */
+    
+    h3 {
+        text-align: left;
     }
     
     #contenedor-perfil .botones {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
     
     #contenedor-perfil .botones a {
-        border: 1px solid black;
+        border: 1px solid pink;
         font-size: 20px;
         padding: 7px 2.5%;
     }
@@ -77,4 +88,15 @@
         height: 50px;
         width: 170px;
         margin-top: 15px;
+    }
+    
+    input {
+        margin: 4px 10px 10px 0;
+        width: 100%;
+        height: 40px;
+    }
+    
+    label {
+        margin: 10px 10px 10px 0;
+        /* border: solid 2px blue; */
     }

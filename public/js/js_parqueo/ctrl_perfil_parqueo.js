@@ -18,23 +18,37 @@ const editar_perfil_parqueo = () => {
 };
 
 
+
+
+
+
+const input_id = document.querySelector('#id');
+const input_nombre = document.querySelector('#nombre-duenno-parqueo');
+const input_correo = document.querySelector('#correo-parqueo');
+const input_cuenta = document.querySelector('#cuenta-bancaria-parqueo');
+const input_telefono = document.querySelector('#telefono-duenno-parqueo');
+
+const input_foto_div = document.querySelector('#foto-perfil-dueño');
+const input_foto = document.querySelector('#foto-perfil-dueño-img');
+
+const input_estado = document.querySelector('#estado');
+
 btn_editar_perfil_parqueo.addEventListener('click', editar_perfil_parqueo);
 
-let foto_perfil_div = document.querySelector('#foto-perfil-dueño');
-let foto_perfil = document.querySelector('#foto-perfil-dueño-img');
+// let nombre_duenno_parqueo = document.querySelector('#nombre-duenno-parqueo');
+// let correo_duenno_parqueo = document.querySelector('#correo-parqueo');
+// let cuenta_bancaria_duenno_parqueo = document.querySelector('#cuenta-bancaria-parqueo');
+// let telefono_duenno_parqueo = document.querySelector('#telefono-duenno-parqueo');
 
-
-let nombre_duenno_parqueo = document.querySelector('#nombre-duenno-parqueo');
-let correo_duenno_parqueo = document.querySelector('#correo-parqueo');
-let cuenta_bancaria_duenno_parqueo = document.querySelector('#cuenta-bancaria-parqueo');
-let telefono_duenno_parqueo = document.querySelector('#telefono-duenno-parqueo');
-
+// let foto_perfil_div = document.querySelector('#foto-perfil-dueño');
+// let foto_perfil = document.querySelector('#foto-perfil-dueño-img');
 
 let correo = localStorage.getItem('correo_dueño');
 console.log(correo);
 let contrasenna = localStorage.getItem('contraseña_dueño');
 console.log(contrasenna);
 
+let id_duenno_parqueo;
 
 let mostrar_datos_dueño = async() => {
 
@@ -43,23 +57,35 @@ let mostrar_datos_dueño = async() => {
 
 
     //d va a ser el  contador para encontrar los duennos de los parqueos
-    for (let c = 0; c < info_duennos_parqueo.length; c++) {
-        if (correo == info_duennos_parqueo[c].correo && contrasenna == info_duennos_parqueo[c].contraseña) {
-            /* let foto = document.createElement('img');
-             foto.srcset = info_duennos_parqueo[c].foto_perfil
-                 //foto.className= 'foto-perfil';
-             foto.classList.add('foto-perfil');*/
+    for (let d = 0; d < info_duennos_parqueo.length; c++) {
+        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_duennos_parqueo[d].contraseña) {
+            id_duenno_parqueo = info_duennos_parqueo[d]._id;
+            let foto = document.createElement('img');
+            foto.srcset = info_duennos_parqueo[d].foto_perfil
+            foto.className = 'foto-perfil';
+            foto.classList.add('foto-perfil');
+            console.log(id_duenno_parqueo);
+            input_nombre.value = info_duennos_parqueo[d].nombre;
+            input_correo.value = info_duennos_parqueo[d].correo;
+            input_cuenta.value = info_duennos_parqueo[d].cuenta_bancaria;
+            input_telefono.value = info_duennos_parqueo[d].telefono;
+            input_estado.value = info_duennos_parqueo[d].estado_general;
 
-            nombre_duenno_parqueo.innerHTML = info_duennos_parqueo[c].nombre;
-            correo_duenno_parqueo.innerHTML = info_duennos_parqueo[c].correo;
-            cuenta_bancaria_duenno_parqueo.innerHTML = info_duennos_parqueo[c].cuenta_bancaria;
-            telefono_duenno_parqueo.innerHTML = info_duennos_parqueo[c].telefono;
+            // nombre_duenno_parqueo.innerHTML = info_duennos_parqueo[c].nombre;
+            // correo_duenno_parqueo.innerHTML = info_duennos_parqueo[c].correo;
+            // cuenta_bancaria_duenno_parqueo.innerHTML = info_duennos_parqueo[c].cuenta_bancaria;
+            // telefono_duenno_parqueo.innerHTML = info_duennos_parqueo[c].telefono;
 
-            //foto_perfil_div.appendChild(foto);
+            input_foto_div.appendChild(foto);
             break;
         }
     }
 };
+
+const obtener_datos = () => {
+    modificar_empresa(_id, input_id.value, input_correo.value, input_nombre.value, input_identificacion.value, input_contrasena.value, input_encargado.value, input_ubicacion.value, input_foto.value, input_estado.value);
+};
+
 mostrar_datos_dueño();
 
 

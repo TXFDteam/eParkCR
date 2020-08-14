@@ -22,7 +22,9 @@ const btn_editar_perfil_empresa = document.querySelector('#btn-editar-perfil-emp
 
 //let _id = obtener_parametro_url('_id');
 let correoE = localStorage.getItem('correo_empresa');
+console.log(correoE);
 let contrasennaE = localStorage.getItem('contraseña_empresa');
+console.log(contrasennaE);
 
 
 let id_empresa;
