@@ -3,7 +3,7 @@
 const otp_empresa = async(pid, pcorreo, potp) => {
     await axios({
             method: 'put',
-            url: 'http://localhost:3000/api/otp_empresa',
+            url: 'http://localhost:3000/api/otp-empresa',
             responseType: 'json',
             data: {
                 _id: pid,
