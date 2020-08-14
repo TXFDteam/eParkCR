@@ -20,7 +20,9 @@ let fila;
 
 
 /*-------ESTAS FUNCIONES CAMBIAN EL ESTADO DEL BOTÓN DINÁMICAMENTE--------------*/
-let cambiar_estado_boton_usuario = (x) => {
+let cambiar_estado_boton_usuario = async(x) => {
+    let info_clientes = await obtener_clientes();
+    console.log(info_clientes);
     for (let i = 0; i < info_clientes.length; i++) {
         if (x._id == "input" + info_clientes[i]._id) {
             x.addEventListener('click', function() {
@@ -38,8 +40,10 @@ let cambiar_estado_boton_usuario = (x) => {
         }
     }
 };
-let cambiar_estado_boton_duenno = (x) => {
+let cambiar_estado_boton_duenno = async(x) => {
     for (let d = 0; d < info_duennos_parqueo.length; d++) {
+        let info_duennos_parqueo = await obtener_duennos_parqueo();
+        console.log(info_duennos_parqueo);
         if (x._id == "input" + info_duennos_parqueo[d]._id) {
             x.addEventListener('click', function() {
 
@@ -55,7 +59,9 @@ let cambiar_estado_boton_duenno = (x) => {
         }
     }
 };
-let cambiar_estado_boton_empresa = (x) => {
+let cambiar_estado_boton_empresa = async(x) => {
+    let info_empresas = await obtener_empresas();
+    console.log(info_empresas);
     for (let e = 0; e < info_empresas.length; e++) {
         if (x._id == "input" + info_empresas[e]._id) {
             x.addEventListener('click', function() {
