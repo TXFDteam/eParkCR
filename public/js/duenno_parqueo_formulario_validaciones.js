@@ -93,15 +93,13 @@ const obtener_datos = () => {
 
     } else {
         // Impresion de los valores del formulario
-        let nombreSociedad = input_nombreSociedad.value;
-        let contrasena = input_contrasena.value;
-        let cedulaJuridica = input_cedulaJuridica.value;
-
-        let cuenta = input_cuenta.value;
-        let telefono = input_telefono.value;
-        let foto_url = foto.src;
-
         let correo = input_correo.value;
+        let nombreSociedad = input_nombreSociedad.value;
+        let cedulaJuridica = input_cedulaJuridica.value;
+        let contrasena = input_contrasena.value;
+        let telefono = input_telefono.value;
+        let cuenta = input_cuenta.value;
+        let foto_url = foto.src;
         let confirmarContrasena = input_confirmarContrasena.value;
 
         registrar_duenno_parqueo(correo, nombreSociedad, cedulaJuridica, contrasena, telefono, cuenta, foto_url);

@@ -80,6 +80,12 @@ const validar = () => {
     return error;
 };
 
+
+
+
+
+
+
 const obtener_datos = () => {
     let error = validar();
     if (error == true) {
