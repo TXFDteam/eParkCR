@@ -78,6 +78,27 @@ router.put('/otp-cliente', (req, res) => {
     );
 });
 
+router.put('/modificar-cliente', (req, res) => {
+
+    Cliente.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el usuario',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        }
+
+    );
+});
+
 router.put('/modificar-contrasenna-cliente', (req, res) => {
 
     Cliente.updateOne({ _id: req.body._id }, {

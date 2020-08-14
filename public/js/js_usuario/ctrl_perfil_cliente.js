@@ -10,6 +10,11 @@ const input_identificacion = document.querySelector('#numero-identificacion-clie
 const input_tipoIdentificacion = document.querySelector('#tipo_identificacion');
 const input_fechaNacimiento = document.querySelector('#nacimiento-cliente')
 
+const input_foto_div = document.querySelector('#foto-perfil-cliente');
+const input_foto = document.querySelector('#foto-Perfil');
+
+
+const input_estado = document.querySelector('#estado');
 
 const btn_editar_perfil_cliente = document.querySelector('#btn-editar-perfil-cliente');
 
@@ -29,21 +34,21 @@ let mostrar_info = async() => {
 
     //c va a ser el  contador para encontrar los clientes
     for (let c = 0; c < info_clientes.length; c++) {
-        if (correo == info_clientes[c].correo && contrasenna == info_clientes[c].contraseña) {
-            id_cliente = info_emp[e]._id;
+        if (correoC == info_clientes[c].correo && contrasennaC == info_clientes[c].contraseña) {
+            id_cliente = info_clientes[c]._id;
             let foto = document.createElement('img');
             foto.srcset = info_clientes[c].foto_perfil
             foto.className = 'foto-perfil';
             foto.classList.add('foto-perfil');
+            console.log(id_cliente);
+            input_nombre.value = info_clientes[c].nombre;
+            input_correo.value = info_clientes[c].correo;
+            input_identificacion.value = info_clientes[c].n_identificacion;
+            input_tipoIdentificacion.value = info_clientes[c].tipo_identificacion;
+            input_fechaNacimiento.value = info_clientes[c].fecha_nacimiento;
 
-            input_nombre = info_clientes[c].nombre;
-            input_correo = info_clientes[c].correo;
-            input_identificacion = info_clientes[c].n_identificacion;
-            input_tipoIdentificacion = info_clientes[c].tipo_identificacion;
-            input_fechaNacimiento = info_clientes[c].fecha_nacimiento;
 
-
-            foto_perfil_div.appendChild(foto);
+            input_foto_div.appendChild(foto);
             break;
         }
     }
