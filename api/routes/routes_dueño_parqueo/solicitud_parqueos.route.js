@@ -33,7 +33,7 @@ router.post('/registrar-parqueo', (req, res) => {
         if (err) {
             res.json({
                 success: false,
-                msj: 'La solicitud no se pudo registrar, ocurrió el siguiente error',
+                msj: 'La solicitud no se pudo registrar, ocurrió el siguiente error: ' + err,
                 err
             })
         } else {

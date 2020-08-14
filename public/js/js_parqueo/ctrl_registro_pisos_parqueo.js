@@ -24,16 +24,14 @@ const generar_piso = (p_indice_piso) => {
     let json_piso = { espacios: [] };
     let contador_espacios = 0;
 
-    json_piso.espacios[0] = { "codigo": "A01", "tipo": "0", "ocupado": "0" };
-
     //Crear espacios para discapacitados.
     for (let i = ultimo_D; i - ultimo_D < espacios_discapacitados[p_indice_piso]; i++) {
         //Formato.
-        let codigo = '\"';
-        codigo += (i < 10) ? ('D0' + i) : ('D' + i);
-        codigo += '\"';
+        let codigo = (i < 10) ? ('D0' + i) : ('D' + i);
 
         json_piso.espacios[contador_espacios] = { "codigo": codigo, "tipo": "0", "ocupado": "0" };
+
+        //console.log(json_piso.espacios[contador_espacios]);
         contador_espacios++;
     };
 
@@ -43,9 +41,7 @@ const generar_piso = (p_indice_piso) => {
     //Crear espacios para motos.
     for (let i = ultimo_M; i - ultimo_M < espacios_motos[p_indice_piso]; i++) {
         //Formato.
-        let codigo = '\"';
-        codigo += (i < 10) ? ('M0' + i) : ('M' + i);
-        codigo += '\"';
+        let codigo = (i < 10) ? ('M0' + i) : ('M' + i);
 
         json_piso.espacios[contador_espacios] = { "codigo": codigo, "tipo": "1", "ocupado": "0" };
         contador_espacios++;
@@ -56,16 +52,13 @@ const generar_piso = (p_indice_piso) => {
     //Crear espacios para autos.
     for (let i = ultimo_C; i - ultimo_C < espacios_autos[p_indice_piso]; i++) {
         //Formato.
-        let codigo = '\"';
-        codigo += (i < 10) ? ('C0' + i) : ('C' + i);
-        codigo += '\"';
+        let codigo = (i < 10) ? ('C0' + i) : ('C' + i);
 
         json_piso.espacios[contador_espacios] = { "codigo": codigo, "tipo": "2", "ocupado": "0" };
         contador_espacios++;
     };
 
     ultimo_C = contador_espacios + 1;
-
     return json_piso;
 };
 
@@ -79,11 +72,16 @@ const crear_pisos_parqueo = () => {
     //Para crear los pisos.
     for (let i = 0; i < cantidad_pisos; i++) {
         pisos[i] = generar_piso(i);
+        //console.log(pisos[i]);
+
     }
-    console.log('Pisos creados: ' + pisos);
+    //console.log(pisos);
 
     //Se asigna el valor de los pisos creados al parámetro que se va a enviar en el request.
     pisos_final = pisos;
+
+    //En el otro script.
+    prueba_crear_parqueo();
 };
 
 //btn_prueba.addEventListener('click', crear_pisos_parqueo);
@@ -133,3 +131,7 @@ al_cambiar_cantidad_de_pisos();
 al_cambiar_de_piso();
 
 actualizar_datos_piso(0);
+
+
+//Eventos
+btn_crearParqueo.addEventListener('click', crear_pisos_parqueo);

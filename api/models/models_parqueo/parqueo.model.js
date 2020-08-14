@@ -29,8 +29,8 @@ const schema_parqueo = new mongoose.Schema({
     hora_cierre: { type: String, required: true, unique: false },
     pisos: [{
         espacios: [{
-            id: { type: String, required: true, unique: false },
-            tipo_vehiculo: { type: String, required: true, unique: false },
+            codigo: { type: String, required: true, unique: false },
+            tipo: { type: String, required: true, unique: false },
             ocupado: { type: String, required: true, unique: false }
         }]
     }],

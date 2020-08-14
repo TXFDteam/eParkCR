@@ -176,7 +176,37 @@ const obtener_datos = () => {
 };
 
 
-btn_crearParqueo.addEventListener('click', () => {
+const prueba_crear_parqueo = () => {
+    let nombreParqueo = input_nombreParqueo.value;
+    let cedulaJuridica = input_cedulaJuridica.value;
 
-    obtener_datos();
-});
+    let correo = input_correo.value;
+
+    let permiso = 'enlace al super documento';
+
+    let tarifa = input_tarifa.value;
+    let horaApertura = input_horaApertura.value;
+    let horaCierre = input_horaCierre.value;
+
+    let facebook = input_facebook.value;
+    let twitter = input_twitter.value;
+    let instagram = input_instagram.value;
+
+    let provincia = input_provincia.value;
+    let canton = input_canton.value;
+    let distrito = input_distrito.value;
+    let coordenadas = input_coordenadas.value;
+
+    let foto_perfil = 'enlace a foto de perfil';
+    let foto_banner = 'enlace a foto banner';
+
+    let redes = [
+        { 'nombre': 'facebook', 'enlace': '\"' + facebook + '\"' },
+        { 'nombre': 'twitter', 'enlace': '\"' + twitter + '\"' },
+        { 'nombre': 'instagram', 'enlace': '\"' + instagram + '\"' }
+    ];
+
+    let ubicacion = distrito + ', ' + canton + ', ' + provincia;
+
+    directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, 'Pepito', correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final, 'ACTIVAR');
+};
