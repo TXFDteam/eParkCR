@@ -99,8 +99,6 @@ const listar_usuarios = (usuario) => {
     cambiar_estado_boton_usuario(btn_activar);
 
 
-    console.log(btn_activar.id);
-
     btn_activar.classList.add('estilo-btn-activar-usuario');
 
     //fila.insertCell().innerHTML = btn_activar;
@@ -127,9 +125,8 @@ let mostrar_usuarios = async() => {
     head.insertCell().innerHTML = 'Estado';
     tabla_usuarios_header.appendChild(head);
 
-    console.log(listar_usuarios(info_clientes[0]));
+    //console.log(listar_usuarios(info_clientes[0]));
     for (let i = 0; i <= info_clientes[i].length; i++) {
-
         listar_usuarios(info_clientes[i]);
     }
 
@@ -159,7 +156,6 @@ const listar_duennos = (duenno) => {
 
     btn_activar.value = duenno.estado_general;
     cambiar_estado_boton_duenno(btn_activar);
-    console.log(btn_activar.id);
 
 
     btn_activar.classList.add('estilo-btn-activar-duenno');
@@ -214,7 +210,6 @@ const listar_empresas = (emp) => {
 
     btn_activar.value = emp.estado_general;
     cambiar_estado_boton_empresa(btn_activar);
-    console.log(btn_activar.id);
     console.log(btn_activar.value);
 
 
