@@ -7,7 +7,8 @@ const btn_yaTenesCuenta = document.querySelector('#btn-yaTenesCuenta');
 const input_nombre = document.querySelector('#CI-registro-nombre');
 const input_contrasena = document.querySelector('#CI-registro-contrasena');
 const input_fechaNacimiento = document.querySelector('#CI-registro-fecha');
-const input_ID = document.querySelector('#CI-registro-ID');
+const input_ID = document.querySelector('#CI-registro-tipoID');
+const input_n_id = document.querySelector('#CI-registro-ID');
 const input_correo = document.querySelector('#CI-registro-correo');
 const input_confirmarContrasena = document.querySelector('#CI-registro-confirmarcontra');
 
@@ -116,12 +117,12 @@ const obtener_datos = () => {
         let contrasena = input_contrasena.value;
         let confirmarContrasena = input_confirmarContrasena.value;
         let fechaNacimiento = input_fechaNacimiento.value;
-        let ID = input_ID.value;
+        let n_id = input_n_id.value;
         let correo = input_correo.value;
 
-        contador_clientes = 'c' + contador_clientes;
 
-        registrar_usuario(contador_clientes, correo, nombre, tipo_id, ID, fechaNacimiento, contrasena);
+
+        registrar_usuario(correo, nombre, tipo_id, n_id, fechaNacimiento, contrasena);
 
         console.log('Nombre: ', nombre);
 

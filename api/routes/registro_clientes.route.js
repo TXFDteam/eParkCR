@@ -12,7 +12,7 @@ router.post('/registrar-cliente', (req, res) => {
     let datos = req.body;
 
     let cliente_nuevo = new Cliente({
-        id: datos.id,
+
         correo: datos.correo,
         nombre: datos.nombre,
         tipo_identificacion: datos.tipo_identificacion,
