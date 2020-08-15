@@ -98,7 +98,7 @@ const actualizar_espacio_seleccionado = (p_info_espacio, p_espacio_elemento) => 
 const obtener_parqueo_actual = async() => {
     //Se obtiene la variable que se guardó anteriormente que define el nombre del parqueo seleccionado.
     let id_parqueo_actual = localStorage.getItem('parqueo_seleccionado');
-    console.log('id parqueo actual= ' + id_parqueo_actual);
+    //console.log('id parqueo actual= ' + id_parqueo_actual);
 
     //let lista_parqueos = await obtener_parqueos();
 
@@ -499,7 +499,7 @@ const mostrar_info = async() => {
     //Mostrar info del parqueo.
     usuario_ingresado = obtener_usuario_ingresado();
     parqueo_seleccionado = await obtener_parqueo_actual();
-    console.log(parqueo_seleccionado);
+    //console.log(parqueo_seleccionado);
 
     //Viejo
     //parqueo_seleccionado = parqueos[obtener_parqueo_actual()];

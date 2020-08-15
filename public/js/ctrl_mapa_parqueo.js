@@ -62,7 +62,7 @@ const actualizar_espacios_mapa = (p_piso) => {
     //Limpiar el mapa.
     contenedor_espacios_en_mapa.innerHTML = '';
 
-    console.log(p_piso);
+    //console.log(p_piso);
 
     //Se crea un ciclo para ejecutar la función de crear espacios X cantidad de veces.
     p_piso.espacios.forEach(obj_espacio => {
