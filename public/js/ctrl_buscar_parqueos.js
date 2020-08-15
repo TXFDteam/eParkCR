@@ -109,7 +109,7 @@ const parqueo_cumple_con_filtros = (p_parqueo) => {
     if (filtrando_parqueos_abiertos) {
         filtros_usados++;
 
-        if (p_parqueo.abierto) {
+        if (parqueo_abierto(p_parqueo)) {
             filtros_cumplidos++;
         }
     }
@@ -155,6 +155,11 @@ const parqueo_cumple_con_filtros = (p_parqueo) => {
 //<p_nombre> Se espera recibir un string con el nombre del parqueo.
 //<p_nombre> Se espera recibir un string con la ubicación del parqueo.
 const crear_carta_parqueo = (p_parqueo) => {
+    console.log(p_parqueo);
+    if (p_parqueo.estado_general != 'ACTIVAR') {
+        return;
+    }
+
     if (usando_filtros) {
         if (!parqueo_cumple_con_filtros(p_parqueo)) {
             return;
@@ -185,7 +190,10 @@ const crear_carta_parqueo = (p_parqueo) => {
     contenedor_superior.innerHTML = nueva_plantilla_cont_superior;
 
     //Aplicar la imagen de previsualización a la carta de parqueo actual.
-    let url = "url(" + "../../imgs/imgs_parqueos/" + p_parqueo.imagen_preview + ")";
+    let url = "url(" + p_parqueo.imagen_carta + ")";
+    //Viejo
+    //let url = "url(" + "../../imgs/imgs_parqueos/" + p_parqueo.imagen_preview + ")";
+
     contenedor_superior.style.backgroundImage = url;
 
     //Contenedor inferior.
@@ -205,18 +213,30 @@ const crear_carta_parqueo = (p_parqueo) => {
 
     //Se conecta el evento click de la carta creada.
     nueva_carta.addEventListener('click', () => {
-        abrir_perfil_parqueo(p_parqueo.nombre);
+        abrir_perfil_parqueo(p_parqueo._id);
+
+        //Viejo
+        //abrir_perfil_parqueo(p_parqueo.nombre);
     });
 };
 
 //Esta función se usa para mostrar las cartas de los parqueos existentes en la base de datos.
 //No recibe parámetros porque los muestra todos.
-const mostrar_parqueos = () => {
+const mostrar_parqueos = async() => {
+    let lista_parqueos = await obtener_parqueos();
     contenedor_parqueos.innerHTML = '';
+
+    lista_parqueos.forEach(obj_parqueo => {
+        crear_carta_parqueo(obj_parqueo);
+    });
+
+    /*
+    Viejo.
     for (let i = 1; i <= parqueos.cant_parqueos; i++) {
         let identificador_parqueo = ('parqueo_' + i);
         crear_carta_parqueo(parqueos[identificador_parqueo]);
     };
+    */
 };
 
 

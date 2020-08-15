@@ -80,10 +80,10 @@ const actualizar_espacio_seleccionado = (p_info_espacio, p_espacio_elemento) => 
     }
 
     //Uso de la información del espacio seleccionado.
-    txt_espacio_seleccionado.value = p_info_espacio.id;
+    txt_espacio_seleccionado.value = p_info_espacio.codigo;
     info_espacio_seleccionado = p_info_espacio;
 
-    if (p_info_espacio.ocupado) {
+    if (p_info_espacio.ocupado == '1') {
         txt_estado_espacio.textContent = 'El espacio seleccionado está ocupado.';
         txt_estado_espacio.classList.add('txt_alerta');
     } else {
@@ -95,10 +95,27 @@ const actualizar_espacio_seleccionado = (p_info_espacio, p_espacio_elemento) => 
     }
 };
 
-const obtener_parqueo_actual = () => {
+const obtener_parqueo_actual = async() => {
     //Se obtiene la variable que se guardó anteriormente que define el nombre del parqueo seleccionado.
-    let nombre_parqueo_actual = localStorage.getItem('parqueo_seleccionado');
+    let id_parqueo_actual = localStorage.getItem('parqueo_seleccionado');
+    console.log('id parqueo actual= ' + id_parqueo_actual);
 
+    //let lista_parqueos = await obtener_parqueos();
+
+    let parqueo_encontrado = await obtener_parqueo_por_id(id_parqueo_actual);
+
+    /*
+    lista_parqueos.forEach(obj_parqueo => {
+        console.log('Comprobación: ' + obj_parqueo._id + ' == ' + id_parqueo_actual);
+        if (obj_parqueo._id == id_parqueo_actual) {
+            return obj_parqueo;
+        }
+    });
+    */
+
+    return parqueo_encontrado;
+    /*
+    Viejo
     //Se busca el parqueo que posee ese nombre.
     for (let i = 1; i <= parqueos.cant_parqueos; i++) {
         let identificador_parqueo = ('parqueo_' + i);
@@ -110,6 +127,7 @@ const obtener_parqueo_actual = () => {
     }
 
     return '';
+    */
 };
 
 //Esta función se usa para crear un icono de red social basado en los parámetros recibidos.
@@ -128,31 +146,32 @@ const crear_icono_red_social = (p_clase, p_enlace) => {
 
 //Funcion usada para llenar todo lo relacionado con redes sociales del parqueo seleccionado.
 const llenar_info_redes_sociales = () => {
-    let enlace_facebook = parqueo_seleccionado.enlaces_redes.facebook;
-    let enlace_twitter = parqueo_seleccionado.enlaces_redes.twitter;
-    let enlace_instagram = parqueo_seleccionado.enlaces_redes.instagram;
-
-    if (enlace_facebook != '') {
-        crear_icono_red_social(clase_facebook, enlace_facebook);
-    }
-    if (enlace_twitter != '') {
-        crear_icono_red_social(clase_twitter, enlace_twitter);
-    }
-    if (enlace_instagram != '') {
-        crear_icono_red_social(clase_instagram, enlace_instagram);
-    }
+    parqueo_seleccionado.enlaces_redes.forEach(obj_enlace => {
+        if (obj_enlace.enlace != '') {
+            if (obj_enlace.nombre == 'facebook') {
+                crear_icono_red_social(clase_facebook, obj_enlace.enlace);
+            }
+            if (obj_enlace.nombre == 'twitter') {
+                crear_icono_red_social(clase_twitter, obj_enlace.enlace);
+            }
+            if (obj_enlace.nombre == 'instagram') {
+                crear_icono_red_social(clase_instagram, obj_enlace.enlace);
+            }
+        }
+    });
 };
 
 //Esta función se debe llamar al inicio para actualizar los datos de la página usando datos del parqueo seleccionado.
 //<p_parqueo> El parqueo del que se va a obtener los datos.
 const llenar_info_parqueo = (p_parqueo) => {
-    parqueo_seleccionado = p_parqueo;
-
     if (parqueo_seleccionado == '') {
         return;
     }
 
-    let url = "url(" + "../../imgs/imgs_parqueos/" + p_parqueo.imagen_perfil + ")";
+    let url = "url(" + p_parqueo.imagen_perfil + ")";
+    //Viejo
+    //let url = "url(" + "../../imgs/imgs_parqueos/" + p_parqueo.imagen_perfil + ")";
+
     banner.style.backgroundImage = url;
 
     lbl_nombre_parqueo.textContent = p_parqueo.nombre;
@@ -476,13 +495,21 @@ const obtener_usuario_ingresado = () => {
 
 //#endregion
 
+const mostrar_info = async() => {
+    //Mostrar info del parqueo.
+    usuario_ingresado = obtener_usuario_ingresado();
+    parqueo_seleccionado = await obtener_parqueo_actual();
+    console.log(parqueo_seleccionado);
 
-//Mostrar info del parqueo.
-usuario_ingresado = obtener_usuario_ingresado();
-parqueo_seleccionado = parqueos[obtener_parqueo_actual()];
-llenar_info_parqueo(parqueo_seleccionado);
-obtener_comentarios();
+    //Viejo
+    //parqueo_seleccionado = parqueos[obtener_parqueo_actual()];
 
+    llenar_info_parqueo(parqueo_seleccionado);
+    obtener_comentarios();
+};
+
+
+mostrar_info();
 //Eventos.
 
 //Comentarios.

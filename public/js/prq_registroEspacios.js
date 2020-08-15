@@ -96,7 +96,61 @@ const validar = () => {
     return error;
 };
 
+const obtener_datos = () => {
+    let error = validar();
+    if (error == true) {
+        Swal.fire({
+            'title': "No se ha podido registrar el parqueo",
+            'icon': 'warning',
+            'text': 'Revise los campos resaltados'
+        });
 
+    } else {
+        let nombreParqueo = input_nombreParqueo.value;
+        let cedulaJuridica = input_cedulaJuridica.value;
+
+        let correo = input_correo.value;
+
+        let permiso = document.getElementById('permiso').value;
+
+        let tarifa = input_tarifa.value;
+        let horaApertura = input_horaApertura.value;
+        let horaCierre = input_horaCierre.value;
+
+        let facebook = input_facebook.value;
+        let twitter = input_twitter.value;
+        let instagram = input_instagram.value;
+
+        let provincia = input_provincia.value;
+        let canton = input_canton.value;
+        let distrito = input_distrito.value;
+        let coordenadas = input_coordenadas.value;
+
+        let foto_perfil = input_foto_perfil.src;
+        let foto_banner = input_foto_banner.src;
+
+        let redes = [
+            { 'nombre': 'facebook', 'enlace': '\"' + facebook + '\"' },
+            { 'nombre': 'twitter', 'enlace': '\"' + twitter + '\"' },
+            { 'nombre': 'instagram', 'enlace': '\"' + instagram + '\"' }
+        ];
+
+        let ubicacion = distrito + ', ' + canton + ', ' + provincia;
+
+        directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, 'Pepito', correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final, 'REGISTRO_PENDIENTE');
+
+        Swal.fire({
+            'title': 'La solicitud del parqueo se envió correctamente',
+            'icon': "success",
+            'text': 'Serás notificado por medio de un correo una vez el parqueo registrado sea habilitado.'
+        }).then(function() {
+            window.location = '../../html/htmls-parqueos/prq_mis_parqueos.html';
+        });
+    }
+};
+
+/*
+Viejo
 const obtener_datos = () => {
     let error = validar();
     if (error == true) {
@@ -149,6 +203,7 @@ const obtener_datos = () => {
             window.location = '../../html/htmls-parqueos/prq_mis_parqueos.html';
         });
 
+        
         console.log('Nombre parqueo: ', nombreParqueo);
         console.log('Cedula juridica: ', cedulaJuridica);
         console.log('Correo: ', correo);
@@ -170,43 +225,8 @@ const obtener_datos = () => {
         console.log('Canton: ', canton);
         console.log('Distrito: ', distrito);
         console.log('Coordenadas: ', coordenadas);
+        
 
-
-    }
-};
-
-
-const prueba_crear_parqueo = () => {
-    let nombreParqueo = input_nombreParqueo.value;
-    let cedulaJuridica = input_cedulaJuridica.value;
-
-    let correo = input_correo.value;
-
-    let permiso = 'enlace al super documento';
-
-    let tarifa = input_tarifa.value;
-    let horaApertura = input_horaApertura.value;
-    let horaCierre = input_horaCierre.value;
-
-    let facebook = input_facebook.value;
-    let twitter = input_twitter.value;
-    let instagram = input_instagram.value;
-
-    let provincia = input_provincia.value;
-    let canton = input_canton.value;
-    let distrito = input_distrito.value;
-    let coordenadas = input_coordenadas.value;
-
-    let foto_perfil = 'enlace a foto de perfil';
-    let foto_banner = 'enlace a foto banner';
-
-    let redes = [
-        { 'nombre': 'facebook', 'enlace': '\"' + facebook + '\"' },
-        { 'nombre': 'twitter', 'enlace': '\"' + twitter + '\"' },
-        { 'nombre': 'instagram', 'enlace': '\"' + instagram + '\"' }
-    ];
-
-    let ubicacion = distrito + ', ' + canton + ', ' + provincia;
-
-    directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, 'Pepito', correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final, 'ACTIVAR');
-};
+}
+}; 
+*/

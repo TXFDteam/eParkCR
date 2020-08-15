@@ -69,3 +69,6 @@ app.use('/api', require('./routes/registro_empresas.route.js'));
 
 /*-------Conexión admin-------------------*/
 app.use('/api', require('./routes/routes_admin/info_admin.route.js'));
+
+/*-------Conexión parqueos-------------------*/
+app.use('/api', require('./routes/manejo_parqueos.route'));

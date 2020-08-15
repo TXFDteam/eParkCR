@@ -81,6 +81,7 @@ const crear_pisos_parqueo = () => {
     pisos_final = pisos;
 
     //En el otro script.
+    obtener_datos();
     prueba_crear_parqueo();
 };
 
