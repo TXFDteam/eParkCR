@@ -6,12 +6,9 @@ const btn_empresa = document.querySelector('#btn-empresa');
 
 const btn_pagina_anterior = document.querySelector('#btn-anterior');
 const btn_pagina_siguiente = document.querySelector('#btn-siguiente');
-let n_pagina = document.querySelector('#numero-pagina');
 
 const tabla_usuarios_header = document.querySelector('#tabla-usuarios thead');
 const tabla_usuarios = document.querySelector('#tabla-usuarios tbody');
-
-const limite_usuarios_pagina = 20;
 
 //tabla_usuarios_header.classList.add('estilo-header');
 
@@ -243,3 +240,25 @@ let mostrar_empresas = async() => {
 btn_empresa.addEventListener('click', () => {
     mostrar_empresas();
 });
+
+
+/*---------FILTROS------------*/
+let textbuscar = document.getElementById("valor");
+textbuscar.onkeyup = function() {
+    buscar(this);
+}
+
+function buscar(inputbuscar) {
+    let valorabuscar = (inputbuscar.value).toLowerCase().trim();
+    let tabla = document.getElementById("tabla-usuarios").getElementsByTagName("tbody")[0].rows;
+    for (let i = 0; i < tabla.length; i++) {
+        let tr = tabla[i];
+        let textotr = (tr.innerText).toLowerCase();
+        tr.className = (textotr.indexOf(valorabuscar) >= 0) ? "mostrarX" : "ocultar";
+    }
+}
+
+
+
+
+/*-----------X----------------*/

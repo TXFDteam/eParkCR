@@ -35,6 +35,12 @@
             <div class="info-usuarios">
                 <h2>Información de usuarios</h2>
 
+                <form action="javascript:void(0);" id="busquedaForm">
+
+                    <i class="fas fa-search"></i> <input type="text" id="valor" placeholder="Filtrar">
+
+                </form>
+
                 <div class="botones">
                     <button type="button" id="btn-usuario-estandar">Usuario estándar</button>
                     <button type="button" id="btn-parqueo">Dueño de parqueo</button>
@@ -55,6 +61,7 @@
             </div>
         </div>
     </main>
+    <script src="https://kit.fontawesome.com/e47236fbca.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../js/usuarios-servicio.js"></script>
     <script src="../../js/simulador_bd.js"></script>
