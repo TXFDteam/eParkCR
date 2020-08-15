@@ -87,7 +87,11 @@
     #contenedor-perfil .botones button {
         height: 50px;
         width: 170px;
-        margin-top: 15px;
+    }
+    
+    #btn-volver-perfil-admin {
+        margin-top: 6%;
+        margin-bottom: 15px;
     }
     
     input {
@@ -106,3 +110,7 @@
         margin: 10px 10px 10px 0;
         /* border: solid 2px blue; */
     }
+    /*
+    .botones {
+        margin-top: 20%;
+    }*/

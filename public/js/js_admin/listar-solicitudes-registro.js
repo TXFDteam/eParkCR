@@ -21,26 +21,29 @@ const listar_usuarios = (usuario) => {
     fila = tabla_usuarios.insertRow();
     let nombre = document.createElement('a');
     //lista_usuarios.href = "lista-usuarios-convenio.html";
-    //nombre.id = nombre.nombre_parqueo;
-    nombre.textContent = usuario.nombre_parqueo;
+    nombre.id = nombre.nombre;
+    nombre.textContent = usuario.nombre;
 
     nombre.addEventListener('click', () => {
-        nombre_solicitud(usuario.nombre_parqueo);
+        nombre_solicitud(usuario.nombre);
     });
     fila.appendChild(nombre);
-    fila.insertCell().innerHTML = usuario.duenno_parqueo;
-    fila.insertCell().innerHTML = usuario.email_parqueo;
+    fila.insertCell().innerHTML = usuario.id_duenno;
+    fila.insertCell().innerHTML = usuario.email;
     fila.insertCell().innerHTML = usuario.cedula_juridica;
-    fila.insertCell().innerHTML = usuario.ubicacion_parqueo;
+    fila.insertCell().innerHTML = usuario.ubicacion;
+
 
     tabla_usuarios.appendChild(fila);
 
 };
 
-let arrayParqueos = obtener_parqueos();
-console.log(arrayParqueos);
 
-let mostrar_usuarios = () => {
+
+let mostrar_usuarios = async() => {
+    let arrayParqueos = await obtener_parqueos();
+    console.log(arrayParqueos);
+
     tabla_usuarios_header.innerHTML = '';
     tabla_usuarios.innerHTML = '';
     head = tabla_usuarios_header.insertRow();
@@ -48,11 +51,11 @@ let mostrar_usuarios = () => {
     head.insertCell().innerHTML = 'Dueño';
     head.insertCell().innerHTML = 'Correo';
     head.insertCell().innerHTML = 'Cedula jurídica';
-
     head.insertCell().innerHTML = 'Ubicación';
+
     tabla_usuarios_header.appendChild(head);
 
-    for (let i = 1; i <= arrayParqueos.length; i++) {
+    for (let i = 0; i < arrayParqueos.length; i++) {
         if (arrayParqueos[i].estado_general == "ACTIVAR") {
             listar_usuarios(arrayParqueos[i]);
         }

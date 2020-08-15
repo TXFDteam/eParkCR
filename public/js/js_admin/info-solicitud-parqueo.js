@@ -17,8 +17,23 @@ let btn_rechazar = document.querySelector('#btn-rechazar');
 let solicitud_seleccionada = localStorage.getItem('solicitud_seleccionada');
 
 let fila;
+}
 
-
+let cambiar_estado_boton_duenno = async(x) => {
+    let info_duennos_parqueo = await obtener_duennos_parqueo();
+    console.log(info_duennos_parqueo);
+    for (let d = 0; d < info_duennos_parqueo.length; d++) {
+        if (x.id == "btn" + info_duennos_parqueo[d]._id) {
+            if (x.value == 'ACTIVAR') {
+                x.value = "DESACTIVAR";
+                modificar_estado_duenno_parqueo(info_duennos_parqueo[d]._id, 'DESACTIVAR');
+            } else if (x.value == 'DESACTIVAR') {
+                x.value = "ACTIVAR";
+                modificar_estado_duenno_parqueo(info_duennos_parqueo[d]._id, 'ACTIVAR');
+            }
+        }
+    }
+};
 
 //const contenedor_espacios_en_mapa = document.querySelector('#contenedor-espacios-parqueos');
 
@@ -39,6 +54,7 @@ const listar_info_solicitud = (sol) => {
     espacios_parqueo.innerHTML = sol.cant_espacios;
     localStorage.setItem('espacios_parqueo', sol.cant_espacios);
 };
+
 const obtener_parqueo_actual = (p_nombre_parqueo) => {
 
     //Se busca el parqueo que posee ese nombre.

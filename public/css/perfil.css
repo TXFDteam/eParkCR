@@ -62,7 +62,7 @@
 
 .perfil-izquierda {
     width: 50%;
-    margin-left: 10%;
+    margin-left: 16%;
     margin-right: 2.5%;
     /* border: solid 2px red; */
 }
@@ -75,7 +75,8 @@
 }
 
 .perfil-izquierda p {
-    margin-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 3%;
 }
 
 .perfil-derecha div p {

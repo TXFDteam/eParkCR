@@ -30,7 +30,7 @@ const directo_registrar_parqueo = async(p_nombre, p_img_carta, p_img_perfil, p_i
         console.log(error);
     });
 };
-
+/*
 const registrar_solicitud_parqueo = async(pcorreo, pnombreParqueo, pcedulaJuridica, ptarifa, phoraApertura, phoraCierre, ppisos, pdiscapacidad, pmotos, pautomoviles, pfacebook, pinstagram, ptwitter, pcoordenadas) => {
     await axios({
         method: 'post',
@@ -62,14 +62,14 @@ const registrar_solicitud_parqueo = async(pcorreo, pnombreParqueo, pcedulaJuridi
     }).catch(error => {
         console.log(error);
     });
-};
+};*/
 
 const obtener_parqueos = async() => {
     let parqueos;
 
     await axios({
             method: 'get',
-            url: 'http://localhost:3000/api/listar-parqueos',
+            url: 'http://localhost:3000/api/obtener-parqueos',
             responseType: 'json'
         })
         .then((response) => {
