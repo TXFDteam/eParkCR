@@ -122,7 +122,7 @@ const obtener_datos = () => {
         let instagram = input_instagram.value;
 
         //Para obtener la opción como texto.
-        //select.selectedOptions[0].text
+        //select.options[0].text
         let i_provincia = input_provincia.selectedIndex;
         let i_canton = input_canton.selectedIndex;
         let i_distrito = input_distrito.selectedIndex;
