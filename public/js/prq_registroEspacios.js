@@ -121,9 +121,16 @@ const obtener_datos = () => {
         let twitter = input_twitter.value;
         let instagram = input_instagram.value;
 
-        let provincia = input_provincia.value;
-        let canton = input_canton.value;
-        let distrito = input_distrito.value;
+        //Para obtener la opción como texto.
+        //select.selectedOptions[0].text
+        let i_provincia = input_provincia.selectedIndex;
+        let i_canton = input_canton.selectedIndex;
+        let i_distrito = input_distrito.selectedIndex;
+
+        let provincia = input_provincia.options[i_provincia].text;
+        let canton = input_canton.options[i_canton].text;
+        let distrito = input_distrito.options[i_distrito].text;
+
         let coordenadas = input_coordenadas.value;
 
         let foto_perfil = input_foto_perfil.src;
