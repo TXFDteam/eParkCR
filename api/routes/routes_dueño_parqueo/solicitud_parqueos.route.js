@@ -5,7 +5,7 @@ const router = express.Router();
 
 const Solicitud_parqueo = require('../../models/models_dueño_parqueo/solicitud_parqueo.model.js');
 
-const Parqueo = require('../../models/models_parqueo/parqueo.model')
+const Parqueo = require('../../models/models_parqueo/parqueo.model');
 let contador_solicitudes_parqueos = 0;
 
 router.post('/registrar-parqueo', (req, res) => {
