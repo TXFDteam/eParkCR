@@ -20,23 +20,20 @@ let fila;
 
 
 /*-------ESTAS FUNCIONES CAMBIAN EL ESTADO DEL BOTÓN DINÁMICAMENTE--------------*/
-let cambiar_estado_boton_usuario = async(x) => {
+let cambiar_estado_boton_cliente = async(x) => {
     let info_clientes = await obtener_clientes();
     console.log(info_clientes);
     for (let i = 0; i < info_clientes.length; i++) {
-        if (x._id == "input" + info_clientes[i]._id) {
-            x.addEventListener('click', function() {
-
-                if (x.value == 'ACTIVAR') {
-                    x.value = "DESACTIVAR";
-                    info_clientes[i].estado_general = "DESACTIVAR";
-                } else if (x.value == 'DESACTIVAR') {
-                    x.value = "ACTIVAR";
-                    info_clientes[i].estado_general = "ACTIVAR";
-                }
-
-
-            })
+        if (x.id == "btn" + info_clientes[i]._id) {
+            console.log('pasa por aqui')
+            if (x.value == 'ACTIVAR') {
+                x.value = "DESACTIVAR";
+                modificar_estado_cliente(info_clientes[i]._id, 'DESACTIVAR');
+            } else if (x.value == 'DESACTIVAR') {
+                x.value = "ACTIVAR";
+                modificar_estado_cliente(info_clientes[i]._id, 'ACTIVAR');
+            }
+            break;
         }
     }
 };
@@ -44,38 +41,30 @@ let cambiar_estado_boton_duenno = async(x) => {
     let info_duennos_parqueo = await obtener_duennos_parqueo();
     console.log(info_duennos_parqueo);
     for (let d = 0; d < info_duennos_parqueo.length; d++) {
-
-        if (x._id == "input" + info_duennos_parqueo[d]._id) {
-            x.addEventListener('click', function() {
-
-                if (x.value == 'ACTIVAR') {
-                    x.value = "DESACTIVAR";
-                    duennos_parqueos[identificador_duenno].estado_general = "DESACTIVAR";
-                } else if (x.value == 'DESACTIVAR') {
-                    x.value = "ACTIVAR";
-                    duennos_parqueos[identificador_duenno].estado_general = "ACTIVAR";
-                }
-
-            })
+        if (x.id == "btn" + info_duennos_parqueo[d]._id) {
+            if (x.value == 'ACTIVAR') {
+                x.value = "DESACTIVAR";
+                modificar_estado_duenno_parqueo(info_duennos_parqueo[d]._id, 'DESACTIVAR');
+            } else if (x.value == 'DESACTIVAR') {
+                x.value = "ACTIVAR";
+                modificar_estado_duenno_parqueo(info_duennos_parqueo[d]._id, 'ACTIVAR');
+            }
         }
     }
 };
+
 let cambiar_estado_boton_empresa = async(x) => {
     let info_empresas = await obtener_empresas();
     console.log(info_empresas);
     for (let e = 0; e < info_empresas.length; e++) {
-        if (x._id == "input" + info_empresas[e]._id) {
-            x.addEventListener('click', function() {
-
-                if (x.value == 'ACTIVAR') {
-                    x.value = "DESACTIVAR";
-                    info_empresas[e].estado_general = "DESACTIVAR";
-                } else if (x.value == 'DESACTIVAR') {
-                    x.value = "ACTIVAR";
-                    info_empresas[e].estado_general = "ACTIVAR";
-                }
-
-            })
+        if (x.id == "btn" + info_empresas[e]._id) {
+            if (x.value == 'ACTIVAR') {
+                x.value = "DESACTIVAR";
+                modificar_estado_empresa(info_empresas[e]._id, 'DESACTIVAR');
+            } else if (x.value == 'DESACTIVAR') {
+                x.value = "ACTIVAR";
+                modificar_estado_empresa(info_empresas[e]._id, 'DESACTIVAR');
+            }
         }
     }
 };
@@ -94,9 +83,12 @@ const listar_usuarios = (usuario) => {
     //Esto crea el botón para activar y desactivar un usuario
     let btn_activar = document.createElement('input');
     btn_activar.type = "button";
-
+    btn_activar.id = 'btn' + usuario._id;
+    console.log(btn_activar.id);
     btn_activar.value = usuario.estado_general;
-    cambiar_estado_boton_usuario(btn_activar);
+    btn_activar.addEventListener('click', function() {
+        cambiar_estado_boton_cliente(btn_activar);
+    });
 
 
     btn_activar.classList.add('estilo-btn-activar-usuario');
@@ -153,9 +145,11 @@ const listar_duennos = (duenno) => {
     //Esto crea el botón para activar y desactivar un usuario
     let btn_activar = document.createElement('input');
     btn_activar.type = "button";
-
+    btn_activar.id = 'btn' + duenno._id;
     btn_activar.value = duenno.estado_general;
-    cambiar_estado_boton_duenno(btn_activar);
+    btn_activar.addEventListener('click', function() {
+        cambiar_estado_boton_duenno(btn_activar);
+    });
 
 
     btn_activar.classList.add('estilo-btn-activar-duenno');
@@ -207,10 +201,11 @@ const listar_empresas = (emp) => {
     //Esto crea el botón para activar y desactivar un usuario
     let btn_activar = document.createElement('input');
     btn_activar.type = "button";
-
+    btn_activar.id = 'btn' + emp._id;
     btn_activar.value = emp.estado_general;
-    cambiar_estado_boton_empresa(btn_activar);
-    console.log(btn_activar.value);
+    btn_activar.addEventListener('click', function() {
+        cambiar_estado_boton_empresa(btn_activar);
+    });
 
 
     btn_activar.classList.add('estilo-btn-activar-empresa');

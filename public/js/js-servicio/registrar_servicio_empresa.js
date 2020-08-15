@@ -38,3 +38,25 @@ const obtener_empresas = async() => {
 
     return empresas;
 };
+
+
+
+
+const modificar_estado_empresa = async(pid, pestado) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/modificar_empresa',
+            responseType: 'json',
+            data: {
+                _id: pid,
+                estado_general: pestado,
+
+            }
+        })
+        .then((response) => {
+            console.log('Datos modificados correctamente');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
