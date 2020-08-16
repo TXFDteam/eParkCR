@@ -28,6 +28,9 @@ const input_canton = document.getElementById("cantones");
 const input_distrito = document.getElementById("distritos");
 const input_coordenadas = document.getElementById("coordenadas");
 
+
+const label_foto_perfil = document.querySelector('#labelPerfil');
+const label_foto_banner = document.querySelector('#labelBanner');
 const label_permisoFuncionamiento = document.querySelector('#labelPermiso');
 
 const input_foto_perfil = document.querySelector('#imagen_parqueo_perfil');
@@ -83,14 +86,22 @@ const validar = () => {
         input_distrito.classList.remove('error');
     }
 
-    const img_perfil = document.getElementById("imagen_parqueo_perfil");
-    const imagen_banner = document.getElementById("imagen_parqueo_banner");
 
-    if (input_foto_perfil.src == null) {
-        input_foto_perfil.classList.add('error');
+
+    /*Validación foto perfil*/
+    if (input_foto_perfil.src == '') {
+        label_foto_perfil.classList.add('error');
         error = true;
     } else {
-        img_perfil.classList.remove('eror');
+        label_foto_perfil.classList.remove('eror');
+        error = false;
+    }
+    //Validación foto banner
+    if (input_foto_banner.src == '') {
+        label_foto_banner.classList.add('error');
+        error = true;
+    } else {
+        label_foto_banner.classList.remove('eror');
         error = false;
     }
 
