@@ -125,3 +125,38 @@ if (localStorage.getItem('convenios_empresa')) {
 };
 mostrar_usuarios();
 console.log(n_parqueo);
+
+//funcion para filtrar los empleados por el nombre
+
+
+const input_filtro = document.querySelector('#filtro-empleados');
+
+const filtrar_empleados_nombre = async() => {
+
+
+
+    // let lista_de_empleados = await obtener_empleados(); pendiente de obteneer lista de empleados
+
+
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.querySelector('#filtro-empleados');
+    filter = input.value.toUpperCase();
+    table = document.querySelector('#tbl-usuarios');
+    tr = table.getElementsByTagName("tr");
+
+    for (let i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+
+
+
+
+}

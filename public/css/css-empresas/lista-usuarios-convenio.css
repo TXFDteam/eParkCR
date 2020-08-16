@@ -28,3 +28,20 @@
     min-width: 120px;
     margin-left: 28%;
 }
+
+.filtrar-empleados {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    margin-right: 150px;
+}
+
+.filtrar-empleados label,
+.filtrar-empleados input {
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+.filtrar-empleados input {
+    height: 30px;
+}
