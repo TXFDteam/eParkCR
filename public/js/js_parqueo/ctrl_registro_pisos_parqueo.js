@@ -82,7 +82,7 @@ const crear_pisos_parqueo = () => {
 
     //En el otro script.
     obtener_datos();
-    prueba_crear_parqueo();
+    //prueba_crear_parqueo();
 };
 
 //btn_prueba.addEventListener('click', crear_pisos_parqueo);

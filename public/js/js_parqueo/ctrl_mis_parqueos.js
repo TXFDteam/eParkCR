@@ -20,7 +20,7 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
     '<p>[PARQUEO]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-cantidad-espacios\"> \n' +
-    '<p>Cantidad de espacios: [CANTIDAD_ESPACIOS]</p> \n' +
+    '<p>Correo: [CANTIDAD_ESPACIOS]</p> \n' +
     '</div> \n' +
     '<div class=\"contenedor-tarifa\"> \n' +
     '<p>Tarifa: [TARIFA]</p> \n' +
@@ -41,8 +41,8 @@ const crear_cuadro_parqueo = (p_parqueo) => {
     nuevo_cuadro.classList.add('estilo-cuadro');
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
     nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', p_parqueo.nombre);
-    nueva_plantilla = nueva_plantilla.replace('[CANTIDAD_ESPACIOS]', p_parqueo.cant_espacios);
-    nueva_plantilla = nueva_plantilla.replace('[TARIFA]', '₡' + p_parqueo.tarifa_hora);
+    nueva_plantilla = nueva_plantilla.replace('[CANTIDAD_ESPACIOS]', p_parqueo.email);
+    nueva_plantilla = nueva_plantilla.replace('[TARIFA]', '₡' + p_parqueo.tarifa_por_hora);
     nueva_plantilla = nueva_plantilla.replace('[UBICACION]', p_parqueo.ubicacion);
 
     //Link a lista de usuarios
@@ -82,21 +82,20 @@ const crear_cuadro_parqueo = (p_parqueo) => {
 
 };
 
-let correo = localStorage.getItem('correo');
-let contrasenna = localStorage.getItem('contrasenna');
+let correo = localStorage.getItem('correo_dueño');
+console.log(correo);
 
-let mostrar_parqueos = () => {
+let mostrar_parqueos = async() => {
+    let info_duennos_parqueo = await obtener_duennos_parqueo();
+    console.log(info_duennos_parqueo);
+    let lista_parqueos = await obtener_parqueos();
+    console.log(lista_parqueos);
     tabla_parqueos.innerHTML = '';
-    for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
-        let identificador_duenno = ('duenno_parqueo' + d);
-        if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
-
-
-            for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-                let identificador_parqueo = ('parqueo_' + i);
-                if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
-                    crear_cuadro_parqueo(parqueos[identificador_parqueo]);
-                    break;
+    for (let d = 0; d < info_duennos_parqueo.length; d++) {
+        if (correo == info_duennos_parqueo[d].correo) {
+            for (let i = 0; i < lista_parqueos.length; i++) {
+                if (lista_parqueos[i].id_duenno === info_duennos_parqueo[d]._id) {
+                    crear_cuadro_parqueo(lista_parqueos[i]);
                 }
             }
 
@@ -106,19 +105,3 @@ let mostrar_parqueos = () => {
 }
 
 mostrar_parqueos();
-
-let mostrar_datos_dueño = async() => {
-
-    let info_duennos_parqueo = await obtener_duennos_parqueo();
-
-
-
-    //d va a ser el  contador para encontrar los duennos de los parqueos
-    for (let c = 0; c < info_duennos_parqueo.length; c++) {
-        if (correo == info_duennos_parqueo[c].correo && contrasenna == info_duennos_parqueo[c].contraseña) {
-
-            break;
-        }
-    }
-};
-mostrar_datos_dueño();

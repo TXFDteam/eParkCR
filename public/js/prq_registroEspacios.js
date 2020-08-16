@@ -43,6 +43,7 @@ btn_cancelar.addEventListener('click', function() {
 });
 
 
+
 const validar = () => {
     let error;
     let campos_requeridos = document.querySelectorAll('[required]');
@@ -82,13 +83,24 @@ const validar = () => {
         input_distrito.classList.remove('error');
     }
 
+    const img_perfil = document.getElementById("imagen_parqueo_perfil");
+    const imagen_banner = document.getElementById("imagen_parqueo_banner");
+
+    if (input_foto_perfil.src == null) {
+        input_foto_perfil.classList.add('error');
+        error = true;
+    } else {
+        img_perfil.classList.remove('eror');
+        error = false;
+    }
 
     var file = document.getElementById("permiso");
     if (file.files.length == 0) {
         label_permisoFuncionamiento.classList.add('error');
+        error = true;
     } else {
         label_permisoFuncionamiento.classList.remove('error');
-
+        error = false;
     }
 
 
@@ -96,7 +108,7 @@ const validar = () => {
     return error;
 };
 
-const obtener_datos = () => {
+const obtener_datos = async() => {
     let error = validar();
     if (error == true) {
         Swal.fire({
@@ -106,6 +118,18 @@ const obtener_datos = () => {
         });
 
     } else {
+        let correo_d = localStorage.getItem('correo_dueño');
+        let info_duennos_parqueo = await obtener_duennos_parqueo();
+        let id_duenno;
+        for (let d = 0; d < info_duennos_parqueo.length; d++) {
+            if (correo_d == info_duennos_parqueo[d].correo) {
+                id_duenno = info_duennos_parqueo[d]._id;
+                break;
+            }
+
+        }
+
+
         let nombreParqueo = input_nombreParqueo.value;
         let cedulaJuridica = input_cedulaJuridica.value;
 
@@ -144,7 +168,7 @@ const obtener_datos = () => {
 
         let ubicacion = distrito + ', ' + canton + ', ' + provincia;
 
-        directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, duenno, correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final);
+        directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, id_duenno, correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final);
 
         Swal.fire({
             'title': 'La solicitud del parqueo se envió correctamente',
