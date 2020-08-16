@@ -1,7 +1,7 @@
 'use strict';
 
 //Usar esta función para registrar un parqueo directamente.
-const directo_registrar_parqueo = async(p_nombre, p_img_carta, p_img_perfil, p_id_duenno, p_email, p_ced_juridica, p_perimso_funcionamiento, p_enlaces_redes, p_ubicacion, p_coordenadas, p_calificacion_promedio = 0, p_tarifa_x_hora, p_hora_apertura, p_hora_cierre, p_pisos, p_estado_general) => {
+const directo_registrar_parqueo = async(p_nombre, p_img_carta, p_img_perfil, p_id_duenno, p_email, p_ced_juridica, p_perimso_funcionamiento, p_enlaces_redes, p_ubicacion, p_coordenadas, p_calificacion_promedio = 0, p_tarifa_x_hora, p_hora_apertura, p_hora_cierre, p_pisos) => {
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/registrar-parqueo',
@@ -21,8 +21,7 @@ const directo_registrar_parqueo = async(p_nombre, p_img_carta, p_img_perfil, p_i
             tarifa_por_hora: p_tarifa_x_hora,
             hora_apertura: p_hora_apertura,
             hora_cierre: p_hora_cierre,
-            pisos: p_pisos,
-            estado_general: p_estado_general
+            pisos: p_pisos
         }
     }).then(response => {
         console.log(response);

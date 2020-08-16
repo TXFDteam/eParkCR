@@ -86,7 +86,7 @@ let obtener_datos_y_validar = async() => {
     //DETERMINAR LA EMPRESA PARA LOGEAR
     for (let e = 0; e < info_empresas.length; e++) {
         if (correo == info_empresas[e].correo && contrasenna == info_empresas[e].contraseña) {
-            window.location.assign("../../public/html/htmls-empresas/perfil_empresa.html");
+            window.location.assign("../public/html/htmls-empresas/perfil_empresa.html");
             localStorage.setItem('correo_empresa', info_empresas[e].correo);
             localStorage.setItem('contraseña_empresa', info_empresas[e].contraseña);
 

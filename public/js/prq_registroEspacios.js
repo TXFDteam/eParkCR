@@ -144,7 +144,7 @@ const obtener_datos = () => {
 
         let ubicacion = distrito + ', ' + canton + ', ' + provincia;
 
-        directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, 'Pepito', correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final, 'REGISTRO_PENDIENTE');
+        directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, duenno, correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final);
 
         Swal.fire({
             'title': 'La solicitud del parqueo se envió correctamente',

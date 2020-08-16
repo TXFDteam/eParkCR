@@ -26,7 +26,7 @@ router.post('/registrar-parqueo', (req, res) => {
         hora_apertura: datos.hora_apertura,
         hora_cierre: datos.hora_cierre,
         pisos: datos.pisos,
-        estado_general: datos.estado_general
+        estado_general: 'REGISTRO_PENDIENTE'
     });
 
     nuevo_parqueo.save((err, parqueo_almacenado) => {

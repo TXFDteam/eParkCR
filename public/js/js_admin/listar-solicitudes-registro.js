@@ -56,7 +56,7 @@ let mostrar_usuarios = async() => {
     tabla_usuarios_header.appendChild(head);
 
     for (let i = 0; i < arrayParqueos.length; i++) {
-        if (arrayParqueos[i].estado_general == "ACTIVAR") {
+        if (arrayParqueos[i].estado_general == "REGISTRO_PENDIENTE") {
             listar_usuarios(arrayParqueos[i]);
         }
     }
