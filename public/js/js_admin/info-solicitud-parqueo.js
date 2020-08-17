@@ -63,7 +63,7 @@ let aceptar_parqueo = async() => {
                 if (info_duennos[x]._id == info_solicitudes_parqueo[d]._id) {
                     if (info_solicitudes_parqueo[d].estado_general == 'REGISTRO_PENDIENTE') {
 
-                        modificar_estado_solicitud_parqueo(info_solicitudes_parqueo[d]._id, 'DESACTIVAR');
+                        aceptacion_solicitud_parqueo(info_solicitudes_parqueo[d]._id, 'DESACTIVAR');
                         Swal.fire({
                             'icon': "success",
                             'text': 'El parqueo se aceptó correctamente'
