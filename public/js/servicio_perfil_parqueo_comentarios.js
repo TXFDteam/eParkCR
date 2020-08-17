@@ -35,7 +35,6 @@ const s_obtener_comentarios = async() => {
 };
 
 const s_modificar_comentario = async(p_id, p_estrellas, p_fecha, p_mensaje) => {
-    console.log('Heyyy');
     await axios({
             method: 'put',
             url: 'http://localhost:3000/api/modificar-comentario',
