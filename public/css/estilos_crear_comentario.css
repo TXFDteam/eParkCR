@@ -27,6 +27,25 @@
 #ventana-contenedor-principal #contenedor-superior h3 {
     font-size: 24px;
     line-height: 48px;
+    margin-top: 4%;
+}
+
+#ventana-contenedor-principal label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#ventana-contenedor-principal input,
+#ventana-contenedor-principal select {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#ventana-contenedor-principal .txt-input {
+    font-size: 18px;
+    width: 90%;
 }
 
 #ventana-contenedor-principal #contenedor-superior #btn-salir {
@@ -53,6 +72,7 @@
 }
 
 #ventana-contenedor-principal textarea {
+    font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     resize: none;
     width: 100%;

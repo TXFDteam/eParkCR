@@ -29,17 +29,20 @@
 }
 
 #ventana-contenedor-principal label {
+    font-size: 18px;
     display: block;
     margin-bottom: 5px;
 }
 
 #ventana-contenedor-principal input,
 #ventana-contenedor-principal select {
+    font-size: 18px;
     display: block;
     margin-bottom: 10px;
 }
 
 #ventana-contenedor-principal .txt-input {
+    font-size: 18px;
     width: 90%;
 }
 
