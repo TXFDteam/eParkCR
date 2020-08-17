@@ -55,5 +55,18 @@ const s_modificar_comentario = async(p_id, p_estrellas, p_fecha, p_mensaje) => {
 };
 
 const s_eliminar_comentario = async(p_id) => {
-
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/eliminar-comentario',
+            responseType: 'json',
+            data: {
+                _id: p_id
+            }
+        })
+        .then((response) => {
+            console.log('Comentario eliminado con éxito');
+        })
+        .catch((error) => {
+            console.log('Error: ' + error);
+        });
 };

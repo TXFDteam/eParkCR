@@ -491,7 +491,7 @@ const ocultar_ventana_crear_comentario = () => {
     ventana_crear_comentario.classList.add('oculto');
 };
 
-const publicar_comentario = () => {
+const publicar_comentario = async() => {
     let fecha = new Date();
     let dia_actual = fecha.getDate();
     let mes_actual = fecha.getMonth();
@@ -506,7 +506,7 @@ const publicar_comentario = () => {
 
     //Si ya existe un comentario lo modifica.
     if (comentario_usuario_ingresado != null) {
-        s_modificar_comentario(comentario_usuario_ingresado._id, estrellas, fecha_actual, mensaje);
+        await s_modificar_comentario(comentario_usuario_ingresado._id, estrellas, fecha_actual, mensaje);
 
         /*VIEJO
         console.log('Si pude entrar a editar!!!');
@@ -516,8 +516,9 @@ const publicar_comentario = () => {
         */
     } else {
         //Si no existe lo crea.
-        s_crear_comentario(ref_id_usuario, ref_id_parqueo, estrellas, fecha_actual, mensaje);
-
+        await s_crear_comentario(ref_id_usuario, ref_id_parqueo, estrellas, fecha_actual, mensaje);
+        btn_crear_modificar_comentario.textContent = 'Modificar reseña';
+        btn_eliminar_comentario.classList.remove('oculto');
         /*VIEJO
         console.log('Creo nuevo comentario:');
         console.log('id_usuario: ' + usuario_ingresado.id_usuario);
@@ -533,13 +534,19 @@ const publicar_comentario = () => {
     obtener_comentarios();
 };
 
-const eliminar_comentario = () => {
+const eliminar_comentario = async() => {
     if (comentario_usuario_ingresado != null) {
+        await s_eliminar_comentario(comentario_usuario_ingresado._id);
+        comentario_usuario_ingresado = null;
         Swal.fire({
             icon: 'success',
             title: 'Reseña eliminada',
         });
         //Eliminar comentario del DB.
+        //Actualizar lista de comentarios.
+        btn_crear_modificar_comentario.textContent = 'Crear reseña';
+        btn_eliminar_comentario.classList.add('oculto');
+        obtener_comentarios();
     }
 };
 

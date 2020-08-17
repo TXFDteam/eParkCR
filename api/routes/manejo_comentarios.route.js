@@ -85,4 +85,20 @@ router.put('/modificar-comentario', (req, res) => {
     });
 });
 
+router.put('/eliminar-comentario', (req, res) => {
+    Comentario.deleteOne({ _id: req.body._id }, (err, info) => {
+        if (err) {
+            res.json({
+                resultado: true,
+                msj: 'Comentario eliminado correctamente: ' + err,
+                err
+            })
+        } else {
+            res.json({
+                info
+            });
+        }
+    })
+});
+
 module.exports = router;
