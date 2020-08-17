@@ -276,6 +276,20 @@ const horas_correctas = () => {
 
 //Función para enviar la reserva al backend
 const guardar_reserva = () => {
+    //Datos finales para guardar.
+
+    let ref_id_usuario = usuario_ingresado._id;
+    let ref_nombre_usuario = usuario_ingresado.nombre;
+
+    let ref_id_parqueo = parqueo_seleccionado._id;
+    let ref_nombre_parqueo = parqueo_seleccionado.nombre;
+
+
+    let ref_espacio_seleccionado = info_espacio_seleccionado.codigo;
+
+    let fecha_actual = new Date();
+    let ref_fecha_reserva = fecha_actual.getDate() + '/' + fecha_actual.getMonth() + '/' + fecha_actual.getFullYear();
+
     //Obtener hora de entrada.
     let fecha_entrada = txt_hora_entrada.value;
     let hora_entrada = Number(fecha_entrada[0] + fecha_entrada[1]);
@@ -292,16 +306,23 @@ const guardar_reserva = () => {
 
     //Calcular la el total que se debe pagar.
     let horas_de_uso = ((salida_en_minutos - entrada_en_minutos) / 60);
-    let total_por_pagar = horas_de_uso * parqueo_seleccionado.tarifa_hora;
+    let total_por_pagar = horas_de_uso * parqueo_seleccionado.tarifa_por_hora;
 
-    console.log('Por ' + horas_de_uso + ' horas se va a pagar: ' + total_por_pagar);
-    console.log('De tarifa se paga : ' + parqueo_seleccionado.tarifa_hora);
+    console.log('parqueo: ' + total_por_pagar);
+    //console.log('Por ' + horas_de_uso + ' horas se va a pagar: ' + total_por_pagar);
+    //console.log('De tarifa se paga : ' + parqueo_seleccionado.tarifa_hora);
+
+    guardar_nueva_reserva(ref_id_usuario, ref_nombre_usuario, ref_id_parqueo, ref_nombre_parqueo, ref_fecha_reserva, fecha_entrada, fecha_salida, horas_de_uso, total_por_pagar, ref_espacio_seleccionado);
 };
 
 //Función usada para crear una reserva en el parqueo actual.
 const crear_reserva = () => {
+    //Para pruebas.
+    guardar_reserva();
+    return;
+
     if (info_espacio_seleccionado != null) {
-        if (!info_espacio_seleccionado.ocupado) {
+        if (info_espacio_seleccionado.ocupado != '1') {
             if (!hay_espacios_vacios()) {
 
                 let respuesta = horas_correctas();
@@ -476,28 +497,44 @@ const eliminar_comentario = () => {
     }
 };
 
+const obtener_usuario_ingresado = async() => {
+    let contrasenna = localStorage.getItem('contrasenna');
+    let correo = localStorage.getItem('correo');
+    let info_clientes = await obtener_clientes();
 
+    //c va a ser el  contador para encontrar los clientes
+    for (let i = 0; i < info_clientes.length; i++) {
+        if (correo == info_clientes[i].correo && contrasenna == info_clientes[i].contraseña) {
+            return usuario_ingresado = info_clientes[i];
+        }
+    }
+
+    return null;
+};
+/* 
+Viejo
 const obtener_usuario_ingresado = () => {
     let contrasenna = localStorage.getItem('contrasenna');
     let correo = localStorage.getItem('correo');
-
+    
     for (let i = 1; i < usuarios.cant_usuarios; i++) {
         let identificador_usuario = ('usuario' + i);
         let usuario_actual = usuarios[identificador_usuario];
-
+        
         if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
             return usuario_actual;
         }
-
+        
     }
     usuario_ingresado = '';
 };
+*/
 
 //#endregion
 
 const mostrar_info = async() => {
     //Mostrar info del parqueo.
-    usuario_ingresado = obtener_usuario_ingresado();
+    usuario_ingresado = await obtener_usuario_ingresado();
     parqueo_seleccionado = await obtener_parqueo_actual();
     //console.log(parqueo_seleccionado);
 

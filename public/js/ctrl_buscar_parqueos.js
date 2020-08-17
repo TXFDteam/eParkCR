@@ -156,7 +156,7 @@ const parqueo_cumple_con_filtros = (p_parqueo) => {
 //<p_nombre> Se espera recibir un string con la ubicación del parqueo.
 const crear_carta_parqueo = (p_parqueo) => {
     //console.log(p_parqueo);
-    if (p_parqueo.estado_general != 'ACTIVAR') {
+    if (p_parqueo.estado_general != 'DESACTIVAR') {
         return;
     }
 
