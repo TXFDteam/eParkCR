@@ -5,7 +5,7 @@
 const plantilla_carta_comentario =
     '<div id="contenedor-superior">\n' +
     '<div id="info-usuario">\n' +
-    '<div id="foto-usuario"></div>\n' +
+    '<div id="foto-usuario" style="background-image:[URL_IMAGEN];"></div>\n' +
 
     '<div id="contenedor-nombre-fecha">\n' +
     '<h3>[NOMBRE_USUARIO]</h3>\n' +
@@ -426,6 +426,11 @@ const crear_carta_comentario = async(p_comentario) => {
     let nueva_plantilla = plantilla_carta_comentario;
 
     let usuario_comentario = await obtener_usuario_en_comentario(p_comentario.id_usuario);
+
+    //Obtener la imagen de perfil del usuario del comentario actual.
+    let url_foto_perfil = "url(" + usuario_comentario.foto_perfil + ")";
+
+    nueva_plantilla = nueva_plantilla.replace('[URL_IMAGEN]', url_foto_perfil);
     nueva_plantilla = nueva_plantilla.replace('[NOMBRE_USUARIO]', usuario_comentario.nombre);
     nueva_plantilla = nueva_plantilla.replace('[FECHA_COMENTARIO]', p_comentario.fecha);
     nueva_plantilla = nueva_plantilla.replace('[CALIFICACION]', ('Calificación: ' + p_comentario.cantidad_estrellas));
