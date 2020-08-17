@@ -1,5 +1,23 @@
 'use strict';
 
+const actualizar_calificacion_promedio_parqueo = async(p_id, p_nueva_calificacion) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/actualizar-calificacion-promedio',
+            responseType: 'json',
+            data: {
+                _id: p_id,
+                calificacion_promedio: p_nueva_calificacion
+            }
+        })
+        .then((response) => {
+            console.log('Datos modificados correctamente(reserva activa)');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
+
 const s_crear_comentario = async(p_id_usuario, p_id_parqueo, p_estrellas, p_fecha, p_mensaje) => {
     await axios({
         method: 'post',

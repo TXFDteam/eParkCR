@@ -66,6 +66,8 @@ let parqueo_seleccionado;
 let info_espacio_seleccionado;
 let elemento_espacio_seleccionado;
 
+let calificaciones_comentarios = [];
+
 //#endregion
 
 //#region lógica para reservas
@@ -402,6 +404,25 @@ const crear_reserva = () => {
 //#endregion
 
 //#region Comentarios
+
+const actualizar_calificacion_promedio = async(p_estrellas = 0, p_comentario_eliminado) => {
+    let acumulado = 0;
+    let total_comentarios = calificaciones_comentarios.length
+    for (let i = 0; i < total_comentarios; i++) {
+        acumulado += calificaciones_comentarios[i];
+    }
+
+    if (p_comentario_eliminado == true) {
+        acumulado -= p_estrellas;
+        total_comentarios--;
+    }
+
+    let promedio = (total_comentarios > 0) ? acumulado / total_comentarios : 0;
+
+    //ACTUALIZAR CALIFICACION EN PARQUEO.
+    await actualizar_calificacion_promedio_parqueo(parqueo_seleccionado._id, promedio);
+}
+
 //Esta función obtiene el nombre de un usuario basado en su ID.
 //<p_id>ID del usuario.
 const obtener_usuario_en_comentario = async(p_id) => {
@@ -448,6 +469,8 @@ const obtener_comentarios = async() => {
         return;
     }
 
+    let contador = 0;
+
     lista_comentarios.forEach(obj_comentario => {
         console.log(obj_comentario);
 
@@ -461,6 +484,7 @@ const obtener_comentarios = async() => {
                 btn_eliminar_comentario.classList.remove('oculto');
             }
 
+            calificaciones_comentarios[contador] = obj_comentario.cantidad_estrellas;
             crear_carta_comentario(obj_comentario);
         }
     });
@@ -539,6 +563,8 @@ const publicar_comentario = async() => {
 
     ocultar_ventana_crear_comentario();
     //Actualiza los comentarios.
+
+    actualizar_calificacion_promedio(estrellas, false);
     obtener_comentarios();
 };
 
@@ -554,6 +580,7 @@ const eliminar_comentario = async() => {
         //Actualizar lista de comentarios.
         btn_crear_modificar_comentario.textContent = 'Crear reseña';
         btn_eliminar_comentario.classList.add('oculto');
+        actualizar_calificacion_promedio(0, true);
         obtener_comentarios();
     }
 };

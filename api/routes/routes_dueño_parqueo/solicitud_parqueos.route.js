@@ -9,6 +9,23 @@ const Parqueo = require('../../models/models_parqueo/parqueo.model');
 const mailer = require('../../templates/confirmacion_aceptacion_parqueo');
 const mailer2 = require('../../templates/rechazo_solicitud_parqueo');
 
+router.put('/actualizar-calificacion-promedio', (req, res) => {
+    Parqueo.updateOne({ _id: req.body._id }, {
+        $set: req.body
+    }, (err, info) => {
+        if (err) {
+            res.json({
+                resultado: true,
+                msj: 'No se pudo modificar la calificación promedio: ' + err,
+                err
+            })
+        } else {
+            res.json({
+                info
+            });
+        }
+    });
+});
 
 router.post('/registrar-parqueo', (req, res) => {
     let datos = req.body;
