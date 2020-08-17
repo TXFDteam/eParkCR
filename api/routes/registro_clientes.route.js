@@ -120,4 +120,22 @@ router.put('/modificar-contrasenna-cliente', (req, res) => {
 
     );
 });
+
+//Para filtrar.
+router.get('/buscar-cliente-id', (req, res) => {
+    Cliente.findOne({ _id: req.query._id }, (err, cliente_bd) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'El cliente no se encontró :(',
+                err
+            })
+        } else {
+            res.json({
+                cliente_bd
+            });
+        }
+    })
+});
+
 module.exports = router;

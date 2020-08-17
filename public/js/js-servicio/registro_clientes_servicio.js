@@ -76,3 +76,22 @@ const modificar_estado_cliente = async(pid, pestado) => {
             console.log(error);
         });
 };
+
+const obtener_cliente_id = async(p_id) => {
+    let cliente;
+
+    await axios({
+            method: 'get',
+            params: { _id: p_id },
+            url: 'http://localhost:3000/api/buscar-cliente-id',
+            response_type: 'json'
+        })
+        .then((response) => {
+            cliente = response.data.cliente_bd;
+        })
+        .catch((err) => {
+            console.log('error ' + err);
+        });
+
+    return cliente;
+};

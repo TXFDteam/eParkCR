@@ -401,7 +401,11 @@ const crear_reserva = () => {
 //#region Comentarios
 //Esta función obtiene el nombre de un usuario basado en su ID.
 //<p_id>ID del usuario.
-const obtener_nombre_usuario_en_comentario = (p_id) => {
+const obtener_usuario_en_comentario = async(p_id) => {
+    let usuario = await obtener_cliente_id(p_id);
+    return usuario;
+    /*
+    Viejo
     for (let i = 1; i < usuarios.cant_usuarios; i++) {
         let identificador = ('usuario' + i);
         let usuario_actual = usuarios[identificador];
@@ -409,16 +413,17 @@ const obtener_nombre_usuario_en_comentario = (p_id) => {
             return usuario_actual.nombre_usuario;
         }
     }
+    */
 };
 
-const crear_carta_comentario = (p_comentario) => {
+const crear_carta_comentario = async(p_comentario) => {
     let nueva_carta = document.createElement('div');
     nueva_carta.classList.add('carta-comentario');
 
     let nueva_plantilla = plantilla_carta_comentario;
 
-    let nombre_usuario = obtener_nombre_usuario_en_comentario(p_comentario.id_usuario);
-    nueva_plantilla = nueva_plantilla.replace('[NOMBRE_USUARIO]', nombre_usuario);
+    let usuario_comentario = await obtener_usuario_en_comentario(p_comentario.id_usuario);
+    nueva_plantilla = nueva_plantilla.replace('[NOMBRE_USUARIO]', usuario_comentario.nombre);
     nueva_plantilla = nueva_plantilla.replace('[FECHA_COMENTARIO]', p_comentario.fecha);
     nueva_plantilla = nueva_plantilla.replace('[CALIFICACION]', ('Calificación: ' + p_comentario.cantidad_estrellas));
     nueva_plantilla = nueva_plantilla.replace('[MENSAJE]', p_comentario.mensaje);
@@ -428,7 +433,31 @@ const crear_carta_comentario = (p_comentario) => {
     contenedor_comentarios.appendChild(nueva_carta);
 };
 
-const obtener_comentarios = () => {
+const obtener_comentarios = async() => {
+    let lista_comentarios = await s_obtener_comentarios();
+    contenedor_comentarios.innerHTML = '';
+    if (lista_comentarios == null) {
+        return;
+    }
+
+    lista_comentarios.forEach(obj_comentario => {
+        console.log(obj_comentario);
+
+        //Muestra solo los comentarios que corresponden a este parqueo.
+        if (String(obj_comentario.id_parqueo) == String(parqueo_seleccionado._id)) {
+            //Guardar una copia del comentario que dejó el usuario en este parqueo.
+            if (String(obj_comentario.id_usuario) == String(usuario_ingresado._id)) {
+                console.log('Ya hay un comentario realizado por este usuario.');
+                comentario_usuario_ingresado = obj_comentario;
+                btn_crear_modificar_comentario.textContent = 'Modificar reseña';
+                btn_eliminar_comentario.classList.remove('oculto');
+            }
+
+            crear_carta_comentario(obj_comentario);
+        }
+    });
+
+    /*VIEJO
     for (let i = 1; i <= comentarios.total_comentarios; i++) {
         let identificador = ('comentario_' + i);
         let comentario_actual = comentarios[identificador];
@@ -446,6 +475,7 @@ const obtener_comentarios = () => {
             crear_carta_comentario(comentario_actual);
         }
     }
+    */
 };
 
 
@@ -467,25 +497,40 @@ const publicar_comentario = () => {
     let mes_actual = fecha.getMonth();
     let anno_actual = fecha.getFullYear();
 
+    //Datos para guardar.
+    let ref_id_usuario = usuario_ingresado._id;
+    let ref_id_parqueo = parqueo_seleccionado._id;
+    let estrellas = ventana_crear_comentario_slt_calificacion.value;
     let fecha_actual = dia_actual + '/' + mes_actual + '/' + anno_actual;
+    let mensaje = ventana_crear_comentario_mensaje.value;
 
     //Si ya existe un comentario lo modifica.
     if (comentario_usuario_ingresado != null) {
+        s_modificar_comentario(comentario_usuario_ingresado._id, estrellas, fecha_actual, mensaje);
+
+        /*VIEJO
         console.log('Si pude entrar a editar!!!');
         comentario_usuario_ingresado.calificacion = ventana_crear_comentario_slt_calificacion.value;
         comentario_usuario_ingresado.mensaje = ventana_crear_comentario_mensaje.value;
         comentario_usuario_ingresado.fecha = fecha_actual;
+        */
     } else {
         //Si no existe lo crea.
+        s_crear_comentario(ref_id_usuario, ref_id_parqueo, estrellas, fecha_actual, mensaje);
+
+        /*VIEJO
         console.log('Creo nuevo comentario:');
         console.log('id_usuario: ' + usuario_ingresado.id_usuario);
         console.log('id_parqueo: ' + parqueo_seleccionado.codigo);
         console.log('cantidad_estrellas: ' + ventana_crear_comentario_slt_calificacion.value);
         console.log('fecha: ' + fecha_actual);
         console.log('mensaje: ' + ventana_crear_comentario_mensaje.value);
+        */
     }
 
     ocultar_ventana_crear_comentario();
+    //Actualiza los comentarios.
+    obtener_comentarios();
 };
 
 const eliminar_comentario = () => {

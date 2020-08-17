@@ -66,4 +66,23 @@ router.get('/buscar-comentario-id', (req, res) => {
     })
 });
 
+
+router.put('/modificar-comentario', (req, res) => {
+    Comentario.updateOne({ _id: req.body._id }, {
+        $set: req.body
+    }, (err, info) => {
+        if (err) {
+            res.json({
+                resultado: true,
+                msj: 'No se pudo modificar el comentario: ' + err,
+                err
+            })
+        } else {
+            res.json({
+                info
+            });
+        }
+    });
+});
+
 module.exports = router;
