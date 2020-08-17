@@ -6,7 +6,9 @@ const router = express.Router();
 const Solicitud_parqueo = require('../../models/models_dueño_parqueo/solicitud_parqueo.model.js');
 
 const Parqueo = require('../../models/models_parqueo/parqueo.model');
-let contador_solicitudes_parqueos = 0;
+const mailer = require('../../templates/confirmacion_aceptacion_parqueo');
+const mailer2 = require('../../templates/rechazo_solicitud_parqueo');
+
 
 router.post('/registrar-parqueo', (req, res) => {
     let datos = req.body;
@@ -88,34 +90,6 @@ router.post('/solicitud-parqueo', (req, res) => {
     });
 });
 
-//ESTA FUNCION ESTA EN DUDA
-/*
-router.post('/duenno-parqueo/agregar-piso', (req, res) => {
-    solicitud_parqueo.update({ _id: req.body._id }, {
-            $push: {
-                'piso': {
-                    espacios_discapacidad: req.body.espacios_discapacidad,
-                    espacios_motos: req.body.espacios_motos,
-                    espacios_automoviles: req.body.espacios_automoviles
-                }
-            }
-        },
-
-        function(err) {
-            if (err) {
-                res.json({
-                    success: false,
-                    msj: `La solicitud no se pudo registrar, ocurrió el siguiente error ${err}`
-                })
-            } else {
-                res.json({
-                    success: true,
-                    msj: `La solicitud se registró correctamente`,
-                    solicitud_parqueo_almacenada
-                })
-            }
-        });
-});*/
 router.get('/listar-parqueos', (req, res) => {
     Solicitud_parqueo.find((err, parqueo_info) => {
         if (err) {
@@ -132,6 +106,53 @@ router.get('/listar-parqueos', (req, res) => {
             })
         }
     });
+});
+
+router.put('/aceptacion-solicitud-parqueo', (req, res) => {
+
+    Solicitud_parqueo.updateOne({ _id: req.body._id }, {
+            $set: {
+                estado_general: req.body.estado_general
+            }
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+                mailer.enviar_mail_aceptacion(req.body.correo, req.body.nombre)
+            }
+        }
+
+    );
+});
+router.put('/rechazo-solicitud-parqueo', (req, res) => {
+
+    Solicitud_parqueo.updateOne({ _id: req.body._id }, {
+            $set: {
+                estado_general: req.body.estado_general
+            }
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el parqueo',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+                mailer2.enviar_mail_rechazo(req.body.correo, req.body.nombre)
+            }
+        }
+
+    );
 });
 
 router.put('/duenno-parqueo/modificar-parqueo', (req, res) => {

@@ -83,18 +83,15 @@ const crear_cuadro_parqueo = (p_parqueo) => {
 };
 
 let correo = localStorage.getItem('correo_dueño');
-console.log(correo);
 
 let mostrar_parqueos = async() => {
     let info_duennos_parqueo = await obtener_duennos_parqueo();
-    console.log(info_duennos_parqueo);
     let lista_parqueos = await obtener_parqueos();
-    console.log(lista_parqueos);
     tabla_parqueos.innerHTML = '';
     for (let d = 0; d < info_duennos_parqueo.length; d++) {
         if (correo == info_duennos_parqueo[d].correo) {
             for (let i = 0; i < lista_parqueos.length; i++) {
-                if (lista_parqueos[i].id_duenno === info_duennos_parqueo[d]._id) {
+                if (lista_parqueos[i].id_duenno === info_duennos_parqueo[d]._id && lista_parqueos[d].estado_general == 'DESACTIVAR') {
                     crear_cuadro_parqueo(lista_parqueos[i]);
                 }
             }

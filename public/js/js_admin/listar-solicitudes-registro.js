@@ -21,10 +21,11 @@ const listar_usuarios = (usuario) => {
     fila = tabla_usuarios.insertRow();
     let nombre = document.createElement('a');
     //lista_usuarios.href = "lista-usuarios-convenio.html";
-    nombre.id = nombre.nombre;
+
     nombre.textContent = usuario.nombre;
 
     nombre.addEventListener('click', () => {
+        localStorage.setItem('Id_parqueo', usuario._id);
         nombre_solicitud(usuario.nombre);
     });
     fila.appendChild(nombre);

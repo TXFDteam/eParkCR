@@ -29,39 +29,7 @@ const directo_registrar_parqueo = async(p_nombre, p_img_carta, p_img_perfil, p_i
         console.log(error);
     });
 };
-/*
-const registrar_solicitud_parqueo = async(pcorreo, pnombreParqueo, pcedulaJuridica, ptarifa, phoraApertura, phoraCierre, ppisos, pdiscapacidad, pmotos, pautomoviles, pfacebook, pinstagram, ptwitter, pcoordenadas) => {
-    await axios({
-        method: 'post',
-        url: 'http://localhost:3000/api/solicitud-parqueo',
-        responseType: 'json',
-        data: {
-            'correo': pcorreo,
-            'nombre': pnombreParqueo,
-            'n_identificacion': pcedulaJuridica,
-            'tarifa_x_hora': ptarifa,
-            'hora_apertura': phoraApertura,
-            'hora_cierre': phoraCierre,
-            'pisos': ppisos,
-            'espacios_discapacidad': pdiscapacidad,
-            'espacios_motos': pmotos,
-            'espacios_automoviles': pautomoviles,
-            'redes_sociales': {
-                'facebook': pfacebook,
-                'instagram': pinstagram,
-                'twitter': ptwitter
 
-            },
-            'coordenadas': pcoordenadas
-
-        }
-
-    }).then(response => {
-        console.log(response);
-    }).catch(error => {
-        console.log(error);
-    });
-};*/
 
 const obtener_parqueos = async() => {
     let parqueos;
@@ -78,4 +46,43 @@ const obtener_parqueos = async() => {
             console.log(error);
         });
     return parqueos;
+};
+
+const aceptacion_solicitud_parqueo = async(pid, pestado, pcorreo, pnombre) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/aceptacion-solicitud-parqueo',
+            responseType: 'json',
+            data: {
+                _id: pid,
+                estado_general: pestado,
+                correo: pcorreo,
+                nombre: pnombre
+            }
+        })
+        .then((response) => {
+            console.log('Datos modificados correctamente');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
+const rechazo_solicitud_parqueo = async(pid, pestado, pcorreo, pnombre) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/rechazo-solicitud-parqueo',
+            responseType: 'json',
+            data: {
+                _id: pid,
+                estado_general: pestado,
+                correo: pcorreo,
+                nombre: pnombre
+            }
+        })
+        .then((response) => {
+            console.log('Datos modificados correctamente');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
