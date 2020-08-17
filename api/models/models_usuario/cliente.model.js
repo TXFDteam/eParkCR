@@ -11,8 +11,8 @@ const schema_cliente = new mongoose.Schema({
     contraseña: { type: String, required: true, unique: false },
     foto_perfil: { type: String, required: false, unique: false },
     estado_general: { type: String, required: true, unique: false },
-    otp: { type: Number, required: false, unique: false }
-
+    otp: { type: Number, required: false, unique: false },
+    id_reserva_activa: { type: String, required: false, unique: false }
 });
 
 module.exports = mongoose.model('Cliente', schema_cliente, 'clientes');
