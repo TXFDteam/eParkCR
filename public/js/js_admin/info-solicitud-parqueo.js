@@ -56,14 +56,21 @@ const obtener_duenno = async() => {
 let aceptar_parqueo = async() => {
     let info_solicitudes_parqueo = await obtener_parqueos();
     let info_duennos = await obtener_duennos_parqueo();
+    const nuevo_estado1 = "DESACTIVAR";
+    console.log(nuevo_estado1);
+
 
     for (let d = 0; d < info_solicitudes_parqueo.length; d++) {
         if (id_parqueo == info_solicitudes_parqueo[d]._id) {
+            console.log('aqui')
             for (let x = 0; x < info_duennos.length; x++) {
-                if (info_duennos[x]._id == info_solicitudes_parqueo[d]._id) {
+
+                if (info_duennos[x]._id == info_solicitudes_parqueo[d].id_duenno) {
+                    console.log('aqui')
                     if (info_solicitudes_parqueo[d].estado_general == 'REGISTRO_PENDIENTE') {
 
-                        aceptacion_solicitud_parqueo(info_solicitudes_parqueo[d]._id, 'DESACTIVAR');
+                        aceptacion_solicitud_parqueo(info_solicitudes_parqueo[d]._id, nuevo_estado1, info_duennos[x].correo, info_solicitudes_parqueo[d.nombre]);
+
                         Swal.fire({
                             'icon': "success",
                             'text': 'El parqueo se aceptó correctamente'
@@ -79,18 +86,25 @@ let aceptar_parqueo = async() => {
 };
 let rechazar_parqueo = async() => {
     let info_solicitudes_parqueo = await obtener_parqueos();
-
+    let info_duennos = await obtener_duennos_parqueo();
+    const nuevo_estado = "RECHAZADO";
     for (let d = 0; d < info_solicitudes_parqueo.length; d++) {
         if (id_parqueo == info_solicitudes_parqueo[d]._id) {
-            if (info_solicitudes_parqueo[d].estado_general == 'REGISTRO_PENDIENTE') {
-                modificar_estado_solicitud_parqueo(info_solicitudes_parqueo[d]._id, 'RECHAZADO');
-                Swal.fire({
-                    'icon': "success",
-                    'text': 'El parqueo se rechazó correctamente'
-                }).then(function() {
-                    window.location = 'lista-solicitudes-registro.html';
-                });
-                break;
+            for (let x = 0; x < info_duennos.length; x++) {
+                if (info_duennos[x]._id == info_solicitudes_parqueo[d].id_duenno) {
+                    if (info_solicitudes_parqueo[d].estado_general == 'REGISTRO_PENDIENTE') {
+
+                        rechazo_solicitud_parqueo(info_solicitudes_parqueo[d]._id, nuevo_estado, info_duennos[x].correo, info_solicitudes_parqueo[d.nombre]);
+
+                        Swal.fire({
+                            'icon': "success",
+                            'text': 'El parqueo se rechazó correctamente'
+                        }).then(function() {
+                            window.location = 'lista-solicitudes-registro.html';
+                        });
+                        break;
+                    }
+                }
             }
         }
     }

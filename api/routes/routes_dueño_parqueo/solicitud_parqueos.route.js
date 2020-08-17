@@ -48,48 +48,8 @@ router.post('/registrar-parqueo', (req, res) => {
     });
 });
 
-router.post('/solicitud-parqueo', (req, res) => {
-    let datos = req.body;
-    let solicitud_parqueo_nueva = new Solicitud_parqueo({
-        correo: datos.correo,
-        nombre: datos.nombre,
-        n_identificacion: datos.n_identificacion,
-        coordenadas: datos.coordenadas,
-        tarifa_x_hora: datos.tarifa_x_hora,
-        hora_apertura: datos.hora_apertura,
-        hora_cierre: datos.hora_cierre,
-        pisos: datos.pisos,
-        espacios_discapacidad: datos.espacios_discapacidad,
-        espacios_motos: datos.espacios_motos,
-        espacios_automoviles: datos.espacios_automoviles,
-        redes_sociales: {
-            facebook: datos.facebook,
-            instagram: datos.instagram,
-            twitter: datos.twitter
 
-        },
-        foto_perfil: datos.foto_perfil,
-        foto_banner: datos.foto_banner,
-        estado_general: 'ACTIVAR'
-    });
-
-    solicitud_parqueo_nueva.save((err, solicitud_parqueo_almacenada) => {
-        if (err) {
-            res.json({
-                success: false,
-                msj: 'La solicitud no se pudo registrar, ocurrió el siguiente error',
-                err
-            })
-        } else {
-            res.json({
-                success: true,
-                msj: 'La solicitud se registró correctamente',
-                solicitud_parqueo_almacenada
-            })
-        }
-    });
-});
-
+/*
 router.get('/listar-parqueos', (req, res) => {
     Solicitud_parqueo.find((err, parqueo_info) => {
         if (err) {
@@ -106,11 +66,11 @@ router.get('/listar-parqueos', (req, res) => {
             })
         }
     });
-});
+});*/
 
 router.put('/aceptacion-solicitud-parqueo', (req, res) => {
 
-    Solicitud_parqueo.updateOne({ _id: req.body._id }, {
+    Parqueo.updateOne({ _id: req.body._id }, {
             $set: {
                 estado_general: req.body.estado_general
             }
@@ -133,7 +93,7 @@ router.put('/aceptacion-solicitud-parqueo', (req, res) => {
 });
 router.put('/rechazo-solicitud-parqueo', (req, res) => {
 
-    Solicitud_parqueo.updateOne({ _id: req.body._id }, {
+    Parqueo.updateOne({ _id: req.body._id }, {
             $set: {
                 estado_general: req.body.estado_general
             }
@@ -157,7 +117,7 @@ router.put('/rechazo-solicitud-parqueo', (req, res) => {
 
 router.put('/duenno-parqueo/modificar-parqueo', (req, res) => {
 
-    Solicitud_parqueo.updateOne({ id: req.body.id }, {
+    Parqueo.updateOne({ id: req.body.id }, {
             $set: req.body
         }, (err, info) => {
             if (err) {
