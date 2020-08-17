@@ -77,6 +77,24 @@ const modificar_estado_cliente = async(pid, pestado) => {
         });
 };
 
+const modificar_reserva_activa_cliente = async(pid, p_id_reserva_activa) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/modificar-cliente',
+            responseType: 'json',
+            data: {
+                _id: pid,
+                reserva_activa: p_id_reserva_activa
+            }
+        })
+        .then((response) => {
+            console.log('Datos modificados correctamente(reserva activa)');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
+
 const obtener_cliente_id = async(p_id) => {
     let cliente;
 
