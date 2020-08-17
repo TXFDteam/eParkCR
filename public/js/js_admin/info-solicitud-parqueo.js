@@ -69,7 +69,7 @@ let aceptar_parqueo = async() => {
                     console.log('aqui')
                     if (info_solicitudes_parqueo[d].estado_general == 'REGISTRO_PENDIENTE') {
 
-                        aceptacion_solicitud_parqueo(info_solicitudes_parqueo[d]._id, nuevo_estado1, info_duennos[x].correo, info_solicitudes_parqueo[d.nombre]);
+                        aceptacion_solicitud_parqueo(info_solicitudes_parqueo[d]._id, nuevo_estado1, info_duennos[x].correo, info_solicitudes_parqueo[d].nombre);
 
                         Swal.fire({
                             'icon': "success",
@@ -94,7 +94,7 @@ let rechazar_parqueo = async() => {
                 if (info_duennos[x]._id == info_solicitudes_parqueo[d].id_duenno) {
                     if (info_solicitudes_parqueo[d].estado_general == 'REGISTRO_PENDIENTE') {
 
-                        rechazo_solicitud_parqueo(info_solicitudes_parqueo[d]._id, nuevo_estado, info_duennos[x].correo, info_solicitudes_parqueo[d.nombre]);
+                        rechazo_solicitud_parqueo(info_solicitudes_parqueo[d]._id, nuevo_estado, info_duennos[x].correo, info_solicitudes_parqueo[d].nombre);
 
                         Swal.fire({
                             'icon': "success",
