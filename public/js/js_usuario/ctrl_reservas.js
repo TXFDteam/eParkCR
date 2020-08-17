@@ -318,8 +318,8 @@ const guardar_reserva = () => {
 //Función usada para crear una reserva en el parqueo actual.
 const crear_reserva = () => {
     //Para pruebas.
-    guardar_reserva();
-    return;
+    //guardar_reserva();
+    //return;
 
     if (info_espacio_seleccionado != null) {
         if (info_espacio_seleccionado.ocupado != '1') {
