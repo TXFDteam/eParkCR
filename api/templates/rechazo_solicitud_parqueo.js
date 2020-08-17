@@ -14,7 +14,7 @@ this.enviar_mail_rechazo = (pcorreo, pnombre) => {
     let mail_options = {
         from: 'eParkCR',
         to: pcorreo,
-        subject: 'Cambio contraseña',
+        subject: 'Rechazo parqueo',
         html: `
         <table style="width: 700px;">
         <tr height="200px">
