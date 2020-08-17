@@ -49,7 +49,10 @@ const listar_datos_tabla = (parq, pcantidad_reservas, phoras_promedio, pingresos
 
 
 /* -------------- Funcion para obtener los datos para la tabla -------------- */
-const listar_reporte = () => {
+const listar_reporte = async() => {
+
+    let parqueos = await obtener_parqueos();
+    //let reservas = await obtener_reservas(); 
 
     //Se imprime el header de la tabla
     tabla_reporte_ingresos_header.innerHTML = '';

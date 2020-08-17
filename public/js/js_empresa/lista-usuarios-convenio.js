@@ -48,6 +48,8 @@ let cambiar_estado_boton_empleado = (x) => {
 
 const listar_usuarios = (empleado) => {
 
+    //const empleado = await obtener_empleados();//funcion pendiente de crear en el servicio
+
     fila = tabla_usuarios.insertRow();
     fila.insertCell().innerHTML = empleado.id_empleado;
     fila.insertCell().innerHTML = empleado.nombre_empleado;
@@ -131,11 +133,7 @@ console.log(n_parqueo);
 
 const input_filtro = document.querySelector('#filtro-empleados');
 
-const filtrar_empleados_nombre = async() => {
-
-
-
-    // let lista_de_empleados = await obtener_empleados(); pendiente de obteneer lista de empleados
+const filtrar_empleados_nombre = () => {
 
 
     let input, filter, table, tr, td, i, txtValue;
