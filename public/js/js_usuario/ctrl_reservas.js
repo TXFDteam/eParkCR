@@ -275,7 +275,7 @@ const horas_correctas = () => {
 };
 
 //Función para enviar la reserva al backend
-const guardar_reserva = () => {
+const guardar_reserva = async() => {
     //Datos finales para guardar.
 
     let ref_id_usuario = usuario_ingresado._id;
@@ -312,14 +312,15 @@ const guardar_reserva = () => {
     //console.log('Por ' + horas_de_uso + ' horas se va a pagar: ' + total_por_pagar);
     //console.log('De tarifa se paga : ' + parqueo_seleccionado.tarifa_hora);
 
-    guardar_nueva_reserva(ref_id_usuario, ref_nombre_usuario, ref_id_parqueo, ref_nombre_parqueo, ref_fecha_reserva, fecha_entrada, fecha_salida, horas_de_uso, total_por_pagar, ref_espacio_seleccionado);
+    let reserva_creada = await guardar_nueva_reserva(ref_id_usuario, ref_nombre_usuario, ref_id_parqueo, ref_nombre_parqueo, ref_fecha_reserva, fecha_entrada, fecha_salida, horas_de_uso, total_por_pagar, ref_espacio_seleccionado);
+    console.log(reserva_creada);
 };
 
 //Función usada para crear una reserva en el parqueo actual.
 const crear_reserva = () => {
     //Para pruebas.
-    //guardar_reserva();
-    //return;
+    guardar_reserva();
+    return;
 
     if (info_espacio_seleccionado != null) {
         if (info_espacio_seleccionado.ocupado != '1') {

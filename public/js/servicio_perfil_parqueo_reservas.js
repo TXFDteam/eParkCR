@@ -1,6 +1,9 @@
 'use strict';
 
 const guardar_nueva_reserva = async(p_id_usuario, p_nombre_usuario, p_id_parqueo, p_nombre_parqueo, p_fecha_reserva, p_hora_entrada, p_hora_salida, p_horas, p_monto_total, p_codigo_espacio_seleccionado) => {
+
+    let reserva_creada;
+
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/crear-reserva',
@@ -19,9 +22,12 @@ const guardar_nueva_reserva = async(p_id_usuario, p_nombre_usuario, p_id_parqueo
         }
     }).then(response => {
         console.log(response);
+        reserva_creada = response.data.reserva_almacenada;
     }).catch(error => {
         console.log(error);
     });
+
+    return reserva_creada;
 };
 
 const obtener_parqueos = async() => {
