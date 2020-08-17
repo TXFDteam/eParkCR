@@ -327,6 +327,17 @@ const crear_reserva = () => {
     //guardar_reserva();
     //return;
 
+    //No se puede crear la reserva si el usuario ya tiene una activa.
+    if (usuario_ingresado.reserva_activa != null) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oh no, hubo un problema al crear la reserva.',
+            text: 'No podés crear una reserva, debido a que ya tenés una activa.',
+        });
+        return;
+    }
+
+    //Comprobaciones.
     if (info_espacio_seleccionado != null) {
         if (info_espacio_seleccionado.ocupado != '1') {
             if (!hay_espacios_vacios()) {
