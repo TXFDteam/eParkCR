@@ -19,7 +19,8 @@ router.post('/crear-reserva', (req, res) => {
         descuento: '0',
         estado_reserva: 'ACTIVA',
         monto_total: datos.monto_total,
-        codigo_espacio_seleccionado: datos.codigo_espacio_seleccionado,
+        id_piso_espacio_seleccionado: datos.id_piso_espacio_seleccionado,
+        id_espacio_seleccionado: datos.id_espacio_seleccionado,
         monto_final: datos.monto_total,
         tarjeta_creditada: 'NA'
     });

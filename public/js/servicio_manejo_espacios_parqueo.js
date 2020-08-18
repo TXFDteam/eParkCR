@@ -1,6 +1,6 @@
 'use strict';
 
-const actualizar_estado_espacio = (p_id, p_id_piso, p_id_espacio, p_nuevo_estado) => {
+const actualizar_estado_espacio = async(p_id, p_id_piso, p_id_espacio, p_nuevo_estado) => {
     await axios({
         method: 'put',
         url: 'http://localhost:3000/api/actualizar-estado-espacio',

@@ -103,6 +103,8 @@ const cambiar_piso = (i_piso_seleccionado) => {
 //Se llama cuando el comboBox del piso cambia su valor.
 const piso_actual_cambiado = () => {
     piso_actual = slt_piso_actual.value;
+    piso_actual_reserva = piso_actual;
+
     cambiar_piso(piso_actual);
 };
 
@@ -117,15 +119,27 @@ const inicializar_mapa = (p_parqueo, p_interactuable = false) => {
     //Actualizar los datos del comboBox para el piso actual.
     slt_piso_actual.innerHTML = '';
 
-    let cont = 1;
+    //Para actualizar datos que se usan en el script para reservas.
+    if (interactuable) {
+        piso_actual_reserva = 0;
+    }
+
+    let cont = 0;
     parqueo_actual.pisos.forEach(obj_piso => {
+        //Guarda los ids de los pisos en el script de reservas.
+        if (interactuable) {
+            id_pisos[cont] = obj_piso._id;
+        }
+
+        //Para agregar las opciones al select.
         let nueva_opcion = document.createElement('option');
-        nueva_opcion.textContent = ('Piso ' + cont);
-        nueva_opcion.value = (cont - 1);
+        nueva_opcion.textContent = ('Piso ' + (cont + 1));
+        nueva_opcion.value = (cont);
 
         slt_piso_actual.appendChild(nueva_opcion);
         cont++;
     });
+
     //Viejo.
     /*
     for (let i = 1; i <= p_parqueo.cant_pisos; i++) {

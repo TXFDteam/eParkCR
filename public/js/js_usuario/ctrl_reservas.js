@@ -69,6 +69,7 @@ let elemento_espacio_seleccionado;
 let calificaciones_comentarios = [];
 
 let id_pisos = [];
+let piso_actual_reserva = 0;
 
 //#endregion
 
@@ -288,8 +289,8 @@ const guardar_reserva = async() => {
     let ref_id_parqueo = parqueo_seleccionado._id;
     let ref_nombre_parqueo = parqueo_seleccionado.nombre;
 
-
-    let ref_espacio_seleccionado = info_espacio_seleccionado.codigo;
+    let ref_piso_espacio_seleccionado = id_pisos[piso_actual_reserva];
+    let ref_espacio_seleccionado = info_espacio_seleccionado._id;
 
     let fecha_actual = new Date();
     let ref_fecha_reserva = fecha_actual.getDate() + '/' + fecha_actual.getMonth() + '/' + fecha_actual.getFullYear();
@@ -316,8 +317,9 @@ const guardar_reserva = async() => {
     //console.log('Por ' + horas_de_uso + ' horas se va a pagar: ' + total_por_pagar);
     //console.log('De tarifa se paga : ' + parqueo_seleccionado.tarifa_hora);
 
-    let reserva_creada = await guardar_nueva_reserva(ref_id_usuario, ref_nombre_usuario, ref_id_parqueo, ref_nombre_parqueo, ref_fecha_reserva, fecha_entrada, fecha_salida, horas_de_uso, total_por_pagar, ref_espacio_seleccionado);
+    let reserva_creada = await guardar_nueva_reserva(ref_id_usuario, ref_nombre_usuario, ref_id_parqueo, ref_nombre_parqueo, ref_fecha_reserva, fecha_entrada, fecha_salida, horas_de_uso, total_por_pagar, ref_piso_espacio_seleccionado, ref_espacio_seleccionado);
     await modificar_reserva_activa_cliente(usuario_ingresado._id, reserva_creada._id);
+    await actualizar_estado_espacio(ref_id_parqueo, ref_piso_espacio_seleccionado, ref_espacio_seleccionado, '1');
     console.log(reserva_creada);
     //console.log('Cliente: ' + usuario_ingresado._id);
     //console.log('Reserva: ' + reserva_creada._id);

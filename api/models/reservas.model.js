@@ -13,7 +13,8 @@ const schema_reservas = new mongoose.Schema({
     descuento: { type: String, required: true, unique: false },
     estado_reserva: { type: String, required: true, unique: false },
     monto_total: { type: String, required: true, unique: false },
-    codigo_espacio_seleccionado: { type: String, required: true, unique: false },
+    id_piso_espacio_seleccionado: { type: String, required: true, unique: false },
+    id_espacio_seleccionado: { type: String, required: true, unique: false },
     monto_final: { type: String, required: true, unique: false },
     tarjeta_creditada: { type: String, required: true, unique: false },
 });
