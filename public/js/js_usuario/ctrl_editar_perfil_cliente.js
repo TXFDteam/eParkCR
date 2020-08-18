@@ -25,9 +25,32 @@ let mostrar_info = async() => {
             input_nombre.value = info_clientes[c].nombre;
 
 
+
+
             break;
         }
+
     }
+
+
+
+
+    /*función para mostrar las tarjetas de crédito en el select, pendiente a que se agreguen tarjetas para probar.
+
+       
+let tarjetas = info_clientes[c].tarjetas // se invoca al arreglo de tarjetas de la base de datos
+let select = document.querySelector('#arreglo-tarjetas') // se invoca al select del editar_perfil_cliente.html
+
+
+for (let t = 0; t < tarjetas.length; t++) { // ciclo que recorre las tarjetas del cliente
+    let option = document.createElement("option"); // se crea el elemento opcion
+    option.innerHTML = tarjetas [t]; //Se le da el valor a esa opcion
+    select.appendChild(option); // se inserta la opcion en el select
+
+}
+
+*/
+
 };
 
 
@@ -50,6 +73,8 @@ const guardar_cambios_cliente = () => {
             }
         })
 };
+
+
 
 
 
