@@ -32,6 +32,27 @@ const guardar_nueva_reserva = async(p_id_usuario, p_nombre_usuario, p_id_parqueo
     return reserva_creada;
 };
 
+const modificar_reserva = async(p_id, p_descuento, p_estado, p_monto_final, p_tarjeta_creditada) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/modificar-reserva',
+            responseType: 'json',
+            data: {
+                _id: p_id,
+                descuento: p_descuento,
+                estado: p_estado,
+                monto_final: p_monto_final,
+                tarjeta_creditada: p_tarjeta_creditada
+            }
+        })
+        .then((response) => {
+            console.log('Reserva modificada con éxito');
+        })
+        .catch((error) => {
+            console.log('Error: ' + error);
+        });
+};
+
 const obtener_parqueos = async() => {
     let parqueos;
 

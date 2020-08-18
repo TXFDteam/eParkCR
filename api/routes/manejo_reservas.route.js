@@ -42,6 +42,24 @@ router.post('/crear-reserva', (req, res) => {
     });
 });
 
+router.put('/modificar-reserva', (req, res) => {
+    Reserva.updateOne({ _id: req.body._id }, {
+        $set: req.body
+    }, (err, info) => {
+        if (err) {
+            res.json({
+                resultado: true,
+                msj: 'No se pudo modificar la reserva: ' + err,
+                err
+            })
+        } else {
+            res.json({
+                info
+            });
+        }
+    });
+});
+
 router.get('/obtener-reservas', (req, res) => {
     Reserva.find((err, lista_reservas) => {
         if (err) {
