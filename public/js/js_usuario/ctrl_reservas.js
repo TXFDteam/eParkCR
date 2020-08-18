@@ -478,6 +478,8 @@ const crear_carta_comentario = async(p_comentario) => {
 };
 
 const obtener_comentarios = async() => {
+    comentario_usuario_ingresado = null;
+
     let lista_comentarios = await s_obtener_comentarios();
     contenedor_comentarios.innerHTML = '';
     if (lista_comentarios == null) {
@@ -552,7 +554,7 @@ const publicar_comentario = async() => {
     let mensaje = ventana_crear_comentario_mensaje.value;
 
     //Si ya existe un comentario lo modifica.
-    if (comentario_usuario_ingresado != null) {
+    if (comentario_usuario_ingresado != null && comentario_usuario_ingresado != undefined) {
         await s_modificar_comentario(comentario_usuario_ingresado._id, estrellas, fecha_actual, mensaje);
 
         /*VIEJO
