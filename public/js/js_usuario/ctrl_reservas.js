@@ -68,6 +68,8 @@ let elemento_espacio_seleccionado;
 
 let calificaciones_comentarios = [];
 
+let id_pisos = [];
+
 //#endregion
 
 //#region lógica para reservas
