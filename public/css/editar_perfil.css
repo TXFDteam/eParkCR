@@ -89,9 +89,9 @@
         width: 170px;
     }
     
-    #btn-volver-perfil-admin {
-        margin-top: 6%;
-        margin-bottom: 15px;
+    .botones div {
+        margin-top: 10px;
+        margin-bottom: 3px;
     }
     
     input {

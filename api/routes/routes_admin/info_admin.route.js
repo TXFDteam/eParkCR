@@ -17,7 +17,7 @@ router.post('/registro-admin', (req, res) => {
         contraseña: 'admin.admin1',
         telefono: '2225-4444',
         comision: '8',
-        foto_perfil: datos.foto_perfil,
+        foto_perfil: 'https://res.cloudinary.com/txfd/image/upload/v1597717746/IFAM_ytwkto.jpg',
     });
 
     admin.save((err, admin_almacenado) => {
