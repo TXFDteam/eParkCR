@@ -44,11 +44,12 @@
     /* border: solid 2px red; */
 }
 
-#contenedor-perfil .foto-perfil {
+.foto-perfil {
     height: 300px;
     width: 300px;
     border-radius: 50%;
     border: 1px solid black;
+    background-size: cover;
 }
 
 .info-perfil {
@@ -133,5 +134,5 @@ label {
 }
 
 h3 {
-    text-align: center;
+    text-align: left;
 }

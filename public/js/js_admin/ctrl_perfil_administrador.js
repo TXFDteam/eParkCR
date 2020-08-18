@@ -26,6 +26,9 @@ let nombre_admin = document.querySelector('#nombre-admin');
 let correo_admin = document.querySelector('#correo-admin');
 let comision = document.querySelector('#comision');
 let telefono_admin = document.querySelector('#telefono-admin');
+const input_foto_div = document.querySelector('#foto-perfil-admin');
+const input_foto = document.querySelector('#foto-Perfil');
+
 
 
 let correo = localStorage.getItem('correo_admin');
@@ -41,10 +44,16 @@ const mostrar_info_admin = async() => {
 
     if (info_admin[0].correo == correo && info_admin[0].contraseña == contrasenna) {
 
-        nombre_admin.innerHTML = info_admin[0].nombre;
-        correo_admin.innerHTML = info_admin[0].correo;
-        comision.innerHTML = (info_admin[0].comision + '%');
-        telefono_admin.innerHTML = info_admin[0].telefono;
+        nombre_admin.value = info_admin[0].nombre;
+        correo_admin.value = info_admin[0].correo;
+        comision.value = (info_admin[0].comision + '%');
+        telefono_admin.value = info_admin[0].telefono;
+
+        let foto = document.querySelector('img');
+        foto.srcset = info_admin[0].foto_perfil
+        foto.className = 'foto-perfil';
+        foto.classList.add('foto-perfil');
+        input_foto_div.appendChild(foto);
 
     }
 };
