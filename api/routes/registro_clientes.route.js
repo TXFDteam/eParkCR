@@ -101,7 +101,10 @@ router.put('/modificar-cliente', (req, res) => {
 
 
 router.delete('/eliminar-cliente', (req, res) => {
-    Cliente.deleteOne({ _id: req.body._id }, (err, info) => {
+
+    Cliente.deleteOne({ _id: req.body._id }, {
+        $set: req.body
+    }, (err, borrado) => {
         if (err) {
             res.json({
                 resultado: false,
@@ -110,7 +113,7 @@ router.delete('/eliminar-cliente', (req, res) => {
             })
         } else {
             res.json({
-                info
+                borrado
             });
         }
     })

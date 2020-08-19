@@ -139,4 +139,26 @@ router.put('/modificar_empresa', (req, res) => {
     );
 });
 
+
+
+
+router.delete('/eliminar-empresa', (req, res) => {
+
+    Empresa.deleteOne({ _id: req.body._id }, {
+        $set: req.body
+    }, (err, borrado) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'No se ha podido eliminar la empresa' + err,
+                err
+            })
+        } else {
+            res.json({
+                borrado
+            });
+        }
+    })
+});
+
 module.exports = router;

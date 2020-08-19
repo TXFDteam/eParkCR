@@ -9,10 +9,17 @@ const btn_cerrar_cuenta = document.querySelector('#btn-cerrar-cuenta');
 
 
 
-let correo = localStorage.getItem('correo_cliente');
-let contrasenna = localStorage.getItem('contrasenna_cliente');
-let id;
-const encontrar_id = async() => {
+
+
+
+const cerrar_cuenta = async() => {
+
+    // función para cerrar cuenta
+
+    let correo = localStorage.getItem('correo');
+    let contrasenna = localStorage.getItem('contrasenna');
+    let id;
+
     let info_clientes = await obtener_clientes();
 
     for (let c = 0; c < info_clientes.length; c++) {
@@ -27,22 +34,8 @@ const encontrar_id = async() => {
 
 
 
-};
+    console.log(id);
 
-console.log(id);
-
-
-
-
-
-
-
-
-
-
-const cerrar_cuenta = () => {
-
-    // función para cerrar cuenta
 
 
     Swal.fire({
@@ -59,11 +52,18 @@ const cerrar_cuenta = () => {
             Swal.fire(
                 'Cerrar cuenta',
                 'La cuenta ha sido cerrada exitosamente.',
-                'success',
-                eliminar_cliente(id)
+                'success'
+
+
             )
+            eliminar_cliente(id);
+            window.location.href = '../../html/index.html';
         }
     })
+
+
+    console.log('El ID borrado es ' + id)
+
 
 };
 
