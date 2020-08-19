@@ -20,12 +20,16 @@
 }
 
 #no-hay-reservas {
-    margin-bottom: 40px;
+    margin-bottom: 2%;
 }
 
 .contenedor-reservas p {
     text-align: center;
     font-size: 16px;
+}
+
+#btn-historial-reservas {
+    margin-bottom: 35%;
 }
 
 
@@ -42,19 +46,6 @@
     margin-bottom: 12%;
 }
 
-.primera-columna p {
-    font-size: 18px;
-    margin-bottom: 15%;
-}
-
-.primera-columna {
-    padding-right: 20%;
-}
-
-.primera-columna h3 {
-    margin-top: 20px;
-}
-
 .primera-columna button {
     margin-top: 25%;
     font-size: 16px;
@@ -66,8 +57,8 @@
 /*SEGUNDA COLUMNA*/
 
 .segunda-columna {
-    margin-right: 100px;
-    margin-top: 145px;
+    margin-right: 20%;
+    margin-top: 55px;
 }
 
 .segunda-columna h3 {
@@ -78,7 +69,7 @@
 .segunda-columna p {
     text-align: center;
     font-size: 18px;
-    margin-bottom: 35%;
+    margin-bottom: 40%;
 }
 
 

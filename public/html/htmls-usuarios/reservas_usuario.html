@@ -43,24 +43,26 @@
                             <h3 id="no-hay-reservas">No hay reservas activas</h2>
                         </div>
 
-                        <div id="div-estado">
-                            <h3>Estado</h3>
-                            <p id="estado-reserva"></p>
+                        <div id="div-btn-pagar">
+                            <button type="button" id="btn-pagar">Pagar</button>
                         </div>
                         <div id="div-btn-cancelar">
                             <button type="button" id="btn-cancelar-reservacion">Cancelar reservación</button>
                         </div>
-                        <div id="div-btn-pagar">
-                            <button type="button" id="btn-pagar">Pagar</button>
-                        </div>
-                        <div id="div-btn-historial">
-                            <button type="button" id="btn-historial-reservas">Historial de reservas</button>
-                        </div>
+
+
 
 
                     </div>
 
                     <div class="segunda-columna">
+                        <div id="div-btn-historial">
+                            <button type="button" id="btn-historial-reservas">Historial de reservas</button>
+                        </div>
+                        <div id="div-estado">
+                            <h3>Estado</h3>
+                            <p id="estado-reserva"></p>
+                        </div>
                         <div id="div-parqueo">
                             <h3>Parqueo</h3>
                             <p id="espacio-parqueo"></p>
@@ -89,6 +91,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/control-sesiones.js"></script>
+    <script src="../../js/js-servicio/registro_clientes_servicio.js"></script>
     <script src="../../js/servicio_perfil_parqueo_reservas.js"></script>
     <script src="../../js/js_usuario/ctrl-reservas-activas-usuario.js"></script>
 </body>

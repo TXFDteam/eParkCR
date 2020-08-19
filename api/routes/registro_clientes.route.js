@@ -19,6 +19,7 @@ router.post('/registrar-cliente', (req, res) => {
         fecha_nacimiento: datos.fecha_nacimiento,
         contraseña: datos.contraseña,
         foto_perfil: datos.foto_perfil,
+        id_reserva_activa: 'null',
         estado_general: 'DESACTIVAR'
     });
 
