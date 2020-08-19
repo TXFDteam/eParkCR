@@ -122,4 +122,31 @@ router.put('/modificar-contrasenna-duenno-parqueo', (req, res) => {
 
     );
 });
+
+
+
+
+
+
+router.delete('/eliminar-duenno-parqueo', (req, res) => {
+
+    Duenno_parqueo.deleteOne({ _id: req.body._id }, {
+        $set: req.body
+    }, (err, borrado) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'No se ha podido eliminair al duenno del parqueo' + err,
+                err
+            })
+        } else {
+            res.json({
+                borrado
+            });
+        }
+    })
+});
+
+
+
 module.exports = router;

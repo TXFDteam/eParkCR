@@ -76,3 +76,20 @@ const modificar_estado_duenno_parqueo = async(pid, pestado) => {
             console.log(error);
         });
 };
+
+
+const eliminar_duenno_parqueo = async(pid) => {
+    await axios({
+            method: 'delete',
+            url: 'http://localhost:3000/api/eliminar-duenno-parqueo',
+            responseType: 'json',
+            data: { _id: pid }
+
+        })
+        .then((response) => {
+            console.log('La empresa ha sido eliminada');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};

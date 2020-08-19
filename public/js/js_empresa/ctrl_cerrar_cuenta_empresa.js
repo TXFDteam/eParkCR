@@ -6,7 +6,36 @@ const btn_cerrar_cuenta_empresa = document.querySelector('#btn-cerrar-cuenta-emp
 
 
 
-const cerrar_cuenta = () => {
+const cerrar_cuenta = async() => {
+
+
+
+
+
+    let correo = localStorage.getItem('correo_empresa');
+    let contrasenna = localStorage.getItem('contraseña_empresa');
+    let id;
+
+    let info_empresas = await obtener_empresas();
+
+    for (let e = 0; e < info_empresas.length; e++) {
+        if (correo == info_empresas[e].correo && contrasenna == info_empresas[e].contraseña) {
+            id = info_empresas[e]._id;
+
+
+
+            break;
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     // función para cerrar cuenta
 
@@ -26,6 +55,8 @@ const cerrar_cuenta = () => {
                 'La cuenta ha sido cerrada exitosamente.',
                 'success'
             )
+            eliminar_empresa(id);
+            window.location.href = '../..index.html';
         }
     })
 
