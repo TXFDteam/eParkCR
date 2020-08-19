@@ -7,8 +7,8 @@
 /*Info principal*/
 
 .contenedor-reservas {
-    margin-top: 120px;
-    margin-left: 18%;
+    margin-top: 145px;
+    margin-left: 10%;
     height: 980px;
     width: 82%;
     display: flex;
@@ -36,7 +36,7 @@
 /*Primera columna*/
 
 .primera-columna h2 {
-    text-align: center;
+    text-align: left;
     font-size: 40px;
     margin-bottom: 20%
 }
@@ -46,8 +46,12 @@
     margin-bottom: 12%;
 }
 
-.primera-columna button {
+#btn-pagar {
     margin-top: 25%;
+    margin-bottom: 10%;
+}
+
+.primera-columna button {
     font-size: 16px;
     padding: 10px;
     width: 200px;
@@ -57,7 +61,6 @@
 /*SEGUNDA COLUMNA*/
 
 .segunda-columna {
-    margin-right: 20%;
     margin-top: 55px;
 }
 

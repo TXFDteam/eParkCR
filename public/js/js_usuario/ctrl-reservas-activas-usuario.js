@@ -105,6 +105,7 @@ const mostrar_reservas = async() => {
 
                     div_btn_cancelar.classList.add('o-ocultar');
                     div_btn_pagar.classList.add('o-ocultar');
+
                 }
 
             }
