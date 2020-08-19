@@ -39,21 +39,3 @@ const obtener_empresas = async() => {
 
     return empresas;
 };
-
-
-
-const eliminar_empresa = async(pid) => {
-    await axios({
-            method: 'delete',
-            url: 'http://localhost:3000/api/eliminar-empresa',
-            responseType: 'json',
-            data: { _id: pid }
-
-        })
-        .then((response) => {
-            console.log('La empresa ha sido eliminada');
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-};

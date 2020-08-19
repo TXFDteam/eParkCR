@@ -6,7 +6,33 @@ const btn_cerrar_cuenta_parqueo = document.querySelector('#btn-cerrar-cuenta-par
 
 
 
-const cerrar_cuenta = () => {
+const cerrar_cuenta = async() => {
+
+
+
+
+
+    let correo = localStorage.getItem('correo_dueño');
+    let contrasenna = localStorage.getItem('contraseña_dueño');
+    let id;
+
+    let info_duennos_parqueos = await obtener_duennos_parqueo();
+
+    for (let d = 0; d < info_duennos_parqueos.length; d++) {
+        if (correo == info_duennos_parqueos[d].correo && contrasenna == info_duennos_parqueos[d].contraseña) {
+            id = info_duennos_parqueos[d]._id;
+
+
+
+            break;
+        }
+    }
+
+
+
+
+
+
 
     // función para cerrar cuenta
 
@@ -26,8 +52,14 @@ const cerrar_cuenta = () => {
                 'La cuenta ha sido cerrada exitosamente.',
                 'success'
             )
+
+            eliminar_duenno_parqueo(id);
+            window.location.href = '../..index.html';
+
         }
     })
+
+    console.log(id);
 
 };
 

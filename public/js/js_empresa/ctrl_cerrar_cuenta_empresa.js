@@ -56,7 +56,7 @@ const cerrar_cuenta = async() => {
                 'success'
             )
             eliminar_empresa(id);
-            window.location.href = '../../html/index.html';
+            window.location.href = '../..index.html';
         }
     })
 
