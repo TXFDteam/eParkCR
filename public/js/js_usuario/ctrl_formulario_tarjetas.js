@@ -21,6 +21,31 @@ link_btn_cancelar.addEventListener('click', function() {
 
 
 
+/* ---------------------------- Reconocer usuario --------------------------- */
+let correoC = localStorage.getItem('correo');
+console.log(correoC);
+let contrasennaC = localStorage.getItem('contrasenna');
+console.log(contrasennaC);
+
+
+
+let buscar_info_cliente = async() => {
+
+    let info_clientes = await obtener_clientes();
+    let id;
+    //c va a ser el  contador para encontrar los clientes
+    for (let c = 0; c < info_clientes.length; c++) {
+        if (correoC == info_clientes[c].correo && contrasennaC == info_clientes[c].contraseña) {
+            id = info_clientes[c]._id;
+            console.log(id);
+
+        }
+    }
+    return id;
+};
+
+let id_cliente = buscar_info_cliente();
+console.log(id_cliente);
 
 
 
@@ -78,19 +103,15 @@ const enviar_datos = () => {
     let nombre_tarjeta = inp_nombre_tarjeta.value;
     let num_tarjeta = inp_numero_tarjeta.value;
     let cod_seguridad = inp_cod_seguridad.value;
-    let mes_expr = inp_mes_expr.value;
-    let anno_expr = inp_anno_expr.value;
+    let fecha_expr = inp_mes_expr.value + '/' + inp_anno_expr.value;
 
 
-    console.log('El nombre en la tarjeta es: ' + nombre_tarjeta);
-    console.log('El numero de la tarjeta es: ' + num_tarjeta);
-    console.log('El codigo de seguridad es: ' + cod_seguridad);
-    console.log('La fecha de expiracion es: ' + mes_expr + '/' + anno_expr);
+    enviar_datos_tarjeta(id_cliente, nombre_tarjeta, num_tarjeta, cod_seguridad, fecha_expr);
 
     Swal.fire({
         title: 'Tarjeta agregada satisfactoriamente',
         showConfirmButton: false,
-        timer: 1000
+        timer: 2000
     })
 
 };

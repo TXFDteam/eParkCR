@@ -12,7 +12,14 @@ const schema_cliente = new mongoose.Schema({
     foto_perfil: { type: String, required: false, unique: false },
     estado_general: { type: String, required: true, unique: false },
     otp: { type: Number, required: false, unique: false },
-    id_reserva_activa: { type: String, required: false, unique: false }
+    id_reserva_activa: { type: String, required: false, unique: false },
+    tarjetas: [{
+        numero_tarjeta: { type: String, required: true, unique: true },
+        fecha_expiracion: { type: String, required: true, unique: false },
+        predeterminada: { type: Boolean, required: true, unique: false },
+        nombre_tarjeta: { type: String, required: true, unique: false },
+        codigo_seguridad: { type: Number, required: true, unique: false }
+    }]
 });
 
 module.exports = mongoose.model('Cliente', schema_cliente, 'clientes');
