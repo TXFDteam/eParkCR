@@ -100,26 +100,20 @@ router.put('/modificar-cliente', (req, res) => {
 });
 
 
-
 router.delete('/eliminar-cliente', (req, res) => {
-
-    Cliente.deleteOne({ _id: req.body._id }, {
-            $set: req.body
-        }, (err, info) => {
-            if (err) {
-                res.json({
-                    resultado: false,
-                    msj: 'No se pudo eliminar el usuario',
-                    err
-                })
-            } else {
-                res.json({
-                    info
-                });
-            }
+    Cliente.deleteOne({ _id: req.body._id }, (err, info) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'No se ha podido eliminair al usuario' + err,
+                err
+            })
+        } else {
+            res.json({
+                info
+            });
         }
-
-    );
+    })
 });
 
 
