@@ -36,7 +36,12 @@
 
         <div class="info-reservas" id="printable-area">
             <h2>Historial reservas de la aplicación</h2>
-            <!-- <button type="button" id="btn-descargar">Descargar</button>  -->
+            <form action="javascript:void(0);" id="busquedaForm">
+
+                <i class="fas fa-search"></i> <input type="text" id="valorF" placeholder="Filtrar">
+
+            </form>
+
             <button type="button" id="btn-descargar">Descargar en pdf</button>
 
             <div class="tabla-info tabla_reporte">
@@ -51,12 +56,15 @@
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/e47236fbca.js" crossorigin="anonymous"></script>
 
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="../../js/simulador_bd.js"></script>
         <script src="../../js/control-sesiones.js"></script>
         <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_admin.js"></script>
+        <script src="../../js/servicio_perfil_parqueo_reservas.js"></script>
         <script src="../../js/js_admin/historial-reservas-admin.js"></script>
 </body>
 

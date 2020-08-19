@@ -24,6 +24,23 @@
 }
 
 
+/*Filtros*/
+
+#busquedaForm {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+#busquedaForm i {
+    margin-right: 1%;
+}
+
+#busquedaForm input {
+    width: 250px;
+}
+
+
 /*TABLA*/
 
 

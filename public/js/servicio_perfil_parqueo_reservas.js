@@ -32,6 +32,23 @@ const guardar_nueva_reserva = async(p_id_usuario, p_nombre_usuario, p_id_parqueo
     return reserva_creada;
 };
 
+const obtener_reservas = async() => {
+    let reservas;
+
+    await axios({
+            method: 'get',
+            url: 'http://localhost:3000/api/obtener-reservas',
+            responseType: 'json'
+        })
+        .then(function(response) {
+            //response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+            console.log(response.data.lista_reservas);
+            reservas = response.data.lista_reservas;
+        });
+
+    return reservas;
+};
+
 const modificar_reserva = async(p_id, p_descuento, p_estado, p_monto_final, p_tarjeta_creditada) => {
     await axios({
             method: 'put',

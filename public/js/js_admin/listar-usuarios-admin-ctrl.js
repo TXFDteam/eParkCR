@@ -258,7 +258,4 @@ function buscar(inputbuscar) {
     }
 }
 
-
-
-
 /*-----------X----------------*/

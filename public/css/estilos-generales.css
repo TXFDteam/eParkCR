@@ -188,3 +188,11 @@ button:focus {
 .selection:hover {
     background-color: #70a1ff;
 }
+
+.mostarX {
+    display: block;
+}
+
+.ocultar {
+    display: none;
+}
