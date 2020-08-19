@@ -113,3 +113,21 @@ const obtener_cliente_id = async(p_id) => {
 
     return cliente;
 };
+
+
+const eliminar_cliente = async(pid) => {
+    await axios({
+            method: 'delete',
+            url: 'http://localhost:3000/api/eliminar-cliente',
+            responseType: 'json',
+            data: {
+                _id: pid
+            }
+        })
+        .then((response) => {
+            console.log('El cliente ha sido eliminado');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};

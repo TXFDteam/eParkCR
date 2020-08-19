@@ -6,9 +6,44 @@ const btn_cerrar_cuenta = document.querySelector('#btn-cerrar-cuenta');
 
 
 
+
+
+
+let correo = localStorage.getItem('correo_cliente');
+let contrasenna = localStorage.getItem('contrasenna_cliente');
+let id;
+const encontrar_id = async() => {
+    let info_clientes = await obtener_clientes();
+
+    for (let c = 0; c < info_clientes.length; c++) {
+        if (correo == info_clientes[c].correo && contrasenna == info_clientes[c].contraseña) {
+            id = info_clientes[c]._id;
+
+
+
+            break;
+        }
+    }
+
+
+
+};
+
+console.log(id);
+
+
+
+
+
+
+
+
+
+
 const cerrar_cuenta = () => {
 
     // función para cerrar cuenta
+
 
     Swal.fire({
         title: 'Cerrar cuenta',
@@ -22,9 +57,10 @@ const cerrar_cuenta = () => {
     }).then((result) => {
         if (result.value) {
             Swal.fire(
-                'Cerar cuenta',
+                'Cerrar cuenta',
                 'La cuenta ha sido cerrada exitosamente.',
-                'success'
+                'success',
+                eliminar_cliente(id)
             )
         }
     })
