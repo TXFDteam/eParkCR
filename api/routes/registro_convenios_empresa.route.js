@@ -64,4 +64,35 @@ router.post('/agregar-usuario', (req, res) => {
     }
 });
 
+
+
+
+
+
+router.get('/listar_convenios', (req, res) => {
+    Convenio.find((err, lista_convenios) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'No se pudieron listar los convenios',
+                err
+            })
+        } else {
+            res.json({
+                resultado: true,
+                msj: 'Se listaron los convenios eficientemente',
+                lista_convenios
+            })
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
 module.exports = router;

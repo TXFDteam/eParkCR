@@ -23,6 +23,22 @@ let correo_actual = localStorage.getItem('correo');
 let contrasenna_actual = localStorage.getItem('contrasenna');
 console.log(correo_actual);
 
+
+const convenios = async() => {
+
+    let lista_de_convenios = await obtener_convenios();
+
+}
+
+
+
+
+
+
+
+
+
+
 console.log(contrasenna_actual);
 
 const nombre_parqueo = (p_nombre_convenio) => {
