@@ -44,8 +44,7 @@ let buscar_info_cliente = async() => {
     return id;
 };
 
-let id_cliente = buscar_info_cliente();
-console.log(id_cliente);
+
 
 
 
@@ -99,7 +98,11 @@ formulario.numero_tarjeta.addEventListener('keyup', (e) => {
 
 
 /* ---------------------- Funcion para enviar los datos --------------------- */
-const enviar_datos = () => {
+const enviar_datos = async() => {
+
+    let id_cliente = await buscar_info_cliente();
+    console.log(id_cliente);
+
     let nombre_tarjeta = inp_nombre_tarjeta.value;
     let num_tarjeta = inp_numero_tarjeta.value;
     let cod_seguridad = inp_cod_seguridad.value;

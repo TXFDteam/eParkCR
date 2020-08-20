@@ -2,14 +2,14 @@
 
 const enviar_datos_tarjeta = async(p_id, pnombre_tarjeta, pnum_tarjeta, pcod_seguridad, pfecha_expr) => {
 
-    console.log('El nombre en la tarjeta es: ' + p_id);
+    console.log('El ID del usuario es: ' + p_id);
     console.log('El nombre en la tarjeta es: ' + pnombre_tarjeta);
     console.log('El numero de la tarjeta es: ' + pnum_tarjeta);
     console.log('El codigo de seguridad es: ' + pcod_seguridad);
     console.log('La fecha de expiracion es: ' + pfecha_expr);
 
     await axios({
-        method: 'post',
+        method: 'put',
         url: 'http://localhost:3000/api/registrar-tarjeta',
         responseType: 'json',
         data: {
