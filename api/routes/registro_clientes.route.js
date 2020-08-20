@@ -79,10 +79,12 @@ router.put('/otp-cliente', (req, res) => {
     );
 });
 
-router.put('/modificar-cliente', (req, res) => {
+router.put('/modificar-reserva-cliente', (req, res) => {
 
-    Cliente.updateOne({ _id: req.body._id }, {
-            $set: req.body
+    Cliente.update({ '_id': req.body._id }, {
+            $set: {
+                id_reserva_activa: req.body.id_reserva_activa
+            }
         }, (err, info) => {
             if (err) {
                 res.json({
