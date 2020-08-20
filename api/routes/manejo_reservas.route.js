@@ -94,4 +94,23 @@ router.get('/buscar-reserva-id', (req, res) => {
     })
 });
 
+router.delete('/eliminar-reserva', (req, res) => {
+
+    Reserva.deleteOne({ _id: req.body._id }, {
+        $set: req.body
+    }, (err, borrado) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'No se ha podido eliminar la reserva' + err,
+                err
+            })
+        } else {
+            res.json({
+                borrado
+            });
+        }
+    })
+});
+
 module.exports = router;

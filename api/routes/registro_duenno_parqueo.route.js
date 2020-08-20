@@ -136,7 +136,7 @@ router.delete('/eliminar-duenno-parqueo', (req, res) => {
         if (err) {
             res.json({
                 resultado: false,
-                msj: 'No se ha podido eliminair al duenno del parqueo' + err,
+                msj: 'No se ha podido eliminar al duenno del parqueo' + err,
                 err
             })
         } else {

@@ -30,26 +30,7 @@ console.log(contrasennaC);
 let id_cliente;
 
 
-btn_cancelar_reservacion.addEventListener('click', function() {
-    Swal.fire({
-        title: 'Cancelar reservación',
-        text: "¿Estás seguro que deseas cancelar la reservación?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'No',
-        confirmButtonText: 'Sí'
-    }).then((result) => {
-        if (result.value) {
-            Swal.fire(
-                'Reservación cancelada',
-                'La reservación ha sido cancelada exitosamente.',
-                'success'
-            )
-        }
-    })
-});
+
 btn_pagar.addEventListener('click', function() {
     window.location.assign("cl_pagar_pendientes.html");
 });
@@ -109,6 +90,29 @@ const mostrar_reservas = async() => {
                     hora_entrada_reserva.innerHTML = reservas[r].hora_entrada;
                     hora_salida_reserva.innerHTML = reservas[r].hora_salida;
                     estado_reserva.innerHTML = reservas[r].estado_reserva;
+
+                    btn_cancelar_reservacion.addEventListener('click', function() {
+
+                        Swal.fire({
+                            title: 'Cancelar reservación',
+                            text: "¿Estás seguro que deseas cancelar la reservación?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            cancelButtonText: 'No',
+                            confirmButtonText: 'Sí'
+                        }).then((result) => {
+                            if (result.value) {
+                                eliminar_reserva(reservas[r]._id);
+                                Swal.fire(
+                                    'Reservación cancelada',
+                                    'La reservación ha sido cancelada exitosamente.',
+                                    'success'
+                                )
+                            }
+                        })
+                    });
                     if (reservas[r].estado_reserva == 'Paga' || info_clientes[c].id_reserva_activa == 'null') {
 
                         div_parqueo.classList.add('o-ocultar');
