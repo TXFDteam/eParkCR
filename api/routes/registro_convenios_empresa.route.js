@@ -60,7 +60,7 @@ router.post('/agregar-usuario', (req, res) => {
     } else {
         return res.json({
             success: false,
-            msj: 'No se pudo agregar el teléfono, por favor verifique que el _id sea correcto'
+            msj: 'No se pudo agregar el usuario, por favor verifique que el _id sea correcto'
         });
     }
 });
