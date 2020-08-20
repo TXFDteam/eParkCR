@@ -9,7 +9,7 @@ const enviar_datos_tarjeta = async(p_id, pnombre_tarjeta, pnum_tarjeta, pcod_seg
     console.log('La fecha de expiracion es: ' + pfecha_expr);
 
     await axios({
-        method: 'put',
+        method: 'post',
         url: 'http://localhost:3000/api/registrar-tarjeta',
         responseType: 'json',
         data: {
