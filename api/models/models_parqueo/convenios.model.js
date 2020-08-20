@@ -4,10 +4,7 @@
 const mongoose = require('mongoose');
 
 //Atributos para guardar en la colección.
-//Para las redes sociales se deben usar los siguientes datos:
-//Facebook: facebook
-//Twitter: twitter
-//Instagram: instagram
+
 
 const schema_convenio = new mongoose.Schema({
     parqueo: { type: String, required: true, unique: false },
