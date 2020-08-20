@@ -10,6 +10,8 @@ let cedula_parqueo = document.querySelector('#cedula-juridica');
 let permiso_parqueo = document.querySelector('#permiso');
 let ubicacion_parqueo = document.querySelector('#ubicacion-parqueo');
 let espacios_parqueo = document.querySelector('#cant-espacios');
+let hora_entrada = document.querySelector('#hora-entrada');
+let hora_salida = document.querySelector('#hora-salida');
 
 let btn_aceptar = document.querySelector('#btn-aceptar');
 let btn_rechazar = document.querySelector('#btn-rechazar');
@@ -135,6 +137,8 @@ const listar_info_solicitud = (sol, pduenno) => {
     //permiso_parqueo.innerHTML = sol.permiso_funcionamiento;
     ubicacion_parqueo.innerHTML = sol.ubicacion;
     espacios_parqueo.innerHTML = suma_espacios;
+    hora_entrada.innerHTML = sol.hora_apertura;
+    hora_salida.innerHTML = sol.hora_cierre;
 };
 
 
