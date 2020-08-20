@@ -355,7 +355,7 @@ const crear_reserva = () => {
     //return;
 
     //No se puede crear la reserva si el usuario ya tiene una activa.
-    if (usuario_ingresado.id_reserva_activa != "null") {
+    if (usuario_ingresado.id_reserva_activa != "null" || usuario_ingresado.id_reserva_activa == "") {
         Swal.fire({
             icon: 'warning',
             title: 'Oh no, hubo un problema al crear la reserva.',
