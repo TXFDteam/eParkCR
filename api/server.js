@@ -76,3 +76,4 @@ app.use('/api', require('./routes/routes_admin/info_admin.route.js'));
 app.use('/api', require('./routes/manejo_parqueos.route'));
 app.use('/api', require('./routes/manejo_reservas.route'));
 app.use('/api', require('./routes/manejo_comentarios.route'));
+app.use('/api', require('./routes/registro_convenios_empresa.route'));
