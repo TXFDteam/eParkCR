@@ -13,25 +13,32 @@ btn_agregar_tarjeta.addEventListener('click', function() {
 
 
 /* --------------------- Identificador de usuario actual -------------------- */
-const obtener_usuario_ingresado = () => {
-    let contrasenna = localStorage.getItem('contrasenna');
-    let correo = localStorage.getItem('correo');
+let correoC = localStorage.getItem('correo');
+console.log(correoC);
+let contrasennaC = localStorage.getItem('contrasenna');
+console.log(contrasennaC);
 
-    for (let i = 1; i < usuarios.cant_usuarios; i++) {
-        let identificador_usuario = ('usuario' + i);
-        let usuario_actual = usuarios[identificador_usuario];
 
-        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
-            return usuario_actual;
+
+let buscar_info_cliente = async() => {
+
+    let info_clientes = await obtener_clientes();
+    let id;
+    //c va a ser el  contador para encontrar los clientes
+    for (let c = 0; c < info_clientes.length; c++) {
+        if (correoC == info_clientes[c].correo && contrasennaC == info_clientes[c].contraseña) {
+            id = info_clientes[c]._id;
+            console.log(id);
+
         }
-
     }
-    usuario_ingresado = '';
+    return id;
 };
 
+let id_cliente = buscar_info_cliente();
+console.log(id_cliente);
 
 
-const id_usuario = obtener_usuario_ingresado();
 
 
 /* ---------------------- Plantilla de tarjetas ---------------------- */
@@ -99,6 +106,11 @@ const crear_carta_tarjetas = (ptarjeta) => {
 
 /* 2- Inicializar funcion para imprimir */
 const mostrar_tarjetas = () => {
+    let tarjetas = obtener_tarjetas()
+
+    tarjetas.array.forEach(element => {
+
+    });
     for (let i = 1; i <= Object.keys(id_usuario.tarjetas).length; i++) {
         let id_tarjeta = ('tarjeta_' + i);
         crear_carta_tarjetas(id_usuario.tarjetas[id_tarjeta]);

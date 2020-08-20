@@ -2,12 +2,12 @@
 
 const express = require('express');
 const router = express.Router();
-const Cliente = require('../../models/models_usuario/cliente.model');
+const Clientes = require('../../models/models_usuario/cliente.model');
 
 
 router.post('/registrar-tarjeta', (req, res) => {
     if (req.body._id) {
-        Cliente.update({ _id: req.body._id }, {
+        Clientes.update({ _id: req.body._id }, {
                 $push: {
                     'tarjetas': {
                         numero_tarjeta: req.body.pnum_tarjeta,
@@ -39,6 +39,25 @@ router.post('/registrar-tarjeta', (req, res) => {
         });
     }
 });
+
+
+router.get('/listar-tarjetas', (req, res) => {
+    Clientes.find((err, lista_tarjetas) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'Error al recuperar la lista de tarjetas: ' + err
+            })
+        } else {
+            res.json({
+                resultado: true,
+                msj: 'Lista de tarjetas obtenida correctamente.',
+                lista_reservas
+            })
+        }
+    });
+});
+
 
 
 /* router.post('/registrar-tarjeta', (req, res) => {
