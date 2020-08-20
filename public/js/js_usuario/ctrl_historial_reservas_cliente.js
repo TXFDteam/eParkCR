@@ -78,10 +78,7 @@ const listar_historial_reservas = async() => {
                 enlace_recibo.innerText = '(Ver recibo)';
 
                 enlace_recibo.addEventListener('click', () => {
-                    /* ************************* */
-                    /*ENLACE AL RECIBO*/
-                    /* ************************* */
-
+                    window.location.href = `recibo_pago_clientes.html?_id=${reserva._id}`
                 });
 
                 celda_recibo.appendChild(enlace_recibo);

@@ -21,6 +21,24 @@ router.get('/listar-reservas', (req, res) => {
 });
 
 
+router.get('/listar-reserva-id', (req, res) => {
+    Reservas.findOne({ _id: req.query._id }, (err, reserva_bd) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'La reserva no se encontro',
+                err
+            })
+        } else {
+            res.json({
+                reserva_bd
+            });
+        }
+    });
+
+});
+
+
 
 
 module.exports = router;

@@ -16,6 +16,7 @@ const enviar_datos_tarjeta = async(p_id, pnombre_tarjeta, pnum_tarjeta, pcod_seg
             '_id': p_id,
             'numero_tarjeta': pnum_tarjeta,
             'fecha_expiracion': pfecha_expr,
+            'predeterminada': false,
             'nombre_tarjeta': pnombre_tarjeta,
             'codigo_seguridad': pcod_seguridad
         }
