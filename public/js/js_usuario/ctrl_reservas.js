@@ -48,7 +48,11 @@ const ventana_crear_comentario_slt_calificacion = document.querySelector('#slt-c
 //Información del parqueo.
 const banner = document.querySelector('#sct-banner');
 const lbl_nombre_parqueo = document.querySelector('#NOMBRE_PARQUEO');
+const lbl_nombre_duenno = document.querySelector('#NOMBRE_DUENNO_PARQUEO');
+const lbl_correo_duenno = document.querySelector('#EMAIL_DUENNO');
+
 const lbl_calificacion_promedio = document.querySelector('#CALIFICACION_PROMEDIO');
+const lbl_horario_parqueo = document.querySelector('#HORARIO');
 const contenedor_comentarios = document.querySelector('#contenedor-comentarios');
 
 //Elementos para el form de la reserva.
@@ -135,6 +139,20 @@ const obtener_parqueo_actual = async() => {
     */
 };
 
+const obtener_duenno_parqueo_actual = async() => {
+    let info_duennos = await obtener_duennos_parqueo();
+    let id_duenno = String(parqueo_seleccionado.id_duenno);
+
+    //c va a ser el  contador para encontrar los clientes
+    for (let i = 0; i < info_duennos.length; i++) {
+        if (id_duenno == String(info_duennos[i]._id)) {
+            return info_duennos[i];
+        }
+    }
+
+    return null;
+};
+
 //Esta función se usa para crear un icono de red social basado en los parámetros recibidos.
 //<p_clase> La clase que corresponde al icono por mostrar.
 //<p_enlace> El enlace a esa red social.
@@ -168,12 +186,14 @@ const llenar_info_redes_sociales = () => {
 
 //Esta función se debe llamar al inicio para actualizar los datos de la página usando datos del parqueo seleccionado.
 //<p_parqueo> El parqueo del que se va a obtener los datos.
-const llenar_info_parqueo = (p_parqueo) => {
+const llenar_info_parqueo = async(p_parqueo) => {
     if (parqueo_seleccionado == '') {
         return;
     }
 
     let url = "url(" + p_parqueo.imagen_perfil + ")";
+    let info_duenno = await obtener_duenno_parqueo_actual();
+
     //Viejo
     //let url = "url(" + "../../imgs/imgs_parqueos/" + p_parqueo.imagen_perfil + ")";
 
@@ -183,7 +203,10 @@ const llenar_info_parqueo = (p_parqueo) => {
     txt_comentarios_nombre_parqueo.textContent = p_parqueo.nombre;
 
     lbl_calificacion_promedio.textContent = 'Calificación promedio: ' + p_parqueo.calificacion_promedio;
+    lbl_nombre_duenno.textContent = (info_duenno != null) ? "Dueño: " + info_duenno.nombre : "Dueño: Desconocido";
+    lbl_correo_duenno.textContent = (info_duenno != null) ? "Correo: " + info_duenno.correo : "Correo: Desconocido";
 
+    lbl_horario_parqueo.textContent = "Horario: " + p_parqueo.hora_apertura + " - " + p_parqueo.hora_cierre;
     llenar_info_redes_sociales();
 
     //Para mostrar los datos en el mapa.
@@ -610,7 +633,7 @@ const obtener_usuario_ingresado = async() => {
     //c va a ser el  contador para encontrar los clientes
     for (let i = 0; i < info_clientes.length; i++) {
         if (correo == info_clientes[i].correo && contrasenna == info_clientes[i].contraseña) {
-            return usuario_ingresado = info_clientes[i];
+            return info_clientes[i];
         }
     }
 
