@@ -7,10 +7,6 @@ const btn_descargar = document.querySelector('#btn_descargar');
 
 
 
-/* ------------------------ Boton de enlace al recibo ----------------------- */
-let boton_recibo = '<br><a class=\"link_ver_recibo\" href=\"../htmls-usuarios/recibo_pago_clientes.html\"> (Ver recibo)</a>';
-
-
 
 /* ----------------- Opcion descargar reporte para imprimir ----------------- */
 btn_descargar.addEventListener('click', function() {
@@ -22,61 +18,76 @@ btn_descargar.addEventListener('click', function() {
 
 
 /* --------------------- Identificador de usuario actual -------------------- */
-//Para probar el JS se preestablece usuario1: const id_usuario = usuarios.usuario1;
+let correoC = localStorage.getItem('correo');
+console.log(correoC);
+let contrasennaC = localStorage.getItem('contrasenna');
+console.log(contrasennaC);
 
-const obtener_usuario_ingresado = () => {
-    let contrasenna = localStorage.getItem('contrasenna');
-    let correo = localStorage.getItem('correo');
 
-    for (let i = 1; i < usuarios.cant_usuarios; i++) {
-        let identificador_usuario = ('usuario' + i);
-        let usuario_actual = usuarios[identificador_usuario];
 
-        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
-            return usuario_actual;
+let buscar_info_cliente = async() => {
+
+    let info_clientes = await obtener_clientes();
+    let id;
+    //c va a ser el  contador para encontrar los clientes
+    for (let c = 0; c < info_clientes.length; c++) {
+        if (correoC == info_clientes[c].correo && contrasennaC == info_clientes[c].contraseña) {
+            id = info_clientes[c]._id;
+            console.log(id);
+
         }
     }
-
+    return id;
 };
 
+let id_cliente = buscar_info_cliente();
+console.log(id_cliente);
 
 
 
-//const id_usuario = obtener_usuario_ingresado();
-const id_usuario_actual = obtener_usuario_ingresado();
+
+
+const listar_historial_reservas = async() => {
+
+    let reservas = obtener_reservas();
+
+    reservas.forEach(reserva => {
 
 
 
-const listar_historial_reservas = () => {
 
-
-
-    for (let i = 1; i <= reservas.cant_reservas; i++) {
-        let identificador_reserva = ('reserva' + i);
-        /*     console.log('check 2 ' + identificador_reserva);
-               console.log('check 3 ' + reservas[identificador_reserva].id_usuario);
-               console.log('check 4 ' + id_usuario_actual.id_usuario); */
-
-
-
-        if (reservas[identificador_reserva].id_usuario == id_usuario_actual.id_usuario) {
+        if (reserva.id_usuario == id_cliente) {
 
             let fila = tabla_hist_reserv_body.insertRow();
 
 
-            fila.insertCell().innerHTML = reservas[identificador_reserva].fecha_reserva;
-            fila.insertCell().innerHTML = reservas[identificador_reserva].parqueo_seleccionado;
-            fila.insertCell().innerHTML = reservas[identificador_reserva].hora_entrada;
-            fila.insertCell().innerHTML = reservas[identificador_reserva].hora_salida;
+            fila.insertCell().innerHTML = reserva.fecha_reserva;
+            fila.insertCell().innerHTML = reserva.nombre_parqueo;
+            fila.insertCell().innerHTML = reserva.hora_entrada;
+            fila.insertCell().innerHTML = reserva.hora_salida;
 
 
-            if (reservas[identificador_reserva].estado_reserva == 'Paga') {
-                fila.insertCell().innerHTML = ('₡' + reservas[identificador_reserva].monto_final);
-                fila.insertCell().innerHTML = 'Cancelado' + boton_recibo;
+            if (reserva.estado_reserva == 'Paga') {
+                fila.insertCell().innerHTML = ('₡' + reserva.monto_final);
+                fila.insertCell().innerHTML = 'Cancelado';
+                let celda_recibo = fila.insertCell();
+                let enlace_recibo = document.createElement('button');
+                enlace_recibo.type = 'button';
+                enlace_recibo.innerText = 'Ver recibo';
+
+                enlace_recibo.addEventListener('click', () => {
+                    /* ************************* */
+                    /*ENLACE AL RECIBO*/
+                    /* ************************* */
+
+                });
+
+                celda_recibo.appendChild(enlace_recibo);
+
 
             } else {
-                fila.insertCell().innerHTML = ('₡' + reservas[identificador_reserva].monto_total);
-                fila.insertCell().innerHTML = reservas[identificador_reserva].estado_reserva;
+                fila.insertCell().innerHTML = ('₡' + reserva.monto_total);
+                fila.insertCell().innerHTML = reserva.estado_reserva;
             }
 
 
@@ -85,7 +96,7 @@ const listar_historial_reservas = () => {
         }
 
 
-    };
+    });
 };
 
 listar_historial_reservas();

@@ -57,6 +57,7 @@ function handleError(res, reason, message, code) {
 /*-------Conexión a clientes------------*/
 app.use('/api', require('./routes/registro_clientes.route.js'));
 app.use('/api', require('./routes/routes_usuario/formulario_tarjetas.route'));
+app.use('/api', require('./routes/routes_usuario/reservas_usuario.route'));
 
 /*-------Conexión a dueños de parqueo------------*/
 //Solicitud de parqueo

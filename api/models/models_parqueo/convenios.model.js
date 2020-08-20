@@ -4,15 +4,20 @@
 const mongoose = require('mongoose');
 
 //Atributos para guardar en la colección.
-//Para las redes sociales se deben usar los siguientes datos:
-//Facebook: facebook
-//Twitter: twitter
-//Instagram: instagram
+
 
 const schema_convenio = new mongoose.Schema({
-    codigo_convenio: { type: String, required: true, unique: false },
+    id_parqueo: { type: String, required: true, unique: false },
     porcentaje_convenio: { type: Number, required: true, unique: false },
+    fecha_creacion_convenio: { type: String, required: true, unique: false },
     fecha_vencimiento_convenio: { type: String, required: true, unique: false },
+    tipo_tarjeta: { type: String, required: false, unique: false },
+    id_empresa: { type: String, required: false, unique: false },
+    usuarios: [{
+        id_empleado: { type: String, required: true, unique: false },
+        estado: { type: String, required: true, unique: false }
+    }]
+
 });
 
 //Exportar modulo para ser usado en el router desde el servidor.

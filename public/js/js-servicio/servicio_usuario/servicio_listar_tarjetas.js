@@ -1,20 +1,22 @@
 'use strict'
 
-const obtener_reservas = async() => {
-    let reservas;
+
+
+const obtener_tarjetas = async() => {
+    let tarjetas;
 
     await axios({
             method: 'get',
-            url: 'http://localhost:3000/api/listar-reservas',
+            url: 'http://localhost:3000/api/listar-tarjetas',
             responseType: 'json'
         })
         .then((response) => {
-            reservas = response.data;
+            tarjetas = response.data.tarjetas;
         })
         .catch((error) => {
             console.log(error);
         });
-    return reservas;
+    return tarjetas;
 };
 
 
