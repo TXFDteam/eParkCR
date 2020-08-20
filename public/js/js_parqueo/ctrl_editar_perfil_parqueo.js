@@ -81,8 +81,6 @@ const mostrar_info = async() => {
 };
 
 
-
-
 mostrar_info();
 
 const guardar_datos_duenno_parqueo = () => {

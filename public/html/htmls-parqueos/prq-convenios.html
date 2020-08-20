@@ -26,14 +26,22 @@
 
             <h1>Llená la información de tu convenio</h1>
             <div id="contenedor-formConvenios">
-                <label for="codigoConvenio">Código de convenio:</label><br>
-                <input type="text" id="porcentajeDescuento" required><br>
+
 
                 <label for="porcentajeDescuento">Digite el porcentaje de descuento sin el signo % (ej. 20)</label><br>
                 <input type="number" id="porcentajeDescuento" required><br>
 
+                <label for="fechaInicio">Digite o seleccione la fecha de inicio del convenio (ej. 20-02-2021)</label><br>
+                <input type="date" id="fechaInicio" required><br>
+
                 <label for="fechaVencimientoConvenio">Digite o seleccione la fecha de vencimiento (ej. 20-02-2021)</label><br>
                 <input type="date" id="fechaVencimientoConvenio" required><br>
+
+                <label for="empresaAsociada">Seleccione la empresa asociada</label><br>
+                <select id="empresaAsociada" required></select><br>
+
+                <label for="parqueoAsociado">Seleccione el parqueo asociado</label><br>
+                <select id="parqueoAsociado" required></select><br>
 
 
             </div>
@@ -46,6 +54,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../js/js-servicio/registro_duennos_parqueos_servicio.js"></script>
+    <script src="../../js/js-servicio/registrar_servicio_empresa.js"></script>
+    <script src="../../js/js-servicio/registrar_servicio_convenio.js"></script>
+    <script src="../../js/js-servicio/servicio_dueño_parqueo/solicitud_parqueo_servicio.js"></script>
     <script src="../../js/control-sesiones.js"></script>
     <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_parqueo.js"></script>
     <script src="../../js/prq_convenios.js"></script>

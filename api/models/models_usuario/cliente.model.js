@@ -14,7 +14,7 @@ const schema_cliente = new mongoose.Schema({
     estado_general: { type: String, required: true, unique: false },
     otp: { type: Number, required: false, unique: false },
     tarjetas: [{
-        numero_tarjeta: { type: String, required: false, unique: true },
+        numero_tarjeta: { type: String, required: false, unique: false },
         fecha_expiracion: { type: String, required: false, unique: false },
         predeterminada: { type: Boolean, required: false, unique: false },
         nombre_tarjeta: { type: String, required: false, unique: false },

@@ -35,9 +35,6 @@ let buscar_info_cliente = async() => {
     return id;
 };
 
-let id_cliente = buscar_info_cliente();
-console.log(id_cliente);
-
 
 
 
@@ -108,11 +105,16 @@ let tarjetas;
 /* 2- Inicializar funcion para imprimir */
 const mostrar_tarjetas = async() => {
 
-    tarjetas = await obtener_tarjetas()
+    let id_cliente = await buscar_info_cliente();
+    console.log(id_cliente);
 
-    tarjetas.forEach(element => {
+    tarjetas = await obtener_tarjetas(id_cliente);
+    console.log(tarjetas.tarjetas)
 
-        crear_carta_tarjetas()
+
+    tarjetas.tarjetas.forEach(nueva_tarjeta => {
+
+        crear_carta_tarjetas(nueva_tarjeta)
 
 
     });

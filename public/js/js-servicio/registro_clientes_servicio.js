@@ -131,3 +131,19 @@ const eliminar_cliente = async(pid) => {
             console.log(error);
         });
 };
+const eliminar_reserva = async(p_id) => {
+    await axios({
+            method: 'delete',
+            url: 'http://localhost:3000/api/eliminar-reserva',
+            responseType: 'json',
+            data: {
+                _id: p_id
+            }
+        })
+        .then((response) => {
+            console.log('Reserva eliminada con éxito');
+        })
+        .catch((error) => {
+            console.log('Error: ' + error);
+        });
+};
