@@ -10,8 +10,10 @@ const mailer = require('../../templates/confirmacion_aceptacion_parqueo');
 const mailer2 = require('../../templates/rechazo_solicitud_parqueo');
 
 router.put('/actualizar-calificacion-promedio', (req, res) => {
-    Parqueo.updateOne({ _id: req.body._id }, {
-        $set: req.body
+    Parqueo.update({ '_id': req.body._id }, {
+        $set: {
+            calificacion_promedio: req.body.calificacion_promedio
+        }
     }, (err, info) => {
         if (err) {
             res.json({

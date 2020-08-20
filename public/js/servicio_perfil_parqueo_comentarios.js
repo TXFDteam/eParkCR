@@ -1,6 +1,8 @@
 'use strict';
 
 const actualizar_calificacion_promedio_parqueo = async(p_id, p_nueva_calificacion) => {
+    console.log('calificacion promedio: ' + p_nueva_calificacion);
+
     await axios({
             method: 'put',
             url: 'http://localhost:3000/api/actualizar-calificacion-promedio',
@@ -11,7 +13,8 @@ const actualizar_calificacion_promedio_parqueo = async(p_id, p_nueva_calificacio
             }
         })
         .then((response) => {
-            console.log('Datos modificados correctamente(reserva activa)');
+            console.log('Datos modificados correctamente(calificación promedio)');
+            console.log(response);
         })
         .catch((error) => {
             console.log(error);

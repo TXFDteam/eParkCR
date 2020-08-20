@@ -56,6 +56,8 @@ const lbl_horario_parqueo = document.querySelector('#HORARIO');
 const contenedor_comentarios = document.querySelector('#contenedor-comentarios');
 
 //Elementos para el form de la reserva.
+const titulo_reservas = document.querySelector('#titulo-reservas');
+const contenedor_info_reserva = document.querySelector('#contenedor-info-reserva');
 const txt_estado_espacio = document.querySelector('#ESTADO_ESPACIO');
 const txt_espacio_seleccionado = document.querySelector('#txt-espacio-seleccionado');
 const txt_hora_entrada = document.querySelector('#txt-hora-entrada');
@@ -209,9 +211,29 @@ const llenar_info_parqueo = async(p_parqueo) => {
     lbl_horario_parqueo.textContent = "Horario: " + p_parqueo.hora_apertura + " - " + p_parqueo.hora_cierre;
     llenar_info_redes_sociales();
 
-    //Para mostrar los datos en el mapa.
-    //Esta función está en ctrl_mapa_parqueo.js
-    inicializar_mapa(parqueo_seleccionado, true);
+
+    //COMPORTAMIENTO BASADO EN EL USUARIO QUE INGRESÓ.
+    if (usuario_ingresado != null) {
+        //USUARIO CLIENTE
+
+        //Para mostrar los datos en el mapa y que se pueda interactuar con ellos.
+        //Esta función está en ctrl_mapa_parqueo.js
+        inicializar_mapa(parqueo_seleccionado, true);
+    } else {
+        //OTROS USUARIOS
+
+        //Para mostrar los datos en el mapa.
+        //Esta función está en ctrl_mapa_parqueo.js
+        inicializar_mapa(parqueo_seleccionado, false);
+
+        //Desactivar funcionalidad para crear, modificar y eliminar comentarios.
+        btn_crear_modificar_comentario.classList.add('oculto');
+        btn_eliminar_comentario.classList.add('oculto');
+
+        //Desactivar funcionalidad para crear reservas.
+        titulo_reservas.textContent = "Mapa del parqueo";
+        contenedor_info_reserva.classList.add('oculto');
+    }
 };
 
 const hay_espacios_vacios = () => {
@@ -447,16 +469,15 @@ const actualizar_calificacion_promedio = async(p_estrellas = 0, p_comentario_eli
     let acumulado = 0;
     let total_comentarios = calificaciones_comentarios.length
     for (let i = 0; i < total_comentarios; i++) {
-        acumulado += calificaciones_comentarios[i];
+        acumulado += Number(calificaciones_comentarios[i]);
     }
 
-    if (p_comentario_eliminado == true) {
-        acumulado -= p_estrellas;
-        total_comentarios--;
+    if (p_comentario_eliminado == false) {
+        acumulado += Number(p_estrellas);
+        total_comentarios++;
     }
 
     let promedio = (total_comentarios > 0) ? acumulado / total_comentarios : 0;
-
     //ACTUALIZAR CALIFICACION EN PARQUEO.
     await actualizar_calificacion_promedio_parqueo(parqueo_seleccionado._id, promedio);
 }
@@ -512,8 +533,6 @@ const obtener_comentarios = async() => {
     let contador = 0;
 
     lista_comentarios.forEach(obj_comentario => {
-        console.log(obj_comentario);
-
         //Muestra solo los comentarios que corresponden a este parqueo.
         if (String(obj_comentario.id_parqueo) == String(parqueo_seleccionado._id)) {
             //Guardar una copia del comentario que dejó el usuario en este parqueo.
@@ -522,9 +541,13 @@ const obtener_comentarios = async() => {
                 comentario_usuario_ingresado = obj_comentario;
                 btn_crear_modificar_comentario.textContent = 'Modificar reseña';
                 btn_eliminar_comentario.classList.remove('oculto');
+            } else {
+                //Tener todas las calificaciones guardadas para sacar el promedio.
+                //Excepto la del usuario actual, esa se agrega cuando se crea, modifica o elimina ese comentario.
+                calificaciones_comentarios[contador] = obj_comentario.cantidad_estrellas;
+                contador++;
             }
 
-            calificaciones_comentarios[contador] = obj_comentario.cantidad_estrellas;
             crear_carta_comentario(obj_comentario);
         }
     });
@@ -604,7 +627,7 @@ const publicar_comentario = async() => {
     ocultar_ventana_crear_comentario();
     //Actualiza los comentarios.
 
-    actualizar_calificacion_promedio(estrellas, false);
+    await actualizar_calificacion_promedio(estrellas, false);
     obtener_comentarios();
 };
 
@@ -620,7 +643,7 @@ const eliminar_comentario = async() => {
         //Actualizar lista de comentarios.
         btn_crear_modificar_comentario.textContent = 'Crear reseña';
         btn_eliminar_comentario.classList.add('oculto');
-        actualizar_calificacion_promedio(0, true);
+        await actualizar_calificacion_promedio(0, true);
         obtener_comentarios();
     }
 };
