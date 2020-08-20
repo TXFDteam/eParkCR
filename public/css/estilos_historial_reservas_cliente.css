@@ -10,41 +10,20 @@
     margin: 40px;
 }
 
-
-/* table {
-    border-collapse: collapse;
-    width: 1000px;
-}
-
-#tablahistorial td {
-    width: 10%;
-    padding: 10px;
-    text-align: center;
-}
-
-#tablahistorial thead {
-    background-color: #f7835f;
-    border-bottom: 2px solid black;
-}
-
-#tablahistorial thead td {
-    padding: 30px 0;
-}
-
-#tablahistorial tbody tr:nth-child(even) {
-    background-color: #f9fc61;
-}
-
-#tablahistorial tbody tr:nth-child(odd) {
-    background-color: #fdff86;
-} */
-
-#principal_hist_reservas button {
+#btn_descargar {
     margin-top: 50px;
 }
 
-.link_ver_recibo {
-    color: rgb(219, 176, 33);
+.recibo {
+    background: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.recibo:hover {
+    background: none;
+    color: black;
+    text-decoration-line: underline;
 }
 
 @media print {

@@ -109,8 +109,8 @@ const mostrar_tarjetas = async() => {
     console.log(id_cliente);
 
     tarjetas = await obtener_tarjetas(id_cliente);
-
     console.log(tarjetas.tarjetas)
+
 
     tarjetas.tarjetas.forEach(nueva_tarjeta => {
 
