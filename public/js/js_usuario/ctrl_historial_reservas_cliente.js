@@ -40,16 +40,17 @@ let buscar_info_cliente = async() => {
     return id;
 };
 
-let id_cliente = buscar_info_cliente();
-console.log(id_cliente);
-
 
 
 
 
 const listar_historial_reservas = async() => {
 
-    let reservas = obtener_reservas();
+    let id_cliente = await buscar_info_cliente();
+    console.log(id_cliente);
+
+    let reservas = await obtener_reservas(id_cliente);
+    console.log(reservas);
 
     reservas.forEach(reserva => {
 
@@ -67,13 +68,14 @@ const listar_historial_reservas = async() => {
             fila.insertCell().innerHTML = reserva.hora_salida;
 
 
-            if (reserva.estado_reserva == 'Paga') {
-                fila.insertCell().innerHTML = ('₡' + reserva.monto_final);
+            if (reserva.estado_reserva == 'PAGA') {
+                fila.insertCell().innerHTML = ('₡' + new Number(reserva.monto_final).toFixed(2));
                 fila.insertCell().innerHTML = 'Cancelado';
                 let celda_recibo = fila.insertCell();
                 let enlace_recibo = document.createElement('button');
                 enlace_recibo.type = 'button';
-                enlace_recibo.innerText = 'Ver recibo';
+                enlace_recibo.classList.add('recibo');
+                enlace_recibo.innerText = '(Ver recibo)';
 
                 enlace_recibo.addEventListener('click', () => {
                     /* ************************* */
@@ -86,8 +88,9 @@ const listar_historial_reservas = async() => {
 
 
             } else {
-                fila.insertCell().innerHTML = ('₡' + reserva.monto_total);
+                fila.insertCell().innerHTML = ('₡' + new Number(reserva.monto_total).toFixed(2));
                 fila.insertCell().innerHTML = reserva.estado_reserva;
+                fila.insertCell().innerHTML = ' '
             }
 
 
