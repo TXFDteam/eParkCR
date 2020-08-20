@@ -10,9 +10,12 @@ const mongoose = require('mongoose');
 //Instagram: instagram
 
 const schema_convenio = new mongoose.Schema({
+    parqueo: { type: String, required: true, unique: false },
     codigo_convenio: { type: String, required: true, unique: false },
     porcentaje_convenio: { type: Number, required: true, unique: false },
     fecha_vencimiento_convenio: { type: String, required: true, unique: false },
+    empresa: { type: String, required: true, unique: false },
+
 });
 
 //Exportar modulo para ser usado en el router desde el servidor.
