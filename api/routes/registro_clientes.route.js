@@ -20,21 +20,21 @@ router.post('/registrar-cliente', (req, res) => {
         contraseña: datos.contraseña,
         foto_perfil: datos.foto_perfil,
         id_reserva_activa: 'null',
-        estado_general: 'DESACTIVAR'
+        estado_general: 'DESACTIVAR',
     });
 
     cliente_nuevo.save((err, cliente_almacenado) => {
         if (err) {
             res.json({
                 success: false,
-                msj: 'El usuario no se pudo registrar ocurrió el siguiente error',
-                err
+                msj: 'El usuario no se pudo registrar ocurrió el siguiente error' +
+                    err
             })
         } else {
             res.json({
                 success: true,
-                msj: 'El usuario se registró correctamente',
-                cliente_almacenado
+                msj: 'El usuario se registró correctamente' +
+                    cliente_almacenado
             })
         }
     });

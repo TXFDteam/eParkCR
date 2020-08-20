@@ -1,14 +1,14 @@
 'use strict'
 
-
-
-const obtener_tarjetas = async() => {
+const obtener_tarjetas = async(pid) => {
     let tarjetas;
 
     await axios({
             method: 'get',
+            params: { _id: pid },
             url: 'http://localhost:3000/api/listar-tarjetas-id',
             responseType: 'json'
+
         })
         .then((response) => {
             tarjetas = response.data.tarjetas;
@@ -16,8 +16,13 @@ const obtener_tarjetas = async() => {
         .catch((error) => {
             console.log(error);
         });
+
     return tarjetas;
+
 };
+
+
+
 
 
 
