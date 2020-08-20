@@ -68,6 +68,7 @@
 /*Estilos del banner*/
 
 #sct-banner {
+    background-color: #cecece;
     background-size: cover;
     background-position: center;
     display: flex;

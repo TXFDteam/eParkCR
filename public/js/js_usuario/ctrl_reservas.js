@@ -56,6 +56,8 @@ const lbl_horario_parqueo = document.querySelector('#HORARIO');
 const contenedor_comentarios = document.querySelector('#contenedor-comentarios');
 
 //Elementos para el form de la reserva.
+const titulo_reservas = document.querySelector('#titulo-reservas');
+const contenedor_info_reserva = document.querySelector('#contenedor-info-reserva');
 const txt_estado_espacio = document.querySelector('#ESTADO_ESPACIO');
 const txt_espacio_seleccionado = document.querySelector('#txt-espacio-seleccionado');
 const txt_hora_entrada = document.querySelector('#txt-hora-entrada');
@@ -209,9 +211,29 @@ const llenar_info_parqueo = async(p_parqueo) => {
     lbl_horario_parqueo.textContent = "Horario: " + p_parqueo.hora_apertura + " - " + p_parqueo.hora_cierre;
     llenar_info_redes_sociales();
 
-    //Para mostrar los datos en el mapa.
-    //Esta función está en ctrl_mapa_parqueo.js
-    inicializar_mapa(parqueo_seleccionado, true);
+
+    //COMPORTAMIENTO BASADO EN EL USUARIO QUE INGRESÓ.
+    if (usuario_ingresado != null) {
+        //USUARIO CLIENTE
+
+        //Para mostrar los datos en el mapa y que se pueda interactuar con ellos.
+        //Esta función está en ctrl_mapa_parqueo.js
+        inicializar_mapa(parqueo_seleccionado, true);
+    } else {
+        //OTROS USUARIOS
+
+        //Para mostrar los datos en el mapa.
+        //Esta función está en ctrl_mapa_parqueo.js
+        inicializar_mapa(parqueo_seleccionado, false);
+
+        //Desactivar funcionalidad para crear, modificar y eliminar comentarios.
+        btn_crear_modificar_comentario.classList.add('oculto');
+        btn_eliminar_comentario.classList.add('oculto');
+
+        //Desactivar funcionalidad para crear reservas.
+        titulo_reservas.textContent = "Mapa del parqueo";
+        contenedor_info_reserva.classList.add('oculto');
+    }
 };
 
 const hay_espacios_vacios = () => {
