@@ -106,7 +106,7 @@ const obtener_datos = () => {
     let error = validar();
     if (error == true) {
         Swal.fire({
-            'title': "No se ha podido registrar el usuario",
+            'title': "No se ha podido registrar el convenio",
             'icon': 'warning',
             'text': 'Revise los campos resaltados'
         });
@@ -116,7 +116,7 @@ const obtener_datos = () => {
         Swal.fire({
             'title': 'El convenio se registro correctamente',
             'icon': "success",
-            'text': 'Revise la información correo'
+            'text': 'Revise la información'
         });
 
 
