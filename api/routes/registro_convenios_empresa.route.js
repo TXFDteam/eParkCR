@@ -8,11 +8,11 @@ const Convenio = require('../models/models_parqueo/convenios.model.js');
 router.post('/registrar_convenio', (req, res) => {
     let datos = req.body;
     let convenio_nuevo = new Convenio({
-        id_parqueo: datos.id_parqueo,
+        parqueo: datos.parqueo,
         porcentaje_convenio: datos.porcentaje_convenio,
         fecha_creacion_convenio: datos.fecha_creacion_convenio,
         fecha_vencimiento_convenio: datos.fecha_vencimiento_convenio,
-        id_empresa: datos.id_empresa
+        empresa: datos.empresa
     });
 
     convenio_nuevo.save((err, convenioDB) => {

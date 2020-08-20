@@ -1,15 +1,15 @@
 'use strict';
 
-const registrar_convenio = async(pid_parqueo, pporcentaje_convenio, pfecha_creacion_convenio, pfecha_vencimiento_convenio, pid_empresa) => {
+const registrar_convenio = async(pparqueo, pporcentaje_convenio, pfecha_creacion_convenio, pfecha_vencimiento_convenio, pempresa) => {
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/registrar_convenio',
         data: {
-            'id_parqueo': pid_parqueo,
+            'parqueo': pparqueo,
             'porcentaje_convenio': pporcentaje_convenio,
             'fecha_creacion_convenio': pfecha_creacion_convenio,
             'fecha_vencimiento_convenio': pfecha_vencimiento_convenio,
-            'id_empresa': pid_empresa
+            'empresa': pempresa
         }
     }).then(response => {
         console.log(response)

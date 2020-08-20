@@ -33,10 +33,10 @@ obtener_id();
 
 const select_empresas = async() => {
     let empresas = await obtener_empresas(); // se invoca al arreglo de tarjetas de la base de datos
-    let select = document.querySelector('#empresaAsociada') // se invoca al select del editar_perfil_cliente.html
+    let select = document.querySelector('#empresaAsociada');
 
 
-    for (let e = 0; e < empresas.length; e++) { // ciclo que recorre las tarjetas del cliente
+    for (let e = 0; e < empresas.length; e++) { // ciclo que recorre las empresas
         let option = document.createElement("option"); // se crea el elemento opcion
         option.innerHTML = empresas[e].nombre; //Se le da el valor a esa opcion
         select.appendChild(option); // se inserta la opcion en el select
@@ -49,8 +49,8 @@ select_empresas();
 
 
 const select_parqueos = async() => {
-    let parqueos = await obtener_parqueos(); // se invoca al arreglo de tarjetas de la base de datos
-    let select2 = document.querySelector('#parqueoAsociado') // se invoca al select del editar_perfil_cliente.html
+    let parqueos = await obtener_parqueos(); // se invoca al arreglo de parqueos
+    let select2 = document.querySelector('#parqueoAsociado')
 
 
     for (let p = 0; p < parqueos.length; p++) {
@@ -114,9 +114,9 @@ const obtener_datos = () => {
     } else {
         // Impresion de los valores del formulario
         Swal.fire({
-            'title': 'El usuario se registro correctamente',
+            'title': 'El convenio se registro correctamente',
             'icon': "success",
-            'text': 'Revise su correo electronico'
+            'text': 'Revise la información correo'
         });
 
 
@@ -136,7 +136,7 @@ const obtener_datos = () => {
         console.log('Empresa: ', selectEmpresa);
         console.log('Parqueo: ', selectParqueo);
 
-        registrar_convenio(pid_parqueo, pporcentaje_convenio, pfecha_creacion_convenio, pfecha_vencimiento_convenio, pid_empresa);
+        registrar_convenio(selectParqueo, porcentajeDescuento, fechaInicio, fechaVencimiento, selectEmpresa);
 
     }
 };
