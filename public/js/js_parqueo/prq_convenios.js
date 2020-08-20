@@ -136,7 +136,7 @@ const obtener_datos = () => {
         console.log('Empresa: ', selectEmpresa);
         console.log('Parqueo: ', selectParqueo);
 
-        registrar_convenio();
+        registrar_convenio(pid_parqueo, pporcentaje_convenio, pfecha_creacion_convenio, pfecha_vencimiento_convenio, pid_empresa);
 
     }
 };
