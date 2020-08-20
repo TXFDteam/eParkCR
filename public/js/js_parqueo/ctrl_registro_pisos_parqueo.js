@@ -135,4 +135,6 @@ actualizar_datos_piso(0);
 
 
 //Eventos
-btn_crearParqueo.addEventListener('click', crear_pisos_parqueo);
+if (btn_crearParqueo != null) {
+    btn_crearParqueo.addEventListener('click', crear_pisos_parqueo);
+}

@@ -4,28 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar parqueo </title>
-
-
+    <title>Editar parqueo</title>
 
     <link rel="stylesheet" href="../../css/reset.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
     <link rel="stylesheet" href="../../css/estilos-generales.css">
-    <link rel="stylesheet" href="../../css/css-parqueos/editar_parqueo.css">
-
-
+    <link rel="stylesheet" href="../../css/prq_registro_espacios.css">
 </head>
 
 <body>
-
-
-
     <main>
-
-        <!--Menu Lateral y Nav Principal-->
-
-
         <div class="nav-principal">
             <a href="" id="link-inicio">eParkCR</a>
             <div class="nav-derecha">
@@ -33,128 +22,112 @@
             </div>
         </div>
 
-        <section id="contenedor-perfil">
-            <div class="menu-lateral">
 
+        <div id='header'>
+            <h1>Editar parqueo</h1>
+        </div>
 
+        <div class='col-container'>
+            <div id='col1' class='col'>
 
-                <a href="" id="convenios-parqueo">Convenios</a>
-                <a href="" id="mis-parqueos">Mis Parqueos</a>
-                <a href="" id="historial-reservas-parqueo">Historial de reservas</a>
-                <a href="" id="reportes-parqueo">Reportes</a>
-                <a href="" id="config-cuenta">Configuración de Cuenta</a>
+                <label for='nombre_parqueo'>Nombre del parqueo</label><br>
+                <input type='text' id='nombre-parqueo' required disabled><br>
+
+                <label for='cedulaJuridica'>Cédula Jurídica</label><br>
+                <input type='text' id='cedula-juridica' required disabled><br>
+
+                <label for='correo'>Correo electrónico</label><br>
+                <input type='email' id='correo' required disabled><br>
+
+                <label for='tarifa'>Tarifa</label><br>
+                <input type='number' id='tarifa' required><br>
+
+                <label for='horaApertura'>Hora de apertura</label><br>
+                <input type='time' id='hora-apertura' required><br>
+
+                <label for='horaCierre'>Hora de cierre</label><br>
+                <input type='time' id='hora-cierre' required><br>
+
+                <label for='ubicacion'>Ubicación</label><br>
+                <input type='text' id='ubicacion' required disabled><br>
             </div>
 
-            <div class="contenedor-info-perfil">
+            <div id='col2' class='col'>
+                <label for='pisos'>Pisos del parqueo</label><br>
+                <input type='number' id='pisos' required><br>
+
+                <label for='pisosDropdown'>Piso seleccionado</label><br>
+                <select id='pisosDropdown' name='pisos_select' required>
+                    <option>1</option>
+                </select><br>
+
+                <label for='espaciosDiscapacidad'>Espacios para personas con dispacidad</label><br>
+                <input type='number' id='espaciosDiscapacidad' required><br>
+
+                <label for='espaciosMotos'>Espacios para motos</label><br>
+                <input type='number' id='espaciosMotos' required><br>
+
+                <label for='espaciosAuto'>Espacios para automóviles</label><br>
+                <input type='number' id='espaciosAuto' required><br>
 
 
+                <h3>Enlaces de tus redes sociales:</h3>
+                <label for='facebook'>Facebook</label><br>
+                <input type='text' id='facebook'><br>
 
+                <label for='instagram'>Instagram</label><br>
+                <input type='text' id='instagram'><br>
 
-
-                <div class="perfil-superior">
-                    <h1>Edita tus parqueos</h1>
-
-
-                </div>
-
-                <div class="info-perfil">
-
-
-                    <form id="editar-parqueo">
-                        <div>
-                            <label for="seleccionar-parqueo">Selecciona el parqueo:</label>
-
-                        </div>
-
-
-                        <select name="arreglo-parqueos" id="arreglo-parqueos">
-                                <option value = "0" >Seleccione</option>
-                                <option value = "1" id = "parqueo-1">Parqueo 1</option>
-                                <option value = "2" id = "parqueo-2">Parqueo 2</option>
-                                <option value = "3" id = "parqueo-3">Parqueo 3</option>
-
-                                
-                        </select>
-
-
-                        <div>
-
-                            <label for="nueva-tarifa-parqueo">Tarifa del parqueo:</label>
-                        </div>
-                        <div>
-                            <span>₡</span> <input type="number" id="nueva-tarifa-parqueo">
-                        </div>
-
-                        <div>
-
-                            <label for="nueva-hora-apertura">Hora de apertura:</label>
-                        </div>
-                        <div>
-
-                            <input type="time" id="nueva-hora-apertura">
-                        </div>
-
-                        <div>
-
-                            <label for="nueva-hora-salida">Hora de salida:</label>
-                        </div>
-
-                        <div>
-                            <input type="time" id="nueva-hora-salida">
-
-                        </div>
-
-                        <div>
-                            <label for="nueva-foto-banner-parqueo">Imagen para el banner:</label>
-                        </div>
-
-                        <div>
-                            <input type="file" id="nueva-foto-banner-parqueo" accept="image/png, image/jpeg">
-
-                        </div>
-
-
-                        <div>
-                            <label for="nueva-foto-perfil-parqueo">Imagen de perfil:</label>
-                        </div>
-                        <div>
-                            <input type="file" id="nueva-foto-perfil-parqueo" accept="image/png, image/jpeg">
-                        </div>
-
-
-
-
-                    </form>
-
-
-
-                </div>
-
-                <div class="botones">
-
-                    <div>
-                        <button id="btn-volver-parqueos">Regresar a parqueos</button>
-                    </div>
-
-                    <div>
-                        <button id="btn-guardar-datos-parqueo">Guardar cambios</button>
-                    </div>
-                </div>
+                <label for='twitter'>Twitter</label><br>
+                <input type='text' id='twitter'><br>
             </div>
 
-        </section>
 
+            <div id='col3' class='col'>
+                <p id="labelPerfil">Imagen para cartas</p>
+
+                <div class='file_upload' id="file_upload2">
+                    <div id="left">
+                        <img id="imagen_parqueo_perfil">
+                    </div>
+
+                    <div id="right">
+                        <button type="button" id="imagenPerfil">Adjuntar</button>
+                    </div>
+
+                    <p id="labelBanner">Imagen para banner en perfil</p>
+                </div>
+                <div class='file_upload' id="file_upload3">
+                    <div id="left">
+                        <img id="imagen_parqueo_banner">
+                    </div>
+
+                    <div id="right">
+                        <button type="button" id="imagenBanner">Adjuntar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id='rowBotones'>
+            <button type="button" id='btn-guardar-cambios' class="btn">Guardar cambios</button>
+            <button type="button" id='btn-cancelar' class="btn">Cancelar</button>
+        </div>
     </main>
 
-    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../js/simulador_bd.js"></script>
-    <script src="../../js/js-servicio/registro_duennos_parqueos_servicio.js"></script>
-    <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_parqueo.js"></script>
+
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+    <script src="../../js/control-sesiones.js"></script>
+
+    <script src="../../js/js-servicio/servicio_dueño_parqueo/servicio_registro_imagenPerfil_parqueo.js"></script>
+    <script src="../../js/js-servicio/servicio_dueño_parqueo/servicio_registro_imagenBanner_parqueo.js"></script>
+
+    <script src="../../js/servicio_perfil_parqueo_reservas.js"></script>
+    <script src="../../js/prq_registroEspacios.js"></script>
     <script src="../../js/js_parqueo/ctrl_editar_parqueos.js"></script>
-
-
 
 </body>
 
