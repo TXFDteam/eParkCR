@@ -7,11 +7,16 @@ const mongoose = require('mongoose');
 
 
 const schema_convenio = new mongoose.Schema({
-    parqueo: { type: String, required: true, unique: false },
-    codigo_convenio: { type: String, required: true, unique: false },
+    id_parqueo: { type: String, required: true, unique: false },
     porcentaje_convenio: { type: Number, required: true, unique: false },
+    fecha_creacion_convenio: { type: String, required: true, unique: false },
     fecha_vencimiento_convenio: { type: String, required: true, unique: false },
-    empresa: { type: String, required: true, unique: false },
+    tipo_tarjeta: { type: String, required: false, unique: false },
+    id_empresa: { type: String, required: false, unique: false },
+    usuarios: [{
+        id_empleado: { type: String, required: true, unique: false },
+        estado: { type: String, required: true, unique: false }
+    }]
 
 });
 
