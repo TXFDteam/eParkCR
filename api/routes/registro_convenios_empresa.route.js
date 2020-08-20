@@ -12,7 +12,6 @@ router.post('/registrar_convenio', (req, res) => {
         porcentaje_convenio: datos.porcentaje_convenio,
         fecha_creacion_convenio: datos.fecha_creacion_convenio,
         fecha_vencimiento_convenio: datos.fecha_vencimiento_convenio,
-        tipo_tarjeta: datos.tipo_tarjeta,
         id_empresa: datos.id_empresa
     });
 
