@@ -103,18 +103,20 @@ const crear_carta_tarjetas = (ptarjeta) => {
 
 
 
+let tarjetas;
 
 /* 2- Inicializar funcion para imprimir */
-const mostrar_tarjetas = () => {
-    let tarjetas = obtener_tarjetas()
+const mostrar_tarjetas = async() => {
 
-    tarjetas.array.forEach(element => {
+    tarjetas = await obtener_tarjetas()
+
+    tarjetas.forEach(element => {
+
+        crear_carta_tarjetas()
+
 
     });
-    for (let i = 1; i <= Object.keys(id_usuario.tarjetas).length; i++) {
-        let id_tarjeta = ('tarjeta_' + i);
-        crear_carta_tarjetas(id_usuario.tarjetas[id_tarjeta]);
-    };
+
 
 };
 

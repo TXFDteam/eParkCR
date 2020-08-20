@@ -7,7 +7,7 @@ const obtener_tarjetas = async() => {
 
     await axios({
             method: 'get',
-            url: 'http://localhost:3000/api/listar-tarjetas',
+            url: 'http://localhost:3000/api/listar-tarjetas-id',
             responseType: 'json'
         })
         .then((response) => {
