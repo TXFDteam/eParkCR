@@ -25,41 +25,25 @@ btn_descargar.addEventListener('click', function() {
 
 
 
-//Variables globales
-let contrasenna = localStorage.getItem('contrasenna');
-let correo = localStorage.getItem('correo');
 
-
-
-/* --------------------- Identificador de usuario actual -------------------- */
-const obtener_usuario_ingresado = () => {
-
-    for (let i = 1; i < usuarios.cant_usuarios; i++) {
-        let identificador_usuario = ('usuario' + i);
-        let usuario_actual = usuarios[identificador_usuario];
-
-        if (correo == usuario_actual.correo_usuario && contrasenna == usuario_actual.contraseña) {
-            return usuario_actual;
-        }
-    }
-};
-
-
-/* -------- Constantes para identificar el usuario y reserva actuales ------- */
-const id_usuario = obtener_usuario_ingresado();
-const numreserva = 'reserva7'; //Se toma la reserva 7 para corroborar que el codigo funcione correctamente
-
+/* -------- Identificar la reserva actual ------- */
+const numreserva = obtener_reserva_id_url('_id');
+console.log('El ID de la reserva es: ' + numreserva);
 
 
 /* ---------------------- Imprimir los datos del recibo --------------------- */
-const mostrar_recibo = (pnumreserva) => {
+const mostrar_recibo = async() => {
+
+    let reserva = await obtener_reservas(numreserva);
+    console.log('La informacion de la reserva es: ');
+    console.log(reserva);
 
     //Extraigo la informacion de la base de datos
-    let parqueo = (reservas[pnumreserva].parqueo_seleccionado);
-    let fecha = (reservas[pnumreserva].fecha_reserva);
-    let horas = (reservas[pnumreserva].horas);
-    let monto = (reservas[pnumreserva].monto_final);
-    let tarjeta = ('*** ' + reservas[pnumreserva].tarjeta_creditada.numero_tarjeta[15] + reservas[pnumreserva].tarjeta_creditada.numero_tarjeta[16] + reservas[pnumreserva].tarjeta_creditada.numero_tarjeta[17] + reservas[pnumreserva].tarjeta_creditada.numero_tarjeta[18]);
+    let parqueo = (reserva.nombre_parqueo);
+    let fecha = (reserva.fecha_reserva);
+    let horas = (reserva.horas);
+    let monto = (reserva.monto_final);
+    let tarjeta = ('*** ' + reserva.tarjeta_creditada[15] + reserva.tarjeta_creditada[16] + reserva.tarjeta_creditada[17] + reserva.tarjeta_creditada[18]);
 
     //Crear los espacios para imprimir los datos
     let datoParqueo = document.createElement('p');
@@ -87,6 +71,5 @@ const mostrar_recibo = (pnumreserva) => {
 
 
 /* ------------- (Solo imprime los datos si el recibo esta pagado) ------------ */
-if (reservas[numreserva].estado_reserva == 'Paga') {
-    mostrar_recibo(numreserva);
-}
+
+mostrar_recibo();

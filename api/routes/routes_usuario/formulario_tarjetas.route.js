@@ -5,16 +5,16 @@ const router = express.Router();
 const Tarjetas = require('../../models/models_usuario/cliente.model');
 
 
-router.put('/registrar-tarjeta', (req, res) => {
+router.post('/registrar-tarjeta', (req, res) => {
     if (req.body._id) {
         Tarjetas.update({ _id: req.body._id }, {
                 $push: {
                     'tarjetas': {
-                        numero_tarjeta: req.body.pnum_tarjeta,
-                        fecha_expiracion: req.body.pfecha_expr,
+                        numero_tarjeta: req.body.numero_tarjeta,
+                        fecha_expiracion: req.body.fecha_expiracion,
 
-                        nombre_tarjeta: req.body.pnombre_tarjeta,
-                        codigo_seguridad: req.body.pcod_seguridad
+                        nombre_tarjeta: req.body.nombre_tarjeta,
+                        codigo_seguridad: req.body.codigo_seguridad
                     }
                 }
             },
@@ -24,6 +24,7 @@ router.put('/registrar-tarjeta', (req, res) => {
                     return res.json({
                         success: false,
                         msj: 'No se pudo agregar la tarjeta',
+                        err
                     });
                 } else {
                     return res.json({
