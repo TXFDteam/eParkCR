@@ -158,8 +158,8 @@
 #sct-comentarios #contenedor-superior #contenedor-botones-comentario {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    flex-flow: 1;
+    justify-content: flex-end;
+    width: 30%;
 }
 
 #sct-comentarios #contenedor-comentarios {
