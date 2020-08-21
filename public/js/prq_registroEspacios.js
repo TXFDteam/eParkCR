@@ -39,7 +39,7 @@ const input_foto_banner = document.querySelector('#imagen_parqueo_banner');
 
 //Esta variable se usa para ser enviada en el request.
 let pisos_final;
-let nombre_duenno;
+let duenno_actual;
 //
 
 btn_cancelar.addEventListener('click', function() {
@@ -126,7 +126,7 @@ const obtener_datos = async() => {
         Swal.fire({
             'title': "No se ha podido registrar el parqueo",
             'icon': 'warning',
-            'text': 'Revise los campos resaltados'
+            'text': 'Revisá los campos resaltados'
         });
 
     } else {
@@ -183,9 +183,9 @@ const obtener_datos = async() => {
         directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, id_duenno, correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final);
 
         //Registro en la bitácora.
-        let fecha_actual = new Date();
-        let ref_fecha_actual = fecha_actual.getDate() + '/' + fecha_actual.getMonth() + '/' + fecha_actual.getFullYear();
-        await crear_accion_app(duenno_actual.nombre, 'Dueño parqueo', nombreParqueo, ref_fecha_actual, 'Crear parqueo');
+        //let fecha_actual = new Date();
+        //let ref_fecha_actual = fecha_actual.getDate() + '/' + fecha_actual.getMonth() + '/' + fecha_actual.getFullYear();
+        //await crear_accion_app(duenno_actual.nombre, 'Dueño parqueo', nombreParqueo, ref_fecha_actual, 'Crear parqueo');
 
         Swal.fire({
             'title': 'La solicitud del parqueo se envió correctamente',
