@@ -19,22 +19,45 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
 
     '</div>';
 
-let correo_actual = localStorage.getItem('correo');
-let contrasenna_actual = localStorage.getItem('contrasenna');
+
+let nombre_empresa;
+
+let id;
+
+let correo_actual = localStorage.getItem('correo_empresa');
+let contrasenna_actual = localStorage.getItem('contraseña_empresa');
 console.log(correo_actual);
 
 
-const convenios = async() => {
+const convenios_obtener = async() => {
 
     let lista_de_convenios = await obtener_convenios();
 
+    return lista_de_convenios;
+
 }
 
+const obtener_nombre_empresa = async() => {
+
+    let info_empresas = await obtener_empresas();
+    for (let e = 0; e < info_empresas.length; e++) {
+        if (correoE == info_empresas[e].correo && contrasennaE == info_empresas[e].contraseña) {
+            id = info_empresas[e]._id;
+            nombre_empresa = info_empresas[e].nombre;
+
+            console.log(id);
+            console.log(nombre_empresa);
 
 
 
+            break;
+        }
+    }
 
 
+
+}
+obtener_nombre_empresa();
 
 
 
@@ -82,6 +105,10 @@ const crear_cuadro_convenio = (p_convenio) => {
 
 };
 let mostrar_convenios = () => {
+
+
+    let convenios_empresa = convenios_obtener();
+
     tabla_convenios.innerHTML = '';
     for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
         let identificador_empresa = ('empresa_' + i);
