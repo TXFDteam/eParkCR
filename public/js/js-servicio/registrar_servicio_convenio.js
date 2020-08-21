@@ -18,13 +18,15 @@ const registrar_convenio = async(pparqueo, pporcentaje_convenio, pfecha_creacion
     });
 };
 
-const agregar_usuario = async(pid_empleado, pestado) => {
+const agregar_usuario = async(pid_convenio, pnombre, pcorreo, pid_empleado) => {
     await axios({
         method: 'post',
         url: 'http://localhost:3000/api/agregar-usuario',
         data: {
+            '_id': pid_convenio,
+            'nombre_empleado': pnombre,
+            'correo_empledo': pcorreo,
             'id_empleado': pid_empleado,
-            'estado': pestado
         }
     }).then(response => {
         console.log(response)
@@ -99,7 +101,24 @@ const modificar_convenio = async(pid, pdescuento) => {
         });;
 };
 
-
+const modificar_estado_empleado = async(pidC, pidE, pestado) => {
+    await axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/modificar-estado-empleado',
+            responseType: 'json',
+            data: {
+                _id: pidC,
+                idE: pidE,
+                estado: pestado
+            }
+        })
+        .then((response) => {
+            console.log('Datos modificados correctamente');
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
 
 // const modificar_estado_empresa = async(pid, pestado) => {
 //     await axios({

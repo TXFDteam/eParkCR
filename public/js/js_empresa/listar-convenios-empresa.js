@@ -71,6 +71,7 @@ const crear_cuadro_convenio = (p_convenio) => {
 let mostrar_convenios = async() => {
 
     let convenios_empresa = await obtener_convenios();
+    console.log(convenios_empresa);
     let info_empresas = await obtener_empresas();
 
     tabla_convenios.innerHTML = '';
@@ -83,7 +84,7 @@ let mostrar_convenios = async() => {
             console.log(nombre_empresa);
 
             for (let i = 0; i < convenios_empresa.length; i++) {
-                if (info_empresas[e].nombre == nombre_empresa) {
+                if (convenios_empresa[i].empresa == nombre_empresa) {
                     crear_cuadro_convenio(convenios_empresa[i]);
                 }
             }

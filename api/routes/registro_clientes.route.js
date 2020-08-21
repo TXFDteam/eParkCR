@@ -67,7 +67,7 @@ router.put('/otp-cliente', (req, res) => {
             if (err) {
                 res.json({
                     resultado: false,
-                    msj: 'No se pudo actualizar el dueño de parqueo',
+                    msj: 'No se pudo actualizar el cliente',
                     err
                 })
             } else {
@@ -124,7 +124,27 @@ router.delete('/eliminar-cliente', (req, res) => {
     })
 });
 
+router.put('/modificar-cliente', (req, res) => {
 
+    Cliente.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el cliente',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+
+            }
+        }
+
+    );
+});
 
 
 
@@ -136,7 +156,7 @@ router.put('/modificar-contrasenna-cliente', (req, res) => {
             if (err) {
                 res.json({
                     resultado: false,
-                    msj: 'No se pudo actualizar el dueño de parqueo',
+                    msj: 'No se pudo actualizar el cliente',
                     err
                 })
             } else {

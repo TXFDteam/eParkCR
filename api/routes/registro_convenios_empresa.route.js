@@ -37,7 +37,9 @@ router.post('/agregar-usuario', (req, res) => {
                 $push: {
                     'usuarios': {
                         id_empleado: req.body.id_empleado,
-                        estado: req.body.estado
+                        nombre_empleado: req.body.nombre_empleado,
+                        correo_empleado: req.body.correo_empleado,
+                        estado: 'DESACTIVAR'
                     }
                 }
             },
@@ -45,8 +47,8 @@ router.post('/agregar-usuario', (req, res) => {
                 if (error) {
                     return res.json({
                         success: false,
-                        msj: 'No se pudo agregar el usuario',
-                        err
+                        msj: 'No se pudo agregar el usuario' +
+                            err
                     });
                 } else {
                     return res.json({
@@ -65,8 +67,31 @@ router.post('/agregar-usuario', (req, res) => {
 });
 
 
+/*
+router.put('/modificar-estado-empleado', (req, res) => {
 
+    Convenio.update({ '_id': req.body._id }, {
+            $set: {
+                'usuarios.0': {
+                    estado: req.body.estado
+                }
+            }
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el empleado',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        }
 
+    );
+});*/
 
 
 router.get('/listar_convenios', (req, res) => {

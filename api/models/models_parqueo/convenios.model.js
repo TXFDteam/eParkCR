@@ -14,6 +14,8 @@ const schema_convenio = new mongoose.Schema({
     empresa: { type: String, required: false, unique: false },
     usuarios: [{
         id_empleado: { type: String, required: true, unique: false },
+        nombre_empleado: { type: String, required: true, unique: false },
+        correo_empleado: { type: String, required: true, unique: false },
         estado: { type: String, required: true, unique: false }
     }]
 
