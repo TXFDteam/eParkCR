@@ -5,11 +5,9 @@ const Convenios = require('../../models/models_parqueo/convenios.model');
 
 router.post('/modificar-estado-empleado', (req, res) => {
 
-    Convenios.updateOne({ _id: req.body._id, 'Convenios.usuarios': req.body.idE }, {
+    Convenios.updateOne({ _id: req.body._id, 'usuarios._id': req.body.idE }, {
             $set: {
-                'convenios.$.usuarios': {
-                    estado: req.body.estado
-                }
+                'usuarios.$.estado': req.body.estado
             }
         }, (err, info) => {
             if (err) {

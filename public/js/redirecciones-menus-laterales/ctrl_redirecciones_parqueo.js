@@ -23,6 +23,10 @@ mis_parqueos.addEventListener('click', function() {
     mis_parqueos.href = '../../html/htmls-parqueos/prq_mis_parqueos.html';
 
 });
+historial_reservas.addEventListener('click', function() {
+    historial_reservas.href = '../../html/htmls-parqueos/historial_reservas_parqueo.html';
+
+});
 reporte_ingresos.addEventListener('click', function() {
     reporte_ingresos.href = '../../html/htmls-parqueos/reporte_ingresos_parqueo.html';
 
