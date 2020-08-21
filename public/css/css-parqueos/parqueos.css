@@ -15,13 +15,18 @@
 }
 
 .info-parqueos {
-    width: 82%;
+    width: 100%;
     padding: 2%;
 }
 
 .info-parqueos h2 {
     font-size: 40px;
-    padding-bottom: 40px;
+}
+
+.info-parqueos p {
+    font-size: 20px;
+    margin-bottom: 2%;
+    margin-left: 1%;
 }
 
 #cuadros-parqueos {

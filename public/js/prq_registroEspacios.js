@@ -42,7 +42,7 @@ let pisos_final;
 //
 
 btn_cancelar.addEventListener('click', function() {
-    window.location.assign('perfil_parqueo.html')
+    window.location.assign('../../html/htmls-parqueos/prq_mis_parqueos.html');
 });
 
 

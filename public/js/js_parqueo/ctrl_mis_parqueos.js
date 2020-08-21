@@ -116,5 +116,3 @@ let mostrar_parqueos = async() => {
 }
 
 mostrar_parqueos();
-
-btn_editar_parqueo.addEventListener('click', editar_parqueo);
