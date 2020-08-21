@@ -21,6 +21,12 @@ router.post('/registrar-cliente', (req, res) => {
         foto_perfil: datos.foto_perfil,
         id_reserva_activa: 'null',
         estado_general: 'DESACTIVAR',
+        tarjetas: [{
+            numero_tarjeta: '',
+            fecha_expiracion: '',
+            nombre_tarjeta: '',
+            codigo_seguridad: ''
+        }]
     });
 
     cliente_nuevo.save((err, cliente_almacenado) => {
