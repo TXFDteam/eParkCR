@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de reservas</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/estilos-generales.css">
+    <link rel="stylesheet" href="../../css/menuLat-navPrincipal.css">
+    <link rel="stylesheet" href="../../css/css-admin/historial-reservas-admin.css">
+</head>
+
+<body>
+
+
+    <div class="nav-principal">
+        <a href="" id="link-inicio">eParkCR</a>
+        <div class="nav-derecha">
+            <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
+
+        </div>
+    </div>
+    <div class="contenedor">
+        <div class="menu-lateral">
+
+
+            <a href="#" id="solicitudes-registro">Solicitudes de registro</a>
+            <a href="#" id="info-usuarios-admin">Información de usuarios</a>
+            <a href="#" id="historial-reservas">Historial de reservas</a>
+            <a href="#" id="ingresos-admin">Ingresos</a>
+            <a href="#" id="actividad-aplicacion">Actividad de la aplicación</a>
+            <a href="#" id="configuracion-cuenta-admin">Configuración de la cuenta</a>
+        </div>
+
+        <div class="info-reservas" id="printable-area">
+            <h2>Historial reservas de la aplicación</h2>
+            <form action="javascript:void(0);" id="busquedaForm">
+
+                <i class="fas fa-search"></i> <input type="text" id="valorF" placeholder="Filtrar">
+
+            </form>
+
+            <button type="button" id="btn-descargar">Descargar en pdf</button>
+
+            <div class="tabla-info tabla_reporte">
+                <table id="tabla-reservas">
+                    <thead>
+
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script src="https://kit.fontawesome.com/e47236fbca.js" crossorigin="anonymous"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="../../js/simulador_bd.js"></script>
+        <script src="../../js/control-sesiones.js"></script>
+        <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_admin.js"></script>
+        <script src="../../js/servicio_perfil_parqueo_reservas.js"></script>
+        <script src="../../js/js_admin/historial-reservas-admin.js"></script>
+</body>
+
+</html>
