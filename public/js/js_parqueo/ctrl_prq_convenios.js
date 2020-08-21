@@ -13,9 +13,6 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
     '<div class=\"contenedor-descuento\"> \n' +
     '<p>Descuento: [DESCUENTO]</p> \n' +
     '</div> \n' +
-    '<div class=\"contenedor-parqueo\"> \n' +
-    '<p>Parqueo: [PARQUEO]</p> \n' +
-    '</div> \n' +
 
     '</div>';
 
@@ -28,16 +25,16 @@ const crear_cuadro_convenio = (p_convenio) => {
 
     nuevo_cuadro.classList.add('estilo-cuadro');
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
-    nueva_plantilla = nueva_plantilla.replace('[EMPRESA]', p_convenio.empresa + ' + eParkCR');
+    nueva_plantilla = nueva_plantilla.replace('[EMPRESA]', p_convenio.empresa + ' + ' + p_convenio.parqueo);
     nueva_plantilla = nueva_plantilla.replace('[FECHA_VENCIMIENTO]', p_convenio.fecha_vencimiento_convenio);
     nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', p_convenio.porcentaje_convenio + '%');
-    nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', p_convenio.parqueo);
+
 
 
     let input_eliminar_convenio = document.createElement('button');
 
 
-    input_eliminar_convenio.innerText = 'Eliminar convenio';
+    input_eliminar_convenio.innerText = 'Editar convenio';
 
     nuevo_cuadro.innerHTML = nueva_plantilla;
     nuevo_cuadro.appendChild(input_eliminar_convenio);
@@ -46,8 +43,8 @@ const crear_cuadro_convenio = (p_convenio) => {
     input_eliminar_convenio.addEventListener('click', () => {
 
         Swal.fire({
-            title: 'Eliminar convenio',
-            text: "¿Está seguro que desea eliminar el convenio seleccionado",
+            title: 'Editar convenio',
+            text: "¿Está seguro que desea editar un convenio?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -57,10 +54,11 @@ const crear_cuadro_convenio = (p_convenio) => {
         }).then((result) => {
             if (result.value) {
                 Swal.fire(
-                    'Eliminar convenio',
-                    'El convenio ha sido eliminado exitosamente',
+                    'Usted sera redireccionado a la pagina para editar este convenio',
                     'success'
                 )
+
+                window.location.href = '../../html/htmls-parqueos/editar_convenios_parqueos.html';
             }
         })
 
@@ -126,7 +124,8 @@ let mostrar_convenios = async() => {
 
 
 
-
+    let mis_convenios = []; // arreglo convenios
+    let q = 0; //contador de mis convenios
 
 
     for (let p = 0; p < parqueos_duenno.length; p++) { //recorro parqueos 
@@ -135,7 +134,8 @@ let mostrar_convenios = async() => {
 
             if (parqueos_duenno[p] == convenios_empresa[c].parqueo) {
 
-
+                mis_convenios[q] = convenios_empresa[c].empresa;
+                q++;
                 crear_cuadro_convenio(convenios_empresa[c]);
 
             }
@@ -147,6 +147,14 @@ let mostrar_convenios = async() => {
 
 
     }
+
+
+
+    console.log('mis convenios son ' + mis_convenios);
+
+    return mis_convenios;
+
+
 
 
 
