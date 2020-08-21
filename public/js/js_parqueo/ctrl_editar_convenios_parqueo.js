@@ -11,29 +11,99 @@ const volver_convenios = () => {
 btn_volver_convenios.addEventListener('click', volver_convenios);
 
 
-const convenio_1 = document.querySelector('#convenio-1');
-const convenio_2 = document.querySelector('#convenio-2');
-const convenio_3 = document.querySelector('#convenio-3');
 
-convenio_1.innerHTML = convenios_empresa.convenio1.empresa;
-convenio_2.innerHTML = convenios_empresa.convenio2.empresa;
-convenio_3.innerHTML = convenios_empresa.convenio3.empresa;
+
+
+const obtener_parametro_url = (valor) => {
+    const location = new URL(window.location.href);
+    const parametros = new URLSearchParams(location.search);
+    let parametro_valor;
+    if (parametros.get(valor)) {
+        parametro_valor = parametros.get(valor).toLowerCase();
+    } else {
+        parametro_valor = '';
+    }
+    return parametro_valor;
+};
+
+
 
 
 const nuevo_porcentaje_convenio = document.querySelector('#nuevo-porcentaje-convenio');
 const boton_guardar_datos_convenio = document.querySelector('#btn-guardar-datos-convenio');
 
-
-const guardar_datos_convenio = () => {
-
+let _id = obtener_parametro_url('_id');
 
 
-    Swal.fire(
-        'Convenio actualizado',
-        'Por favor espera unos minutos para que los cambios se reflejen en el sistema',
-        'success'
-    )
-};
+
+
+const mostrar_datos_convenio = async() => {
+
+    let convenio = await obtener_convenio_id(_id);
+
+    nuevo_porcentaje_convenio.value = convenio.porcentaje_convenio;
+
+
+
+
+}
+
+mostrar_datos_convenio();
+
+
+const validar_datos = () => {
+
+    let error = false;
+    let porcentaje = Number(nuevo_porcentaje_convenio.value);
+
+    if (porcentaje < 5 || porcentaje > 100 || porcentaje == '') {
+        error = true;
+        nuevo_porcentaje_convenio.classList.add('error');
+    } else {
+        nuevo_porcentaje_convenio.classList.remove('error');
+    }
+
+
+    return error;
+
+
+
+
+
+}
+
+
+const guardar_datos_convenio = async() => {
+
+
+    let error = validar_datos();
+    let porcentaje = Number(nuevo_porcentaje_convenio.value);
+
+
+
+
+    let convenio = await obtener_convenio_id(_id);
+
+
+
+
+
+    if (!error) {
+        modificar_convenio(_id, porcentaje);
+        Swal.fire(
+            'Convenio actualizado',
+            'Por favor espera unos minutos para que los cambios se reflejen en el sistema',
+            'success'
+        ).then((willDelete) => {
+            if (willDelete) {
+                window.location.assign(`../../html/htmls-parqueos/prq_convenios_asociados.html`);
+
+            }
+        })
+
+    }
+
+}
 
 
 boton_guardar_datos_convenio.addEventListener('click', guardar_datos_convenio);

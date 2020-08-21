@@ -50,7 +50,7 @@ const crear_cuadro_convenio = (p_convenio) => {
     nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', p_convenio.parqueo);
     nueva_plantilla = nueva_plantilla.replace('[FECHA_VENCIMIENTO]', p_convenio.fecha_vencimiento_convenio);
     nueva_plantilla = nueva_plantilla.replace('[EMPLEADOS]', p_convenio.usuarios.length);
-    nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', p_convenio.porcentaje_convenio);
+    nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', p_convenio.porcentaje_convenio + "%");
 
     //Link a lista de usuarios
     let lista_usuarios = document.createElement('a');

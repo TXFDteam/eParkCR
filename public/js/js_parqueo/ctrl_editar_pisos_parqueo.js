@@ -18,6 +18,38 @@ let ultimo_D = 1;
 let ultimo_M = 1;
 let ultimo_C = 1;
 
+//Se duplica porque da problemas llamar el del otro.
+const obtener_mi_parqueo = async() => {
+    //Se obtiene la variable que se guardó anteriormente que define el nombre del parqueo seleccionado.
+    let id_parqueo_actual = localStorage.getItem('parqueo_para_editar');
+    let parqueo_encontrado = await obtener_parqueo_por_id(id_parqueo_actual);
+    return parqueo_encontrado;
+};
+
+const inicializar_pisos_espacios = (p_piso_actual) => {
+    let espacios = pisos[p_piso_actual].espacios;
+
+    //Se inicializa antes el espacio en la lista para evitar problemas
+    espacios_discapacitados[p_piso_actual] = 0;
+    espacios_motos[p_piso_actual] = 0;
+    espacios_autos[p_piso_actual] = 0;
+
+    espacios.forEach(obj_espacio => {
+        if (obj_espacio.tipo == '0') {
+            espacios_discapacitados[p_piso_actual]++;
+        }
+        if (obj_espacio.tipo == '1') {
+            espacios_motos[p_piso_actual]++;
+        }
+        if (obj_espacio.tipo == '2') {
+            espacios_autos[p_piso_actual]++;
+        }
+    });
+};
+
+
+
+
 //Esta función crea un objeto piso para ser guardado en el json.
 //<p_indice_piso> El índice del piso que se va a crear.
 const generar_piso = (p_indice_piso) => {
@@ -84,6 +116,22 @@ const crear_pisos_parqueo = () => {
     //prueba_crear_parqueo();
 };
 
+const inicializar_datos = async() => {
+    let parqueo = await obtener_mi_parqueo();
+
+    pisos = parqueo.pisos;
+    cantidad_pisos = pisos.length;
+
+    for (let i = 0; i < pisos.length; i++) {
+        inicializar_pisos_espacios(i);
+    }
+
+    input_pisos.value = cantidad_pisos;
+    al_cambiar_cantidad_de_pisos();
+    al_cambiar_de_piso();
+    actualizar_datos_piso(0);
+};
+
 //btn_prueba.addEventListener('click', crear_pisos_parqueo);
 
 const al_cambiar_cantidad_de_pisos = () => {
@@ -126,10 +174,7 @@ input_espaciosDiscapacidad.addEventListener('change', actualizar_espacios);
 input_espaciosMotos.addEventListener('change', actualizar_espacios);
 
 input_pisos.value = 1;
-al_cambiar_cantidad_de_pisos();
-al_cambiar_de_piso();
-
-actualizar_datos_piso(0);
+inicializar_datos();
 
 //Eventos
 if (btn_crearParqueo != null) {
