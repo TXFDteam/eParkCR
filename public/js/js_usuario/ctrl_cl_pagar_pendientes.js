@@ -5,127 +5,158 @@ const output_pend_parqueo = document.querySelector('#detalle_pend_parqueo');
 const output_pend_fecha = document.querySelector('#detalle_pend_fecha');
 const output_pend_horas = document.querySelector('#detalle_pend_horas');
 const output_pend_monto = document.querySelector('#detalle_pend_monto');
-const input_moneda_seleccionada = document.querySelector('input[name="menu_moneda"]');
+const output_pend_descuento = document.querySelector('#detalle-descuento-aplicado');
+const output_pend_monto_final = document.querySelector('#detalle-monto-final');
 const menu_tarjetas = document.querySelector('#inp_menu_lista_tarjetas');
-const btn_calcular_monto = document.querySelector('#calcular_monto');
 const btn_pagar = document.querySelector('#boton_pagar');
+let tarjetas;
 
 
-/* -------------------------- Links a otras paginas ------------------------- */
-//botones - enlace a otra pagina
+
+
+
+/* -------------------------- Link a metodos de pago ------------------------- */
 const btn_link_revisar_tarjetas = document.querySelector('#link_revisar_tarjetas');
-const btn_link_generar_recibo = document.querySelector('#link_generar_recibo');
 
-
-//Enlaces a otras paginas
 btn_link_revisar_tarjetas.addEventListener('click', () => {
     window.location.assign('listar_tarjetas.html');
 });
-btn_link_generar_recibo.addEventListener('click', () => {
-    window.location.assign('recibo_pago_clientes.html');
-});
 
 
 
 
 
-
-/* Datos tomados por default para probar el JS (Id de la reserva, tipo de cambio) */
-const id_usuario = usuarios.usuario1; //obtener_usuario_ingresado();
-const numreserva = 'reserva1';
-let signoMoneda = '₡';
-
-
-
-let correo_actual = localStorage.getItem('correo');
-let contrasenna_actual = localStorage.getItem('contrasenna');
+/* ---------------------------- Reconocer usuario --------------------------- */
+let correoC = localStorage.getItem('correo');
+console.log(correoC);
+let contrasennaC = localStorage.getItem('contrasenna');
+console.log(contrasennaC);
 
 
+let buscar_info_cliente = async() => {
 
-for (let u = 1; u <= usuarios.cant_usuarios; u++) {
-    let identificador_usuario = ('usuario' + u);
-    //SI EL CORREO Y  CONTRASEÑA ALMACENADOS EN INICIAR SESION PROCEDE A ASIGNAR LOS VALORES DEL USUARIO LOGEADO
-    if (usuarios[identificador_usuario].correo_usuario == correo_actual && usuarios[identificador_usuario].contraseña == contrasenna_actual) {
-        console.log(usuarios[identificador_usuario].id_usuario);
-
-        for (let r = 1; r <= reservas.cant_reservas; r++) {
-            let identificador_reserva = ('reserva' + r);
-            console.log(reservas[identificador_reserva].id_usuario);
-            if (usuarios[identificador_usuario].id_usuario == reservas[identificador_reserva].id_usuario) {
-
-                output_pend_parqueo.innerHTML = reservas[identificador_reserva].parqueo_seleccionado;
-                output_pend_fecha.innerHTML = reservas[identificador_reserva].fecha_reserva;
-                output_pend_horas.innerHTML = reservas[identificador_reserva].hora_entrada;
-                output_pend_monto.innerHTML = reservas[identificador_reserva].monto_final;
-                break;
-
-            }
-        };
-        break;
-    };
+    let info_clientes = await obtener_clientes();
+    let id;
+    //c va a ser el  contador para encontrar los clientes
+    for (let c = 0; c < info_clientes.length; c++) {
+        if (correoC == info_clientes[c].correo && contrasennaC == info_clientes[c].contraseña) {
+            id = info_clientes[c];
+            console.log(id);
+        }
+    }
+    return id;
 };
+
+
+/* -------------- Funcion para calcular el descuento a aplicar -------------- */
+const calcular_descuento = async(pid_usuario, psubtotal) => {
+
+
+
+};
+
+
 
 
 /* ----------------- Funcion para calcular y mostrar el monto final ---------------- */
 
-const calcular_monto = (pnumreserva) => {
+const mostrar_monto_final = async() => {
 
-    //Datos provenientes del Json
-    let monto = (pnumreserva.monto_total);
-    let descuento_convenio = (pnumreserva.descuento);
+    let info_cliente = await buscar_info_cliente();
+    console.log(info_cliente);
 
-
-    //Variables locales para calculo de saldo final
-    let tipoDeCambio;
-    let signoMoneda;
+    let reserva = await obtener_reserva(info_cliente.id_reserva_activa);
+    console.log(reserva);
 
 
-    switch (input_moneda_seleccionada.value) {
-        case 1:
-            tipoDeCambio = 1;
-            signoMoneda = '₡';
-            break;
-        case 2:
-            tipoDeCambio = 580;
-            signoMoneda = '$';
-            break;
-        case 3:
-            tipoDeCambio = 680;
-            signoMoneda = '€';
-            break;
-    }
+    //Crea  los espacios para impresion
+    let nombre_parqueo = document.createElement('p');
+    let fecha_reservacion = document.createElement('p');
+    let total_horas = document.createElement('p');
+    let subtotal = document.createElement('p');
+    let descuento = document.createElement('p');
+    let total = document.createElement('p');
 
 
-    let montofinal = monto * descuento_convenio / tipoDeCambio;
+
+    //Define los valores de la reserva activa
+    nombre_parqueo.innerHTML = reserva.nombre_parqueo;
+    fecha_reservacion.innerHTML = reserva.fecha_reserva;
+    total_horas.innerHTML = reserva.horas;
+    subtotal.innerHTML = ('₡' + reserva.monto_total);
+    descuento.innerHTML = calcular_descuento(reserva.id_usuario, subtotal);
+    total.innerHTML = ('₡' + (subtotal - descuento));
+
+    output_pend_parqueo.appendChild(nombre_parqueo);
+    output_pend_fecha.appendChild(fecha_reservacion);
+    output_pend_horas.appendChild(total_horas);
+    output_pend_monto.appendChild(subtotal);
+    output_pend_descuento.appendChild(descuento);
+    output_pend_monto_final.appendChild(total);
 
 
-    let datoMonto = document.createElement('p');
-    datoMonto.innerHTML = (signoMoneda + montofinal);
-    output_pend_monto.appendChild(datoMonto);
+
+    /*   let montofinal = monto * descuento_convenio;
+
+
+      let datoMonto = document.createElement('p');
+      datoMonto.innerHTML = (signoMoneda + montofinal);
+      output_pend_monto.appendChild(datoMonto); */
 
 }
 
 
 
 
-//Imprime la terminacion de la tarjeta en el menu de las  tarjetas
-const mostrar_tarjetas = () => {
+//Crear el nombre de la tarjeta a seleccionar
+const info_tarjeta = (pnueva_tarjeta) => {
+    let amex = /^3/;
+    let visa = /^4/;
+    let masterc = /^5/;
+    let terminacion = pnueva_tarjeta.numero_tarjeta[15] + pnueva_tarjeta.numero_tarjeta[16] + pnueva_tarjeta.numero_tarjeta[17] + pnueva_tarjeta.numero_tarjeta[18];
+    let display_tarjeta;
 
-    for (let i = 1; i <= Object.keys(id_usuario.tarjetas).length; i++) {
-        let id_tarjeta = ('tarjeta_' + i);
-        let nueva_tarjeta = document.createElement('option');
+    if (visa.test(pnueva_tarjeta.numero_tarjeta)) {
+        display_tarjeta = ('VISA: **' + terminacion);
 
-        let terminacion = id_usuario.tarjetas[id_tarjeta].numero_tarjeta[15] + id_usuario.tarjetas[id_tarjeta].numero_tarjeta[16] + id_usuario.tarjetas[id_tarjeta].numero_tarjeta[17] + id_usuario.tarjetas[id_tarjeta].numero_tarjeta[18];
+    } else if (masterc.test(pnueva_tarjeta.numero_tarjeta)) {
+        display_tarjeta = ('MasterCard: **' + terminacion);
 
-        nueva_tarjeta.innerHTML = ('*** ' + terminacion);
-        menu_tarjetas.appendChild(nueva_tarjeta);
-
+    } else if (amex.test(pnueva_tarjeta.numero_tarjeta)) {
+        display_tarjeta = ('AmEx: **' + terminacion);
+    } else {
+        display_tarjeta = ('Tarjeta: **' + terminacion);
     };
 
+    return display_tarjeta;
+}
+
+//Imprime la terminacion de la tarjeta en el menu de las  tarjetas
+const mostrar_tarjetas = async() => {
+
+    let info_cliente = await buscar_info_cliente();
+    console.log(info_cliente);
+
+    tarjetas = await obtener_tarjetas(info_cliente._id);
+    console.log(tarjetas.tarjetas)
+
+
+    tarjetas.tarjetas.forEach(nueva_tarjeta => {
+
+        console.log(nueva_tarjeta._id);
+        let opcion_tarjeta = document.createElement('option');
+
+        opcion_tarjeta.innerText = (info_tarjeta(nueva_tarjeta));
+
+        menu_tarjetas.appendChild(opcion_tarjeta);
+
+    });
 };
 
-mostrar_tarjetas();
 
+
+mostrar_tarjetas();
+mostrar_monto_final();
 
 
 
@@ -133,11 +164,14 @@ mostrar_tarjetas();
 /* ------------------ Controles para habilitar los botones ------------------ */
 
 //Habilita el boton de 'Generar recibo' una vez que el estado de la reservacion esta 'Paga'
-if (reservas[numreserva].estado_reserva != 'Paga') {
+/* if (reservas[numreserva].estado_reserva != 'Paga') {
     btn_link_generar_recibo.setAttribute('disabled', true);
 }
 
 //Desabilita el boton de 'Pagar' una vez que el estado de la reservacion esta 'Paga'
 if (reservas[numreserva].estado_reserva == 'Paga') {
     btn_pagar.setAttribute('disabled', true);
-}
+} */
+
+
+//let signoMoneda = '₡';
