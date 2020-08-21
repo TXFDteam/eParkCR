@@ -86,4 +86,30 @@ router.get('/buscar-parqueo-id', (req, res) => {
     })
 });
 
+router.put('/modificar-parqueo', (req, res) => {
+    Parqueo.update({ '_id': req.body._id }, {
+            $set: {
+                "tarifa_por_hora": req.body.tarifa_por_hora,
+                "hora_apertura": req.body.hora_apertura,
+                "hora_cierre": req.body.hora_cierre,
+                "pisos": req.body.pisos,
+                "enlaces_redes": req.body.enlaces_redes,
+                "imagen_carta": req.body.imagen_carta,
+                "imagen_perfil": req.body.imagen_perfil
+            }
+        },
+        (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: true,
+                    msj: 'No se pudo hacer la modificación: ' + err,
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        });
+});
 module.exports = router;
