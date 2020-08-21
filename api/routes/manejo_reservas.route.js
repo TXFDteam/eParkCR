@@ -93,7 +93,7 @@ router.get('/buscar-reserva-id', (req, res) => {
         }
     })
 });
-
+/*
 router.delete('/eliminar-reserva', (req, res) => {
 
     Reserva.deleteOne({ _id: req.body._id }, {
@@ -112,5 +112,5 @@ router.delete('/eliminar-reserva', (req, res) => {
         }
     })
 });
-
+*/
 module.exports = router;
