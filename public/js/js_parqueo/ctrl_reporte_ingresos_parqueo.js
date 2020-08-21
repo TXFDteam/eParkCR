@@ -10,10 +10,6 @@ const btn_descargar = document.querySelector('#btn-descargar');
 let array_reservas;
 let head;
 let fila;
-let contrasenna = localStorage.getItem('contrasenna');
-let correo = localStorage.getItem('correo');
-
-
 
 /* ----------------- Opcion descargar reporte para imprimir ----------------- */
 btn_descargar.addEventListener('click', function() {
@@ -34,14 +30,14 @@ console.log(contrasennaC);
 
 
 
-let buscar_info_cliente = async() => {
+let buscar_info_usuario = async() => {
 
-    let info_clientes = await obtener_clientes();
+    let info_usuario = await obtener_info_parqueos();
     let id;
     //c va a ser el  contador para encontrar los clientes
-    for (let c = 0; c < info_clientes.length; c++) {
-        if (correoC == info_clientes[c].correo && contrasennaC == info_clientes[c].contraseña) {
-            id = info_clientes[c]._id;
+    for (let c = 0; c < info_usuario.length; c++) {
+        if (correoC == info_usuario[c].correo && contrasennaC == info_usuario[c].contraseña) {
+            id = info_usuario[c]._id;
             console.log(id);
 
         }
@@ -125,4 +121,4 @@ const listar_reporte = async() => {
 
 
 
-listar_reporte();
+//listar_reporte();
