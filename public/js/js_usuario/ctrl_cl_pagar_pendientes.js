@@ -80,7 +80,7 @@ const mostrar_monto_final = async() => {
     let reserva = await obtener_reserva(info_cliente.id_reserva_activa);
     let porc_descuento = await calcular_descuento(info_cliente._id, reserva.monto_total);
 
-    //console.log('El id de la reserva activa es: ' + reserva._id);
+    console.log(reserva);
     //console.log('Nombre del cliente: ' + info_cliente.nombre);
     let monto_descuento = reserva.monto_total * porc_descuento / 100;
     let monto_final = (reserva.monto_total - monto_descuento);
@@ -100,10 +100,10 @@ const mostrar_monto_final = async() => {
     //Define los valores de la reserva activa
     nombre_parqueo.innerHTML = reserva.nombre_parqueo;
     fecha_reservacion.innerHTML = reserva.fecha_reserva;
-    total_horas.innerHTML = reserva.horas;
-    subtotal.innerHTML = ('₡' + reserva.monto_total);
+    total_horas.innerHTML = new Number(reserva.horas).toFixed(2);
+    subtotal.innerHTML = ('₡' + new Number(reserva.monto_total).toFixed(2));
     descuento.innerHTML = '- ₡' + monto_descuento + ' (' + porc_descuento + '%)';
-    total.innerHTML = ('₡' + monto_final);
+    total.innerHTML = ('₡' + new Number(monto_final).toFixed(2));
 
 
     //Imprmime los elementos en su espacio respectivo
@@ -125,10 +125,14 @@ const mostrar_monto_final = async() => {
         } else {
             completar_pago(reserva._id, monto_descuento, monto_final, menu_tarjetas.value);
             quitar_reserva_activa(info_cliente._id)
+            actualizar_estado_espacio(reserva.id_parqueo, reserva.id_piso_espacio_seleccionado, reserva.id_espacio_seleccionado, '0')
+
 
             Swal.fire({
                 title: 'Pago completado con éxito',
-            })
+            }).then(function() {
+                window.location = 'historial_reservas_cliente.html';
+            });
         }
 
 

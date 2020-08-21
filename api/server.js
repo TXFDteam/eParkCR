@@ -71,6 +71,7 @@ app.use('/api', require('./routes/routes_empresas/empleados_convenios.route'));
 
 /*-------Conexión admin-------------------*/
 app.use('/api', require('./routes/routes_admin/info_admin.route.js'));
+app.use('/api', require('./routes/routes_admin/ingresos_admin.route'));
 
 /*-------Conexión parqueos-------------------*/
 app.use('/api', require('./routes/manejo_parqueos.route'));

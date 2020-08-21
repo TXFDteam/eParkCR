@@ -1,9 +1,5 @@
 'use strict'
 
-//Falta reconoer los parqueos que pertenecen al usuario-dueno-de-parqueo logueado
-
-
-
 /* ----------------------------- Enlaces al html ---------------------------- */
 const tabla_reporte_ingresos_body = document.querySelector('#tabla_reporte_ingresos_parqueo tbody');
 const tabla_reporte_ingresos_header = document.querySelector('#tabla_reporte_ingresos_parqueo thead');
@@ -25,6 +21,33 @@ btn_descargar.addEventListener('click', function() {
 
     window.print(printContent);
 });
+
+
+
+
+
+/* ------------------- Reconocer usuario parqueo logueado ------------------- */
+let correoC = localStorage.getItem('correo');
+console.log(correoC);
+let contrasennaC = localStorage.getItem('contrasenna');
+console.log(contrasennaC);
+
+
+
+let buscar_info_cliente = async() => {
+
+    let info_clientes = await obtener_clientes();
+    let id;
+    //c va a ser el  contador para encontrar los clientes
+    for (let c = 0; c < info_clientes.length; c++) {
+        if (correoC == info_clientes[c].correo && contrasennaC == info_clientes[c].contraseña) {
+            id = info_clientes[c]._id;
+            console.log(id);
+
+        }
+    }
+    return id;
+};
 
 
 
@@ -68,31 +91,6 @@ const listar_reporte = async() => {
 
     tabla_reporte_ingresos_header.appendChild(head);
 
-
-
-    //Reconocer el usuario de parqueo logueado y sus parqueos asociados**
-    //#region
-    /*  for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
-    let identificador_duenno = ('duenno_parqueo' + d);
-
-    if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
-
-
-        for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-            let identificador_parqueo = ('parqueo_' + i);
-            if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
-                crear_cuadro_parqueo(parqueos[identificador_parqueo]);
-                break;
-            }
-        }
-
-
-
-
-
-    }
-    } */
-    //#endregion    
 
 
     //Calculo de datos para la tabla** default para parqueo1

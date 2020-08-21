@@ -115,7 +115,9 @@ const enviar_datos = async() => {
         title: 'Tarjeta agregada satisfactoriamente',
         showConfirmButton: false,
         timer: 2000
-    })
+    }).then(function() {
+        window.location = 'listar_tarjetas.html';
+    });
 
 };
 

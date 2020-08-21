@@ -56,7 +56,7 @@ const mostrar_recibo = async() => {
     datoParqueo.innerHTML = parqueo;
     datoFecha.innerHTML = fecha;
     datoHoras.innerHTML = horas;
-    datoMonto.innerHTML = monto;
+    datoMonto.innerHTML = '₡' + monto;
     datoTarjeta.innerHTML = tarjeta;
 
 
