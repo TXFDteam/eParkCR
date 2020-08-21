@@ -24,9 +24,9 @@ let nombre_empresa;
 
 let id;
 
-let correo_actual = localStorage.getItem('correo_empresa');
-let contrasenna_actual = localStorage.getItem('contraseña_empresa');
-console.log(correo_actual);
+let correoE = localStorage.getItem('correo_empresa');
+let contrasennaE = localStorage.getItem('contraseña_empresa');
+console.log(correoE);
 
 
 const convenios_obtener = async() => {
@@ -39,30 +39,21 @@ const convenios_obtener = async() => {
 
 const obtener_nombre_empresa = async() => {
 
-    let info_empresas = await obtener_empresas();
-    for (let e = 0; e < info_empresas.length; e++) {
-        if (correoE == info_empresas[e].correo && contrasennaE == info_empresas[e].contraseña) {
-            id = info_empresas[e]._id;
-            nombre_empresa = info_empresas[e].nombre;
-
-            console.log(id);
-            console.log(nombre_empresa);
 
 
-
-            break;
-        }
-    }
-
+    return nombre_empresa;
 
 
 }
+
 obtener_nombre_empresa();
 
 
 
 
-console.log(contrasenna_actual);
+
+
+console.log(contrasennaE);
 
 const nombre_parqueo = (p_nombre_convenio) => {
     console.log('El convenio es: ' + p_nombre_convenio);
@@ -84,9 +75,9 @@ const crear_cuadro_convenio = (p_convenio) => {
     nuevo_cuadro.classList.add('estilo-cuadro');
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
     nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', p_convenio.parqueo);
-    nueva_plantilla = nueva_plantilla.replace('[FECHA_VENCIMIENTO]', p_convenio.fecha_vencimiento);
-    nueva_plantilla = nueva_plantilla.replace('[EMPLEADOS]', p_convenio.cant_empleados);
-    nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', p_convenio.porcentaje_descuento);
+    nueva_plantilla = nueva_plantilla.replace('[FECHA_VENCIMIENTO]', p_convenio.fecha_vencimiento_convenio);
+    nueva_plantilla = nueva_plantilla.replace('[EMPLEADOS]', p_convenio.usuarios.length);
+    nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', p_convenio.porcentaje_convenio);
 
     //Link a lista de usuarios
     let lista_usuarios = document.createElement('a');
@@ -104,29 +95,40 @@ const crear_cuadro_convenio = (p_convenio) => {
     });
 
 };
-let mostrar_convenios = () => {
+let mostrar_convenios = async() => {
 
 
-    let convenios_empresa = convenios_obtener();
+    let convenios_empresa = await obtener_convenios();
+    let info_empresas = await obtener_empresas();
 
     tabla_convenios.innerHTML = '';
-    for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
-        let identificador_empresa = ('empresa_' + i);
 
-        if (empresas.lista_empresas[identificador_empresa].correo_empresa == correo_actual && empresas.lista_empresas[identificador_empresa].contrasenna_empresa == contrasenna_actual) {
+    for (let e = 0; e < info_empresas.length; e++) {
+        if (correoE == info_empresas[e].correo && contrasennaE == info_empresas[e].contraseña) {
+            id = info_empresas[e]._id;
+            nombre_empresa = info_empresas[e].nombre;
+            console.log(id);
+            console.log(nombre_empresa);
 
-            for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
-                let identificador_convenio = ('convenio' + i);
-                if (empresas.lista_empresas[identificador_empresa].nombre_empresa == convenios_empresa[identificador_convenio].empresa) {
+            for (let i = 0; i < convenios_empresa.length; i++) {
+                if (info_empresas[e].nombre == nombre_empresa) {
 
-                    let identificador_convenio = ('convenio' + i);
-                    console.log(identificador_convenio);
-                    crear_cuadro_convenio(convenios_empresa[identificador_convenio]);
-                    break;
+
+                    crear_cuadro_convenio(convenios_empresa[i]);
+
                 }
             }
-        }
 
+
+
+
+
+            break;
+        }
     }
+
+
+
+
 };
 mostrar_convenios();
