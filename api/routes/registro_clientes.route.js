@@ -20,8 +20,9 @@ router.post('/registrar-cliente', (req, res) => {
         contraseña: datos.contraseña,
         foto_perfil: datos.foto_perfil,
         id_reserva_activa: 'null',
-        estado_general: 'DESACTIVAR',
-    });
+        estado_general: 'DESACTIVAR'
+    })
+
 
     cliente_nuevo.save((err, cliente_almacenado) => {
         if (err) {
@@ -39,6 +40,7 @@ router.post('/registrar-cliente', (req, res) => {
         }
     });
 });
+
 router.get('/listar-clientes', (req, res) => {
     Cliente.find((err, lista_clientes) => {
         if (err) {
