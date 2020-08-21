@@ -131,17 +131,19 @@ const eliminar_cliente = async(pid) => {
             console.log(error);
         });
 };
-const eliminar_reserva = async(p_id) => {
+
+const modificar_estado_reserva_cancelada = async(p_id, pestado) => {
     await axios({
-            method: 'delete',
-            url: 'http://localhost:3000/api/eliminar-reserva',
+            method: 'put',
+            url: 'http://localhost:3000/api/modificar-reserva',
             responseType: 'json',
             data: {
-                _id: p_id
+                _id: p_id,
+                estado_reserva: pestado
             }
         })
         .then((response) => {
-            console.log('Reserva eliminada con éxito');
+            console.log('Estado actualizado con éxito');
         })
         .catch((error) => {
             console.log('Error: ' + error);
