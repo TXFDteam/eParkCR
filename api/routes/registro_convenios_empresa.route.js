@@ -90,6 +90,49 @@ router.get('/listar_convenios', (req, res) => {
 
 
 
+router.get('/buscar-convenio-id', (req, res) => {
+    Convenio.findOne({ _id: req.query._id }, (err, convenio_bd) => {
+        if (err) {
+            res.json({
+                resultado: false,
+                msj: 'El convenio no se encontro',
+                err
+            })
+        } else {
+            res.json({
+                convenio_bd
+            });
+        }
+    });
+
+});
+
+
+
+router.put('/modificar-convenio', (req, res) => {
+
+    Convenio.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo actualizar el convenio',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        }
+
+    );
+});
+
+
+
+
 
 
 

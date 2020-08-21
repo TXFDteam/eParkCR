@@ -42,26 +42,7 @@ const crear_cuadro_convenio = (p_convenio) => {
 
     input_eliminar_convenio.addEventListener('click', () => {
 
-        Swal.fire({
-            title: 'Editar convenio',
-            text: "¿Está seguro que desea editar un convenio?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            cancelButtonText: 'No',
-            confirmButtonText: 'Sí'
-        }).then((result) => {
-            if (result.value) {
-                Swal.fire(
-                    'Usted sera redireccionado a la pagina para editar este convenio',
-                    'success'
-                )
-
-                window.location.href = '../../html/htmls-parqueos/editar_convenios_parqueos.html';
-            }
-        })
-
+        window.location.href = `../../html/htmls-parqueos/editar_convenios_parqueos.html?_id=${p_convenio._id}`;
 
 
     });

@@ -55,6 +55,52 @@ const obtener_convenios = async() => {
 
 
 
+const obtener_convenio_id = async(pid) => {
+
+    let convenio;
+
+    await axios({
+            method: 'get',
+            params: { _id: pid },
+            url: 'http://localhost:3000/api/buscar-convenio-id',
+            responseType: 'json'
+
+        })
+        .then((response) => {
+            convenio = response.data.convenio_bd;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+    return convenio;
+
+};
+
+
+
+
+
+const modificar_convenio = async(pid, pdescuento) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/modificar-convenio',
+            responseType: 'json',
+            data: {
+                _id: pid,
+                porcentaje_convenio: pdescuento
+            }
+        })
+        .then((response) => {
+            console.log('success');
+        })
+        .catch((error) => {
+            console.log(error);
+        });;
+};
+
+
+
 // const modificar_estado_empresa = async(pid, pestado) => {
 //     await axios({
 //             method: 'put',

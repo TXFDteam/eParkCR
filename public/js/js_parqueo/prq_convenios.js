@@ -114,10 +114,22 @@ const obtener_datos = () => {
     } else {
         // Impresion de los valores del formulario
         Swal.fire({
-            'title': 'El convenio se registro correctamente',
-            'icon': "success",
-            'text': 'Revise la información'
-        });
+                'title': 'El convenio se registro correctamente',
+                'icon': "success",
+                'text': 'Revise la información'
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.assign(`../../html/htmls-parqueos/prq_convenios_asociados.html`);
+
+                }
+
+            })
+
+
+
+
+
 
 
 
