@@ -30,6 +30,12 @@
     width: 100px;
 }*/
 
+#foto-perfil-cliente {
+    background-image: url(https://res.cloudinary.com/txfd/image/upload/v1597978314/imagenPerfil_bq0aq7.jpg);
+    background-size: cover;
+    background-position: -90px;
+}
+
 .perfil-superior {
     display: flex;
     align-items: center;

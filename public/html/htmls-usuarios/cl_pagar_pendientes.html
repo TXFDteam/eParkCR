@@ -47,36 +47,19 @@
                 <h2>Total de horas</h2>
                 <div id="detalle_pend_horas"></div>
 
-                <h2>Monto a cancelar</h2>
+                <h2>Subtotal</h2>
                 <div id="detalle_pend_monto"></div>
+
+                <h2>Descuento aplicado</h2>
+                <div id="detalle-descuento-aplicado"></div>
+
+                <h2>Total</h2>
+                <div id="detalle-monto-final"></div>
 
             </div>
 
 
             <div class="columna_datos_del_pendiente derecha">
-
-                <div id="menu_moneda">
-                    <p>Seleccioná la moneda con que querés pagar:</p>
-
-                    <!-- colones -->
-                    <div class="inp_menu_moneda">
-                        <input type="radio" name="menu_moneda" id="menu_colones" value="1">
-                        <label for="menu_colones">Colones</label>
-                    </div>
-
-                    <!-- dolares -->
-                    <div class="inp_menu_moneda">
-                        <input type="radio" name="menu_moneda" id="menu_dolares" value="2">
-                        <label for="menu_dolares">Dólares</label>
-                    </div>
-
-                    <!-- euros -->
-                    <div class="inp_menu_moneda">
-                        <input type="radio" name="menu_moneda" id="menu_euros" value="3">
-                        <label for="menu_euros">Euros</label>
-                    </div>
-
-                </div>
 
                 <div id="menu_tarjeta">
                     <select id="inp_menu_lista_tarjetas">
@@ -97,8 +80,11 @@
 
     </main>
 
-    <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/control-sesiones.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="../../js/js-servicio/servicio_usuario/servicio_pagar_pendientes.js"></script>
     <script src="../../js/js_usuario/ctrl_cl_pagar_pendientes.js"></script>
 
 </body>

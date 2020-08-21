@@ -105,12 +105,12 @@ const validar = () => {
         error = false;
     }
 
-    var file = document.getElementById("permiso");
-    if (file.files.length == 0) {
-        label_permisoFuncionamiento.classList.add('error');
+    var file = document.getElementById("input-permiso-funcionamiento");
+    if (file.value == '') {
+        file.classList.add('error');
         error = true;
     } else {
-        label_permisoFuncionamiento.classList.remove('error');
+        file.classList.remove('error');
         error = false;
     }
 
@@ -146,7 +146,7 @@ const obtener_datos = async() => {
 
         let correo = input_correo.value;
 
-        let permiso = document.getElementById('permiso').value;
+        let permiso = document.getElementById('input-permiso-funcionamiento').value;
 
         let tarifa = input_tarifa.value;
         let horaApertura = input_horaApertura.value;

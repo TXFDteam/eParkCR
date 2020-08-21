@@ -151,13 +151,13 @@
 </head>
 
 <body>
-    <main>
-        <div class="nav-principal">
-            <a href="" id="link-inicio">eParkCR</a>
-            <div class="nav-derecha">
-                <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
-            </div>
+    <div class="nav-principal">
+        <a href="" id="link-inicio">eParkCR</a>
+        <div class="nav-derecha">
+            <a href="" id="link-cerrar-sesion">Cerrar sesión</a>
         </div>
+    </div>
+    <main>
 
 
         <div id='header'>
@@ -171,20 +171,26 @@
                 <label for='nombre_parqueo'>Nombre del parqueo</label><br>
                 <input type='text' id='nombre_parqueo' required><br>
 
+                <label for='prq-registro-correo'>Correo electrónico</label><br>
+                <input type='email' id='prq-registro-correo' required><br><br><br>
+
                 <label for='cedulaJuridica'>Cédula Jurídica</label><br>
                 <input type='text' id='cedulaJuridica' required><br>
 
-                <label for='prq-registro-correo'>Correo electrónico</label><br>
-                <input type='email' id='prq-registro-correo' required><br>
-                <p id="labelPermiso">Adjuntá tu permiso de funcionamiento aquí</p>
-                <div class='file_upload'>
+                <label id="labelPermiso">Permiso de funcionamiento (Enlace para acceder al documento)</label>
+                <input type="text" id="input-permiso-funcionamiento"><br><br><br>
 
-                    <label class="custom-file-upload">
-                        <input type="file" id="permiso" required/>
-                       Adjuntar
-                    </label>
+                <!--
 
-                </div><br>
+                    <div class='file_upload'>
+                        
+                        <label class="custom-file-upload">
+                            <input type="file" id="permiso" required/>
+                            Adjuntar
+                        </label>
+                        
+                    </div><br>
+                -->
 
 
                 <label for='tarifa'>Tarifa</label><br>

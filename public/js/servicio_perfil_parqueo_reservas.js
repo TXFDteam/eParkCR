@@ -105,3 +105,54 @@ const obtener_parqueo_por_id = async(p_id) => {
 
     return parqueo;
 };
+
+const modificar_parqueo = async(p_id, p_tarifa, p_hora_apertura, p_hora_cierre, p_pisos, p_enlaces_redes, p_imagen_carta, p_imagen_perfil) => {
+    console.log(p_id);
+    console.log(p_tarifa);
+    console.log(p_hora_apertura);
+    console.log(p_hora_cierre);
+    console.log(p_pisos);
+    console.log(p_enlaces_redes);
+    console.log(p_imagen_carta);
+    console.log(p_imagen_perfil);
+
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/modificar-parqueo',
+            responseType: 'json',
+            data: {
+                _id: p_id,
+                tarifa_por_hora: p_tarifa,
+                hora_apertura: p_hora_apertura,
+                hora_cierre: p_hora_cierre,
+                pisos: p_pisos,
+                enlaces_redes: p_enlaces_redes,
+                imagen_carta: p_imagen_carta,
+                imagen_perfil: p_imagen_perfil
+            }
+        })
+        .then((response) => {
+            console.log('Parqueo modificado correctamente.');
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
+const eliminar_parqueo = async(p_id) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/eliminar-parqueo',
+            responseType: 'json',
+            data: {
+                _id: p_id
+            }
+        })
+        .then((response) => {
+            console.log('Parqueo eliminado con éxito');
+        })
+        .catch((error) => {
+            console.log('Error: ' + error);
+        });
+};
