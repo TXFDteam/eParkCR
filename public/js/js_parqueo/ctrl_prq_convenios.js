@@ -29,8 +29,8 @@ const crear_cuadro_convenio = (p_convenio) => {
     nuevo_cuadro.classList.add('estilo-cuadro');
     //Reemplazar los datos en la plantilla por los recibidos como parámetros.
     nueva_plantilla = nueva_plantilla.replace('[EMPRESA]', p_convenio.empresa + ' + eParkCR');
-    nueva_plantilla = nueva_plantilla.replace('[FECHA_VENCIMIENTO]', p_convenio.fecha_vencimiento);
-    nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', p_convenio.porcentaje_descuento + '%');
+    nueva_plantilla = nueva_plantilla.replace('[FECHA_VENCIMIENTO]', p_convenio.fecha_vencimiento_convenio);
+    nueva_plantilla = nueva_plantilla.replace('[DESCUENTO]', p_convenio.porcentaje_convenio + '%');
     nueva_plantilla = nueva_plantilla.replace('[PARQUEO]', p_convenio.parqueo);
 
 
@@ -70,29 +70,85 @@ const crear_cuadro_convenio = (p_convenio) => {
 
 };
 
-let correo = localStorage.getItem('correo');
-let contrasenna = localStorage.getItem('contrasenna');
+let correoD = localStorage.getItem('correo_dueño');
+let contrasennaD = localStorage.getItem('contraseña_dueño');
 
-let mostrar_convenios = () => {
-    tabla_convenios.innerHTML = '';
-    for (let d = 1; d <= duennos_parqueos.cant_duennos; d++) {
-        let identificador_duenno = ('duenno_parqueo' + d);
-        if (correo == duennos_parqueos[identificador_duenno].correo_duenno && contrasenna == duennos_parqueos[identificador_duenno].contraseña) {
+let mostrar_convenios = async() => {
 
-            for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-                let identificador_parqueo = ('parqueo_' + i);
-                if (duennos_parqueos[identificador_duenno].nombre == parqueos[identificador_parqueo].duenno_parqueo) {
+    let convenios_empresa = await obtener_convenios();
+    let info_duenno_parqueo = await obtener_duennos_parqueo();
+    let lista_parqueos = await obtener_parqueos();
+    let id_duenno;
 
-                    for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
-                        let identificador_convenio = ('convenio' + i);
-                        if (convenios_empresa[identificador_convenio].parqueo == parqueos[identificador_parqueo].nombre) {
-                            crear_cuadro_convenio(convenios_empresa[identificador_convenio]);
-                            break;
-                        }
-                    }
-                }
-            }
+
+
+    //obtener ID del duenno del parqueo
+
+    for (let d = 0; d < info_duenno_parqueo.length; d++) {
+        if (correoD == info_duenno_parqueo[d].correo && contrasennaD == info_duenno_parqueo[d].contraseña) {
+            id_duenno = info_duenno_parqueo[d]._id;
+            break;
         }
     }
+
+
+    tabla_convenios.innerHTML = '';
+
+    let parqueos_duenno = [];
+    let a = 0; //contador parqueos del duenno
+
+
+    let duenno_parqueo_actual;
+
+    for (let i = 0; i < info_duenno_parqueo.length; i++) {
+        if (correoD == info_duenno_parqueo[i].correo) {
+            duenno_parqueo_actual = info_duenno_parqueo[i];
+            break;
+        }
+    }
+
+
+    //Obtener solo los parqueos que pertenecen a este usuario.
+    for (let i = 0; i < lista_parqueos.length; i++) {
+        if (String(lista_parqueos[i].id_duenno) === String(duenno_parqueo_actual._id)) {
+            parqueos_duenno[a] = lista_parqueos[i].nombre;
+            a++;
+
+
+        }
+    }
+
+    for (let p = 0; p < parqueos_duenno.length; p++) {
+        console.log(parqueos_duenno[p]);
+    }
+
+
+
+
+
+
+
+
+    for (let p = 0; p < parqueos_duenno.length; p++) { //recorro parqueos 
+
+        for (let c = 0; c < convenios_empresa.length; c++) {
+
+            if (parqueos_duenno[p] == convenios_empresa[c].parqueo) {
+
+
+                crear_cuadro_convenio(convenios_empresa[c]);
+
+            }
+        }
+
+
+
+
+
+
+    }
+
+
+
 };
 mostrar_convenios();
