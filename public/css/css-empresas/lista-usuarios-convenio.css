@@ -4,13 +4,45 @@
 }
 
 .contenedor-lista-usuarios {
-    margin-top: 100px;
+    margin-top: 30px;
     width: 82%;
     margin-left: 18%;
     height: 980px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+/*-----------FORM AÑADIR EMPLEADOS-----------*/
+
+#form-añadir-empleados {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-añadir-empleados label {
+    margin-bottom: 2%;
+}
+
+#form-añadir-empleados input {
+    margin-bottom: 20%;
+    width: 100%;
+    height: 30px;
+}
+
+#form-añadir-empleados button {
+    width: 20%;
+    margin-top: -15%;
+    align-self: center;
+    margin-bottom: 25%;
+}
+
+
+/*--------------FIN FORM---------------*/
+
+#busquedaForm {
+    margin-bottom: 4%;
 }
 
 .contenedor-lista-usuarios h2 {

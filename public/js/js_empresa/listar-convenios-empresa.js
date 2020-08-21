@@ -21,39 +21,13 @@ const PLANTILLA_CUADRO = '<div class=\"contenedor-cuadro\"> \n' +
 
 
 let nombre_empresa;
-
 let id;
 
 let correoE = localStorage.getItem('correo_empresa');
 let contrasennaE = localStorage.getItem('contraseña_empresa');
 console.log(correoE);
-
-
-const convenios_obtener = async() => {
-
-    let lista_de_convenios = await obtener_convenios();
-
-    return lista_de_convenios;
-
-}
-
-const obtener_nombre_empresa = async() => {
-
-
-
-    return nombre_empresa;
-
-
-}
-
-obtener_nombre_empresa();
-
-
-
-
-
-
 console.log(contrasennaE);
+
 
 const nombre_parqueo = (p_nombre_convenio) => {
     console.log('El convenio es: ' + p_nombre_convenio);
@@ -67,7 +41,6 @@ const nombre_parqueo = (p_nombre_convenio) => {
 };
 
 const crear_cuadro_convenio = (p_convenio) => {
-    console.log(p_convenio.codigo_convenio);
     let nuevo_cuadro = document.createElement('div');
     //Copia de la plantilla.
     let nueva_plantilla = PLANTILLA_CUADRO;
@@ -90,13 +63,12 @@ const crear_cuadro_convenio = (p_convenio) => {
     tabla_convenios.appendChild(nuevo_cuadro);
 
     lista_usuarios.addEventListener('click', () => {
-        nombre_parqueo(p_convenio.codigo_convenio);
+        nombre_parqueo(p_convenio._id);
         //lista_usuarios.href = "lista-usuarios-convenio.html";
     });
 
 };
 let mostrar_convenios = async() => {
-
 
     let convenios_empresa = await obtener_convenios();
     let info_empresas = await obtener_empresas();
@@ -112,23 +84,11 @@ let mostrar_convenios = async() => {
 
             for (let i = 0; i < convenios_empresa.length; i++) {
                 if (info_empresas[e].nombre == nombre_empresa) {
-
-
                     crear_cuadro_convenio(convenios_empresa[i]);
-
                 }
             }
-
-
-
-
-
             break;
         }
     }
-
-
-
-
 };
 mostrar_convenios();

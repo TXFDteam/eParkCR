@@ -7,17 +7,23 @@ const plantilla_switch = '<form action=""> \n' +
 
 
 const tabla_usuarios = document.querySelector('#tbl-usuarios tbody');
+let input_correo_empleado = document.querySelector('#correo-añadir-empleado');
+const btn_añadir_empleado = document.querySelector('#btn-añadir-empleado');
 
 let n_parqueo = document.querySelector('#header-parqueo-seleccionado');
 let pq;
 
 let conv = localStorage.getItem('convenio_seleccionado');
-
+console.log(conv);
 
 
 
 let fila;
 
+
+btn_añadir_empleado.addEventListener('click', () => {
+    localStorage.setItem('Correo_empleado_nuevo', input_correo_empleado.value);
+});
 
 let cambiar_estado_boton_empleado = (x) => {
     for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
@@ -76,55 +82,33 @@ const listar_usuarios = (empleado) => {
 
 };
 
-let mostrar_usuarios = () => {
+let mostrar_usuarios = async() => {
     tabla_usuarios.innerHTML = '';
 
-    //variable que determina si es el mismo codigo de convenio
-    let det = false;
-    //Variable que tiene el codigo de convenio
-    let convenio;
-    //Variable que tiene la cantidad de empleados en ese convenio
-    let convEmpleados;
-    //Variable que tiene el numero de convenio en que se encuentra el código de convenio del convenio seleccionado en el cuadro de convenios.
-    let idConvenio;
 
+    let empresa_correcta;
 
+    let convenios_empresa = await obtener_convenios();
+    let clientes = await obtener_clientes();
 
-    for (let i = 1; i <= convenios_empresa.cant_convenios; i++) {
-        let identificador_convenio = ('convenio' + i);
+    let correoEmpleado = localStorage.getItem('Correo_empleado_nuevo');
+    console.log(correoEmpleado);
 
-        convenio = convenios_empresa[identificador_convenio].codigo_convenio;
-        idConvenio = convenios_empresa[identificador_convenio];
-        //VALIDA SI ES EL MISMO CODIGO
-        if (convenio == conv) {
-            det = true;
-            convEmpleados = convenios_empresa[identificador_convenio].cant_empleados;
-            n_parqueo.innerHTML = 'Usuarios registrados en el convenio con ' + convenios_empresa[identificador_convenio].parqueo;
-            break;
-        } else {
-            det = false;
-        };
-    };
+    for (let i = 0; i < convenios_empresa.length; i++) {
+        if (conv == convenios_empresa[i]._id) {
+            for (let c = 0; c < clientes.length; c++) {
+                if (input_correo_empleado.value) {
 
+                }
+            }
 
-    //Este if crea la lista de usuarios si el codigo de convenio es el mismo
-    if (det = true) {
-
-        for (let x = 1; x <= convEmpleados; x++) {
-
-            //Esta variable determina el numero de empleado dentro del ciclo
-            let identificador_empleado = ('empleado' + x);
-
-
-
-            listar_usuarios(idConvenio.empleados[identificador_empleado]);
         }
-
     }
+
+
+
 };
-if (localStorage.getItem('convenios_empresa')) {
-    convenios_empresa = JSON.parse(localStorage.getItem('convenios_empresa'));
-};
+
 mostrar_usuarios();
 console.log(n_parqueo);
 
@@ -133,28 +117,20 @@ console.log(n_parqueo);
 
 const input_filtro = document.querySelector('#filtro-empleados');
 
-const filtrar_empleados_nombre = () => {
-
-
-    let input, filter, table, tr, td, i, txtValue;
-    input = document.querySelector('#filtro-empleados');
-    filter = input.value.toUpperCase();
-    table = document.querySelector('#tbl-usuarios');
-    tr = table.getElementsByTagName("tr");
-
-    for (let i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-
-
-
-
+/*---------FILTROS------------*/
+let textbuscar = document.getElementById("valor");
+textbuscar.onkeyup = function() {
+    buscar(this);
 }
+
+function buscar(inputbuscar) {
+    let valorabuscar = (inputbuscar.value).toLowerCase().trim();
+    let tabla = document.getElementById("tabla-usuarios").getElementsByTagName("tbody")[0].rows;
+    for (let i = 0; i < tabla.length; i++) {
+        let tr = tabla[i];
+        let textotr = (tr.innerText).toLowerCase();
+        tr.className = (textotr.indexOf(valorabuscar) >= 0) ? "mostrarX" : "ocultar";
+    }
+}
+
+/*-----------X----------------*/

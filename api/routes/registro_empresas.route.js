@@ -53,13 +53,13 @@ router.get('/listar_empresas', (req, res) => {
 
 
 
-router.get('/buscar_empresa_id', (req, res) => {
+router.get('/obtener-empresa-id', (req, res) => {
     Empresa.findOne({ _id: req.query._id }, (err, empresas_bd) => {
         if (err) {
             res.json({
                 resultado: false,
-                msj: 'La empresa no se encontró',
-                err
+                msj: 'La empresa no se encontró' +
+                    err
             })
 
         } else {

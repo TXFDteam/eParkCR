@@ -38,7 +38,27 @@ const obtener_empresas = async() => {
 
     return empresas;
 };
+const obtener_empresas_id = async(pid) => {
+    let empresa;
+    // GET request
+    await axios({
+            method: 'get',
+            url: 'http://localhost:3000/api/obtener-empresa-id',
+            responseType: 'json',
+            data: {
+                _id: pid
+            }
+        })
+        .then((response) => {
+            empresa = response.data.empresa;
+        })
+        .catch((response) => {
+            console.log(error);
 
+        });
+
+    return empresa;
+};
 
 
 

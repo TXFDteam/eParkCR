@@ -34,12 +34,17 @@
         <div class="contenedor-lista-usuarios">
             <h2 id="header-parqueo-seleccionado">
             </h2>
+            <form id="form-añadir-empleados">
+                <label for="correo-añadir-empleado">Añadir empleados mediante el correo</label>
+                <input type="email" placeholder="Correo" id="correo-añadir-empleado">
+                <button type="button" id="btn-añadir-empleado">Añadir</button>
+            </form>
 
-            <div class="filtrar-empleados">
-                <input type="text" id="filtro-empleados">
-                <label for="filtro-empleados">Filtrar por nombre:</label>
+            <form action="javascript:void(0);" id="busquedaForm">
 
-            </div>
+                <i class="fas fa-search"></i> <input type="text" id="valor" placeholder="Filtrar">
+
+            </form>
 
             <table class="tabla_reporte" id="tbl-usuarios">
                 <thead>
@@ -56,10 +61,12 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../js/simulador_bd.js"></script>
     <script src="../../js/control-sesiones.js"></script>
     <script src="../../js/redirecciones-menus-laterales/ctrl_redirecciones_empresa.js"></script>
-    <script src="../../js/js-servicio/servicio_empresa/convenios_empresa_servicio.js"></script>
+    <script src="../../js/js-servicio/registrar_servicio_convenio.js"></script>
+    <script src="../../js/js-servicio/registro_clientes_servicio.js"></script>
     <script src="../../js/js_empresa/lista-usuarios-convenio.js"></script>
 </body>
 
