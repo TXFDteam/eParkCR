@@ -31,6 +31,7 @@ const input_foto_perfil = document.querySelector('#imagen_parqueo_perfil');
 const input_foto_banner = document.querySelector('#imagen_parqueo_banner');
 
 let parqueo_seleccionado;
+let duenno_actual;
 
 let pisos_final;
 const obtener_parqueo_actual = async() => {
@@ -60,7 +61,7 @@ const validar = () => {
     }
 };
 
-const obtener_datos = () => {
+const obtener_datos = async() => {
     let error = validar();
     if (error == true) {
         Swal.fire({
@@ -88,7 +89,13 @@ const obtener_datos = () => {
     ];
 
     modificar_parqueo(parqueo_seleccionado._id, tarifa, horaApertura, horaCierre, pisos_final, redes, foto_perfil, foto_banner);
+
     if (!error) {
+        //Registro en la bitácora.
+        let fecha_actual = new Date();
+        let ref_fecha_actual = fecha_actual.getDate() + '/' + fecha_actual.getMonth() + '/' + fecha_actual.getFullYear();
+        await crear_accion_app(duenno_actual.nombre, 'Dueño parqueo', parqueo_seleccionado.nombre, ref_fecha_actual, 'Modificar parqueo');
+
         Swal.fire({
             'icon': "success",
             'title': 'Parqueo modificado correctamente',
@@ -130,6 +137,18 @@ const llenar_info_parqueo = (p_parqueo) => {
 
 const mostrar_info = async() => {
     parqueo_seleccionado = await obtener_parqueo_actual();
+
+    let correo_d = localStorage.getItem('correo_dueño');
+    let info_duennos_parqueo = await obtener_duennos_parqueo();
+
+    for (let d = 0; d < info_duennos_parqueo.length; d++) {
+        if (correo_d == info_duennos_parqueo[d].correo) {
+            duenno_actual = info_duennos_parqueo[d];
+            break;
+        }
+
+    }
+
     llenar_info_parqueo(parqueo_seleccionado);
 };
 
@@ -147,6 +166,12 @@ const intenta_eliminar_parqueo = () => {
 
         if (result.value) {
             await eliminar_parqueo(parqueo_seleccionado._id);
+
+            //Registro en la bitácora.
+            let fecha_actual = new Date();
+            let ref_fecha_actual = fecha_actual.getDate() + '/' + fecha_actual.getMonth() + '/' + fecha_actual.getFullYear();
+            await crear_accion_app(duenno_actual.nombre, 'Dueño parqueo', parqueo_seleccionado.nombre, ref_fecha_actual, 'Eliminar parqueo');
+
             Swal.fire({
                 icon: 'success',
                 title: 'Parqueo eliminado',

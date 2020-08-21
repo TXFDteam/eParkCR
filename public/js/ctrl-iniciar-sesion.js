@@ -57,13 +57,9 @@ let obtener_datos_y_validar = async() => {
     }
 
     let info_admin = await obtener_admin();
-    console.log(info_admin);
     let info_clientes = await obtener_clientes();
-    console.log(info_clientes);
     let info_duennos_parqueo = await obtener_duennos_parqueo();
-    console.log(info_duennos_parqueo);
     let info_empresas = await obtener_empresas();
-    console.log(info_empresas);
 
     //AQUI GUARDA LOCALMENTE LOS DATOS DE CORREO Y CONTRASEÑA
     localStorage.setItem('correo', input_correo.value);
@@ -71,7 +67,7 @@ let obtener_datos_y_validar = async() => {
 
     //DETERMINAR EL CLIENTE QUE SE LOGEA
     for (let c = 0; c < info_clientes.length; c++) {
-        if (correo == info_clientes[c].correo && contrasenna == info_clientes[c].contraseña) {
+        if (correo == info_clientes[c].correo && contrasenna == info_clientes[c].contraseña && info_clientes[c].estado_general == 'DESACTIVAR') {
 
             window.location.assign("../public/html/htmls-usuarios/perfil_cliente.html");
 
@@ -85,7 +81,7 @@ let obtener_datos_y_validar = async() => {
     }
     //DETERMINAR LA EMPRESA PARA LOGEAR
     for (let e = 0; e < info_empresas.length; e++) {
-        if (correo == info_empresas[e].correo && contrasenna == info_empresas[e].contraseña) {
+        if (correo == info_empresas[e].correo && contrasenna == info_empresas[e].contraseña && info_empresas[e].estado_general == 'DESACTIVAR') {
             window.location.assign("../public/html/htmls-empresas/perfil_empresa.html");
             localStorage.setItem('correo_empresa', info_empresas[e].correo);
             localStorage.setItem('contraseña_empresa', info_empresas[e].contraseña);
@@ -98,7 +94,7 @@ let obtener_datos_y_validar = async() => {
 
     //DETERMINAR EL DUEÑO DE PARQUEO PARA LOGEAR
     for (let d = 0; d < info_duennos_parqueo.length; d++) {
-        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_duennos_parqueo[d].contraseña) {
+        if (correo == info_duennos_parqueo[d].correo && contrasenna == info_duennos_parqueo[d].contraseña && info_duennos_parqueo[d].estado_general == 'DESACTIVAR') {
 
             window.location.assign("../public/html/htmls-parqueos/prq_mis_parqueos.html");
 

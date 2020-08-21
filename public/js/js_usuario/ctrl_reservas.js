@@ -366,6 +366,10 @@ const guardar_reserva = async() => {
     await modificar_reserva_activa_cliente(usuario_ingresado._id, reserva_creada._id);
     await actualizar_estado_espacio(ref_id_parqueo, ref_piso_espacio_seleccionado, ref_espacio_seleccionado, '1');
     console.log(reserva_creada);
+
+    //Registro en la bitácora.
+    await crear_accion_app(usuario_ingresado.nombre, 'Cliente', parqueo_seleccionado.nombre, ref_fecha_reserva, 'Crear reserva');
+
     //console.log('Cliente: ' + usuario_ingresado._id);
     //console.log('Reserva: ' + reserva_creada._id);
 };
@@ -599,10 +603,12 @@ const publicar_comentario = async() => {
     let fecha_actual = dia_actual + '/' + mes_actual + '/' + anno_actual;
     let mensaje = ventana_crear_comentario_mensaje.value;
 
+    let accion;
+
     //Si ya existe un comentario lo modifica.
     if (comentario_usuario_ingresado != null && comentario_usuario_ingresado != undefined) {
         await s_modificar_comentario(comentario_usuario_ingresado._id, estrellas, fecha_actual, mensaje);
-
+        accion = 'Modificar comentario';
         /*VIEJO
         console.log('Si pude entrar a editar!!!');
         comentario_usuario_ingresado.calificacion = ventana_crear_comentario_slt_calificacion.value;
@@ -614,6 +620,8 @@ const publicar_comentario = async() => {
         await s_crear_comentario(ref_id_usuario, ref_id_parqueo, estrellas, fecha_actual, mensaje);
         btn_crear_modificar_comentario.textContent = 'Modificar reseña';
         btn_eliminar_comentario.classList.remove('oculto');
+
+        accion = 'Crear comentario';
         /*VIEJO
         console.log('Creo nuevo comentario:');
         console.log('id_usuario: ' + usuario_ingresado.id_usuario);
@@ -625,9 +633,11 @@ const publicar_comentario = async() => {
     }
 
     ocultar_ventana_crear_comentario();
-    //Actualiza los comentarios.
-
     await actualizar_calificacion_promedio(estrellas, false);
+
+    //Registro en la bitácora.
+    await crear_accion_app(usuario_ingresado.nombre, 'Cliente', parqueo_seleccionado.nombre, fecha_actual, accion);
+    //Actualiza los comentarios.
     obtener_comentarios();
 };
 
@@ -644,6 +654,11 @@ const eliminar_comentario = async() => {
         btn_crear_modificar_comentario.textContent = 'Crear reseña';
         btn_eliminar_comentario.classList.add('oculto');
         await actualizar_calificacion_promedio(0, true);
+
+        //Registro en la bitácora.
+        let fecha_actual = new Date();
+        let ref_fecha_actual = fecha_actual.getDate() + '/' + fecha_actual.getMonth() + '/' + fecha_actual.getFullYear();
+        await crear_accion_app(usuario_ingresado.nombre, 'Cliente', parqueo_seleccionado.nombre, ref_fecha_actual, 'Eliminar comentario');
         obtener_comentarios();
     }
 };
