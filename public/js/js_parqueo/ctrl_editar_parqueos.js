@@ -25,7 +25,7 @@ const txt_enlace_twitter = document.querySelector('#twitter');
 //Botones
 const btn_cancelar = document.querySelector('#btn-cancelar');
 const btn_crearParqueo = document.querySelector('#btn-guardar-cambios');
-
+const btn_eliminar_parqueo = document.querySelector('#btn-eliminar-parqueo');
 //Imagenes del parqueo.
 const input_foto_perfil = document.querySelector('#imagen_parqueo_perfil');
 const input_foto_banner = document.querySelector('#imagen_parqueo_banner');
@@ -133,7 +133,32 @@ const mostrar_info = async() => {
     llenar_info_parqueo(parqueo_seleccionado);
 };
 
+const intenta_eliminar_parqueo = () => {
+    Swal.fire({
+        title: 'Estás realmente seguro de querer eliminar el parqueo?',
+        text: "Este cambio no se puede revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#e42626',
+        cancelButtonColor: '#8fd815',
+        confirmButtonText: 'Si, estoy seguro!',
+        cancelButtonText: 'Cancelar',
+    }).then(async(result) => {
+
+        if (result.value) {
+            await eliminar_parqueo(parqueo_seleccionado._id);
+            Swal.fire({
+                icon: 'success',
+                title: 'Parqueo eliminado',
+                text: 'El parqueo ha sido eliminado de la base de datos.',
+            }).then(() => {
+                window.location.assign('../../html/htmls-parqueos/prq_mis_parqueos.html');
+            });
+        }
+    })
+};
+
 mostrar_info();
 
-//btn_crearParqueo.addEventListener('click', guardar_datos_parqueo);
 btn_cancelar.addEventListener('click', volver_parqueos);
+btn_eliminar_parqueo.addEventListener('click', intenta_eliminar_parqueo);

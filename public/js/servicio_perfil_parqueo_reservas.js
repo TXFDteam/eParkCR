@@ -139,3 +139,20 @@ const modificar_parqueo = async(p_id, p_tarifa, p_hora_apertura, p_hora_cierre, 
             console.log(error);
         });
 }
+
+const eliminar_parqueo = async(p_id) => {
+    await axios({
+            method: 'put',
+            url: 'http://localhost:3000/api/eliminar-parqueo',
+            responseType: 'json',
+            data: {
+                _id: p_id
+            }
+        })
+        .then((response) => {
+            console.log('Parqueo eliminado con éxito');
+        })
+        .catch((error) => {
+            console.log('Error: ' + error);
+        });
+};

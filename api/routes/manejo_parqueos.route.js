@@ -112,4 +112,21 @@ router.put('/modificar-parqueo', (req, res) => {
             }
         });
 });
+
+router.put('/eliminar-parqueo', (req, res) => {
+    Parqueo.deleteOne({ _id: req.body._id }, (err, info) => {
+        if (err) {
+            res.json({
+                resultado: true,
+                msj: 'Parqueo eliminado correctamente: ' + err,
+                err
+            })
+        } else {
+            res.json({
+                info
+            });
+        }
+    })
+});
+
 module.exports = router;
