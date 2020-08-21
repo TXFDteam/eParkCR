@@ -9,6 +9,8 @@ const output_pend_descuento = document.querySelector('#detalle-descuento-aplicad
 const output_pend_monto_final = document.querySelector('#detalle-monto-final');
 const menu_tarjetas = document.querySelector('#inp_menu_lista_tarjetas');
 const btn_pagar = document.querySelector('#boton_pagar');
+const btn_recibo = document.querySelector('#boton_recibo');
+
 let tarjetas;
 
 
@@ -28,9 +30,9 @@ btn_link_revisar_tarjetas.addEventListener('click', () => {
 
 /* ---------------------------- Reconocer usuario --------------------------- */
 let correoC = localStorage.getItem('correo');
-console.log(correoC);
+console.log('El correo en cache es ' + correoC);
 let contrasennaC = localStorage.getItem('contrasenna');
-console.log(contrasennaC);
+console.log('La contrasenna en cachce es ' + contrasennaC);
 
 
 let buscar_info_cliente = async() => {
@@ -41,7 +43,7 @@ let buscar_info_cliente = async() => {
     for (let c = 0; c < info_clientes.length; c++) {
         if (correoC == info_clientes[c].correo && contrasennaC == info_clientes[c].contraseña) {
             id = info_clientes[c];
-            console.log(id);
+            console.log('El ID del clientes es: ' + id._id);
         }
     }
     return id;
@@ -49,9 +51,21 @@ let buscar_info_cliente = async() => {
 
 
 /* -------------- Funcion para calcular el descuento a aplicar -------------- */
-const calcular_descuento = async(pid_usuario, psubtotal) => {
+const calcular_descuento = async(id_usuario, psubtotal) => {
+    let convenios = await buscar_convenios();
+    let porcentaje_descuento;
 
+    convenios.forEach(convenio => {
+        convenio.usuarios.forEach(usuario => {
+            if (usuario.id_empleado == id_usuario) {
+                porcentaje_descuento = new Number(convenio.porcentaje_convenio);
+            } else {
+                porcentaje_descuento = 0;
+            }
+        });
+    });
 
+    return porcentaje_descuento;
 
 };
 
@@ -63,13 +77,17 @@ const calcular_descuento = async(pid_usuario, psubtotal) => {
 const mostrar_monto_final = async() => {
 
     let info_cliente = await buscar_info_cliente();
-    console.log(info_cliente);
-
     let reserva = await obtener_reserva(info_cliente.id_reserva_activa);
-    console.log(reserva);
+    let porc_descuento = await calcular_descuento(info_cliente._id, reserva.monto_total);
+
+    //console.log('El id de la reserva activa es: ' + reserva._id);
+    //console.log('Nombre del cliente: ' + info_cliente.nombre);
+    let monto_descuento = reserva.monto_total * porc_descuento / 100;
+    let monto_final = (reserva.monto_total - monto_descuento);
 
 
-    //Crea  los espacios para impresion
+
+    //Crea  los elementos para impresion
     let nombre_parqueo = document.createElement('p');
     let fecha_reservacion = document.createElement('p');
     let total_horas = document.createElement('p');
@@ -84,9 +102,11 @@ const mostrar_monto_final = async() => {
     fecha_reservacion.innerHTML = reserva.fecha_reserva;
     total_horas.innerHTML = reserva.horas;
     subtotal.innerHTML = ('₡' + reserva.monto_total);
-    descuento.innerHTML = calcular_descuento(reserva.id_usuario, subtotal);
-    total.innerHTML = ('₡' + (subtotal - descuento));
+    descuento.innerHTML = '- ₡' + monto_descuento + ' (' + porc_descuento + '%)';
+    total.innerHTML = ('₡' + monto_final);
 
+
+    //Imprmime los elementos en su espacio respectivo
     output_pend_parqueo.appendChild(nombre_parqueo);
     output_pend_fecha.appendChild(fecha_reservacion);
     output_pend_horas.appendChild(total_horas);
@@ -94,17 +114,31 @@ const mostrar_monto_final = async() => {
     output_pend_descuento.appendChild(descuento);
     output_pend_monto_final.appendChild(total);
 
+    btn_pagar.addEventListener('click', () => {
+
+        if (menu_tarjetas.value == '') {
+            Swal.fire({
+                title: 'Seleccioná una tarjeta para realizar el pago',
+                timer: 3000
+            })
+
+        } else {
+            completar_pago(reserva._id, monto_descuento, monto_final, menu_tarjetas.value);
+            quitar_reserva_activa(info_cliente._id)
+
+            Swal.fire({
+                title: 'Pago completado con éxito',
+            })
+        }
 
 
-    /*   let montofinal = monto * descuento_convenio;
+
+    });
 
 
-      let datoMonto = document.createElement('p');
-      datoMonto.innerHTML = (signoMoneda + montofinal);
-      output_pend_monto.appendChild(datoMonto); */
 
-}
 
+};
 
 
 
@@ -138,13 +172,13 @@ const mostrar_tarjetas = async() => {
     console.log(info_cliente);
 
     tarjetas = await obtener_tarjetas(info_cliente._id);
-    console.log(tarjetas.tarjetas)
 
 
     tarjetas.tarjetas.forEach(nueva_tarjeta => {
 
-        console.log(nueva_tarjeta._id);
         let opcion_tarjeta = document.createElement('option');
+
+        opcion_tarjeta.value = nueva_tarjeta.numero_tarjeta;
 
         opcion_tarjeta.innerText = (info_tarjeta(nueva_tarjeta));
 
@@ -157,21 +191,3 @@ const mostrar_tarjetas = async() => {
 
 mostrar_tarjetas();
 mostrar_monto_final();
-
-
-
-
-/* ------------------ Controles para habilitar los botones ------------------ */
-
-//Habilita el boton de 'Generar recibo' una vez que el estado de la reservacion esta 'Paga'
-/* if (reservas[numreserva].estado_reserva != 'Paga') {
-    btn_link_generar_recibo.setAttribute('disabled', true);
-}
-
-//Desabilita el boton de 'Pagar' una vez que el estado de la reservacion esta 'Paga'
-if (reservas[numreserva].estado_reserva == 'Paga') {
-    btn_pagar.setAttribute('disabled', true);
-} */
-
-
-//let signoMoneda = '₡';

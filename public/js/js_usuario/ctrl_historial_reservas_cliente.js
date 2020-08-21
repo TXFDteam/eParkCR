@@ -87,7 +87,16 @@ const listar_historial_reservas = async() => {
             } else {
                 fila.insertCell().innerHTML = ('₡' + new Number(reserva.monto_total).toFixed(2));
                 fila.insertCell().innerHTML = reserva.estado_reserva;
-                fila.insertCell().innerHTML = ' '
+                let celda_pagar = fila.insertCell();
+                let enlace_pago = document.createElement('button');
+                enlace_pago.type = 'button';
+                enlace_pago.classList.add('recibo');
+                enlace_pago.innerText = '(Pagar)';
+
+                enlace_pago.addEventListener('click', () => {
+                    window.location.href = 'cl_pagar_pendientes.html'
+                });
+                celda_pagar.appendChild(enlace_pago);
             }
 
 

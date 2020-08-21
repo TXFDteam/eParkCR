@@ -14,11 +14,7 @@
     /*border: 2px solid red; */
 }
 
-#datos_pagar_pendientes .izquierda {
-    height: 400px;
-}
-
-#datos_pagar_pendientes .izquierda p {
+#datos_pagar_pendientes p {
     margin: 0 0 0 40px;
     width: 200px;
     padding-left: 10px;
@@ -41,24 +37,12 @@
     margin-bottom: 50px;
 }
 
-#menu_moneda {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    margin: 0 auto;
-}
-
-#menu_moneda input {
-    margin-left: 20px;
+.derecha div {
+    margin-bottom: 50px;
 }
 
 #menu_tarjeta {
-    margin: 40px auto;
-    /*border: 2px solid greenyellow;*/
-}
-
-#inp_menu_tarjeta {
-    padding: 5px;
+    margin: 0 auto 20px;
 }
 
 #menu_botones {

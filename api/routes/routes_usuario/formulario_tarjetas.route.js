@@ -12,7 +12,6 @@ router.post('/registrar-tarjeta', (req, res) => {
                     'tarjetas': {
                         numero_tarjeta: req.body.numero_tarjeta,
                         fecha_expiracion: req.body.fecha_expiracion,
-
                         nombre_tarjeta: req.body.nombre_tarjeta,
                         codigo_seguridad: req.body.codigo_seguridad
                     }

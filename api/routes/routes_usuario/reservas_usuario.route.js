@@ -39,6 +39,30 @@ router.get('/listar-reserva-id', (req, res) => {
 });
 
 
+router.put('/completar-pago', (req, res) => {
+
+    Reservas.updateOne({ _id: req.body._id }, {
+            $set: req.body
+        }, (err, info) => {
+            if (err) {
+                res.json({
+                    resultado: false,
+                    msj: 'No se pudo realizar el  pago',
+                    err
+                })
+            } else {
+                res.json({
+                    info
+                });
+            }
+        }
+
+    );
+});
+
+
+
+
 
 
 module.exports = router;
