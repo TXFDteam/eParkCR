@@ -78,9 +78,6 @@ const obtener_datos = () => {
     let twitter = txt_enlace_twitter.value;
     let instagram = txt_enlace_instagram.value;
 
-    //Para obtener la opción como texto.
-    //select.options[0].text
-
     let foto_perfil = input_foto_perfil.src;
     let foto_banner = input_foto_banner.src;
 
@@ -90,28 +87,14 @@ const obtener_datos = () => {
         { 'nombre': 'instagram', 'enlace': '\"' + instagram + '\"' }
     ];
 
-    let ubicacion = txt_ubicacion.value;
-
-    console.log(parqueo_seleccionado._id);
-    //modificar_parqueo(parqueo_seleccionado._id, )
-    //directo_registrar_parqueo(nombreParqueo, foto_perfil, foto_banner, id_duenno, correo, cedulaJuridica, permiso, redes, ubicacion, coordenadas, 0, tarifa, horaApertura, horaCierre, pisos_final);
-
     modificar_parqueo(parqueo_seleccionado._id, tarifa, horaApertura, horaCierre, pisos_final, redes, foto_perfil, foto_banner);
-    Swal.fire({
-        'title': 'La solicitud del parqueo se envió correctamente',
-        'icon': "success",
-        'text': 'Serás notificado por medio de un correo una vez el parqueo registrado sea habilitado.'
-    }).then(function() {
-        //window.location = '../../html/htmls-parqueos/prq_mis_parqueos.html';
-    });
-
     if (!error) {
-
-        Swal.fire(
-            'Parqueo actualizado',
-            'Si ha dejado algún espacio en blanco no requerido, la información se mantendrá como estaba previamente',
-            'success'
-        )
+        Swal.fire({
+            'icon': "success",
+            'title': 'Parqueo modificado correctamente',
+        }).then(function() {
+            window.location = '../../html/htmls-parqueos/prq_mis_parqueos.html';
+        });
     }
 };
 
