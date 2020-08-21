@@ -8,9 +8,9 @@ const Accion = require('../models/accion_app.model');
 router.post('/crear-accion', (req, res) => {
     let datos = req.body;
     let nueva_accion = new Accion({
-        nombre_usuario: datos.id_usuario,
+        nombre_usuario: datos.nombre_usuario,
         tipo_usuario: datos.tipo_usuario,
-        nombre_parqueo: datos.id_parqueo,
+        nombre_parqueo: datos.nombre_parqueo,
         accion: datos.accion,
         fecha: datos.fecha
     });
