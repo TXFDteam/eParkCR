@@ -23,15 +23,7 @@ btn_descargar.addEventListener('click', function() {
 
 /* ------------------------ Funcion imprimir en html ------------------------ */
 const listar_datos_tabla = (parq, pingresos, pcomision, pganancias) => {
-    let fila = tabla_reporte_ingresos_body.insertRow();
 
-    fila.insertCell().innerHTML = parq.codigo;
-    fila.insertCell().innerHTML = parq.nombre;
-    fila.insertCell().innerHTML = '₡' + pingresos;
-    fila.insertCell().innerHTML = '₡' + pcomision;
-    fila.insertCell().innerHTML = '₡' + pganancias;
-
-    tabla_reporte_ingresos_body.appendChild(fila);
 };
 
 
@@ -39,45 +31,81 @@ const listar_datos_tabla = (parq, pingresos, pcomision, pganancias) => {
 
 
 /* ----------------- Funcion obtener los datos para la tabla ---------------- */
-const listar_reporte = () => {
+const listar_reporte = async() => {
 
     //Imprime el header de la tabla
     tabla_reporte_ingresos_header.innerHTML = '';
     tabla_reporte_ingresos_body.innerHTML = '';
     head = tabla_reporte_ingresos_header.insertRow();
-    head.insertCell().innerHTML = 'Id';
+
     head.insertCell().innerHTML = 'Nombre del parqueo';
     head.insertCell().innerHTML = 'Ingresos totales';
-    head.insertCell().innerHTML = 'Total comisión';
+    head.insertCell().innerHTML = 'Comisión';
     head.insertCell().innerHTML = 'Ganancias del parqueo';
 
     tabla_reporte_ingresos_header.appendChild(head);
 
 
+
     //Se lee cada uno de los parqueos de la app
-    for (let i = 1; i <= parqueos.cant_parqueos; i++) {
-        let identificador_num_parqueo = ('parqueo_' + i);
+    let lista_parqueos = await obtener_parqueos();
+    let lista_reservas = await obtener_reservas();
+    let datos_admin = await obtener_datos_admin();
+    let porcentaje_comision = 0.08;
+
+    let total_comision_admin = 0
+
+    console.log(lista_parqueos);
+    console.log(lista_reservas);
+    console.log(datos_admin);
+
+    lista_parqueos.forEach(parqueo => {
+
         let ingresos_totales = 0;
-        let porcentaje_comision = administrador.comision / 100;
         let total_comision = 0;
         let ganancias_del_parqueo = 0;
-        let id_parqueo = parqueos[identificador_num_parqueo].codigo;
+        let id_parqueo = parqueo._id;
+
+        console.log(parqueo.nombre);
 
 
-        //Se calcula los datos de la tabla desde cada reservacion perteneciente al parqueo 'parqueo_i'
-        for (let j = 1; j <= reservas.cant_reservas; j++) {
-            let identificador_reserva = ('reserva' + j);
-
-            if (reservas[identificador_reserva].id_parqueo == id_parqueo) {
-                ingresos_totales += new Number(reservas[identificador_reserva].monto_total);
+        //Se calcula los datos de la tabla desde cada reservacion perteneciente al parqueo parqueo
+        lista_reservas.forEach(reserva => {
+            if (reserva.id_parqueo == id_parqueo) {
+                ingresos_totales += new Number(reserva.monto_total);
             };
-        };
+
+        });
 
         total_comision = ingresos_totales * porcentaje_comision;
         ganancias_del_parqueo = ingresos_totales - total_comision;
+        console.log(ingresos_totales);
+        console.log(porcentaje_comision);
+        console.log(total_comision)
 
-        listar_datos_tabla(parqueos[identificador_num_parqueo], ingresos_totales, total_comision, ganancias_del_parqueo);
-    }
+
+        let fila = tabla_reporte_ingresos_body.insertRow();
+
+        fila.insertCell().innerHTML = parqueo.nombre;
+        fila.insertCell().innerHTML = '₡' + new Number(ingresos_totales).toFixed(2);
+        fila.insertCell().innerHTML = '₡' + new Number(total_comision).toFixed(2);
+        fila.insertCell().innerHTML = '₡' + new Number(ganancias_del_parqueo).toFixed(2);
+
+        tabla_reporte_ingresos_body.appendChild(fila);
+
+
+        total_comision_admin += total_comision;
+
+    });
+
+    let fila = tabla_reporte_ingresos_body.insertRow();
+
+    fila.insertCell().innerHTML = '';
+    fila.insertCell().innerHTML = '';
+    fila.insertCell().innerHTML = 'GANANCIAS DE LA APLICACION: ';
+    fila.insertCell().innerHTML = '____₡' + total_comision_admin + '____';
+    tabla_reporte_ingresos_body.appendChild(fila);
+
 };
 
 

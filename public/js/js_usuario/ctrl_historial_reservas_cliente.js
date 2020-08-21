@@ -70,7 +70,7 @@ const listar_historial_reservas = async() => {
 
             if (reserva.estado_reserva == 'PAGA') {
                 fila.insertCell().innerHTML = ('₡' + new Number(reserva.monto_final).toFixed(2));
-                fila.insertCell().innerHTML = 'Cancelado';
+                fila.insertCell().innerHTML = 'Pagado';
                 let celda_recibo = fila.insertCell();
                 let enlace_recibo = document.createElement('button');
                 enlace_recibo.type = 'button';
@@ -82,6 +82,12 @@ const listar_historial_reservas = async() => {
                 });
 
                 celda_recibo.appendChild(enlace_recibo);
+
+
+            } else if (reserva.estado_reserva == 'CANCELADA') {
+                fila.insertCell().innerHTML = ('');
+                fila.insertCell().innerHTML = 'Cancelada';
+                fila.insertCell().innerHTML = ('');
 
 
             } else {
