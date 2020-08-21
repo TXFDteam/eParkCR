@@ -20,8 +20,6 @@ btn_descargar.addEventListener('click', function() {
 
 
 
-
-
 /* ------------------- Reconocer usuario parqueo logueado ------------------- */
 let correoC = localStorage.getItem('correo');
 console.log(correoC);
@@ -32,8 +30,9 @@ console.log(contrasennaC);
 
 let buscar_info_usuario = async() => {
 
-    let info_usuario = await obtener_info_parqueos();
+    let info_usuario = await obtener_info_usuarios_parqueos();
     let id;
+
     //c va a ser el  contador para encontrar los clientes
     for (let c = 0; c < info_usuario.length; c++) {
         if (correoC == info_usuario[c].correo && contrasennaC == info_usuario[c].contraseña) {
@@ -70,8 +69,14 @@ const listar_datos_tabla = (parq, pcantidad_reservas, phoras_promedio, pingresos
 /* -------------- Funcion para obtener los datos para la tabla -------------- */
 const listar_reporte = async() => {
 
-    let parqueos = await obtener_parqueos();
-    //let reservas = await obtener_reservas(); 
+
+    let lista_parqueos = await obtener_info_parqueos();
+    let lista_reservas = await obtener_reservas();
+    let id_duenno = await buscar_info_usuario()
+
+    console.log(lista_parqueos);
+    console.log(lista_reservas);
+    console.log(id_duenno);
 
     //Se imprime el header de la tabla
     tabla_reporte_ingresos_header.innerHTML = '';
@@ -90,35 +95,51 @@ const listar_reporte = async() => {
 
 
     //Calculo de datos para la tabla** default para parqueo1
-    let identificador_num_parqueo = 'parqueo_1'; //Default: datos de parqueo 1 solamente para probar el html
-    let ingresos_totales = 0;
-    let porcentaje_comision = administrador.comision / 100;
-    let total_comision = 0;
-    let ganancias_del_parqueo = 0;
-    let id_parqueo = parqueos[identificador_num_parqueo].codigo;
-    let cantidad_reservas = 0;
-    let total_horas = 0;
-    let horas_promedio = 0;
 
-    for (let j = 1; j <= reservas.cant_reservas; j++) {
-        let identificador_reserva = ('reserva' + j);
+    lista_parqueos.forEach(parqueo => {
+        if (parqueo._id == id_duenno) {
 
-        if (reservas[identificador_reserva].id_parqueo == id_parqueo) {
-            ingresos_totales += new Number(reservas[identificador_reserva].monto_total);
-            cantidad_reservas++;
-            total_horas += new Number(reservas[identificador_reserva].horas);
-        };
+
+            let ingresos_totales = 0;
+            let porcentaje_comision = 0.08;
+            let total_comision = 0;
+            let ganancias_del_parqueo = 0;
+            let nombre_parqueo = parqueo.nombre;
+            let cantidad_reservas = 0;
+            let total_horas = 0;
+            let horas_promedio = 0;
+
+            lista_reservas.forEach(reserva => {
+                if (reserva.nombre_parqueo) {
+
+
+
+
+                }
+            })
+
+        }
+
+    });
+
+
+
+    if (reservas[identificador_reserva].id_parqueo == id_parqueo) {
+        ingresos_totales += new Number(reservas[identificador_reserva].monto_total);
+        cantidad_reservas++;
+        total_horas += new Number(reservas[identificador_reserva].horas);
     };
+};
 
-    total_comision = ingresos_totales * porcentaje_comision;
-    horas_promedio = total_horas / cantidad_reservas;
-    ganancias_del_parqueo = ingresos_totales - total_comision;
+total_comision = ingresos_totales * porcentaje_comision;
+horas_promedio = total_horas / cantidad_reservas;
+ganancias_del_parqueo = ingresos_totales - total_comision;
 
 
-    listar_datos_tabla(parqueos[identificador_num_parqueo], cantidad_reservas, horas_promedio.toFixed(2), ingresos_totales, total_comision, ganancias_del_parqueo);
+listar_datos_tabla(parqueos[identificador_num_parqueo], cantidad_reservas, horas_promedio.toFixed(2), ingresos_totales, total_comision, ganancias_del_parqueo);
 
 };
 
 
 
-//listar_reporte();
+listar_reporte();

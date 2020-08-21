@@ -44,7 +44,7 @@ router.get('/listar-admin', (req, res) => {
 
 
 router.get('/listar-usuarios-parqueos', (req, res) => {
-    Duennos.find((err, info_admin) => {
+    Duennos.find((err, info_duennos_parqueo) => {
         if (err) {
             res.json({
                 resultado: false,
@@ -54,7 +54,7 @@ router.get('/listar-usuarios-parqueos', (req, res) => {
             res.json({
                 resultado: true,
                 msj: 'informacion de duenos de parqueo obtenida correctamente.',
-                info_admin
+                info_duennos_parqueo
             })
         }
     });
