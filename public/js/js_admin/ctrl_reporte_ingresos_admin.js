@@ -21,14 +21,6 @@ btn_descargar.addEventListener('click', function() {
 
 
 
-/* ------------------------ Funcion imprimir en html ------------------------ */
-const listar_datos_tabla = (parq, pingresos, pcomision, pganancias) => {
-
-};
-
-
-
-
 
 /* ----------------- Funcion obtener los datos para la tabla ---------------- */
 const listar_reporte = async() => {
