@@ -17,7 +17,7 @@ router.post('/crear-reserva', (req, res) => {
         hora_salida: datos.hora_salida,
         horas: datos.horas,
         descuento: '0',
-        estado_reserva: 'ACTIVA',
+        estado_reserva: 'PENDIENTE',
         monto_total: datos.monto_total,
         id_piso_espacio_seleccionado: datos.id_piso_espacio_seleccionado,
         id_espacio_seleccionado: datos.id_espacio_seleccionado,

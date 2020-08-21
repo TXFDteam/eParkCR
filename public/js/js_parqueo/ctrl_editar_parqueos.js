@@ -6,16 +6,16 @@ const txt_nombre = document.querySelector('#nombre-parqueo');
 const txt_cedula = document.querySelector('#cedula-juridica');
 const txt_correo = document.querySelector('#correo');
 const txt_tarifa = document.querySelector('#tarifa');
-const txt_hora_apertura = document.querySelector('#hora-apertura');
-const txt_hora_cierre = document.querySelector('#hora-cierre');
+const txt_horaApertura = document.querySelector('#hora-apertura');
+const txt_horaCierre = document.querySelector('#hora-cierre');
 const txt_ubicacion = document.querySelector('#ubicacion');
 
 //Pisos y espacios
-const txt_pisos = document.querySelector('#pisos');
-const txt_pisos_dropdown = document.querySelector('#pisosDropdown');
-const txt_espacios_discapacidad = document.querySelector('#espaciosDiscapacidad');
-const txt_espacios_motos = document.querySelector('#espaciosMotos');
-const txt_espacios_autos = document.querySelector('#espaciosAuto');
+const input_pisos = document.querySelector('#pisos');
+const input_pisosDropdown = document.querySelector('#pisosDropdown');
+const input_espaciosDiscapacidad = document.querySelector('#espaciosDiscapacidad');
+const input_espaciosMotos = document.querySelector('#espaciosMotos');
+const input_espaciosAuto = document.querySelector('#espaciosAuto');
 
 //Redes sociales
 const txt_enlace_facebook = document.querySelector('#facebook');
@@ -23,20 +23,20 @@ const txt_enlace_instagram = document.querySelector('#instagram');
 const txt_enlace_twitter = document.querySelector('#twitter');
 
 //Botones
-//const btn_cancelar = document.querySelector('#btn-cancelar');
-const btn_guardar_cambios = document.querySelector('#btn-guardar-cambios');
+const btn_cancelar = document.querySelector('#btn-cancelar');
+const btn_crearParqueo = document.querySelector('#btn-guardar-cambios');
 
 //Imagenes del parqueo.
-let imagen_carta;
-let imagen_perfil;
+const input_foto_perfil = document.querySelector('#imagen_parqueo_perfil');
+const input_foto_banner = document.querySelector('#imagen_parqueo_banner');
 
 let parqueo_seleccionado;
 
+let pisos_final;
 const obtener_parqueo_actual = async() => {
     //Se obtiene la variable que se guardó anteriormente que define el nombre del parqueo seleccionado.
     let id_parqueo_actual = localStorage.getItem('parqueo_para_editar');
     let parqueo_encontrado = await obtener_parqueo_por_id(id_parqueo_actual);
-
     return parqueo_encontrado;
 };
 
@@ -44,29 +44,58 @@ const volver_parqueos = () => {
     window.location.assign('../../html/htmls-parqueos/prq_mis_parqueos.html');
 };
 
-const guardar_datos_parqueo = () => {
-    let hora_apertura = Number(input_hora_apertura[0] + input_hora_apertura[1]);
-    let hora_salida = Number(input_hora_salida[0] + input_hora_salida[1]);
+const validar = () => {
+    let hora_apertura = Number(txt_horaApertura[0] + txt_horaApertura[1]);
+    let hora_salida = Number(txt_horaCierre[0] + txt_horaCierre[1]);
     let error = false;
 
     if (hora_apertura >= hora_salida) {
         console.log('Horas no validas');
         error = true;
-        input_hora_apertura.classList.add('error');
-        input_hora_salida.classList.add('error');
+        txt_horaApertura.classList.add('error');
+        txt_horaApertura.classList.add('error');
     } else {
-        input_hora_apertura.classList.remove('error');
-        input_hora_salida.classList.remove('error');
+        txt_horaCierre.classList.remove('error');
+        txt_horaCierre.classList.remove('error');
+    }
+};
+
+const obtener_datos = () => {
+    let error = validar();
+    if (error == true) {
+        Swal.fire({
+            'title': "No se ha podido modificar el parqueo",
+            'icon': 'warning',
+            'text': 'Revise los campos resaltados'
+        });
     }
 
+    let tarifa = txt_tarifa.value;
+    let horaApertura = txt_horaApertura.value;
+    let horaCierre = txt_horaCierre.value;
+
+    let facebook = txt_enlace_facebook.value;
+    let twitter = txt_enlace_twitter.value;
+    let instagram = txt_enlace_instagram.value;
+
+    let foto_perfil = input_foto_perfil.src;
+    let foto_banner = input_foto_banner.src;
+
+    let redes = [
+        { 'nombre': 'facebook', 'enlace': '\"' + facebook + '\"' },
+        { 'nombre': 'twitter', 'enlace': '\"' + twitter + '\"' },
+        { 'nombre': 'instagram', 'enlace': '\"' + instagram + '\"' }
+    ];
+
+    modificar_parqueo(parqueo_seleccionado._id, tarifa, horaApertura, horaCierre, pisos_final, redes, foto_perfil, foto_banner);
     if (!error) {
-        Swal.fire(
-            'Parqueo actualizado',
-            'Si ha dejado algún espacio en blanco no requerido, la información se mantendrá como estaba previamente',
-            'success'
-        )
+        Swal.fire({
+            'icon': "success",
+            'title': 'Parqueo modificado correctamente',
+        }).then(function() {
+            window.location = '../../html/htmls-parqueos/prq_mis_parqueos.html';
+        });
     }
-
 };
 
 const llenar_info_parqueo = (p_parqueo) => {
@@ -78,21 +107,25 @@ const llenar_info_parqueo = (p_parqueo) => {
     txt_cedula.value = p_parqueo.cedula_juridica;
     txt_correo.value = p_parqueo.email;
     txt_tarifa.value = p_parqueo.tarifa_por_hora;
-    txt_hora_apertura.value = p_parqueo.hora_apertura;
-    txt_hora_cierre.value = p_parqueo.hora_cierre;
+    txt_horaApertura.value = p_parqueo.hora_apertura;
+    txt_horaCierre.value = p_parqueo.hora_cierre;
     txt_ubicacion.value = p_parqueo.ubicacion;
 
     //Pisos y espacios
-    txt_pisos.value = 0;
-    txt_pisos_dropdown.value = 0;
-    txt_espacios_discapacidad.value = 0;
-    txt_espacios_motos.value = 0;
-    txt_espacios_autos.value = 0;
+    input_pisos.value = 0;
+    input_pisosDropdown.value = 0;
+    input_espaciosDiscapacidad.value = 0;
+    input_espaciosMotos.value = 0;
+    input_espaciosAuto.value = 0;
 
     //Redes sociales
     txt_enlace_facebook.value = p_parqueo.enlaces_redes[0].enlace;
     txt_enlace_twitter.value = p_parqueo.enlaces_redes[1].enlace;
     txt_enlace_instagram.value = p_parqueo.enlaces_redes[2].enlace;
+
+    //Fotos.
+    input_foto_perfil.src = p_parqueo.imagen_perfil;
+    input_foto_banner.src = p_parqueo.imagen_carta;
 };
 
 const mostrar_info = async() => {
@@ -102,5 +135,5 @@ const mostrar_info = async() => {
 
 mostrar_info();
 
-//btn_guardar_cambios.addEventListener('click', guardar_datos_parqueo);
-//btn_cancelar.addEventListener('click', volver_parqueos);
+//btn_crearParqueo.addEventListener('click', guardar_datos_parqueo);
+btn_cancelar.addEventListener('click', volver_parqueos);
